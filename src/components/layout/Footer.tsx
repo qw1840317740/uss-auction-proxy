@@ -54,11 +54,11 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-primary-light" />
-                <span>+81-3-1234-5678</span>
+                <span>049-257-4332</span>
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-primary-light mt-0.5" />
-                <span>Saitama, Japan</span>
+                <span>埼玉県入間郡三芳町北永井500番地2</span>
               </li>
             </ul>
           </div>

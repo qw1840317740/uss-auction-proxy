@@ -447,7 +447,7 @@ export default function ContactPage() {
                         {t("info.address")}
                       </div>
                       <div className="text-sm text-gray-500">
-                        Saitama, Japan
+                        埼玉県入間郡三芳町北永井500番地2
                       </div>
                     </div>
                   </div>
@@ -477,7 +477,7 @@ export default function ContactPage() {
                         {t("info.phone")}
                       </div>
                       <div className="text-sm text-gray-500">
-                        +81-3-1234-5678
+                        049-257-4332
                       </div>
                     </div>
                   </div>
@@ -507,7 +507,7 @@ export default function ContactPage() {
                 <div className="space-y-3">
                   {/* WhatsApp */}
                   <a
-                    href="https://wa.me/81312345678"
+                    href="https://wa.me/81492574332"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 p-3 rounded-lg bg-green-50 text-green-700 hover:bg-green-100 transition-colors"
