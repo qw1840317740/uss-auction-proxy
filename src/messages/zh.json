@@ -1,0 +1,429 @@
+{
+  "common": {
+    "siteName": "Velocity JAPAN",
+    "tagline": "日本优质二手车 · 全球出口服务",
+    "learnMore": "了解更多",
+    "contactUs": "联系我们",
+    "getStarted": "立即开始",
+    "viewAll": "查看全部",
+    "search": "搜索",
+    "filter": "筛选",
+    "reset": "重置",
+    "submit": "提交",
+    "save": "保存",
+    "cancel": "取消",
+    "delete": "删除",
+    "edit": "编辑",
+    "back": "返回",
+    "next": "下一步",
+    "previous": "上一步",
+    "loading": "加载中...",
+    "noResults": "没有找到结果",
+    "error": "发生错误",
+    "success": "操作成功",
+    "currency": "¥",
+    "home": "首页",
+    "login": "登录",
+    "register": "注册",
+    "logout": "退出",
+    "dashboard": "会员中心",
+    "language": "语言"
+  },
+  "nav": {
+    "home": "首页",
+    "vehicles": "车辆展示",
+    "services": "服务内容",
+    "export": "出口服务",
+    "maintenance": "整备维护",
+    "exportGuide": "出口指南",
+    "about": "关于我们",
+    "contact": "联系我们",
+    "faq": "常见问题",
+    "blog": "新闻资讯",
+    "dashboard": "会员中心",
+    "login": "登录",
+    "register": "免费注册"
+  },
+  "home": {
+    "hero": {
+      "title": "品质日本二手车 全球交付",
+      "subtitle": "安心感与效率并重，为您打造理想之车的优质体验",
+      "exploreVehicles": "浏览车辆",
+      "contactUs": "联系我们",
+      "stats": {
+        "vehicles": "库存车辆",
+        "brands": "品牌覆盖",
+        "countries": "服务国家",
+        "years": "服务年限"
+      }
+    },
+    "brands": {
+      "title": "品牌展示",
+      "subtitle": "探索日本各大汽车品牌"
+    },
+    "services": {
+      "title": "我们的服务",
+      "subtitle": "为您提供全方位的日本二手车交易及出口服务",
+      "vehicleSales": {
+        "title": "车辆销售",
+        "desc": "精选日本优质二手车，严格检测，透明定价，品质保证"
+      },
+      "exportService": {
+        "title": "出口服务",
+        "desc": "专业的车辆出口流程，代办全部手续，安全海运至全球港口"
+      },
+      "maintenancePrep": {
+        "title": "整备维护",
+        "desc": "购车前后专业检测整备，确保车辆状态，售后无忧"
+      }
+    },
+    "howItWorks": {
+      "title": "服务流程",
+      "subtitle": "从咨询到交付，全程专业跟进",
+      "step1": { "title": "需求确认", "desc": "了解您的预算、品牌偏好、用途及期望交付时间" },
+      "step2": { "title": "车辆匹配", "desc": "从库存及合作网络中为您匹配最适合的车辆方案" },
+      "step3": { "title": "确认下单", "desc": "确认车况与价格，对关键条件进行核实后签约付款" },
+      "step4": { "title": "交付回顾", "desc": "完成出口运输并交付，收集反馈持续改进服务" }
+    },
+    "showcase": {
+      "title": "精选车辆",
+      "subtitle": "高品质二手车，严选推荐"
+    },
+    "faq": {
+      "title": "常见问题",
+      "viewAll": "查看全部常见问题"
+    },
+    "cta": {
+      "title": "找到您的理想之车",
+      "subtitle": "浏览我们的优质库存，或直接联系我们获取个性化推荐",
+      "browseVehicles": "浏览车辆",
+      "contact": "联系我们"
+    }
+  },
+  "vehicles": {
+    "title": "车辆展示",
+    "subtitle": "浏览我们精选的日本优质二手车",
+    "search": "搜索车辆",
+    "filters": {
+      "make": "品牌",
+      "model": "车型",
+      "yearFrom": "年份（起）",
+      "yearTo": "年份（止）",
+      "priceFrom": "价格（起）",
+      "priceTo": "价格（止）",
+      "mileageFrom": "里程（起）",
+      "mileageTo": "里程（止）",
+      "bodyType": "车身类型",
+      "fuel": "燃料",
+      "transmission": "变速箱",
+      "drive": "驱动方式",
+      "color": "外观颜色"
+    },
+    "sort": {
+      "newest": "最新",
+      "priceLow": "价格从低到高",
+      "priceHigh": "价格从高到低",
+      "yearNew": "年份最新",
+      "mileageLow": "里程最少"
+    },
+    "vehicle": {
+      "mileage": "里程",
+      "year": "年份",
+      "displacement": "排量",
+      "transmission": "变速箱",
+      "fuel": "燃料",
+      "price": "价格",
+      "inquire": "立即询价",
+      "requestQuote": "获取出口报价",
+      "addToFavorites": "加入收藏",
+      "viewDetail": "查看详情",
+      "specs": "车辆参数",
+      "features": "装备",
+      "conditionReport": "车况报告"
+    },
+    "noResults": "未找到符合条件的车辆，请调整筛选条件"
+  },
+  "services": {
+    "export": {
+      "title": "出口服务",
+      "subtitle": "专业的日本二手车全球出口服务",
+      "desc": "我们提供从车辆采购到出口运输的一站式服务，代办全部出口手续，确保安全高效地将车辆运送到您指定的港口。",
+      "features": {
+        "title": "服务特色",
+        "f1": "全球50+国家出口经验",
+        "f2": "代办全部出口文件与手续",
+        "f3": "多家合作海运公司，最优运费",
+        "f4": "实时物流追踪，全程可视",
+        "f5": "专业包装，确保运输安全",
+        "f6": "支持多种付款方式"
+      },
+      "process": {
+        "title": "出口流程",
+        "step1": { "title": "咨询报价", "desc": "提供车辆信息及目的港，我们为您评估费用并报价" },
+        "step2": { "title": "确认订单", "desc": "确认车辆状态与价格，签订购车合同" },
+        "step3": { "title": "支付款项", "desc": "通过银行电汇支付车款及相关费用" },
+        "step4": { "title": "车辆整备", "desc": "对车辆进行出口前检测与整备，确保符合出口标准" },
+        "step5": { "title": "文件办理", "desc": "办理出口许可证、注销登记、商业发票等全部文件" },
+        "step6": { "title": "海运交付", "desc": "安排海运装船，提供提单及物流追踪信息" }
+      },
+      "ctaTitle": "准备出口您的车辆？",
+      "ctaDesc": "联系我们获取出口报价，我们将为您提供最优质的服务",
+      "ctaContact": "获取报价",
+      "ctaBrowse": "浏览车辆"
+    },
+    "maintenance": {
+      "title": "整备维护服务",
+      "subtitle": "专业的车辆检测、整备与售后维护服务",
+      "desc": "我们为购车客户提供全方位的整备维护服务，包括购前评估、交付前点检、整备维修以及长期维护支持。",
+      "features": {
+        "title": "服务项目",
+        "f1": "购前评估 — 年式、里程、装备、状态全面评估",
+        "f2": "保险说明与辅助 — 透明说明保险方案",
+        "f3": "文件手续代办 — 过户、登记等手续一条龙",
+        "f4": "交付前点检 — 确保交付时车况最佳",
+        "f5": "整备与维修 — 基本整备与小型维修",
+        "f6": "长期维护 — 车检更新、保养等持续支持"
+      },
+      "process": {
+        "title": "维护流程",
+        "step1": { "title": "预约与症状确认", "desc": "了解车辆状况与维修需求，判断是否需要到店检查" },
+        "step2": { "title": "入店检查与报价", "desc": "实地检查车辆，整理所需作业项目、时间及费用" },
+        "step3": { "title": "整备维修执行", "desc": "按确认内容执行整备与维修，实时同步进度" },
+        "step4": { "title": "完工交付与后续", "desc": "说明本次作业内容与后续注意事项，安排下次维护" }
+      },
+      "combinations": {
+        "title": "常见咨询场景",
+        "a": { "title": "还在比较车型", "desc": "预算、品牌比较阶段，需要购车前评估和基本手续说明" },
+        "b": { "title": "已确定购车", "desc": "需要文件确认、点检、保险及交付前整备一站式服务" },
+        "c": { "title": "购车后维护", "desc": "车检更新、保养、维修等长期维护支持需求" }
+      },
+      "faq": {
+        "title": "服务常见问题",
+        "q1": { "q": "预约后多久能收到回复？", "a": "通常1-2个工作日内会有专属顾问联系您。如需确认库存或整备排期，会先告知可确认的范围。" },
+        "q2": { "q": "还没确定买哪辆车可以咨询吗？", "a": "可以。提供您的预算、用途和品牌偏好后，我们会先进行购前评估，再帮您梳理后续保险、文件和交付准备流程。" },
+        "q3": { "q": "购车后的维修和车检也能咨询吗？", "a": "可以。购车后我们仍提供车检更新、轻度整备、保养等持续维护咨询服务，具体时间和费用根据车况单独确认。" }
+      },
+      "ctaTitle": "需要整备维护服务？",
+      "ctaDesc": "联系我们的专业团队，为您的爱车提供全方位的维护支持",
+      "ctaContact": "预约咨询"
+    }
+  },
+  "exportGuide": {
+    "title": "出口购买指南",
+    "subtitle": "了解如何通过我们购买日本二手车并出口到您的国家",
+    "steps": {
+      "step1": { "title": "咨询需求", "desc": "告诉我们您的预算、品牌偏好、用途及期望交付时间" },
+      "step2": { "title": "车辆匹配", "desc": "我们从库存及合作网络中为您推荐最合适的车辆" },
+      "step3": { "title": "确认报价", "desc": "查看详细车辆信息与透明报价，确认订单" },
+      "step4": { "title": "安全付款", "desc": "通过银行电汇安全支付车款及相关费用" },
+      "step5": { "title": "出口准备", "desc": "我们代办检测、文件、出口许可等全部手续" },
+      "step6": { "title": "海运交付", "desc": "安排海运至您指定港口，提供物流追踪信息" }
+    },
+    "payment": {
+      "title": "付款方式",
+      "bankWire": "银行电汇 (T/T)",
+      "creditCard": "信用卡 (Visa/Mastercard)",
+      "paypal": "PayPal",
+      "note": "所有价格以日元（JPY）为准，其他货币仅供参考"
+    },
+    "shipping": {
+      "title": "运输说明",
+      "desc": "我们提供从日本主要港口到全球主要港口的海运服务。运输时间根据目的地不同，通常为2-8周。"
+    }
+  },
+  "about": {
+    "title": "关于我们",
+    "subtitle": "Velocity JAPAN — 日本优质二手车全球出口服务",
+    "companyProfile": {
+      "title": "公司简介",
+      "desc": "Velocity JAPAN 总部位于日本东京，是一家专注于高品质二手车全球出口服务的企业。通过线上线下整合的运营模式，我们连接日本优质车辆资源与全球买家，提供从车辆采购、检测整备到出口运输的一站式解决方案。"
+    },
+    "globalNetwork": {
+      "title": "全球服务网络",
+      "subtitle": "覆盖多个地区的全球化服务体系",
+      "regions": {
+        "asia": { "name": "亚洲地区", "countries": "东南亚、马来西亚、香港、中国大陆、台湾" },
+        "middleEast": { "name": "中东地区", "countries": "迪拜、阿联酋" },
+        "europe": { "name": "欧洲地区", "countries": "英国" },
+        "northAmerica": { "name": "北美地区", "countries": "加拿大" },
+        "oceania": { "name": "大洋洲地区", "countries": "澳大利亚、新西兰" }
+      }
+    },
+    "pitFlow": {
+      "title": "服务流程",
+      "subtitle": "从咨询到交付的执行流程",
+      "step1": { "title": "需求确认", "desc": "预算、品牌偏好、用途场景、期望时间全面梳理" },
+      "step2": { "title": "方案匹配", "desc": "基于库存与网络能力提供可行的交易方案" },
+      "step3": { "title": "线下确认", "desc": "关键条件当面确认，明确责任与服务范围" },
+      "step4": { "title": "交付回顾", "desc": "交付后收集反馈，持续优化服务流程" }
+    },
+    "whyUs": {
+      "title": "为什么选择我们",
+      "reason1": { "title": "品质保证", "desc": "每辆车经过严格检测，确保透明车况" },
+      "reason2": { "title": "价格透明", "desc": "所有费用明码标价，无隐藏收费" },
+      "reason3": { "title": "全球网络", "desc": "覆盖50+国家的出口服务网络" },
+      "reason4": { "title": "专业团队", "desc": "经验丰富的检测师与出口顾问团队" }
+    },
+    "stats": {
+      "vehicles": "库存车辆",
+      "brands": "品牌覆盖",
+      "countries": "服务国家",
+      "partners": "合作经销商"
+    }
+  },
+  "contact": {
+    "title": "联系我们",
+    "subtitle": "有任何问题？我们随时为您服务",
+    "tabs": {
+      "general": "通用询价",
+      "specificVehicle": "指定车型",
+      "rental": "租赁咨询"
+    },
+    "form": {
+      "vehicleType": "希望类型",
+      "brand": "希望品牌",
+      "budget": "预算",
+      "conditions": "希望条件",
+      "message": "补充说明",
+      "preferredModel": "希望车种",
+      "year": "年式",
+      "mileage": "走行距离",
+      "color": "希望颜色",
+      "transmission": "变速箱",
+      "rentalCar": "希望车型",
+      "usage": "主要用途",
+      "rentalDate": "利用希望日",
+      "rentalDuration": "利用天数",
+      "pickupLocation": "接受地点",
+      "email": "邮箱地址",
+      "name": "姓名",
+      "phone": "电话号码",
+      "preferredLanguage": "希望语言",
+      "submit": "发送询价",
+      "required": "必填",
+      "optional": "任意"
+    },
+    "info": {
+      "address": "地址",
+      "email": "邮箱",
+      "phone": "电话",
+      "hours": "营业时间",
+      "hoursValue": "周一至周五 9:00 - 18:00 (JST)"
+    },
+    "messenger": {
+      "title": "或通过以下方式联系我们",
+      "whatsapp": "WhatsApp",
+      "wechat": "WeChat",
+      "line": "LINE"
+    },
+    "success": "询价已发送，我们将在1个工作日内回复您。"
+  },
+  "faq": {
+    "title": "常见问题",
+    "subtitle": "关于我们服务的常见问题解答",
+    "categories": {
+      "general": "一般问题",
+      "purchase": "购车相关",
+      "export": "出口相关",
+      "maintenance": "整备维护",
+      "payment": "付款相关"
+    },
+    "items": {
+      "q1": { "q": "如何购买车辆？", "a": "您可以通过浏览我们的在线库存选择车辆，或直接联系我们告知您的需求，我们将为您推荐合适的车辆。确认后签订合同，支付款项即可。" },
+      "q2": { "q": "可以实地看车吗？", "a": "可以。我们位于东京的展厅欢迎预约到店看车。对于海外客户，我们可以提供详细的车辆视频和照片。" },
+      "q3": { "q": "出口到我的国家需要多久？", "a": "海运时间根据目的地不同：东南亚2-3周，中东3-4周，非洲4-6周，欧洲5-8周，南美6-8周。出口文件办理通常需要1-2周。" },
+      "q4": { "q": "如何付款？", "a": "我们支持银行电汇（T/T）、信用卡（Visa/Mastercard）和PayPal付款。所有交易以日元结算。" },
+      "q5": { "q": "车辆有质保吗？", "a": "我们对所有出售车辆提供详细的车况检测报告。部分车辆可根据协商提供有限质保，具体请咨询我们的顾问。" },
+      "q6": { "q": "可以指定目的港吗？", "a": "可以。我们支持全球主要港口的海运服务，您可以在询价时指定目的港口。" },
+      "q7": { "q": "整备维护包括哪些内容？", "a": "包括购前评估、交付前点检、基本整备与维修、文件代办等。具体服务内容可根据您的需求定制。" },
+      "q8": { "q": "如果收到车辆不满意怎么办？", "a": "我们在交付前会提供详细的车况报告和照片确认。如有与描述不符的问题，请及时联系我们协商解决。" }
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "登录",
+      "email": "邮箱地址",
+      "password": "密码",
+      "forgotPassword": "忘记密码？",
+      "noAccount": "还没有账户？",
+      "registerNow": "立即注册",
+      "submit": "登录"
+    },
+    "register": {
+      "title": "注册新账户",
+      "name": "姓名",
+      "email": "邮箱地址",
+      "phone": "电话号码",
+      "country": "国家/地区",
+      "password": "密码",
+      "confirmPassword": "确认密码",
+      "agreeTerms": "我同意服务条款和隐私政策",
+      "hasAccount": "已有账户？",
+      "loginNow": "立即登录",
+      "submit": "注册"
+    }
+  },
+  "dashboard": {
+    "title": "会员中心",
+    "overview": "概览",
+    "orders": "订单管理",
+    "favorites": "我的收藏",
+    "inquiries": "询价记录",
+    "profile": "个人设置",
+    "welcome": "欢迎回来",
+    "vehiclesSaved": "辆已收藏",
+    "removeFromFavorites": "取消收藏",
+    "noFavoritesYet": "暂无收藏",
+    "browseVehicles": "浏览车辆",
+    "date": "日期",
+    "description": "描述",
+    "amount": "金额",
+    "status": "状态",
+    "vehicle": "车辆",
+    "actions": "操作",
+    "view": "查看",
+    "cancel": "取消",
+    "stats": {
+      "activeInquiries": "进行中的询价",
+      "completedOrders": "已完成订单",
+      "totalSpent": "总消费",
+      "savedVehicles": "已收藏车辆"
+    },
+    "inquiryStatus": {
+      "pending": "待回复",
+      "quoted": "已报价",
+      "confirmed": "已确认",
+      "completed": "已完成",
+      "cancelled": "已取消"
+    },
+    "orderStatus": {
+      "pending": "待确认",
+      "confirmed": "已确认",
+      "paid": "已付款",
+      "processing": "处理中",
+      "shipping": "运输中",
+      "delivered": "已送达",
+      "cancelled": "已取消"
+    }
+  },
+  "blog": {
+    "title": "新闻资讯",
+    "subtitle": "日本二手车市场动态与购车攻略",
+    "readMore": "阅读更多",
+    "categories": "分类",
+    "recentPosts": "最新文章",
+    "relatedPosts": "相关文章",
+    "share": "分享",
+    "publishedOn": "发布于"
+  },
+  "footer": {
+    "description": "Velocity JAPAN — 日本优质二手车全球出口服务，为全球客户提供透明、专业的日本二手车销售与出口服务。",
+    "quickLinks": "快速链接",
+    "services": "服务内容",
+    "support": "帮助与支持",
+    "contactInfo": "联系方式",
+    "copyright": "© {year} Velocity JAPAN. 保留所有权利。",
+    "privacy": "隐私政策",
+    "terms": "服务条款"
+  }
+}

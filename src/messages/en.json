@@ -1,0 +1,429 @@
+{
+  "common": {
+    "siteName": "Velocity JAPAN",
+    "tagline": "Premium Japanese Used Cars · Global Export",
+    "learnMore": "Learn More",
+    "contactUs": "Contact Us",
+    "getStarted": "Get Started",
+    "viewAll": "View All",
+    "search": "Search",
+    "filter": "Filter",
+    "reset": "Reset",
+    "submit": "Submit",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "loading": "Loading...",
+    "noResults": "No results found",
+    "error": "An error occurred",
+    "success": "Success",
+    "currency": "¥",
+    "home": "Home",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "dashboard": "Dashboard",
+    "language": "Language"
+  },
+  "nav": {
+    "home": "Home",
+    "vehicles": "Vehicles",
+    "services": "Services",
+    "export": "Export Service",
+    "maintenance": "Maintenance",
+    "exportGuide": "Export Guide",
+    "about": "About Us",
+    "contact": "Contact",
+    "faq": "FAQ",
+    "blog": "News",
+    "dashboard": "Dashboard",
+    "login": "Login",
+    "register": "Register"
+  },
+  "home": {
+    "hero": {
+      "title": "Premium Japanese Vehicles, Delivered Worldwide",
+      "subtitle": "Quality and efficiency combined for the ideal car buying experience",
+      "exploreVehicles": "Explore Vehicles",
+      "contactUs": "Contact Us",
+      "stats": {
+        "vehicles": "Vehicles in Stock",
+        "brands": "Brands Available",
+        "countries": "Countries Served",
+        "years": "Years of Service"
+      }
+    },
+    "brands": {
+      "title": "Brand Showcase",
+      "subtitle": "Explore Japan's leading automotive brands"
+    },
+    "services": {
+      "title": "Our Services",
+      "subtitle": "Comprehensive Japanese used car sales and export services",
+      "vehicleSales": {
+        "title": "Vehicle Sales",
+        "desc": "Carefully selected premium Japanese used vehicles, strict inspection, transparent pricing"
+      },
+      "exportService": {
+        "title": "Export Service",
+        "desc": "Professional vehicle export process, full documentation, safe ocean freight worldwide"
+      },
+      "maintenancePrep": {
+        "title": "Maintenance & Prep",
+        "desc": "Professional inspection and preparation before and after purchase, worry-free ownership"
+      }
+    },
+    "howItWorks": {
+      "title": "Our Process",
+      "subtitle": "From consultation to delivery, fully managed",
+      "step1": { "title": "Requirements", "desc": "Understanding your budget, brand preference, usage and timeline" },
+      "step2": { "title": "Matching", "desc": "Finding the best vehicle match from our inventory and partner network" },
+      "step3": { "title": "Confirmation", "desc": "Verify condition and price, confirm key details before purchase" },
+      "step4": { "title": "Delivery & Review", "desc": "Complete export and delivery, collect feedback for continuous improvement" }
+    },
+    "showcase": {
+      "title": "Featured Vehicles",
+      "subtitle": "Premium selection of quality used cars"
+    },
+    "faq": {
+      "title": "FAQ",
+      "viewAll": "View all FAQs"
+    },
+    "cta": {
+      "title": "Find Your Ideal Vehicle",
+      "subtitle": "Browse our premium inventory or contact us for personalized recommendations",
+      "browseVehicles": "Browse Vehicles",
+      "contact": "Contact Us"
+    }
+  },
+  "vehicles": {
+    "title": "Vehicle Inventory",
+    "subtitle": "Browse our selection of premium Japanese used vehicles",
+    "search": "Search vehicles",
+    "filters": {
+      "make": "Make",
+      "model": "Model",
+      "yearFrom": "Year (from)",
+      "yearTo": "Year (to)",
+      "priceFrom": "Price (from)",
+      "priceTo": "Price (to)",
+      "mileageFrom": "Mileage (from)",
+      "mileageTo": "Mileage (to)",
+      "bodyType": "Body Type",
+      "fuel": "Fuel",
+      "transmission": "Transmission",
+      "drive": "Drive",
+      "color": "Exterior Color"
+    },
+    "sort": {
+      "newest": "Newest",
+      "priceLow": "Price: Low to High",
+      "priceHigh": "Price: High to Low",
+      "yearNew": "Year: Newest",
+      "mileageLow": "Mileage: Lowest"
+    },
+    "vehicle": {
+      "mileage": "Mileage",
+      "year": "Year",
+      "displacement": "Displacement",
+      "transmission": "Transmission",
+      "fuel": "Fuel",
+      "price": "Price",
+      "inquire": "Inquire Now",
+      "requestQuote": "Request Export Quote",
+      "addToFavorites": "Add to Favorites",
+      "viewDetail": "View Details",
+      "specs": "Specifications",
+      "features": "Features",
+      "conditionReport": "Condition Report"
+    },
+    "noResults": "No vehicles found matching your criteria. Please adjust your filters."
+  },
+  "services": {
+    "export": {
+      "title": "Export Service",
+      "subtitle": "Professional global vehicle export from Japan",
+      "desc": "We provide end-to-end service from vehicle procurement to export shipping, handling all documentation to ensure safe and efficient delivery to your designated port.",
+      "features": {
+        "title": "Service Features",
+        "f1": "Export experience to 50+ countries",
+        "f2": "Complete export documentation handled",
+        "f3": "Multiple shipping partners for optimal rates",
+        "f4": "Real-time logistics tracking",
+        "f5": "Professional packaging for safe transport",
+        "f6": "Multiple payment methods supported"
+      },
+      "process": {
+        "title": "Export Process",
+        "step1": { "title": "Consultation & Quote", "desc": "Provide vehicle details and destination port for cost evaluation" },
+        "step2": { "title": "Order Confirmation", "desc": "Confirm vehicle condition and price, sign purchase agreement" },
+        "step3": { "title": "Payment", "desc": "Pay vehicle price and fees via bank wire transfer" },
+        "step4": { "title": "Vehicle Preparation", "desc": "Pre-export inspection and preparation to meet export standards" },
+        "step5": { "title": "Documentation", "desc": "Process export license, deregistration, commercial invoice" },
+        "step6": { "title": "Shipping & Delivery", "desc": "Arrange ocean freight, provide bill of lading and tracking" }
+      },
+      "ctaTitle": "Ready to export?",
+      "ctaDesc": "Contact us for an export quote and experience our premium service",
+      "ctaContact": "Get a Quote",
+      "ctaBrowse": "Browse Vehicles"
+    },
+    "maintenance": {
+      "title": "Maintenance & Preparation",
+      "subtitle": "Professional vehicle inspection, preparation and after-sales maintenance",
+      "desc": "We offer comprehensive maintenance services for vehicle buyers, including pre-purchase evaluation, pre-delivery inspection, repair work, and long-term maintenance support.",
+      "features": {
+        "title": "Service Items",
+        "f1": "Pre-purchase evaluation — Year, mileage, equipment, condition assessment",
+        "f2": "Insurance guidance — Transparent explanation of insurance options",
+        "f3": "Documentation assistance — Title transfer, registration paperwork",
+        "f4": "Pre-delivery inspection — Ensure optimal condition at handover",
+        "f5": "Repair & maintenance — Basic servicing and minor repairs",
+        "f6": "Long-term support — Inspection renewal, regular maintenance"
+      },
+      "process": {
+        "title": "Maintenance Process",
+        "step1": { "title": "Booking & Assessment", "desc": "Understand vehicle condition and repair needs, determine if shop visit needed" },
+        "step2": { "title": "Inspection & Quote", "desc": "On-site inspection, compile work items, timeline and cost estimate" },
+        "step3": { "title": "Work Execution", "desc": "Perform approved maintenance and repairs with real-time progress updates" },
+        "step4": { "title": "Completion & Follow-up", "desc": "Review completed work, discuss notes and schedule next maintenance" }
+      },
+      "combinations": {
+        "title": "Common Consultation Scenarios",
+        "a": { "title": "Comparing Vehicles", "desc": "Budget and brand comparison stage, need pre-purchase evaluation and basic guidance" },
+        "b": { "title": "Purchase Confirmed", "desc": "Need documentation, inspection, insurance and pre-delivery prep in one go" },
+        "c": { "title": "Post-Purchase Maintenance", "desc": "Inspection renewal, servicing, repairs and ongoing maintenance support" }
+      },
+      "faq": {
+        "title": "Service FAQ",
+        "q1": { "q": "How soon will I get a response after booking?", "a": "A dedicated advisor will contact you within 1-2 business days. If inventory or schedule confirmation is needed, we'll inform you of what we can confirm first." },
+        "q2": { "q": "Can I consult before deciding on a vehicle?", "a": "Absolutely. Share your budget, usage and brand preferences, and we'll conduct a pre-purchase evaluation before guiding you through insurance, documentation and delivery preparation." },
+        "q3": { "q": "Can I get post-purchase maintenance support?", "a": "Yes. We provide ongoing consultation for inspection renewal, light maintenance, and servicing. Specific timing and costs are determined per vehicle condition." }
+      },
+      "ctaTitle": "Need maintenance services?",
+      "ctaDesc": "Contact our professional team for comprehensive vehicle maintenance support",
+      "ctaContact": "Book Consultation"
+    }
+  },
+  "exportGuide": {
+    "title": "Export Purchase Guide",
+    "subtitle": "Learn how to purchase and export Japanese used vehicles through us",
+    "steps": {
+      "step1": { "title": "Consultation", "desc": "Tell us your budget, brand preference, usage and expected delivery timeline" },
+      "step2": { "title": "Vehicle Selection", "desc": "We recommend the best vehicles from our inventory and partner network" },
+      "step3": { "title": "Quote & Confirmation", "desc": "Review detailed vehicle information and transparent pricing, confirm order" },
+      "step4": { "title": "Secure Payment", "desc": "Pay safely via bank wire transfer for vehicle and fees" },
+      "step5": { "title": "Export Preparation", "desc": "We handle inspection, documentation, and export permits" },
+      "step6": { "title": "Shipping & Delivery", "desc": "Ocean freight to your designated port with logistics tracking" }
+    },
+    "payment": {
+      "title": "Payment Methods",
+      "bankWire": "Bank Wire Transfer (T/T)",
+      "creditCard": "Credit Card (Visa/Mastercard)",
+      "paypal": "PayPal",
+      "note": "All prices are in Japanese Yen (JPY). Other currencies are for reference only."
+    },
+    "shipping": {
+      "title": "Shipping Information",
+      "desc": "We provide ocean freight from major Japanese ports to ports worldwide. Transit time varies by destination, typically 2-8 weeks."
+    }
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "Velocity JAPAN — Premium Japanese Used Vehicle Global Export",
+    "companyProfile": {
+      "title": "Company Profile",
+      "desc": "Headquartered in Tokyo, Japan, Velocity JAPAN is a company specializing in the global export of premium used vehicles. Through our integrated online and offline operations, we connect Japan's quality vehicle resources with buyers worldwide, providing end-to-end solutions from procurement and inspection to export and shipping."
+    },
+    "globalNetwork": {
+      "title": "Global Service Network",
+      "subtitle": "A global service network covering multiple regions",
+      "regions": {
+        "asia": { "name": "Asia", "countries": "Southeast Asia, Malaysia, Hong Kong, Mainland China, Taiwan" },
+        "middleEast": { "name": "Middle East", "countries": "Dubai, UAE" },
+        "europe": { "name": "Europe", "countries": "United Kingdom" },
+        "northAmerica": { "name": "North America", "countries": "Canada" },
+        "oceania": { "name": "Oceania", "countries": "Australia, New Zealand" }
+      }
+    },
+    "pitFlow": {
+      "title": "Our Process",
+      "subtitle": "From consultation to delivery",
+      "step1": { "title": "Requirements", "desc": "Comprehensive review of budget, brand preferences, usage scenarios and timeline" },
+      "step2": { "title": "Proposal Matching", "desc": "Presenting viable options from inventory and network capabilities" },
+      "step3": { "title": "Confirmation", "desc": "In-person verification of key conditions, clarifying scope and responsibilities" },
+      "step4": { "title": "Delivery & Review", "desc": "Post-delivery feedback collection for continuous service improvement" }
+    },
+    "whyUs": {
+      "title": "Why Choose Us",
+      "reason1": { "title": "Quality Assurance", "desc": "Every vehicle undergoes rigorous inspection for transparent condition reporting" },
+      "reason2": { "title": "Transparent Pricing", "desc": "All fees clearly stated, no hidden charges" },
+      "reason3": { "title": "Global Network", "desc": "Export service covering 50+ countries worldwide" },
+      "reason4": { "title": "Expert Team", "desc": "Experienced inspectors and export consultants" }
+    },
+    "stats": {
+      "vehicles": "Vehicles in Stock",
+      "brands": "Brands Available",
+      "countries": "Countries Served",
+      "partners": "Partner Dealers"
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Questions? We're here to help",
+    "tabs": {
+      "general": "General Inquiry",
+      "specificVehicle": "Specific Vehicle",
+      "rental": "Rental Inquiry"
+    },
+    "form": {
+      "vehicleType": "Preferred Type",
+      "brand": "Preferred Brand",
+      "budget": "Budget",
+      "conditions": "Preferred Conditions",
+      "message": "Additional Notes",
+      "preferredModel": "Preferred Model",
+      "year": "Year",
+      "mileage": "Mileage",
+      "color": "Preferred Color",
+      "transmission": "Transmission",
+      "rentalCar": "Desired Vehicle",
+      "usage": "Main Usage",
+      "rentalDate": "Desired Date",
+      "rentalDuration": "Duration",
+      "pickupLocation": "Pickup Location",
+      "email": "Email Address",
+      "name": "Name",
+      "phone": "Phone Number",
+      "preferredLanguage": "Preferred Language",
+      "submit": "Send Inquiry",
+      "required": "Required",
+      "optional": "Optional"
+    },
+    "info": {
+      "address": "Address",
+      "email": "Email",
+      "phone": "Phone",
+      "hours": "Business Hours",
+      "hoursValue": "Monday - Friday 9:00 - 18:00 (JST)"
+    },
+    "messenger": {
+      "title": "Or reach us via",
+      "whatsapp": "WhatsApp",
+      "wechat": "WeChat",
+      "line": "LINE"
+    },
+    "success": "Your inquiry has been sent. We will respond within 1 business day."
+  },
+  "faq": {
+    "title": "FAQ",
+    "subtitle": "Frequently asked questions about our services",
+    "categories": {
+      "general": "General",
+      "purchase": "Purchase",
+      "export": "Export",
+      "maintenance": "Maintenance",
+      "payment": "Payment"
+    },
+    "items": {
+      "q1": { "q": "How do I purchase a vehicle?", "a": "You can browse our online inventory and select a vehicle, or contact us with your requirements for personalized recommendations. After confirmation, sign the agreement and make payment." },
+      "q2": { "q": "Can I inspect the vehicle in person?", "a": "Yes. Our Tokyo showroom welcomes scheduled visits. For overseas customers, we can provide detailed vehicle videos and photos." },
+      "q3": { "q": "How long does shipping take?", "a": "Ocean freight transit times vary by destination: Southeast Asia 2-3 weeks, Middle East 3-4 weeks, Africa 4-6 weeks, Europe 5-8 weeks, South America 6-8 weeks. Export documentation typically takes 1-2 weeks." },
+      "q4": { "q": "What payment methods do you accept?", "a": "We accept bank wire transfer (T/T), credit card (Visa/Mastercard), and PayPal. All transactions are settled in Japanese Yen." },
+      "q5": { "q": "Do vehicles come with warranty?", "a": "We provide detailed condition reports for all vehicles. Limited warranty may be available for select vehicles upon negotiation. Please consult our advisors for details." },
+      "q6": { "q": "Can I specify the destination port?", "a": "Yes. We support ocean freight to major ports worldwide. Specify your destination port when making an inquiry." },
+      "q7": { "q": "What does maintenance service include?", "a": "Services include pre-purchase evaluation, pre-delivery inspection, basic servicing and repairs, documentation assistance. Specific services can be customized to your needs." },
+      "q8": { "q": "What if I'm not satisfied with the vehicle?", "a": "We provide detailed condition reports and photos before delivery. If there are discrepancies with the description, please contact us promptly for resolution." }
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Login",
+      "email": "Email Address",
+      "password": "Password",
+      "forgotPassword": "Forgot Password?",
+      "noAccount": "Don't have an account?",
+      "registerNow": "Register Now",
+      "submit": "Login"
+    },
+    "register": {
+      "title": "Create Account",
+      "name": "Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "country": "Country",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "agreeTerms": "I agree to the Terms of Service and Privacy Policy",
+      "hasAccount": "Already have an account?",
+      "loginNow": "Login Now",
+      "submit": "Register"
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "overview": "Overview",
+    "orders": "Orders",
+    "favorites": "Favorites",
+    "inquiries": "Inquiries",
+    "profile": "Profile",
+    "welcome": "Welcome back",
+    "vehiclesSaved": "vehicles saved",
+    "removeFromFavorites": "Remove from favorites",
+    "noFavoritesYet": "No favorites yet",
+    "browseVehicles": "Browse Vehicles",
+    "date": "Date",
+    "description": "Description",
+    "amount": "Amount",
+    "status": "Status",
+    "vehicle": "Vehicle",
+    "actions": "Actions",
+    "view": "View",
+    "cancel": "Cancel",
+    "stats": {
+      "activeInquiries": "Active Inquiries",
+      "completedOrders": "Completed Orders",
+      "totalSpent": "Total Spent",
+      "savedVehicles": "Saved Vehicles"
+    },
+    "inquiryStatus": {
+      "pending": "Pending",
+      "quoted": "Quoted",
+      "confirmed": "Confirmed",
+      "completed": "Completed",
+      "cancelled": "Cancelled"
+    },
+    "orderStatus": {
+      "pending": "Pending",
+      "confirmed": "Confirmed",
+      "paid": "Paid",
+      "processing": "Processing",
+      "shipping": "Shipping",
+      "delivered": "Delivered",
+      "cancelled": "Cancelled"
+    }
+  },
+  "blog": {
+    "title": "News & Updates",
+    "subtitle": "Japanese used car market trends and buying guides",
+    "readMore": "Read More",
+    "categories": "Categories",
+    "recentPosts": "Recent Posts",
+    "relatedPosts": "Related Posts",
+    "share": "Share",
+    "publishedOn": "Published on"
+  },
+  "footer": {
+    "description": "Velocity JAPAN — Premium Japanese used vehicle global export service, providing transparent and professional sales and export services worldwide.",
+    "quickLinks": "Quick Links",
+    "services": "Services",
+    "support": "Support",
+    "contactInfo": "Contact Info",
+    "copyright": "© {year} Velocity JAPAN. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  }
+}

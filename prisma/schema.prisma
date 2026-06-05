@@ -1,0 +1,191 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id           String     @id @default(cuid())
+  email        String     @unique
+  name         String?
+  password     String?
+  phone        String?
+  country      String?
+  language     String     @default("zh")
+  image        String?
+  role         Role       @default(CUSTOMER)
+  status       UserStatus @default(ACTIVE)
+  emailVerified DateTime?
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+  orders       Order[]
+  favorites    Favorite[]
+  accounts     Account[]
+  sessions     Session[]
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Vehicle {
+  id            String         @id @default(cuid())
+  make          String
+  model         String
+  year          Int
+  mileage       Int?
+  displacement  Int?
+  fuel          String?
+  transmission  String?
+  drive         String?
+  exteriorColor String?
+  interiorColor String?
+  bodyType      String?
+  steering      String?        @default("RHD")
+  extGrade      String?
+  intGrade      String?
+  overallGrade  String?
+  price         Int?
+  description   String?
+  location      String?
+  status        VehicleStatus  @default(AVAILABLE)
+  features      String[]
+  images        String[]
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  favorites     Favorite[]
+}
+
+model Order {
+  id            String        @id @default(cuid())
+  userId        String
+  status        OrderStatus   @default(PENDING)
+  vehiclePrice  Int
+  commissionFee Int
+  transportFee  Int?
+  exportFee     Int?
+  shippingFee   Int?
+  insuranceFee  Int?
+  totalPrice    Int
+  currency      String        @default("JPY")
+  paymentMethod PaymentMethod?
+  paymentStatus PaymentStatus @default(PENDING)
+  shippingPort  String?
+  trackingNo    String?
+  notes         String?
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+  user          User          @relation(fields: [userId], references: [id])
+}
+
+model Favorite {
+  id        String   @id @default(cuid())
+  userId    String
+  vehicleId String
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  vehicle   Vehicle  @relation(fields: [vehicleId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, vehicleId])
+}
+
+model ContactMessage {
+  id                String   @id @default(cuid())
+  name              String?
+  email             String
+  phone             String?
+  preferredLanguage String?
+  inquiryType       String   @default("general")
+  vehicleType       String?
+  brand             String?
+  budget            String?
+  conditions        String?
+  vehicleModel      String?
+  vehicleYear       String?
+  vehicleMileage    String?
+  vehicleColor      String?
+  vehicleTrans      String?
+  message           String?
+  status            String   @default("new")
+  createdAt         DateTime @default(now())
+}
+
+model BlogPost {
+  id         String   @id @default(cuid())
+  slug       String   @unique
+  title      String
+  content    String
+  excerpt    String?
+  coverImage String?
+  category   String?
+  tags       String[]
+  published  Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+enum Role {
+  CUSTOMER
+  STAFF
+  ADMIN
+}
+
+enum UserStatus {
+  ACTIVE
+  SUSPENDED
+  VERIFIED
+}
+
+enum VehicleStatus {
+  AVAILABLE
+  RESERVED
+  SOLD
+  ARCHIVED
+}
+
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  PAID
+  PROCESSING
+  SHIPPING
+  DELIVERED
+  CANCELLED
+}
+
+enum PaymentMethod {
+  BANK_WIRE
+  CREDIT_CARD
+  PAYPAL
+}
+
+enum PaymentStatus {
+  PENDING
+  PARTIAL
+  PAID
+  REFUNDED
+}
