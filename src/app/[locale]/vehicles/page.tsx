@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { demoVehicles } from "@/lib/demo-vehicles";
+import { useFavorites } from "@/lib/useFavorites";
 
 // ---------------------------------------------------------------------------
 // Demo data
@@ -52,6 +53,8 @@ export default function VehiclesPage() {
   const t = useTranslations("vehicles");
   const ct = useTranslations("common");
   const vt = useTranslations("vehicles.vehicle");
+
+  const { toggle, isFavorite } = useFavorites();
 
   // Filter state
   const [searchText, setSearchText] = useState("");
@@ -512,8 +515,8 @@ export default function VehiclesPage() {
                       />
                       {/* Hover actions */}
                       <div className="absolute top-3 right-3 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <button className="w-8 h-8 bg-white/90 rounded-full flex items-center justify-center text-gray-600 hover:text-red-500">
-                          <Heart className="w-4 h-4" />
+                        <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggle(v.id); }} className={`w-8 h-8 bg-white/90 rounded-full flex items-center justify-center ${isFavorite(v.id) ? "text-red-500" : "text-gray-600"} hover:text-red-500`}>
+                          <Heart className="w-4 h-4" fill={isFavorite(v.id) ? "currentColor" : "none"} />
                         </button>
                         <Link
                           href={`/vehicles/${v.id}`}

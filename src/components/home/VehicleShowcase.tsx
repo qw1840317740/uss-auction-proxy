@@ -7,12 +7,14 @@ import { Heart, Eye } from "lucide-react";
 import Image from "next/image";
 import { useScrollReveal, useStaggerReveal } from "@/lib/useScrollReveal";
 import { demoVehicles } from "@/lib/demo-vehicles";
+import { useFavorites } from "@/lib/useFavorites";
 
 export function VehicleShowcase() {
   const t = useTranslations("home.showcase");
   const vt = useTranslations("vehicles.vehicle");
   const title = useScrollReveal();
   const showcaseVehicles = demoVehicles;
+  const { toggle, isFavorite } = useFavorites();
   const { containerRef, isChildVisible } = useStaggerReveal(showcaseVehicles.length, 60);
 
   return (
@@ -54,8 +56,8 @@ export function VehicleShowcase() {
                   {v.bodyType}
                 </span>
                 <div className="absolute top-3 right-3 flex gap-1 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
-                  <button className="w-9 h-9 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-600 hover:text-red-500 shadow-sm transition-colors">
-                    <Heart className="w-4 h-4" />
+                  <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggle(v.id); }} className={`w-9 h-9 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-sm transition-colors ${isFavorite(v.id) ? "text-red-500" : "text-gray-600"} hover:text-red-500`}>
+                    <Heart className="w-4 h-4" fill={isFavorite(v.id) ? "currentColor" : "none"} />
                   </button>
                   <Link href={`/vehicles/${v.id}`} className="w-9 h-9 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-600 hover:text-primary shadow-sm transition-colors">
                     <Eye className="w-4 h-4" />

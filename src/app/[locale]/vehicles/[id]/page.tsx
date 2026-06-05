@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { demoVehicles } from "@/lib/demo-vehicles";
+import { useFavorites } from "@/lib/useFavorites";
 
 // ---------------------------------------------------------------------------
 // Demo vehicle lookup
@@ -52,6 +53,8 @@ export default function VehicleDetailPage({
   const ct = useTranslations("common");
 
   const vehicle = vehicles[id] ?? { ...defaultVehicle, id };
+
+  const { toggle, isFavorite } = useFavorites();
 
   const [activeTab, setActiveTab] = useState<"specs" | "features">("specs");
 
@@ -89,8 +92,8 @@ export default function VehicleDetailPage({
                 />
                 {/* Action buttons */}
                 <div className="absolute top-4 right-4 flex gap-2">
-                  <button className="w-10 h-10 bg-white/90 rounded-full flex items-center justify-center text-gray-600 hover:text-red-500 shadow-sm">
-                    <Heart className="h-5 w-5" />
+                  <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggle(vehicle.id); }} className={`w-10 h-10 bg-white/90 rounded-full flex items-center justify-center shadow-sm ${isFavorite(vehicle.id) ? "text-red-500" : "text-gray-600"} hover:text-red-500`}>
+                    <Heart className="h-5 w-5" fill={isFavorite(vehicle.id) ? "currentColor" : "none"} />
                   </button>
                   <button className="w-10 h-10 bg-white/90 rounded-full flex items-center justify-center text-gray-600 hover:text-primary shadow-sm">
                     <Share2 className="h-5 w-5" />
@@ -265,8 +268,8 @@ export default function VehicleDetailPage({
               </div>
 
               {/* Favorite button */}
-              <button className="mt-4 w-full inline-flex items-center justify-center gap-2 rounded-lg border border-gray-200 px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors">
-                <Heart className="h-4 w-4" />
+              <button onClick={() => toggle(vehicle.id)} className={`mt-4 w-full inline-flex items-center justify-center gap-2 rounded-lg border border-gray-200 px-4 py-2.5 text-sm font-medium transition-colors ${isFavorite(vehicle.id) ? "text-red-500" : "text-gray-700"} hover:bg-gray-50`}>
+                <Heart className="h-4 w-4" fill={isFavorite(vehicle.id) ? "currentColor" : "none"} />
                 {vt("addToFavorites")}
               </button>
             </div>
