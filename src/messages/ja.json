@@ -53,8 +53,7 @@
       "stats": {
         "vehicles": "在庫車両",
         "brands": "取扱ブランド",
-        "countries": "対応国数",
-        "years": "サービス年数"
+        "countries": "対応国数"
       }
     },
     "brands": {

@@ -35,6 +35,77 @@ html {
   }
 }
 
+/* ==========================================
+   Apple-style scroll reveal animations
+   ========================================== */
+
+/* Base state: invisible, ready to animate in */
+.reveal {
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+/* Fade up (default Apple style) */
+.reveal-up {
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Fade in with scale (grows from slightly smaller) */
+.reveal-scale {
+  transform: scale(0.92);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Slide in from left */
+.reveal-left {
+  transform: translateX(-60px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Slide in from right */
+.reveal-right {
+  transform: translateX(60px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Blur in (Apple's signature) */
+.reveal-blur {
+  filter: blur(10px);
+  transform: translateY(20px);
+  transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              filter 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Stagger child items */
+.reveal-stagger {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Revealed / visible state for all types */
+.reveal.revealed,
+.reveal-up.revealed,
+.reveal-scale.revealed,
+.reveal-left.revealed,
+.reveal-right.revealed,
+.reveal-stagger.revealed {
+  opacity: 1;
+  transform: translateY(0) translateX(0) scale(1);
+  filter: none;
+}
+
+/* ==========================================
+   Hero animations
+   ========================================== */
+
 /* Hero shimmer animation overlay */
 .hero-shimmer {
   position: relative;
@@ -58,12 +129,8 @@ html {
 }
 
 @keyframes shimmer {
-  0% {
-    background-position: 200% 0;
-  }
-  100% {
-    background-position: -200% 0;
-  }
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
 
 /* Subtle gradient animation for hero backgrounds */
@@ -73,25 +140,68 @@ html {
 }
 
 @keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Hero title entrance animation */
+@keyframes heroTitleIn {
   0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
+    opacity: 0;
+    transform: translateY(30px);
+    filter: blur(8px);
   }
   100% {
-    background-position: 0% 50%;
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
   }
 }
+
+.hero-title-animate {
+  animation: heroTitleIn 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.hero-title-animate-delay-1 {
+  animation: heroTitleIn 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.15s forwards;
+  opacity: 0;
+}
+
+.hero-title-animate-delay-2 {
+  animation: heroTitleIn 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s forwards;
+  opacity: 0;
+}
+
+.hero-title-animate-delay-3 {
+  animation: heroTitleIn 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.45s forwards;
+  opacity: 0;
+}
+
+/* Stats counter animation */
+@keyframes countUp {
+  0% { opacity: 0; transform: translateY(15px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.stat-animate {
+  opacity: 0;
+  animation: countUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* ==========================================
+   Premium card & button effects
+   ========================================== */
 
 /* Premium card hover effects */
 .premium-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .premium-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.12);
+  transform: translateY(-6px);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
 }
 
 /* Premium button glow effect */
@@ -108,12 +218,7 @@ html {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.2),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
   transition: left 0.5s ease;
 }
 
@@ -138,7 +243,7 @@ html {
   border-radius: 2px;
 }
 
-/* Fade-in animation for scroll */
+/* Legacy support */
 .fade-in-up {
   opacity: 0;
   transform: translateY(20px);
@@ -148,4 +253,18 @@ html {
 .fade-in-up.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ==========================================
+   Number counter animation
+   ========================================== */
+
+@keyframes numberPopIn {
+  0% { opacity: 0; transform: scale(0.5); }
+  60% { transform: scale(1.05); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.number-pop {
+  animation: numberPopIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }

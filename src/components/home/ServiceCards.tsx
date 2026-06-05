@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { Car, Ship, Wrench, ArrowRight } from "lucide-react";
+import { useScrollReveal, useStaggerReveal } from "@/lib/useScrollReveal";
 
 const services = [
   { key: "vehicleSales", icon: Car, href: "/vehicles", color: "bg-blue-50 text-blue-600" },
@@ -12,35 +13,40 @@ const services = [
 
 export function ServiceCards() {
   const t = useTranslations("home.services");
+  const title = useScrollReveal();
+  const { containerRef, isChildVisible } = useStaggerReveal(services.length, 150);
 
   return (
-    <section className="py-20">
+    <section className="py-24">
       <div className="container-main">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-3">{t("title")}</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">{t("subtitle")}</p>
+        <div
+          ref={title.ref}
+          className={`text-center mb-14 reveal reveal-blur ${title.isVisible ? "revealed" : ""}`}
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">{t("title")}</h2>
+          <p className="text-gray-500 text-lg max-w-2xl mx-auto">{t("subtitle")}</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {services.map((service) => (
+        <div ref={containerRef} className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {services.map((service, i) => (
             <Link
               key={service.key}
               href={service.href}
-              className="group bg-white rounded-xl p-6 shadow-sm hover:shadow-md border border-gray-100 transition-all hover:-translate-y-1"
+              className={`reveal-stagger group bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-500 hover:-translate-y-2 ${isChildVisible(i) ? "revealed" : ""}`}
+              style={{ transitionDelay: `${i * 150}ms` }}
             >
-              <div className={`w-14 h-14 rounded-xl ${service.color} flex items-center justify-center mb-4`}>
-                <service.icon className="w-7 h-7" />
+              <div className={`w-16 h-16 rounded-2xl ${service.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                <service.icon className="w-8 h-8" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-primary transition-colors">
+              <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-primary transition-colors">
                 {t(`${service.key}.title`)}
               </h3>
-              <p className="text-gray-600 text-sm leading-relaxed mb-4">
+              <p className="text-gray-500 text-sm leading-relaxed mb-6">
                 {t(`${service.key}.desc`)}
               </p>
-              <span className="inline-flex items-center text-sm font-medium text-primary group-hover:gap-2 transition-all">
-                <span className="mr-1">
-                  <ArrowRight className="w-4 h-4" />
-                </span>
+              <span className="inline-flex items-center text-sm font-medium text-primary gap-1 group-hover:gap-2 transition-all">
+                {t("title") !== "Our Services" ? "了解更多" : "Learn More"}
+                <ArrowRight className="w-4 h-4" />
               </span>
             </Link>
           ))}

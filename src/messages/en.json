@@ -53,8 +53,7 @@
       "stats": {
         "vehicles": "Vehicles in Stock",
         "brands": "Brands Available",
-        "countries": "Countries Served",
-        "years": "Years of Service"
+        "countries": "Countries Served"
       }
     },
     "brands": {
