@@ -8,6 +8,7 @@ const sectionKeys = ["service", "pricing", "purchase", "shipping", "warranty", "
 
 export default function TermsPage() {
   const t = useTranslations("terms");
+  const tc = useTranslations("common");
 
   return (
     <div className="min-h-screen bg-white">
@@ -19,7 +20,7 @@ export default function TermsPage() {
             className="inline-flex items-center gap-1.5 text-sm text-blue-200 hover:text-white transition-colors mb-6"
           >
             <ArrowLeft className="w-4 h-4" />
-            返回首页
+            {tc("back")}
           </Link>
           <div className="flex items-center gap-3 mb-4">
             <FileText className="w-8 h-8 text-secondary" />

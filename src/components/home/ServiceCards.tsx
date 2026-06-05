@@ -13,6 +13,7 @@ const services = [
 
 export function ServiceCards() {
   const t = useTranslations("home.services");
+  const tc = useTranslations("common");
   const title = useScrollReveal();
   const { containerRef, isChildVisible } = useStaggerReveal(services.length, 80);
 
@@ -45,7 +46,7 @@ export function ServiceCards() {
                 {t(`${service.key}.desc`)}
               </p>
               <span className="inline-flex items-center text-sm font-medium text-primary gap-1 group-hover:gap-2 transition-all">
-                {t("title") !== "Our Services" ? "了解更多" : "Learn More"}
+                {tc("learnMore")}
                 <ArrowRight className="w-4 h-4" />
               </span>
             </Link>

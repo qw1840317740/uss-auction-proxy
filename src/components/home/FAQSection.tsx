@@ -42,7 +42,7 @@ export function FAQSection() {
                 />
               </button>
               <div
-                className={`overflow-hidden transition-all duration-400 ease-in-out ${
+                className={`overflow-hidden transition-all duration-300 ease-in-out ${
                   openIndex === i ? "max-h-60 opacity-100" : "max-h-0 opacity-0"
                 }`}
               >

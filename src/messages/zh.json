@@ -275,8 +275,7 @@
     "subtitle": "有任何问题？我们随时为您服务",
     "tabs": {
       "general": "通用询价",
-      "specificVehicle": "指定车型",
-      "rental": "租赁咨询"
+      "specificVehicle": "指定车型"
     },
     "form": {
       "vehicleType": "希望类型",
@@ -289,11 +288,6 @@
       "mileage": "走行距离",
       "color": "希望颜色",
       "transmission": "变速箱",
-      "rentalCar": "希望车型",
-      "usage": "主要用途",
-      "rentalDate": "利用希望日",
-      "rentalDuration": "利用天数",
-      "pickupLocation": "接受地点",
       "email": "邮箱地址",
       "name": "姓名",
       "phone": "电话号码",

@@ -6,21 +6,14 @@ import { formatPrice, formatMileage } from "@/lib/utils";
 import { Heart, Eye } from "lucide-react";
 import Image from "next/image";
 import { useScrollReveal, useStaggerReveal } from "@/lib/useScrollReveal";
-
-const demoVehicles = [
-  { id: "1", make: "Toyota", model: "Land Cruiser 300", year: 2022, mileage: 25000, price: 6500000, image: "/images/cars/toyota-land-cruiser.jpg", bodyType: "SUV" },
-  { id: "2", make: "Toyota", model: "Harrier", year: 2023, mileage: 12000, price: 3800000, image: "/images/cars/toyota-harrier.jpg", bodyType: "SUV" },
-  { id: "3", make: "Honda", model: "Civic", year: 2023, mileage: 8000, price: 2800000, image: "/images/cars/honda-civic.jpg", bodyType: "Sedan" },
-  { id: "4", make: "Nissan", model: "Note Aura", year: 2022, mileage: 18000, price: 1800000, image: "/images/cars/nissan-note.jpg", bodyType: "Hatchback" },
-  { id: "5", make: "Toyota", model: "Prius", year: 2023, mileage: 5000, price: 3200000, image: "/images/cars/toyota-prius.jpg", bodyType: "Sedan" },
-  { id: "6", make: "Mazda", model: "CX-5", year: 2022, mileage: 30000, price: 2500000, image: "/images/cars/mazda-cx5.jpg", bodyType: "SUV" },
-];
+import { demoVehicles } from "@/lib/demo-vehicles";
 
 export function VehicleShowcase() {
   const t = useTranslations("home.showcase");
   const vt = useTranslations("vehicles.vehicle");
   const title = useScrollReveal();
-  const { containerRef, isChildVisible } = useStaggerReveal(demoVehicles.length, 60);
+  const showcaseVehicles = demoVehicles;
+  const { containerRef, isChildVisible } = useStaggerReveal(showcaseVehicles.length, 60);
 
   return (
     <section className="py-24 bg-gray-50">
@@ -42,7 +35,7 @@ export function VehicleShowcase() {
         </div>
 
         <div ref={containerRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {demoVehicles.map((v, i) => (
+          {showcaseVehicles.map((v, i) => (
             <div
               key={v.id}
               className={`reveal-stagger bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-500 group premium-card ${isChildVisible(i) ? "revealed" : ""}`}
@@ -50,7 +43,7 @@ export function VehicleShowcase() {
             >
               <div className="aspect-[16/10] relative overflow-hidden bg-gray-100">
                 <Image
-                  src={v.image}
+                  src={v.images[0] || "/images/cars/car-side-1.jpg"}
                   alt={`${v.year} ${v.make} ${v.model}`}
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"

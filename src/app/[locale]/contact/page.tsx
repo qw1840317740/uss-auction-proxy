@@ -11,11 +11,13 @@ import {
   MessageCircle,
 } from "lucide-react";
 
-type TabKey = "general" | "specificVehicle" | "rental";
+type TabKey = "general" | "specificVehicle";
 
 export default function ContactPage() {
   const t = useTranslations("contact");
   const [activeTab, setActiveTab] = useState<TabKey>("general");
+  const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState<Record<string, string>>({
     // General
     vehicleType: "",
@@ -28,12 +30,6 @@ export default function ContactPage() {
     mileage: "",
     color: "",
     transmission: "",
-    // Rental
-    rentalCar: "",
-    usage: "",
-    rentalDate: "",
-    rentalDuration: "",
-    pickupLocation: "",
     // Common
     message: "",
     email: "",
@@ -50,15 +46,28 @@ export default function ContactPage() {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Form submission logic would go here
-  }
+    setLoading(true);
+    try {
+      const res = await fetch("/api/contacts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...formData, inquiryType: activeTab }),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+      }
+    } catch {
+      // error handling
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const tabs: { key: TabKey; label: string }[] = [
     { key: "general", label: t("tabs.general") },
     { key: "specificVehicle", label: t("tabs.specificVehicle") },
-    { key: "rental", label: t("tabs.rental") },
   ];
 
   const selectClasses =
@@ -329,113 +338,6 @@ export default function ContactPage() {
                   </div>
                 )}
 
-                {/* Tab 3: Rental */}
-                {activeTab === "rental" && (
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        {t("form.rentalCar")}
-                      </label>
-                      <input
-                        name="rentalCar"
-                        type="text"
-                        value={formData.rentalCar}
-                        onChange={handleChange}
-                        className={inputClasses}
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        {t("form.usage")}
-                      </label>
-                      <select
-                        name="usage"
-                        value={formData.usage}
-                        onChange={handleChange}
-                        className={selectClasses}
-                      >
-                        <option value="">--</option>
-                        <option value="business">Business</option>
-                        <option value="leisure">Leisure / Travel</option>
-                        <option value="test">Test Drive / Preview</option>
-                        <option value="other">Other</option>
-                      </select>
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        {t("form.rentalDate")}
-                      </label>
-                      <input
-                        name="rentalDate"
-                        type="date"
-                        value={formData.rentalDate}
-                        onChange={handleChange}
-                        className={inputClasses}
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        {t("form.rentalDuration")}
-                      </label>
-                      <select
-                        name="rentalDuration"
-                        value={formData.rentalDuration}
-                        onChange={handleChange}
-                        className={selectClasses}
-                      >
-                        <option value="">--</option>
-                        <option value="1day">1 Day</option>
-                        <option value="2-3days">2-3 Days</option>
-                        <option value="1week">1 Week</option>
-                        <option value="2weeks">2 Weeks</option>
-                        <option value="1month">1 Month+</option>
-                      </select>
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        {t("form.pickupLocation")}
-                      </label>
-                      <input
-                        name="pickupLocation"
-                        type="text"
-                        value={formData.pickupLocation}
-                        onChange={handleChange}
-                        className={inputClasses}
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        {t("form.budget")}
-                      </label>
-                      <select
-                        name="budget"
-                        value={formData.budget}
-                        onChange={handleChange}
-                        className={selectClasses}
-                      >
-                        <option value="">--</option>
-                        <option value="under1m">Under ¥1,000,000</option>
-                        <option value="1m-2m">¥1,000,000 - ¥2,000,000</option>
-                        <option value="2m-3m">¥2,000,000 - ¥3,000,000</option>
-                        <option value="3m-5m">¥3,000,000 - ¥5,000,000</option>
-                        <option value="5m-plus">¥5,000,000+</option>
-                      </select>
-                    </div>
-                    <div className="md:col-span-2">
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        {t("form.message")}
-                      </label>
-                      <textarea
-                        name="message"
-                        rows={4}
-                        value={formData.message}
-                        onChange={handleChange}
-                        className={inputClasses + " resize-y"}
-                      />
-                    </div>
-                  </div>
-                )}
-
                 {/* Divider */}
                 <div className="border-t border-gray-100 pt-5">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -511,13 +413,20 @@ export default function ContactPage() {
 
                 {/* Submit */}
                 <div className="pt-2">
-                  <button
-                    type="submit"
-                    className="inline-flex items-center gap-2 px-8 py-3 bg-primary hover:bg-primary-dark text-white font-semibold rounded-xl transition-colors"
-                  >
-                    <Send className="w-4 h-4" />
-                    {t("form.submit")}
-                  </button>
+                  {submitted ? (
+                    <div className="inline-flex items-center gap-2 px-8 py-3 bg-green-100 text-green-700 font-semibold rounded-xl">
+                      {t("success")}
+                    </div>
+                  ) : (
+                    <button
+                      type="submit"
+                      disabled={loading}
+                      className="inline-flex items-center gap-2 px-8 py-3 bg-primary hover:bg-primary-dark text-white font-semibold rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      <Send className="w-4 h-4" />
+                      {t("form.submit")}
+                    </button>
+                  )}
                 </div>
               </form>
             </div>

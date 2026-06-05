@@ -275,8 +275,7 @@
     "subtitle": "Questions? We're here to help",
     "tabs": {
       "general": "General Inquiry",
-      "specificVehicle": "Specific Vehicle",
-      "rental": "Rental Inquiry"
+      "specificVehicle": "Specific Vehicle"
     },
     "form": {
       "vehicleType": "Preferred Type",
@@ -289,11 +288,6 @@
       "mileage": "Mileage",
       "color": "Preferred Color",
       "transmission": "Transmission",
-      "rentalCar": "Desired Vehicle",
-      "usage": "Main Usage",
-      "rentalDate": "Desired Date",
-      "rentalDuration": "Duration",
-      "pickupLocation": "Pickup Location",
       "email": "Email Address",
       "name": "Name",
       "phone": "Phone Number",

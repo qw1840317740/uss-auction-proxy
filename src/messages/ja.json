@@ -275,8 +275,7 @@
     "subtitle": "ご質問がございましたら、お気軽にどうぞ",
     "tabs": {
       "general": "一般的なお問い合わせ",
-      "specificVehicle": "特定車両のお問い合わせ",
-      "rental": "レンタルお問い合わせ"
+      "specificVehicle": "特定車両のお問い合わせ"
     },
     "form": {
       "vehicleType": "希望タイプ",
@@ -289,11 +288,6 @@
       "mileage": "走行距離",
       "color": "希望カラー",
       "transmission": "トランスミッション",
-      "rentalCar": "希望車種",
-      "usage": "主な用途",
-      "rentalDate": "利用希望日",
-      "rentalDuration": "利用日数",
-      "pickupLocation": "受け取り希望地",
       "email": "メールアドレス",
       "name": "お名前",
       "phone": "電話番号",
