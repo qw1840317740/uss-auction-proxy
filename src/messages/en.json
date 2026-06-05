@@ -424,5 +424,31 @@
     "copyright": "© {year} Velocity JAPAN. All rights reserved.",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: June 2025",
+    "intro": "Velocity JAPAN takes your privacy seriously. This policy explains how we collect, use, and protect your personal information.",
+    "sections": {
+      "collect": { "title": "Information Collection", "content": "We may collect: name, email address, phone number, country/region, language preference, inquiry content, and browsing behavior. This information is collected only when you voluntarily submit forms or use our services." },
+      "use": { "title": "Information Usage", "content": "We use collected information to: respond to your inquiries, provide vehicle recommendations, improve website experience, and send information relevant to your requests. We do not sell your personal information to third parties." },
+      "protect": { "title": "Data Security", "content": "We implement reasonable technical and administrative measures to protect your personal information from unauthorized access, use, or disclosure." },
+      "cookies": { "title": "Cookie Policy", "content": "Our website uses cookies to enhance browsing experience, analyze site traffic, and remember your language preferences. You can manage cookies through your browser settings." },
+      "rights": { "title": "Your Rights", "content": "You have the right to view, correct, delete your personal information, or withdraw consent for data processing. To exercise these rights, please contact us through our contact page." },
+      "contact": { "title": "Contact Us", "content": "For any questions about this privacy policy, please contact us at info@velocityjapan.jp." }
+    }
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "lastUpdated": "Last updated: June 2025",
+    "intro": "By using the Velocity JAPAN website and services, you agree to the following terms. Please read them carefully.",
+    "sections": {
+      "service": { "title": "Service Description", "content": "Velocity JAPAN provides Japanese used vehicle display, sales brokerage, and global export services. All vehicle information is subject to actual condition; images and descriptions on the website are for reference only." },
+      "pricing": { "title": "Pricing & Payment", "content": "All prices are displayed in Japanese Yen (JPY). Final prices may vary due to vehicle preparation, transport costs, and export processing fees. Payment methods include bank wire transfer and credit cards, as confirmed per order." },
+      "purchase": { "title": "Purchase Process", "content": "The purchase process includes: inquiry → quote confirmation → contract & payment → vehicle preparation → export shipping → delivery. Deposits may be non-refundable if cancellation is due to the buyer." },
+      "shipping": { "title": "Shipping & Delivery", "content": "We arrange ocean freight shipping from Japan to your designated port. Transit time varies by destination, typically 2-8 weeks. Shipping risks are governed by international cargo transport terms." },
+      "warranty": { "title": "Disclaimer", "content": "Used vehicles are delivered as-is. We provide no additional warranty unless explicitly stated in the sales contract. We strive for accuracy in vehicle descriptions but do not guarantee absolute condition." },
+      "changes": { "title": "Changes to Terms", "content": "We reserve the right to modify these terms at any time. Updated terms will be posted on the website. Continued use of our services constitutes acceptance of the revised terms." }
+    }
   }
 }
