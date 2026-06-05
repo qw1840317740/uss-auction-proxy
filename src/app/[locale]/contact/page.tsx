@@ -447,7 +447,7 @@ export default function ContactPage() {
                         {t("info.address")}
                       </div>
                       <div className="text-sm text-gray-500">
-                        Tokyo, Japan
+                        Saitama, Japan
                       </div>
                     </div>
                   </div>
