@@ -13,7 +13,7 @@ export function FAQSection() {
 
   const faqKeys = ["q1", "q2", "q3", "q4"];
   const title = useScrollReveal();
-  const { containerRef, isChildVisible } = useStaggerReveal(faqKeys.length, 120);
+  const { containerRef, isChildVisible } = useStaggerReveal(faqKeys.length, 60);
 
   return (
     <section className="py-24">
@@ -30,7 +30,7 @@ export function FAQSection() {
             <div
               key={key}
               className={`reveal-stagger bg-white rounded-2xl border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-md ${openIndex === i ? "shadow-md" : ""} ${isChildVisible(i) ? "revealed" : ""}`}
-              style={{ transitionDelay: `${i * 120}ms` }}
+              style={{ transitionDelay: `${i * 60}ms` }}
             >
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}

@@ -24,7 +24,6 @@ body {
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
 
-/* Smooth scroll behavior */
 html {
   scroll-behavior: smooth;
 }
@@ -36,61 +35,51 @@ html {
 }
 
 /* ==========================================
-   Apple-style scroll reveal animations
+   Fast scroll reveal animations
    ========================================== */
 
-/* Base state: invisible, ready to animate in */
 .reveal {
   opacity: 0;
   will-change: opacity, transform;
 }
 
-/* Fade up (default Apple style) */
+/* Ease: snappy decelerate */
+:root {
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 .reveal-up {
-  transform: translateY(40px);
-  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: translateY(30px);
+  transition: opacity 0.45s var(--ease-out), transform 0.45s var(--ease-out);
 }
 
-/* Fade in with scale (grows from slightly smaller) */
 .reveal-scale {
-  transform: scale(0.92);
-  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: scale(0.95);
+  transition: opacity 0.45s var(--ease-out), transform 0.45s var(--ease-out);
 }
 
-/* Slide in from left */
 .reveal-left {
-  transform: translateX(-60px);
-  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: translateX(-40px);
+  transition: opacity 0.45s var(--ease-out), transform 0.45s var(--ease-out);
 }
 
-/* Slide in from right */
 .reveal-right {
-  transform: translateX(60px);
-  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: translateX(40px);
+  transition: opacity 0.45s var(--ease-out), transform 0.45s var(--ease-out);
 }
 
-/* Blur in (Apple's signature) */
 .reveal-blur {
-  filter: blur(10px);
-  transform: translateY(20px);
-  transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              filter 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  filter: blur(6px);
+  transform: translateY(16px);
+  transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out), filter 0.5s var(--ease-out);
 }
 
-/* Stagger child items */
 .reveal-stagger {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: translateY(20px);
+  transition: opacity 0.35s var(--ease-out), transform 0.35s var(--ease-out);
 }
 
-/* Revealed / visible state for all types */
 .reveal.revealed,
 .reveal-up.revealed,
 .reveal-scale.revealed,
@@ -106,7 +95,6 @@ html {
    Hero animations
    ========================================== */
 
-/* Hero shimmer animation overlay */
 .hero-shimmer {
   position: relative;
   overflow: hidden;
@@ -133,7 +121,6 @@ html {
   100% { background-position: -200% 0; }
 }
 
-/* Subtle gradient animation for hero backgrounds */
 .hero-gradient-animate {
   background-size: 200% 200%;
   animation: gradientShift 12s ease infinite;
@@ -145,70 +132,59 @@ html {
   100% { background-position: 0% 50%; }
 }
 
-/* Hero title entrance animation */
+/* Hero entrance — fast blur-in */
 @keyframes heroTitleIn {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-    filter: blur(8px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-  }
+  0% { opacity: 0; transform: translateY(20px); filter: blur(6px); }
+  100% { opacity: 1; transform: translateY(0); filter: blur(0); }
 }
 
 .hero-title-animate {
-  animation: heroTitleIn 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation: heroTitleIn 0.6s var(--ease-out) forwards;
 }
 
 .hero-title-animate-delay-1 {
-  animation: heroTitleIn 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.15s forwards;
+  animation: heroTitleIn 0.6s var(--ease-out) 0.08s forwards;
   opacity: 0;
 }
 
 .hero-title-animate-delay-2 {
-  animation: heroTitleIn 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s forwards;
+  animation: heroTitleIn 0.6s var(--ease-out) 0.16s forwards;
   opacity: 0;
 }
 
 .hero-title-animate-delay-3 {
-  animation: heroTitleIn 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.45s forwards;
+  animation: heroTitleIn 0.6s var(--ease-out) 0.24s forwards;
   opacity: 0;
 }
 
-/* Stats counter animation */
+/* Stats counter — snappy */
 @keyframes countUp {
-  0% { opacity: 0; transform: translateY(15px); }
+  0% { opacity: 0; transform: translateY(10px); }
   100% { opacity: 1; transform: translateY(0); }
 }
 
 .stat-animate {
   opacity: 0;
-  animation: countUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation: countUp 0.4s var(--ease-out) forwards;
 }
 
 /* ==========================================
    Premium card & button effects
    ========================================== */
 
-/* Premium card hover effects */
 .premium-card {
-  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out);
 }
 
 .premium-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.12);
 }
 
-/* Premium button glow effect */
 .btn-premium {
   position: relative;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .btn-premium::before {
@@ -219,14 +195,13 @@ html {
   width: 100%;
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s ease;
+  transition: left 0.35s ease;
 }
 
 .btn-premium:hover::before {
   left: 100%;
 }
 
-/* Section divider wave */
 .section-divider {
   position: relative;
 }
@@ -243,21 +218,16 @@ html {
   border-radius: 2px;
 }
 
-/* Legacy support */
 .fade-in-up {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition: opacity 0.35s ease-out, transform 0.35s ease-out;
 }
 
 .fade-in-up.visible {
   opacity: 1;
   transform: translateY(0);
 }
-
-/* ==========================================
-   Number counter animation
-   ========================================== */
 
 @keyframes numberPopIn {
   0% { opacity: 0; transform: scale(0.5); }
@@ -266,5 +236,5 @@ html {
 }
 
 .number-pop {
-  animation: numberPopIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation: numberPopIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }

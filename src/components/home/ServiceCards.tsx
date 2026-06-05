@@ -14,7 +14,7 @@ const services = [
 export function ServiceCards() {
   const t = useTranslations("home.services");
   const title = useScrollReveal();
-  const { containerRef, isChildVisible } = useStaggerReveal(services.length, 150);
+  const { containerRef, isChildVisible } = useStaggerReveal(services.length, 80);
 
   return (
     <section className="py-24">
@@ -33,7 +33,7 @@ export function ServiceCards() {
               key={service.key}
               href={service.href}
               className={`reveal-stagger group bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-500 hover:-translate-y-2 ${isChildVisible(i) ? "revealed" : ""}`}
-              style={{ transitionDelay: `${i * 150}ms` }}
+              style={{ transitionDelay: `${i * 80}ms` }}
             >
               <div className={`w-16 h-16 rounded-2xl ${service.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
                 <service.icon className="w-8 h-8" />

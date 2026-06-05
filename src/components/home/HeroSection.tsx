@@ -66,10 +66,10 @@ export function HeroSection() {
                 <div className="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center mb-3">
                   <stat.icon className="w-6 h-6 text-secondary" />
                 </div>
-                <div className="text-2xl md:text-3xl font-bold tracking-tight stat-animate" style={{ animationDelay: `${0.6 + i * 0.1}s` }}>
+                <div className="text-2xl md:text-3xl font-bold tracking-tight stat-animate" style={{ animationDelay: `${0.3 + i * 0.06}s` }}>
                   {stat.value}
                 </div>
-                <div className="text-sm text-blue-200 mt-1 stat-animate" style={{ animationDelay: `${0.7 + i * 0.1}s` }}>
+                <div className="text-sm text-blue-200 mt-1 stat-animate" style={{ animationDelay: `${0.36 + i * 0.06}s` }}>
                   {t(`stats.${stat.key}`)}
                 </div>
               </div>

@@ -21,7 +21,7 @@ const brands = [
 export function BrandShowcase() {
   const t = useTranslations("home.brands");
   const title = useScrollReveal();
-  const { containerRef, isChildVisible } = useStaggerReveal(brands.length, 60);
+  const { containerRef, isChildVisible } = useStaggerReveal(brands.length, 30);
 
   return (
     <section className="py-24 bg-white">
@@ -40,7 +40,7 @@ export function BrandShowcase() {
               key={brand.name}
               href={`/vehicles?make=${brand.name}`}
               className={`reveal-stagger group flex flex-col items-center justify-center bg-gray-50 rounded-2xl py-8 px-4 border border-gray-100 hover:border-primary/30 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 ${isChildVisible(i) ? "revealed" : ""}`}
-              style={{ transitionDelay: `${i * 60}ms` }}
+              style={{ transitionDelay: `${i * 30}ms` }}
             >
               <div className="w-16 h-16 relative mb-4 flex items-center justify-center grayscale group-hover:grayscale-0 transition-all duration-500">
                 <Image

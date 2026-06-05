@@ -14,7 +14,7 @@ const steps = [
 export function HowItWorks() {
   const t = useTranslations("home.howItWorks");
   const title = useScrollReveal();
-  const { containerRef, isChildVisible } = useStaggerReveal(steps.length, 200);
+  const { containerRef, isChildVisible } = useStaggerReveal(steps.length, 100);
 
   return (
     <section className="py-24">
@@ -32,7 +32,7 @@ export function HowItWorks() {
             <div
               key={step.key}
               className={`reveal-stagger relative text-center ${isChildVisible(i) ? "revealed" : ""}`}
-              style={{ transitionDelay: `${i * 200}ms` }}
+              style={{ transitionDelay: `${i * 100}ms` }}
             >
               {/* Connector line */}
               {i < steps.length - 1 && (

@@ -20,7 +20,7 @@ export function VehicleShowcase() {
   const t = useTranslations("home.showcase");
   const vt = useTranslations("vehicles.vehicle");
   const title = useScrollReveal();
-  const { containerRef, isChildVisible } = useStaggerReveal(demoVehicles.length, 100);
+  const { containerRef, isChildVisible } = useStaggerReveal(demoVehicles.length, 60);
 
   return (
     <section className="py-24 bg-gray-50">
@@ -46,7 +46,7 @@ export function VehicleShowcase() {
             <div
               key={v.id}
               className={`reveal-stagger bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-500 group premium-card ${isChildVisible(i) ? "revealed" : ""}`}
-              style={{ transitionDelay: `${i * 100}ms` }}
+              style={{ transitionDelay: `${i * 60}ms` }}
             >
               <div className="aspect-[16/10] relative overflow-hidden bg-gray-100">
                 <Image
