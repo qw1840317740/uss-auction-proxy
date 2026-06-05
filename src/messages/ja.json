@@ -307,7 +307,9 @@
       "title": "または以下の方法でご連絡ください",
       "whatsapp": "WhatsApp",
       "wechat": "WeChat",
-      "line": "LINE"
+      "line": "LINE",
+      "clickToCopy": "クリックしてIDをコピー",
+      "copied": "コピーしました！"
     },
     "success": "お問い合わせを送信しました。1営業日以内にご返信いたします。"
   },

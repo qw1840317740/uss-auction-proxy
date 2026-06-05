@@ -18,6 +18,7 @@ export default function ContactPage() {
   const [activeTab, setActiveTab] = useState<TabKey>("general");
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [wechatCopied, setWechatCopied] = useState(false);
   const [formData, setFormData] = useState<Record<string, string>>({
     // General
     vehicleType: "",
@@ -518,22 +519,32 @@ export default function ContactPage() {
                   </a>
 
                   {/* WeChat */}
-                  <a
-                    href="#"
-                    className="flex items-center gap-3 p-3 rounded-lg bg-emerald-50 text-emerald-700 hover:bg-emerald-100 transition-colors"
+                  <button
+                    type="button"
+                    onClick={() => {
+                      navigator.clipboard.writeText("uss_auction_wechat");
+                      setWechatCopied(true);
+                      setTimeout(() => setWechatCopied(false), 2000);
+                    }}
+                    className="flex items-center gap-3 p-3 rounded-lg bg-emerald-50 text-emerald-700 hover:bg-emerald-100 transition-colors w-full text-left"
                   >
-                    <MessageCircle className="w-5 h-5" />
+                    <MessageCircle className="w-5 h-5 shrink-0" />
                     <span className="text-sm font-medium">
                       {t("messenger.wechat")}
                     </span>
-                  </a>
+                    <span className="text-xs text-emerald-500 ml-auto">
+                      {wechatCopied ? t("messenger.copied") : t("messenger.clickToCopy")}
+                    </span>
+                  </button>
 
                   {/* LINE */}
                   <a
-                    href="#"
+                    href="https://lin.ee/xxxxx"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex items-center gap-3 p-3 rounded-lg bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors"
                   >
-                    <MessageCircle className="w-5 h-5" />
+                    <MessageCircle className="w-5 h-5 shrink-0" />
                     <span className="text-sm font-medium">
                       {t("messenger.line")}
                     </span>

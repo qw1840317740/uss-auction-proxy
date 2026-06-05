@@ -307,7 +307,9 @@
       "title": "Or reach us via",
       "whatsapp": "WhatsApp",
       "wechat": "WeChat",
-      "line": "LINE"
+      "line": "LINE",
+      "clickToCopy": "Click to copy ID",
+      "copied": "Copied!"
     },
     "success": "Your inquiry has been sent. We will respond within 1 business day."
   },
