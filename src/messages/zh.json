@@ -1,4 +1,17 @@
 {
+  "metadata": {
+    "title": "Velocity JAPAN — 日本优质二手车全球出口",
+    "description": "从埼玉发往全球的优质日本二手车。涵盖采购、检测、出口运输及售后维护的一站式服务。"
+  },
+  "seo": {
+    "about": { "title": "关于我们", "description": "了解Velocity JAPAN。总部位于埼玉，专注于高品质日本二手车全球出口。" },
+    "vehicles": { "title": "车辆库存", "description": "浏览我们精选的日本优质二手车。Toyota、Honda、Nissan等热门品牌应有尽有。" },
+    "contact": { "title": "联系我们", "description": "通过电话、邮件、WhatsApp或LINE联系我们，帮您找到理想座驾。" },
+    "blog": { "title": "博客", "description": "日本二手车市场动态、购车攻略及出口资讯。" },
+    "faq": { "title": "常见问题", "description": "关于日本二手车购买与出口的常见问题解答。" },
+    "export": { "title": "出口服务", "description": "从日本到全球的专业车辆出口服务，涵盖文件办理与海运安排。" },
+    "maintenance": { "title": "检测与维保", "description": "专业的车辆检测、整备及售后维护服务。" }
+  },
   "common": {
     "siteName": "Velocity JAPAN",
     "tagline": "日本优质二手车 · 全球出口服务",

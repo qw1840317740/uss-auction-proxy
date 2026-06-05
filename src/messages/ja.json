@@ -1,4 +1,17 @@
 {
+  "metadata": {
+    "title": "Velocity JAPAN — 日本のプレミアム中古車・グローバル輸出",
+    "description": "埼玉から世界へ。品質にこだわった日本の中古車を安心してお買い求めいただけます。輸出・整備・アフターサポートまでトータルサポート。"
+  },
+  "seo": {
+    "about": { "title": "会社概要", "description": "Velocity JAPANの会社概要。埼玉を拠点にプレミアム中古車のグローバル輸出に特化した企業です。" },
+    "vehicles": { "title": "車両一覧", "description": "厳選された日本のプレミアム中古車をご覧ください。Toyota、Honda、Nissanなど人気ブランドを多数取り揃えています。" },
+    "contact": { "title": "お問い合わせ", "description": "お問い合わせ・ご相談はこちら。電話・メール・WhatsApp・LINEで承ります。" },
+    "blog": { "title": "ブログ", "description": "日本中古車市場の動向、購入ガイド、輸出情報など役立つ情報をお届けします。" },
+    "faq": { "title": "よくある質問", "description": "中古車購入・輸出に関するよくあるご質問にお答えします。" },
+    "export": { "title": "輸出サービス", "description": "日本から世界各国への車両輸出サービス。書類手配から輸送までトータルサポート。" },
+    "maintenance": { "title": "整備・メンテナンス", "description": "プロフェッショナルな車両点検、整備、アフターメンテナンスサービス。" }
+  },
   "common": {
     "siteName": "Velocity JAPAN",
     "tagline": "日本のプレミアム中古車 · グローバル輸出",

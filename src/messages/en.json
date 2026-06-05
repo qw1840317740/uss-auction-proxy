@@ -1,4 +1,17 @@
 {
+  "metadata": {
+    "title": "Velocity JAPAN — Premium Japanese Used Cars & Global Export",
+    "description": "Quality Japanese used vehicles exported worldwide from Saitama, Japan. Full-service support from purchase to delivery, inspection, and after-sales care."
+  },
+  "seo": {
+    "about": { "title": "About Us", "description": "Learn about Velocity JAPAN. Based in Saitama, we specialize in premium Japanese used vehicle global export." },
+    "vehicles": { "title": "Vehicle Inventory", "description": "Browse our curated selection of premium Japanese used vehicles. Toyota, Honda, Nissan and more." },
+    "contact": { "title": "Contact Us", "description": "Get in touch via phone, email, WhatsApp, or LINE. We're here to help you find the perfect vehicle." },
+    "blog": { "title": "Blog", "description": "Japanese used car market trends, buying guides, and export information." },
+    "faq": { "title": "FAQ", "description": "Frequently asked questions about purchasing and exporting Japanese used vehicles." },
+    "export": { "title": "Export Service", "description": "Professional vehicle export from Japan to the world. Full documentation and shipping support." },
+    "maintenance": { "title": "Inspection & Maintenance", "description": "Professional vehicle inspection, preparation, and after-sales maintenance services." }
+  },
   "common": {
     "siteName": "Velocity JAPAN",
     "tagline": "Premium Japanese Used Cars · Global Export",
