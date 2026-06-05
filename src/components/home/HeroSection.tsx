@@ -33,9 +33,10 @@ export function HeroSection() {
       <div className="container-main relative py-20 md:py-32 w-full">
         <div className="max-w-3xl mx-auto text-center">
           {/* Title with blur-in animation */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 drop-shadow-lg hero-title-animate">
-            {t("title")}
-          </h1>
+          <h1
+            className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 drop-shadow-lg hero-title-animate"
+            dangerouslySetInnerHTML={{ __html: t("title") }}
+          />
           <p className="text-lg md:text-xl text-blue-100 mb-10 drop-shadow-md hero-title-animate-delay-1 max-w-2xl mx-auto">
             {t("subtitle")}
           </p>
