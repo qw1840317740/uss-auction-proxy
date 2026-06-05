@@ -107,7 +107,7 @@ export default function DashboardPage() {
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
-              <tr className="text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <tr className="text-left text-sm font-medium text-gray-500 uppercase tracking-wider">
                 <th className="px-5 py-3">Vehicle</th>
                 <th className="px-5 py-3">Status</th>
                 <th className="px-5 py-3">Date</th>

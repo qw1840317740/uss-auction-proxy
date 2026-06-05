@@ -118,7 +118,7 @@ export default function BlogPage() {
 
               {/* Content */}
               <div className="p-5">
-                <div className="flex items-center gap-3 text-xs text-gray-400 mb-2">
+                <div className="flex items-center gap-3 text-sm text-gray-400 mb-2">
                   <span className="flex items-center gap-1">
                     <Calendar className="w-3.5 h-3.5" />
                     {formatDate(post.date)}

@@ -50,12 +50,12 @@ export default function FavoritesPage() {
                 <h3 className="text-sm font-semibold text-gray-900 line-clamp-1 group-hover:text-primary transition-colors">
                   {fav.year} {fav.make} {fav.model}
                 </h3>
-                <div className="mt-2 flex items-center gap-3 text-xs text-gray-500">
+                <div className="mt-2 flex items-center gap-3 text-sm text-gray-500">
                   <span className="flex items-center gap-1"><Gauge className="w-3.5 h-3.5" />{formatMileage(fav.mileage)}</span>
                 </div>
                 <div className="mt-3 flex items-center justify-between">
                   <div>
-                    <p className="text-xs text-gray-400">{tVehicles("vehicle.price")}</p>
+                    <p className="text-sm text-gray-400">{tVehicles("vehicle.price")}</p>
                     <p className="text-base font-bold text-gray-900">{formatPrice(fav.price)}</p>
                   </div>
                   <div className="flex items-center gap-1">

@@ -297,7 +297,7 @@ function SpecItem({
     <div className="flex items-start gap-3 p-3 rounded-lg bg-gray-50">
       <span className="text-gray-400 mt-0.5">{icon}</span>
       <div>
-        <p className="text-xs text-gray-500">{label}</p>
+        <p className="text-sm text-gray-500">{label}</p>
         <p className="text-sm font-medium text-gray-900">{value}</p>
       </div>
     </div>

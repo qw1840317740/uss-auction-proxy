@@ -86,11 +86,11 @@ export default function OrdersPage() {
                   <span className="text-sm font-semibold text-gray-900">{order.id}</span>
                 </div>
                 <p className="text-sm text-gray-600 mt-1">{order.vehicle}</p>
-                <p className="text-xs text-gray-400">{order.stockNo}</p>
+                <p className="text-sm text-gray-400">{order.stockNo}</p>
               </div>
               <div className="text-right">
                 <p className="text-lg font-bold text-gray-900">{formatPrice(order.totalPrice)}</p>
-                <p className="text-xs text-gray-400">{formatDate(order.orderDate)}</p>
+                <p className="text-sm text-gray-400">{formatDate(order.orderDate)}</p>
               </div>
             </div>
 
@@ -125,7 +125,7 @@ export default function OrdersPage() {
                         </div>
                         <span
                           className={cn(
-                            "text-xs mt-1.5 font-medium whitespace-nowrap",
+                            "text-sm mt-1.5 font-medium whitespace-nowrap",
                             isCompleted ? "text-green-600" : isCurrent ? "text-primary" : "text-gray-400"
                           )}
                         >

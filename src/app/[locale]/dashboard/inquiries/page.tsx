@@ -37,7 +37,7 @@ export default function InquiriesPage() {
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
-              <tr className="text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <tr className="text-left text-sm font-medium text-gray-500 uppercase tracking-wider">
                 <th className="px-5 py-3">{t("vehicle")}</th>
                 <th className="px-5 py-3">{t("status")}</th>
                 <th className="px-5 py-3">{t("date")}</th>

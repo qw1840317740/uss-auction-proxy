@@ -168,7 +168,7 @@ export default function VehiclesPage() {
 
   const selectCls =
     "w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-gray-900 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary";
-  const labelCls = "block text-xs font-medium text-gray-500 mb-1";
+  const labelCls = "block text-sm font-medium text-gray-500 mb-1";
 
   return (
     <div className="min-h-screen bg-gray-50">

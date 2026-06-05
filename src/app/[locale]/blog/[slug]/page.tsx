@@ -206,8 +206,8 @@ export default function BlogPostPage() {
                 <h3 className="text-sm font-semibold text-gray-900 group-hover:text-primary transition-colors line-clamp-2">
                   {post.title}
                 </h3>
-                <p className="text-xs text-gray-400 mt-1.5">{formatDate(post.date)}</p>
-                <div className="mt-3 flex items-center gap-1 text-xs font-medium text-primary">
+                <p className="text-sm text-gray-400 mt-1.5">{formatDate(post.date)}</p>
+                <div className="mt-3 flex items-center gap-1 text-sm font-medium text-primary">
                   {t("readMore")}
                   <ArrowRight className="w-3 h-3" />
                 </div>
