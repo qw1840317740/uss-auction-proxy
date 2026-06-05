@@ -13,7 +13,7 @@ export function FAQSection() {
   const faqKeys = ["q1", "q2", "q3", "q4"];
 
   return (
-    <section className="py-16">
+    <section className="py-20">
       <div className="container-main">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900 mb-3">{t("title")}</h2>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- D shape -->
+  <path d="M65 45 L65 155 L110 155 C145 155 160 130 160 100 C160 70 145 45 110 45 Z" fill="none" stroke="#dc0032" stroke-width="8"/>
+  <!-- Upward swoosh -->
+  <path d="M75 110 C90 80 120 50 155 35" fill="none" stroke="#dc0032" stroke-width="8" stroke-linecap="round"/>
+</svg>

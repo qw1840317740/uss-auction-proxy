@@ -10,11 +10,27 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
+      {/* White background - Brand logos */}
       <BrandShowcase />
-      <ServiceCards />
-      <HowItWorks />
+      {/* Gray-50 background - Services */}
+      <div className="bg-gray-50">
+        <ServiceCards />
+      </div>
+      {/* Decorative wave divider */}
+      <div className="bg-gray-50">
+        <div className="h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+      </div>
+      {/* White background - How It Works */}
+      <div className="bg-white">
+        <HowItWorks />
+      </div>
+      {/* Gray-50 background - Vehicle Showcase */}
       <VehicleShowcase />
-      <FAQSection />
+      {/* White background - FAQ */}
+      <div className="bg-white">
+        <FAQSection />
+      </div>
+      {/* Primary gradient - CTA */}
       <CTASection />
     </>
   );

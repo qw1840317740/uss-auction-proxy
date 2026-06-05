@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Left pillar -->
+  <rect x="45" y="40" width="35" height="120" rx="4" fill="#cc0000"/>
+  <!-- Right pillar -->
+  <rect x="120" y="40" width="35" height="120" rx="4" fill="#cc0000"/>
+  <!-- Top crossbar -->
+  <rect x="45" y="40" width="110" height="12" rx="3" fill="#cc0000"/>
+  <!-- Bottom crossbar -->
+  <rect x="45" y="148" width="110" height="12" rx="3" fill="#cc0000"/>
+</svg>
