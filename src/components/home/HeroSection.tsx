@@ -34,7 +34,7 @@ export function HeroSection() {
         <div className="max-w-3xl mx-auto text-center">
           {/* Title with blur-in animation */}
           <h1
-            className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 drop-shadow-lg hero-title-animate"
+            className="text-3xl md:text-5xl lg:text-7xl font-bold leading-tight mb-6 drop-shadow-lg hero-title-animate [&_span]:whitespace-normal md:[&_span]:whitespace-nowrap"
             dangerouslySetInnerHTML={{ __html: t("title") }}
           />
           <p className="text-lg md:text-xl text-blue-100 mb-10 drop-shadow-md hero-title-animate-delay-1 max-w-2xl mx-auto">

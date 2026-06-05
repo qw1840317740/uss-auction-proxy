@@ -46,7 +46,7 @@
   },
   "home": {
     "hero": {
-      "title": "Premium Japanese Vehicles,<br/>Delivered Worldwide",
+      "title": "<span class='whitespace-nowrap'>Premium Japanese Vehicles,</span><br/><span class='whitespace-nowrap'>Delivered Worldwide</span>",
       "subtitle": "Trusted quality, delivering the perfect car for you",
       "exploreVehicles": "Explore Vehicles",
       "contactUs": "Contact Us",
