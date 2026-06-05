@@ -46,7 +46,7 @@
   },
   "home": {
     "hero": {
-      "title": "<span class='whitespace-nowrap'>品质日本二手车</span><br/><span class='whitespace-nowrap'>全球交付</span>",
+      "title": "<span class=\"whitespace-nowrap\">品质日本二手车</span><br/><span class=\"whitespace-nowrap\">全球交付</span>",
       "subtitle": "安心品质，为您找到理想座驾",
       "exploreVehicles": "浏览车辆",
       "contactUs": "联系我们",

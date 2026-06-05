@@ -46,7 +46,7 @@
   },
   "home": {
     "hero": {
-      "title": "<span class='whitespace-nowrap'>日本のプレミアム中古車を</span><br/><span class='whitespace-nowrap'>世界へ</span>",
+      "title": "日本のプレミアム<span class=\"whitespace-nowrap\">中古車を</span><br/><span class=\"whitespace-nowrap\">世界へ</span>",
       "subtitle": "安心と品質で、あなたにぴったりの一台をお届けします",
       "exploreVehicles": "車両を探す",
       "contactUs": "お問い合わせ",
