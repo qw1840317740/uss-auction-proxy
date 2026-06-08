@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { usePathname } from "@/i18n/routing";
 import { Link } from "@/i18n/routing";
 import { cn, formatDate } from "@/lib/utils";
+import { demoPosts } from "@/lib/demo-blog";
 import {
   ArrowLeft,
   Calendar,
@@ -14,66 +15,6 @@ import {
   ArrowRight,
 } from "lucide-react";
 import Image from "next/image";
-
-const postContent = {
-  title: "Complete Guide to Buying Japanese Used Cars in 2025",
-  category: "Guide",
-  date: "2025-05-20",
-  readTime: "8 min read",
-  content: `
-## Why Buy Japanese Used Cars?
-
-Japan is home to some of the world's most reliable and well-maintained used vehicles. With strict inspection standards, low mileage averages, and a culture of meticulous vehicle care, Japanese used cars offer exceptional value for buyers worldwide.
-
-Whether you're a dealer looking to expand your inventory or an individual seeking a quality vehicle, Japan's used car market provides unmatched selection and quality.
-
-## How the Process Works
-
-### 1. Vehicle Selection
-Browse our curated inventory of premium Japanese used vehicles. Each listing includes detailed specifications, condition reports, and transparent pricing to help you make an informed decision.
-
-### 2. Inspection Reports
-Every vehicle comes with a comprehensive condition report that grades the exterior, interior, and mechanical condition. Understanding these reports is crucial for making informed purchase decisions.
-
-### 3. Purchase & Payment
-Once you've found your ideal vehicle, confirm the order and complete payment via bank wire transfer. We ensure a secure and transparent transaction process.
-
-### 4. Export & Delivery
-After payment, we handle all export documentation, vehicle preparation, and shipping arrangements to deliver your vehicle safely to your nearest port.
-
-## Tips for First-Time Buyers
-
-- Start with a clear budget that includes all fees and shipping costs
-- Study vehicle condition reports carefully before purchasing
-- Consider the total landed cost, not just the vehicle price
-- Choose vehicles with comprehensive service history
-- Work with an established exporter with transparent pricing
-
-## Common Mistakes to Avoid
-
-Many first-time buyers focus only on the vehicle price without accounting for additional costs like transport, export processing, shipping, and insurance. Always request a complete cost breakdown before confirming your purchase.
-  `,
-  relatedPosts: [
-    {
-      slug: "understanding-vehicle-inspection",
-      title: "Understanding Japanese Vehicle Inspection Reports",
-      category: "Guide",
-      date: "2025-05-15",
-    },
-    {
-      slug: "top-japanese-used-cars-2025",
-      title: "Top 10 Japanese Used Cars to Buy in 2025",
-      category: "Buying Tips",
-      date: "2025-05-18",
-    },
-    {
-      slug: "market-trends-may-2025",
-      title: "Japanese Used Car Market Trends — May 2025",
-      category: "Market News",
-      date: "2025-05-05",
-    },
-  ],
-};
 
 const categoryColors: Record<string, string> = {
   "Guide": "bg-blue-100 text-blue-700",
@@ -88,11 +29,18 @@ export default function BlogPostPage() {
   const pathname = usePathname();
   const [shareLabel, setShareLabel] = useState(t("share"));
 
+  // Extract slug from pathname (/zh/blog/xxx -> xxx)
+  const slug = pathname.split("/blog/")[1]?.replace(/\/$/, "") || "";
+  const post = demoPosts.find((p) => p.slug === slug) || demoPosts[0];
+
+  // Related posts: other posts (not current), take up to 3
+  const relatedPosts = demoPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
+
   const handleShare = async () => {
     const url = `${window.location.origin}${pathname}`;
     if (navigator.share) {
       try {
-        await navigator.share({ title: postContent.title, url });
+        await navigator.share({ title: post.title, url });
       } catch {
         // user cancelled
       }
@@ -121,23 +69,23 @@ export default function BlogPostPage() {
         <div className="flex items-center gap-3 mb-4">
           <span className={cn(
             "inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium",
-            categoryColors[postContent.category] || "bg-gray-100 text-gray-600"
+            categoryColors[post.category] || "bg-gray-100 text-gray-600"
           )}>
             <Tag className="w-3 h-3" />
-            {postContent.category}
+            {post.category}
           </span>
           <span className="text-sm text-gray-400 flex items-center gap-1">
             <Calendar className="w-3.5 h-3.5" />
-            {t("publishedOn")} {formatDate(postContent.date)}
+            {t("publishedOn")} {formatDate(post.date)}
           </span>
           <span className="text-sm text-gray-400 flex items-center gap-1">
             <Clock className="w-3.5 h-3.5" />
-            {postContent.readTime}
+            {post.readTime}
           </span>
         </div>
 
         <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight">
-          {postContent.title}
+          {post.title}
         </h1>
 
         {/* Share */}
@@ -156,8 +104,8 @@ export default function BlogPostPage() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative w-full h-64 sm:h-80 rounded-xl overflow-hidden bg-gray-100">
           <Image
-            src="/images/blog/highway-driving.jpg"
-            alt={postContent.title}
+            src={post.image}
+            alt={post.title}
             fill
             className="object-cover"
             priority
@@ -168,7 +116,7 @@ export default function BlogPostPage() {
       {/* Article Body */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <article className="prose prose-gray max-w-none prose-headings:font-semibold prose-h2:text-xl prose-h3:text-lg prose-a:text-primary">
-          {postContent.content.split("\n\n").map((block, idx) => {
+          {(post.content || post.excerpt).split("\n\n").map((block, idx) => {
             const trimmed = block.trim();
             if (!trimmed) return null;
 
@@ -212,22 +160,22 @@ export default function BlogPostPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <h2 className="text-xl font-semibold text-gray-900 mb-6">{t("relatedPosts")}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {postContent.relatedPosts.map((post) => (
+            {relatedPosts.map((rp) => (
               <Link
-                key={post.slug}
-                href={`/blog/${post.slug}`}
+                key={rp.slug}
+                href={`/blog/${rp.slug}`}
                 className="group bg-white rounded-xl border border-gray-100 p-4 hover:shadow-sm hover:border-gray-200 transition-all"
               >
                 <span className={cn(
                   "inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium mb-2",
-                  categoryColors[post.category] || "bg-gray-100 text-gray-600"
+                  categoryColors[rp.category] || "bg-gray-100 text-gray-600"
                 )}>
-                  {post.category}
+                  {rp.category}
                 </span>
                 <h3 className="text-sm font-semibold text-gray-900 group-hover:text-primary transition-colors line-clamp-2">
-                  {post.title}
+                  {rp.title}
                 </h3>
-                <p className="text-sm text-gray-400 mt-1.5">{formatDate(post.date)}</p>
+                <p className="text-sm text-gray-400 mt-1.5">{formatDate(rp.date)}</p>
                 <div className="mt-3 flex items-center gap-1 text-sm font-medium text-primary">
                   {t("readMore")}
                   <ArrowRight className="w-3 h-3" />

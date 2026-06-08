@@ -3,71 +3,9 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { cn, formatDate } from "@/lib/utils";
+import { demoPosts } from "@/lib/demo-blog";
 import { Calendar, Tag, ArrowRight } from "lucide-react";
 import Image from "next/image";
-
-const demoPosts = [
-  {
-    slug: "buying-guide-2025",
-    title: "Complete Guide to Buying Japanese Used Cars in 2025",
-    excerpt: "Everything you need to know about purchasing and importing quality Japanese used vehicles, from selection to delivery.",
-    category: "Guide",
-    date: "2025-05-20",
-    readTime: "8 min read",
-    color: "bg-blue-500",
-    image: "/images/blog/office-business.jpg",
-  },
-  {
-    slug: "top-japanese-used-cars-2025",
-    title: "Top 10 Japanese Used Cars to Buy in 2025",
-    excerpt: "Our experts pick the best value Japanese used cars available for purchase this year.",
-    category: "Buying Tips",
-    date: "2025-05-18",
-    readTime: "6 min read",
-    color: "bg-green-500",
-    image: "/images/blog/car-keys.jpg",
-  },
-  {
-    slug: "understanding-vehicle-inspection",
-    title: "Understanding Japanese Vehicle Inspection Reports",
-    excerpt: "Learn how to read and interpret Japanese vehicle inspection reports like a professional buyer.",
-    category: "Guide",
-    date: "2025-05-15",
-    readTime: "10 min read",
-    color: "bg-blue-500",
-    image: "/images/blog/car-keys.jpg",
-  },
-  {
-    slug: "shipping-to-africa-guide",
-    title: "Shipping Japanese Used Cars to Africa: Complete Guide",
-    excerpt: "Detailed guide covering ports, shipping lines, transit times, and import regulations for African destinations.",
-    category: "Shipping",
-    date: "2025-05-12",
-    readTime: "7 min read",
-    color: "bg-purple-500",
-    image: "/images/blog/city-road.jpg",
-  },
-  {
-    slug: "toyota-hiace-buying-guide",
-    title: "Toyota HiAce Buying Guide: What to Look For",
-    excerpt: "The Toyota HiAce remains one of the most popular exports. Here's what to check before buying.",
-    category: "Buying Tips",
-    date: "2025-05-08",
-    readTime: "5 min read",
-    color: "bg-green-500",
-    image: "/images/blog/ev-car.jpg",
-  },
-  {
-    slug: "market-trends-may-2025",
-    title: "Japanese Used Car Market Trends — May 2025",
-    excerpt: "Market analysis and price trends for popular models in the Japanese used car market.",
-    category: "Market News",
-    date: "2025-05-05",
-    readTime: "6 min read",
-    color: "bg-amber-500",
-    image: "/images/blog/workshop.jpg",
-  },
-];
 
 const categoryColors: Record<string, string> = {
   "Guide": "bg-blue-100 text-blue-700",

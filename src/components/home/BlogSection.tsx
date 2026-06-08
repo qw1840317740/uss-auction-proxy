@@ -3,42 +3,12 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { formatDate } from "@/lib/utils";
+import { demoPosts } from "@/lib/demo-blog";
 import { Calendar, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { useScrollReveal, useStaggerReveal } from "@/lib/useScrollReveal";
 
-const blogPosts = [
-  {
-    slug: "buying-guide-2025",
-    title: "Complete Guide to Buying Japanese Used Cars in 2025",
-    excerpt:
-      "Everything you need to know about purchasing and importing quality Japanese used vehicles.",
-    category: "Guide",
-    date: "2025-05-20",
-    readTime: "8 min",
-    image: "/images/blog/office-business.jpg",
-  },
-  {
-    slug: "top-japanese-used-cars-2025",
-    title: "Top 10 Japanese Used Cars to Buy in 2025",
-    excerpt:
-      "Our experts pick the best value Japanese used cars available for purchase this year.",
-    category: "Buying Tips",
-    date: "2025-05-18",
-    readTime: "6 min",
-    image: "/images/blog/car-keys.jpg",
-  },
-  {
-    slug: "shipping-to-africa-guide",
-    title: "Shipping Japanese Used Cars to Africa: Complete Guide",
-    excerpt:
-      "Detailed guide covering ports, shipping lines, transit times, and import regulations.",
-    category: "Shipping",
-    date: "2025-05-12",
-    readTime: "7 min",
-    image: "/images/blog/city-road.jpg",
-  },
-];
+const blogPosts = demoPosts.slice(0, 3);
 
 const categoryColors: Record<string, string> = {
   Guide: "bg-blue-100 text-blue-700",
