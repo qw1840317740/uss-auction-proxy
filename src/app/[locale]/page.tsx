@@ -3,6 +3,7 @@ import { BrandShowcase } from "@/components/home/BrandShowcase";
 import { ServiceCards } from "@/components/home/ServiceCards";
 import { HowItWorks } from "@/components/home/HowItWorks";
 import { VehicleShowcase } from "@/components/home/VehicleShowcase";
+import { BlogSection } from "@/components/home/BlogSection";
 import { FAQSection } from "@/components/home/FAQSection";
 import { CTASection } from "@/components/home/CTASection";
 
@@ -67,6 +68,8 @@ export default function HomePage() {
       </div>
       {/* Gray-50 background - Vehicle Showcase */}
       <VehicleShowcase />
+      {/* Gray-50 background - Blog */}
+      <BlogSection />
       {/* White background - FAQ */}
       <div className="bg-white">
         <FAQSection />
