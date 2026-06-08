@@ -462,7 +462,7 @@ export default function ContactPage() {
                         {t("info.email")}
                       </div>
                       <div className="text-sm text-gray-500">
-                        info@velocityjapan.jp
+                        kaiseisg@kaiseisg.com
                       </div>
                     </div>
                   </div>

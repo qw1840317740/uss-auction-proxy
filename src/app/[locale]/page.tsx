@@ -14,7 +14,7 @@ const jsonLd = {
     "Premium Japanese used vehicle sales and global export service from Saitama, Japan.",
   url: "https://uss-auction-proxy.vercel.app",
   telephone: "+81-49-257-4332",
-  email: "info@velocityjapan.jp",
+  email: "kaiseisg@kaiseisg.com",
   address: {
     "@type": "PostalAddress",
     streetAddress: "北永井500番地2",

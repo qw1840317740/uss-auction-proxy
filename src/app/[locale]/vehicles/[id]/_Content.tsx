@@ -255,7 +255,7 @@ export default function VehicleDetailPage({
                 </h4>
                 <div className="flex items-center gap-3 text-sm text-gray-600">
                   <Mail className="h-4 w-4 text-gray-400 shrink-0" />
-                  <span>info@velocityjapan.jp</span>
+                  <span>kaiseisg@kaiseisg.com</span>
                 </div>
                 <div className="flex items-center gap-3 text-sm text-gray-600">
                   <Phone className="h-4 w-4 text-gray-400 shrink-0" />
