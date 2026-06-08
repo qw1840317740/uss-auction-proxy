@@ -1,6 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import { useTranslations } from "next-intl";
+import { usePathname } from "@/i18n/routing";
 import { Link } from "@/i18n/routing";
 import { cn, formatDate } from "@/lib/utils";
 import {
@@ -84,6 +86,23 @@ const categoryColors: Record<string, string> = {
 export default function BlogPostPage() {
   const t = useTranslations("blog");
   const tc = useTranslations("common");
+  const pathname = usePathname();
+  const [shareLabel, setShareLabel] = useState(t("share"));
+
+  const handleShare = async () => {
+    const url = `${window.location.origin}${pathname}`;
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: postContent.title, url });
+      } catch {
+        // user cancelled
+      }
+    } else {
+      await navigator.clipboard.writeText(url);
+      setShareLabel(t("linkCopied"));
+      setTimeout(() => setShareLabel(t("share")), 2000);
+    }
+  };
 
   return (
     <div className="min-h-[calc(100vh-4rem)] bg-white">
@@ -124,9 +143,12 @@ export default function BlogPostPage() {
 
         {/* Share */}
         <div className="mt-4 flex items-center gap-2">
-          <button className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm text-gray-500 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors">
+          <button
+            onClick={handleShare}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm text-gray-500 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors"
+          >
             <Share2 className="w-4 h-4" />
-            {t("share")}
+            {shareLabel}
           </button>
         </div>
       </div>
