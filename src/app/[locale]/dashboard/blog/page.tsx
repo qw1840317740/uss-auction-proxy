@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 import {
   FileText,
   Plus,
@@ -221,11 +222,12 @@ export default function DashboardBlogPage() {
                   <td className="px-5 py-4">
                     <div className="flex items-center gap-3">
                       {post.coverImage ? (
-                        <div className="w-10 h-10 rounded-lg bg-gray-100 overflow-hidden flex-shrink-0">
-                          <img
+                        <div className="w-10 h-10 rounded-lg bg-gray-100 overflow-hidden flex-shrink-0 relative">
+                          <Image
                             src={post.coverImage}
-                            alt=""
-                            className="w-full h-full object-cover"
+                            alt={post.title}
+                            fill
+                            className="object-cover"
                           />
                         </div>
                       ) : (

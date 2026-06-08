@@ -12,7 +12,6 @@ import {
   Share2,
   Clock,
   ArrowRight,
-  ImageIcon,
 } from "lucide-react";
 import Image from "next/image";
 

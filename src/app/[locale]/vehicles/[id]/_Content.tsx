@@ -259,7 +259,7 @@ export default function VehicleDetailPage({
                 </div>
                 <div className="flex items-center gap-3 text-sm text-gray-600">
                   <Phone className="h-4 w-4 text-gray-400 shrink-0" />
-                  <span>+81-3-1234-5678</span>
+                  <span>049-257-4332</span>
                 </div>
                 <div className="flex items-center gap-3 text-sm text-gray-600">
                   <Globe className="h-4 w-4 text-gray-400 shrink-0" />

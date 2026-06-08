@@ -10,10 +10,8 @@ import {
   Globe,
   DollarSign,
   MapPin,
-  ArrowRight,
   ClipboardList,
   MessageSquare,
-  Truck,
   Eye,
 } from "lucide-react";
 
