@@ -412,7 +412,26 @@
       "shipping": "运输中",
       "delivered": "已送达",
       "cancelled": "已取消"
-    }
+    },
+    "blog": "博客管理",
+    "blogNew": "发布新文章",
+    "blogTitle": "标题",
+    "blogCategory": "分类",
+    "blogStatus": "状态",
+    "blogDate": "发布日期",
+    "blogPublished": "已发布",
+    "blogDraft": "草稿",
+    "blogActions": "操作",
+    "blogEdit": "编辑",
+    "blogDelete": "删除",
+    "blogEmpty": "暂无文章",
+    "blogSaveDraft": "保存草稿",
+    "blogPublish": "发布",
+    "blogCancel": "取消",
+    "blogExcerpt": "摘要",
+    "blogContent": "正文内容",
+    "blogCoverImage": "封面图片URL",
+    "blogConfirmDelete": "确定要删除这篇文章吗？"
   },
   "blog": {
     "title": "新闻资讯",

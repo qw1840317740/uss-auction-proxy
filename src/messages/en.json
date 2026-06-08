@@ -412,7 +412,26 @@
       "shipping": "Shipping",
       "delivered": "Delivered",
       "cancelled": "Cancelled"
-    }
+    },
+    "blog": "Blog Management",
+    "blogNew": "New Post",
+    "blogTitle": "Title",
+    "blogCategory": "Category",
+    "blogStatus": "Status",
+    "blogDate": "Date",
+    "blogPublished": "Published",
+    "blogDraft": "Draft",
+    "blogActions": "Actions",
+    "blogEdit": "Edit",
+    "blogDelete": "Delete",
+    "blogEmpty": "No posts yet",
+    "blogSaveDraft": "Save Draft",
+    "blogPublish": "Publish",
+    "blogCancel": "Cancel",
+    "blogExcerpt": "Excerpt",
+    "blogContent": "Content",
+    "blogCoverImage": "Cover Image URL",
+    "blogConfirmDelete": "Are you sure you want to delete this post?"
   },
   "blog": {
     "title": "News & Updates",

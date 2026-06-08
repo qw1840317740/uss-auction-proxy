@@ -10,6 +10,7 @@ import {
   Heart,
   MessageSquare,
   User,
+  FileText,
   Menu,
   X,
   ChevronRight,
@@ -20,6 +21,7 @@ import { LogoMark } from "@/components/layout/Logo";
 const sidebarLinks = [
   { href: "/dashboard", icon: LayoutDashboard, labelKey: "overview" },
   { href: "/dashboard/orders", icon: Package, labelKey: "orders" },
+  { href: "/dashboard/blog", icon: FileText, labelKey: "blog" },
   { href: "/dashboard/favorites", icon: Heart, labelKey: "favorites" },
   { href: "/dashboard/inquiries", icon: MessageSquare, labelKey: "inquiries" },
   { href: "/dashboard/profile", icon: User, labelKey: "profile" },

@@ -412,7 +412,26 @@
       "shipping": "輸送中",
       "delivered": "納車済み",
       "cancelled": "キャンセル"
-    }
+    },
+    "blog": "ブログ管理",
+    "blogNew": "新規投稿",
+    "blogTitle": "タイトル",
+    "blogCategory": "カテゴリー",
+    "blogStatus": "ステータス",
+    "blogDate": "投稿日",
+    "blogPublished": "公開済み",
+    "blogDraft": "下書き",
+    "blogActions": "操作",
+    "blogEdit": "編集",
+    "blogDelete": "削除",
+    "blogEmpty": "記事がありません",
+    "blogSaveDraft": "下書き保存",
+    "blogPublish": "公開する",
+    "blogCancel": "キャンセル",
+    "blogExcerpt": "概要",
+    "blogContent": "本文",
+    "blogCoverImage": "カバー画像URL",
+    "blogConfirmDelete": "この記事を削除しますか？"
   },
   "blog": {
     "title": "ニュース",
