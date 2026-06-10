@@ -23,6 +23,48 @@ const categoryColors: Record<string, string> = {
   "Market News": "bg-amber-100 text-amber-700",
 };
 
+// Inline markdown renderer: **bold** and *italic*
+function renderInline(text: string): React.ReactNode {
+  const parts: React.ReactNode[] = [];
+  // Split by **bold** first, then *italic* within each segment
+  const boldRegex = /\*\*(.+?)\*\*/g;
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+  let keyIdx = 0;
+
+  while ((match = boldRegex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(renderItalic(text.slice(lastIndex, match.index), keyIdx++));
+    }
+    parts.push(<strong key={`b${keyIdx++}`} className="font-semibold text-gray-900">{renderItalic(match[1], keyIdx++)}</strong>);
+    lastIndex = boldRegex.lastIndex;
+  }
+  if (lastIndex < text.length) {
+    parts.push(renderItalic(text.slice(lastIndex), keyIdx++));
+  }
+  return parts.length === 1 ? parts[0] : <>{parts}</>;
+}
+
+function renderItalic(text: string, baseKey: number): React.ReactNode {
+  const italicRegex = /\*(.+?)\*/g;
+  const parts: React.ReactNode[] = [];
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+  let idx = baseKey * 100;
+
+  while ((match = italicRegex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(text.slice(lastIndex, match.index));
+    }
+    parts.push(<em key={`i${idx++}`} className="italic">{match[1]}</em>);
+    lastIndex = italicRegex.lastIndex;
+  }
+  if (lastIndex < text.length) {
+    parts.push(text.slice(lastIndex));
+  }
+  return parts.length === 1 ? parts[0] : <>{parts}</>;
+}
+
 export default function BlogPostPage() {
   const t = useTranslations("blog");
   const tc = useTranslations("common");
@@ -120,35 +162,109 @@ export default function BlogPostPage() {
             const trimmed = block.trim();
             if (!trimmed) return null;
 
+            // H2 heading
             if (trimmed.startsWith("## ")) {
               return (
-                <h2 key={idx} className="text-xl font-semibold text-gray-900 mt-8 mb-3">
-                  {trimmed.replace("## ", "")}
+                <h2 key={idx} className="text-xl font-semibold text-gray-900 mt-10 mb-4 scroll-mt-20">
+                  {renderInline(trimmed.replace("## ", ""))}
                 </h2>
               );
             }
+            // H3 heading
             if (trimmed.startsWith("### ")) {
               return (
-                <h3 key={idx} className="text-lg font-semibold text-gray-800 mt-6 mb-2">
-                  {trimmed.replace("### ", "")}
+                <h3 key={idx} className="text-lg font-semibold text-gray-800 mt-8 mb-3 scroll-mt-20">
+                  {renderInline(trimmed.replace("### ", ""))}
                 </h3>
               );
             }
+            // Image: ![alt](url)
+            const imgMatch = trimmed.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
+            if (imgMatch) {
+              return (
+                <figure key={idx} className="my-8 -mx-4 sm:mx-0">
+                  <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden bg-gray-100">
+                    <img
+                      src={imgMatch[2]}
+                      alt={imgMatch[1]}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                  {imgMatch[1] && (
+                    <figcaption className="text-center text-sm text-gray-400 mt-2">{imgMatch[1]}</figcaption>
+                  )}
+                </figure>
+              );
+            }
+            // Table: lines starting with |
+            if (trimmed.startsWith("|") && trimmed.includes("\n|")) {
+              const rows = trimmed.split("\n").filter((l) => l.trim().startsWith("|"));
+              if (rows.length >= 2) {
+                // Skip separator row (|---|---|)
+                const headerCells = rows[0].split("|").filter((c) => c.trim());
+                const dataRows = rows.slice(1).filter((r) => !r.match(/^\|[\s\-:|]+\|$/));
+                return (
+                  <div key={idx} className="my-6 overflow-x-auto">
+                    <table className="w-full text-sm border-collapse">
+                      <thead>
+                        <tr className="border-b-2 border-gray-200">
+                          {headerCells.map((cell, ci) => (
+                            <th key={ci} className="px-3 py-2 text-left font-semibold text-gray-900 bg-gray-50">
+                              {cell.trim()}
+                            </th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {dataRows.map((row, ri) => {
+                          const cells = row.split("|").filter((c) => c.trim());
+                          return (
+                            <tr key={ri} className="border-b border-gray-100 hover:bg-gray-50">
+                              {cells.map((cell, ci) => (
+                                <td key={ci} className="px-3 py-2.5 text-gray-600">
+                                  {renderInline(cell.trim())}
+                                </td>
+                              ))}
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
+                );
+              }
+            }
+            // Unordered list
             if (trimmed.startsWith("- ")) {
               const items = trimmed.split("\n").filter((l) => l.trim().startsWith("- "));
               return (
-                <ul key={idx} className="list-disc pl-5 space-y-1 my-3">
+                <ul key={idx} className="list-disc pl-5 space-y-2 my-4">
                   {items.map((item, i) => (
-                    <li key={i} className="text-gray-600 text-sm leading-relaxed">
-                      {item.replace("- ", "")}
+                    <li key={i} className="text-gray-600 leading-relaxed">
+                      {renderInline(item.replace(/^-\s/, ""))}
                     </li>
                   ))}
                 </ul>
               );
             }
+            // Ordered list
+            if (/^\d+\.\s/.test(trimmed)) {
+              const items = trimmed.split("\n").filter((l) => /^\d+\.\s/.test(l.trim()));
+              return (
+                <ol key={idx} className="list-decimal pl-5 space-y-2 my-4">
+                  {items.map((item, i) => (
+                    <li key={i} className="text-gray-600 leading-relaxed">
+                      {renderInline(item.replace(/^\d+\.\s/, ""))}
+                    </li>
+                  ))}
+                </ol>
+              );
+            }
+            // Paragraph
             return (
-              <p key={idx} className="text-gray-600 text-sm leading-relaxed my-3">
-                {trimmed}
+              <p key={idx} className="text-gray-600 leading-relaxed my-4">
+                {renderInline(trimmed)}
               </p>
             );
           })}

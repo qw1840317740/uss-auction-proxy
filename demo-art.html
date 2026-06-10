@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Velocity JAPAN</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter','Noto Serif JP',sans-serif;background:#F4F1EC;color:#1a1a1a;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+::selection{background:#E63946;color:#fff}
+
+/* === NAV — minimal === */
+nav{position:fixed;top:0;left:0;right:0;z-index:99;display:flex;justify-content:space-between;align-items:center;padding:20px 32px;mix-blend-mode:difference;color:#fff}
+nav .brand{font-family:'Instrument Serif',serif;font-size:1.25rem;letter-spacing:-.01em}
+nav .brand em{font-style:italic;color:#E63946}
+nav .menu{display:flex;gap:28px;font-size:.6875rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase}
+nav .menu a{opacity:.6;transition:opacity .3s}
+nav .menu a:hover{opacity:1}
+
+/* === OPENING — full screen, one statement === */
+.opening{height:100vh;position:relative;display:flex;align-items:flex-end;overflow:hidden}
+.opening img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 35%}
+.opening .grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,20,20,.85) 0%,rgba(20,20,20,.3) 40%,transparent 70%)}
+.opening .content{position:relative;z-index:2;padding:0 48px 64px;color:#fff;width:100%}
+.opening .watermark{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Noto Serif JP',serif;font-size:clamp(8rem,22vw,20rem);color:rgba(230,57,70,.06);line-height:.8;pointer-events:none;user-select:none}
+.opening .kiss{position:absolute;top:64px;right:48px;width:80px;height:80px;border-radius:50%;border:1px solid rgba(230,57,70,.25);display:flex;align-items:center;justify-content:center;font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(230,57,70,.5)}
+.opening h1{font-family:'Instrument Serif',serif;font-size:clamp(3rem,7vw,5.5rem);line-height:1;font-weight:400;max-width:700px;letter-spacing:-.02em}
+.opening h1 em{font-style:italic;color:#E63946}
+.opening .sub{font-size:.9375rem;color:rgba(255,255,255,.45);margin-top:16px;max-width:400px;line-height:1.7}
+.opening .scroll-hint{position:absolute;bottom:24px;right:48px;font-size:.5625rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.25);writing-mode:vertical-rl}
+
+/* === SECTION: MANIFESTO — text-only, dramatic type === */
+.manifesto{padding:120px 48px;background:#F4F1EC}
+.manifesto-inner{max-width:1100px;margin:0 auto}
+.manifesto .tag{font-size:.5625rem;letter-spacing:.2em;text-transform:uppercase;color:#E63946;margin-bottom:48px;display:flex;align-items:center;gap:12px}
+.manifesto .tag::before{content:'';width:20px;height:1px;background:#E63946}
+.manifesto blockquote{font-family:'Instrument Serif','Noto Serif JP',serif;font-size:clamp(1.75rem,4vw,3rem);line-height:1.3;font-weight:400;max-width:800px}
+.manifesto blockquote em{font-style:italic;color:#E63946}
+.manifesto .attr{text-align:right;margin-top:24px;font-style:italic;font-size:.9375rem;color:#999}
+
+/* === SECTION: ABOUT — asymmetric, image breaks frame === */
+.about-sec{position:relative;background:#1a1a1a;color:#fff;overflow:hidden}
+.about-sec .bg-char{position:absolute;bottom:-20px;right:-20px;font-family:'Noto Serif JP',serif;font-size:clamp(10rem,25vw,22rem);color:rgba(255,255,255,.02);line-height:.8;pointer-events:none}
+.about-sec .inner{display:grid;grid-template-columns:1fr 1.2fr;min-height:500px}
+.about-sec .img-side{position:relative;overflow:hidden}
+.about-sec .img-side img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(.3);transition:filter .5s}
+.about-sec .img-side:hover img{filter:grayscale(0)}
+.about-sec .text-side{padding:64px clamp(32px,5vw,80px);display:flex;flex-direction:column;justify-content:center}
+.about-sec .num{font-family:'Space Mono',monospace;font-size:.5625rem;letter-spacing:.15em;color:#E63946;margin-bottom:32px}
+.about-sec h2{font-family:'Instrument Serif','Noto Serif JP',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:400;line-height:1.15;margin-bottom:24px}
+.about-sec h2 em{font-style:italic;color:#E63946}
+.about-sec p{font-size:.9375rem;color:rgba(255,255,255,.5);line-height:1.9;margin-bottom:16px}
+.about-sec .stats{display:flex;gap:40px;margin-top:32px;padding-top:32px;border-top:1px solid rgba(255,255,255,.08)}
+.about-sec .stat-v{font-family:'Instrument Serif',serif;font-size:2rem;line-height:1}
+.about-sec .stat-l{font-size:.625rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:4px}
+
+/* === SECTION: SERVICES — floating, no grid === */
+.services-sec{padding:100px 48px;background:#F4F1EC;position:relative}
+.services-sec .head{text-align:center;margin-bottom:64px}
+.services-sec .tag{font-size:.5625rem;letter-spacing:.2em;text-transform:uppercase;color:#E63946;margin-bottom:12px}
+.services-sec h2{font-family:'Instrument Serif',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:400}
+.services-sec h2 em{font-style:italic;color:#E63946}
+.svc-float{max-width:1100px;margin:0 auto;position:relative;min-height:500px}
+.svc-item{background:#fff;border:1px solid #E0DDD6;padding:36px 32px;position:absolute;transition:all .4s cubic-bezier(.16,1,.3,1);cursor:default}
+.svc-item:hover{box-shadow:0 16px 48px rgba(0,0,0,.08);transform:translateY(-4px)}
+.svc-item .idx{font-family:'Space Mono',monospace;font-size:.5rem;letter-spacing:.1em;color:#E63946;margin-bottom:16px}
+.svc-item h3{font-family:'Instrument Serif',serif;font-size:1.5rem;margin-bottom:8px}
+.svc-item p{font-size:.8125rem;color:#888;line-height:1.7;max-width:280px}
+.svc-item.s1{top:0;left:0;width:340px}
+.svc-item.s2{top:60px;right:0;width:300px}
+.svc-item.s3{bottom:0;left:120px;width:320px}
+.svc-item .line{width:32px;height:2px;background:#E63946;margin-top:20px}
+
+/* === SECTION: PROCESS — horizontal scroll === */
+.process-sec{background:#1a1a1a;color:#fff;padding:80px 0;overflow:hidden}
+.process-sec .head{padding:0 48px;margin-bottom:48px}
+.process-sec .tag{font-size:.5625rem;letter-spacing:.2em;text-transform:uppercase;color:#E63946;margin-bottom:12px}
+.process-sec h2{font-family:'Instrument Serif',serif;font-size:clamp(1.75rem,3vw,2.5rem);font-weight:400}
+.process-track{display:flex;gap:0;padding-left:48px}
+.process-track .step{flex-shrink:0;width:280px;border-left:1px solid rgba(230,57,70,.15);padding:32px 40px;position:relative}
+.process-track .step::before{content:'';position:absolute;top:0;left:-4px;width:7px;height:7px;border-radius:50%;background:#E63946}
+.process-track .step:last-child{border-right:1px solid rgba(230,57,70,.15)}
+.process-track .sn{font-family:'Space Mono',monospace;font-size:.5rem;color:#E63946;margin-bottom:16px}
+.process-track h4{font-family:'Instrument Serif',serif;font-size:1.25rem;margin-bottom:8px}
+.process-track p{font-size:.75rem;color:rgba(255,255,255,.35);line-height:1.7}
+
+/* === SECTION: VEHICLES — editorial layout === */
+.vehicles-sec{padding:100px 48px;background:#F4F1EC}
+.vehicles-sec .head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;max-width:1200px;margin-left:auto;margin-right:auto}
+.vehicles-sec .head .tag{font-size:.5625rem;letter-spacing:.2em;text-transform:uppercase;color:#E63946;margin-bottom:12px}
+.vehicles-sec .head h2{font-family:'Instrument Serif',serif;font-size:clamp(1.75rem,3vw,2.5rem);font-weight:400}
+.vehicles-sec .head h2 em{font-style:italic;color:#E63946}
+.v-editorial{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:auto auto;gap:16px}
+.v-big{grid-column:span 2;grid-row:span 2;position:relative;overflow:hidden;border-radius:2px}
+.v-big img{width:100%;height:100%;object-fit:cover;min-height:400px;transition:transform .6s}
+.v-big:hover img{transform:scale(1.03)}
+.v-big .info{position:absolute;bottom:0;left:0;right:0;padding:32px;background:linear-gradient(to top,rgba(0,0,0,.7),transparent);color:#fff}
+.v-big .info .mk{font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:#E63946;margin-bottom:4px}
+.v-big .info h3{font-family:'Instrument Serif',serif;font-size:1.75rem;margin-bottom:4px}
+.v-big .info .price{font-size:1.125rem}
+.v-sm{position:relative;overflow:hidden;border-radius:2px;background:#fff;border:1px solid #E0DDD6}
+.v-sm img{width:100%;height:180px;object-fit:cover;transition:transform .4s}
+.v-sm:hover img{transform:scale(1.04)}
+.v-sm-body{padding:16px}
+.v-sm-body .mk{font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;color:#E63946;margin-bottom:2px}
+.v-sm-body h4{font-family:'Instrument Serif',serif;font-size:1.0625rem;margin-bottom:4px}
+.v-sm-body .meta{font-size:.6875rem;color:#999;margin-bottom:6px}
+.v-sm-body .price{font-weight:700;font-size:.9375rem}
+
+/* === SECTION: BLOG — magazine spread === */
+.blog-sec{padding:80px 48px;background:#fff;position:relative}
+.blog-sec::before{content:'05';position:absolute;top:40px;right:48px;font-family:'Space Mono',monospace;font-size:8rem;color:rgba(0,0,0,.03);line-height:1}
+.blog-sec .head{max-width:1200px;margin:0 auto 48px}
+.blog-sec .tag{font-size:.5625rem;letter-spacing:.2em;text-transform:uppercase;color:#E63946;margin-bottom:12px}
+.blog-sec h2{font-family:'Instrument Serif',serif;font-size:clamp(1.75rem,3vw,2.5rem);font-weight:400}
+.blog-sec h2 em{font-style:italic;color:#E63946}
+.blog-spread{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr;gap:0;border:1px solid #E0DDD6}
+.blog-main{position:relative;overflow:hidden}
+.blog-main img{width:100%;height:100%;object-fit:cover;min-height:320px;transition:transform .5s}
+.blog-main:hover img{transform:scale(1.02)}
+.blog-main .info{position:absolute;bottom:0;left:0;right:0;padding:28px;background:linear-gradient(to top,rgba(0,0,0,.7),transparent);color:#fff}
+.blog-main .cat{font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;color:#E63946;margin-bottom:6px}
+.blog-main h3{font-family:'Instrument Serif',serif;font-size:1.375rem;margin-bottom:4px}
+.blog-main .date{font-size:.6875rem;color:rgba(255,255,255,.4)}
+.blog-side{display:flex;flex-direction:column}
+.blog-side-item{flex:1;padding:24px;border-bottom:1px solid #E0DDD6;border-left:1px solid #E0DDD6;display:flex;flex-direction:column;justify-content:center;transition:background .3s;cursor:pointer}
+.blog-side-item:last-child{border-bottom:none}
+.blog-side-item:hover{background:#F4F1EC}
+.blog-side-item .cat{font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:#E63946;margin-bottom:6px}
+.blog-side-item h4{font-family:'Instrument Serif',serif;font-size:1rem;line-height:1.4;margin-bottom:4px}
+.blog-side-item .date{font-size:.625rem;color:#bbb}
+
+/* === SECTION: FAQ — clean === */
+.faq-sec{padding:80px 48px;background:#F4F1EC}
+.faq-sec .head{max-width:700px;margin:0 auto 40px;text-align:center}
+.faq-sec .tag{font-size:.5625rem;letter-spacing:.2em;text-transform:uppercase;color:#E63946;margin-bottom:12px}
+.faq-sec h2{font-family:'Instrument Serif',serif;font-size:clamp(1.75rem,3vw,2.25rem);font-weight:400}
+.faq-sec h2 em{font-style:italic;color:#E63946}
+.faq-list{max-width:700px;margin:0 auto}
+.faq-item{border-bottom:1px solid #E0DDD6}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:16px 0;cursor:pointer;font-weight:500;font-size:.9375rem;transition:color .2s}
+.faq-q:hover{color:#E63946}
+.faq-q .pm{color:#ccc;font-size:1.125rem;transition:transform .3s}
+.faq-item.active .faq-q{color:#E63946}
+.faq-item.active .faq-q .pm{transform:rotate(45deg);color:#E63946}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s}
+.faq-item.active .faq-a{max-height:100px}
+.faq-a p{padding-bottom:16px;font-size:.875rem;color:#888;line-height:1.7}
+
+/* === CTA — single powerful statement === */
+.cta-sec{padding:120px 48px;background:#E63946;color:#fff;text-align:center;position:relative;overflow:hidden}
+.cta-sec .bg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Noto Serif JP',serif;font-size:clamp(8rem,20vw,18rem);color:rgba(255,255,255,.06);line-height:.8;pointer-events:none;white-space:nowrap}
+.cta-sec h2{font-family:'Instrument Serif',serif;font-size:clamp(2rem,4vw,3rem);font-weight:400;margin-bottom:16px;position:relative}
+.cta-sec h2 em{font-style:italic}
+.cta-sec p{font-size:.9375rem;color:rgba(255,255,255,.6);max-width:360px;margin:0 auto 32px;position:relative;line-height:1.8}
+.cta-sec .btns{display:flex;gap:12px;justify-content:center;position:relative}
+.btn-w{padding:13px 28px;background:#fff;color:#E63946;font-size:.8125rem;font-weight:600;border:none;cursor:pointer;transition:background .2s}
+.btn-w:hover{background:#f0f0f0}
+.btn-t{padding:13px 28px;border:1px solid rgba(255,255,255,.4);color:#fff;font-size:.8125rem;font-weight:500;background:transparent;cursor:pointer;transition:border-color .2s}
+.btn-t:hover{border-color:rgba(255,255,255,.7)}
+
+/* === FOOTER — minimal === */
+footer{padding:48px;border-top:1px solid #E0DDD6;background:#fff}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.footer-inner .left{font-family:'Instrument Serif',serif;font-size:1rem}
+.footer-inner .left em{color:#E63946}
+.footer-inner .right{display:flex;gap:24px;font-size:.6875rem;color:#aaa}
+.footer-inner .right a{transition:color .2s}
+.footer-inner .right a:hover{color:#E63946}
+
+/* === REVEAL === */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
+.rv.show{opacity:1;transform:none}
+.rv-d1{transition-delay:.1s}.rv-d2{transition-delay:.2s}
+
+/* === RESPONSIVE === */
+@media(max-width:1024px){
+  .about-sec .inner{grid-template-columns:1fr}
+  .about-sec .img-side{min-height:300px}
+  .svc-float{min-height:auto;position:static}
+  .svc-item{position:static!important;width:100%!important;margin-bottom:12px}
+  .v-editorial{grid-template-columns:1fr}
+  .v-big{grid-column:span 1;grid-row:span 1}
+  .blog-spread{grid-template-columns:1fr}
+  .blog-side-item{border-left:none}
+  .footer-inner{flex-direction:column;gap:16px;text-align:center}
+}
+@media(max-width:768px){
+  nav .menu{display:none}
+  .opening .content{padding:0 24px 48px}
+  .opening .kiss{display:none}
+  .opening .scroll-hint{display:none}
+  .manifesto{padding:64px 24px}
+  .about-sec .text-side{padding:40px 24px}
+  .services-sec{padding:64px 24px}
+  .process-track{padding-left:24px}
+  .process-track .step{width:220px}
+  .vehicles-sec{padding:64px 24px}
+  .blog-sec{padding:64px 24px}
+  .blog-sec::before{display:none}
+  .faq-sec{padding:64px 24px}
+  .cta-sec{padding:80px 24px}
+  footer{padding:32px 24px}
+}
+
+.badge{position:fixed;bottom:12px;left:50%;transform:translateX(-50%);z-index:999;background:#1a1a1a;color:#E63946;font-size:.5625rem;padding:5px 14px;font-family:'Space Mono',monospace;letter-spacing:.06em}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="brand">Velocity <em>JAPAN</em></a>
+  <div class="menu">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#vehicles">Vehicles</a>
+    <a href="#journal">Journal</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- OPENING -->
+<section class="opening">
+  <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1600&q=80" alt="">
+  <div class="grad"></div>
+  <div class="watermark">走</div>
+  <div class="kiss">Scroll<br>↓</div>
+  <div class="content">
+    <h1>日本の<em>名車</em>を、<br>世界へ。</h1>
+    <p class="sub">埼玉から世界へ。品質と信頼の日本車輸出。USSオークション直接連携。</p>
+  </div>
+  <span class="scroll-hint">Scroll down</span>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto rv">
+  <div class="manifesto-inner">
+    <div class="tag">Philosophy</div>
+    <blockquote>
+      私たちは一台一台を<em>丁寧に</em>選び、<br>
+      お客様の国の法規制に合わせた<br>
+      最適なプランを<em>提案する</em>。<br>
+      プロフェッショナル集団です。
+    </blockquote>
+    <div class="attr">— Velocity JAPAN</div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-sec" id="about">
+  <div class="bg-char">信頼</div>
+  <div class="inner rv">
+    <div class="img-side">
+      <img src="https://images.unsplash.com/photo-1580274455191-1c62238ce452?w=900&q=80" alt="">
+    </div>
+    <div class="text-side">
+      <div class="num">01</div>
+      <h2>品質への<em>こだわり</em></h2>
+      <p>埼玉県三芳町を拠点に、USSオークションネットワークと直接連携。厳選された中古車を世界50カ国以上へお届けしてきました。</p>
+      <p>一台一台を丁寧に検査し、最適な輸出プランを提案します。</p>
+      <div class="stats">
+        <div><div class="stat-v">12,000+</div><div class="stat-l">取引実績</div></div>
+        <div><div class="stat-v">50+</div><div class="stat-l">輸出先国</div></div>
+        <div><div class="stat-v">98%</div><div class="stat-l">満足度</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES — floating cards -->
+<section class="services-sec" id="services">
+  <div class="head rv">
+    <div class="tag">02 — Services</div>
+    <h2>ワンストップで、<em>すべてを。</em></h2>
+  </div>
+  <div class="svc-float rv rv-d1">
+    <div class="svc-item s1">
+      <div class="idx">001</div>
+      <h3>車両販売</h3>
+      <p>USSオークション直接連携。品質検査済みの安心車両のみを取り扱い。</p>
+      <div class="line"></div>
+    </div>
+    <div class="svc-item s2">
+      <div class="idx">002</div>
+      <h3>海外輸出</h3>
+      <p>50カ国以上への輸出実績。通関から船積みまで完全サポート。</p>
+      <div class="line"></div>
+    </div>
+    <div class="svc-item s3">
+      <div class="idx">003</div>
+      <h3>整備・点検</h3>
+      <p>日本の厳しい品質基準をクリアした車両のみを出荷。</p>
+      <div class="line"></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS — horizontal -->
+<section class="process-sec" id="how">
+  <div class="head rv">
+    <div class="tag">03 — Process</div>
+    <h2>ご購入の流れ</h2>
+  </div>
+  <div class="process-track rv rv-d1">
+    <div class="step"><div class="sn">01</div><h4>お問い合わせ</h4><p>希望車種・予算をご相談。最適なプランを提案。</p></div>
+    <div class="step"><div class="sn">02</div><h4>車両選定</h4><p>USSオークションから希望条件の車両をマッチング。</p></div>
+    <div class="step"><div class="sn">03</div><h4>品質検査</h4><p>専門スタッフが徹底検査。詳細レポートを提出。</p></div>
+    <div class="step"><div class="sn">04</div><h4>輸出・配送</h4><p>書類手続き完了後、安全に配送。追跡も可能。</p></div>
+    <div class="step"><div class="sn">05</div><h4>アフター</h4><p>納車後もサポート。何でもお気軽にご相談ください。</p></div>
+  </div>
+</section>
+
+<!-- VEHICLES — editorial grid -->
+<section class="vehicles-sec" id="vehicles">
+  <div class="head rv">
+    <div>
+      <div class="tag">04 — Inventory</div>
+      <h2>厳選<em>中古車</em>ラインナップ</h2>
+    </div>
+  </div>
+  <div class="v-editorial rv rv-d1">
+    <div class="v-big">
+      <img src="https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=1000&q=80" alt="">
+      <div class="info">
+        <div class="mk">Featured · Toyota</div>
+        <h3>Land Cruiser 300 ZAX</h3>
+        <div class="price">¥8,450,000</div>
+      </div>
+    </div>
+    <div class="v-sm">
+      <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=500&q=80" alt="">
+      <div class="v-sm-body"><div class="mk">Honda</div><h4>Civic Type R FL5</h4><div class="meta">2024 · 12,000km</div><div class="price">¥5,280,000</div></div>
+    </div>
+    <div class="v-sm">
+      <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=500&q=80" alt="">
+      <div class="v-sm-body"><div class="mk">Nissan</div><h4>GT-R NISMO R35</h4><div class="meta">2022 · 8,500km</div><div class="price">¥22,800,000</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG — magazine spread -->
+<section class="blog-sec" id="journal">
+  <div class="head rv">
+    <div class="tag">05 — Journal</div>
+    <h2>最新<em>トピックス</em></h2>
+  </div>
+  <div class="blog-spread rv rv-d1">
+    <div class="blog-main">
+      <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=800&q=80" alt="">
+      <div class="info">
+        <div class="cat">Industry Report</div>
+        <h3>2026年 中古車輸出の最新トレンド分析</h3>
+        <div class="date">2026.06.05</div>
+      </div>
+    </div>
+    <div class="blog-side">
+      <div class="blog-side-item">
+        <div class="cat">Buying Guide</div>
+        <h4>オークションで失敗しない車両選びのコツ</h4>
+        <div class="date">2026.05.28</div>
+      </div>
+      <div class="blog-side-item">
+        <div class="cat">Export Guide</div>
+        <h4>輸出手続きの流れ：完全ガイド</h4>
+        <div class="date">2026.05.15</div>
+      </div>
+      <div class="blog-side-item">
+        <div class="cat">Company</div>
+        <h4>新規輸出ルート開設のお知らせ</h4>
+        <div class="date">2026.05.02</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-sec" id="faq">
+  <div class="head rv">
+    <div class="tag">06 — FAQ</div>
+    <h2>よくある<em>ご質問</em></h2>
+  </div>
+  <div class="faq-list rv rv-d1">
+    <div class="faq-item active"><div class="faq-q"><span>輸出対象国はどこですか？</span><span class="pm">+</span></div><div class="faq-a"><p>アフリカ、中東、東南アジア、大洋州、中南米など50カ国以上。</p></div></div>
+    <div class="faq-item"><div class="faq-q"><span>支払い方法は？</span><span class="pm">+</span></div><div class="faq-a"><p>銀行振込（T/T）、L/C（信用状）に対応。</p></div></div>
+    <div class="faq-item"><div class="faq-q"><span>車両の状態は確認できますか？</span><span class="pm">+</span></div><div class="faq-a"><p>詳細な写真、検査レポート、動画を提供。</p></div></div>
+    <div class="faq-item"><div class="faq-q"><span>輸出までどのくらいかかりますか？</span><span class="pm">+</span></div><div class="faq-a"><p>契約から出荷まで2〜4週間。海上輸送に2〜6週間。</p></div></div>
+    <div class="faq-item"><div class="faq-q"><span>日本の中古車はなぜ人気？</span><span class="pm">+</span></div><div class="faq-a"><p>車検制度により整備状態が良く、低走行の車両が多く出回ります。</p></div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec" id="contact">
+  <div class="bg">GO</div>
+  <div class="rv">
+    <h2>理想の一台を、<br><em>見つけましょう。</em></h2>
+    <p>お気軽にご相談ください。プロフェッショナルが最適なプランをご提案します。</p>
+    <div class="btns">
+      <a href="#" class="btn-w">無料相談する</a>
+      <a href="#" class="btn-t">049-257-4332</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="left">Velocity <em>JAPAN</em> · 埼玉県入間郡三芳町 北永井500番地2</div>
+    <div class="right">
+      <a href="#">049-257-4332</a>
+      <a href="#">kaiseisg@kaiseisg.com</a>
+      <span>© 2026</span>
+    </div>
+  </div>
+</footer>
+
+<div class="badge">ARTISTIC DEMO</div>
+
+<script>
+const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('show')}),{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{const i=q.parentElement,w=i.classList.contains('active');document.querySelectorAll('.faq-item').forEach(x=>x.classList.remove('active'));if(!w)i.classList.add('active')})});
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
+</script>
+</body>
+</html>

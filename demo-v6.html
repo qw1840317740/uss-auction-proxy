@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Velocity JAPAN</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Space Grotesk','Noto Sans JP',sans-serif;background:#090909;color:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased;cursor:none}
+a{text-decoration:none;color:inherit;cursor:none}
+img{display:block;max-width:100%}
+::selection{background:#FF4D00;color:#000}
+
+/* === CUSTOM CURSOR === */
+.cursor{position:fixed;width:16px;height:16px;border:1.5px solid #FF4D00;border-radius:50%;pointer-events:none;z-index:10000;transition:width .25s,height .25s,border-color .25s,background .25s;transform:translate(-50%,-50%);mix-blend-mode:difference}
+.cursor.hover{width:48px;height:48px;background:rgba(255,77,0,.15);border-color:#FF4D00}
+.cursor-dot{position:fixed;width:4px;height:4px;background:#FF4D00;border-radius:50%;pointer-events:none;z-index:10001;transform:translate(-50%,-50%)}
+
+/* === SCROLL PROGRESS === */
+.scroll-progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,#FF4D00,#ff8c42);z-index:10001;transition:width .1s;width:0}
+
+/* === GRAIN === */
+body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* === FLOATING ORBS === */
+.orb{position:fixed;border-radius:50%;pointer-events:none;z-index:0;filter:blur(80px);animation:orbFloat 12s ease-in-out infinite}
+.orb-1{width:300px;height:300px;background:rgba(255,77,0,.06);top:10%;left:10%;animation-delay:0s}
+.orb-2{width:400px;height:400px;background:rgba(255,140,66,.04);top:50%;right:5%;animation-delay:-4s}
+.orb-3{width:250px;height:250px;background:rgba(255,77,0,.05);bottom:20%;left:30%;animation-delay:-8s}
+@keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-40px) scale(1.1)}66%{transform:translate(-20px,30px) scale(.9)}}
+
+/* === NAV === */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:20px 40px;transition:all .5s cubic-bezier(.16,1,.3,1)}
+nav.scrolled{background:rgba(9,9,9,.8);backdrop-filter:blur(24px);border-bottom:1px solid rgba(255,77,0,.06)}
+.nav-logo{font-size:1.125rem;font-weight:700;display:flex;align-items:center;gap:8px}
+.nav-logo .v{width:30px;height:30px;background:#FF4D00;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.875rem;color:#090909;transition:all .3s}
+.nav-logo:hover .v{transform:rotate(90deg);border-radius:50%}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-links a{font-size:.6875rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7);transition:all .3s;position:relative;padding:4px 0}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:#FF4D00;transition:width .3s cubic-bezier(.16,1,.3,1)}
+.nav-links a:hover{color:#FF4D00}
+.nav-links a:hover::after{width:100%}
+.nav-cta{font-size:.6875rem;font-weight:600;padding:8px 20px;border:1px solid rgba(255,77,0,.4);color:#FF4D00;letter-spacing:.06em;text-transform:uppercase;position:relative;overflow:hidden;transition:all .3s}
+.nav-cta::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:#FF4D00;transition:left .3s cubic-bezier(.16,1,.3,1);z-index:-1}
+.nav-cta:hover{color:#090909}
+.nav-cta:hover::before{left:0}
+
+/* === HERO === */
+.hero{height:100vh;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-bg{position:absolute;inset:-5%;width:110%;height:110%}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 35%;filter:brightness(.18) saturate(.5);animation:heroZoom 25s ease-in-out infinite alternate}
+@keyframes heroZoom{0%{transform:scale(1) translateY(0)}100%{transform:scale(1.1) translateY(-1%)}}
+.hero-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at 25% 50%,rgba(255,77,0,.06) 0%,transparent 50%),radial-gradient(ellipse at 75% 50%,rgba(255,140,66,.04) 0%,transparent 50%)}
+.hero-content{position:relative;z-index:2;text-align:center;padding:0 24px}
+.hero-eyebrow{font-size:.5625rem;font-weight:600;letter-spacing:.35em;text-transform:uppercase;color:#FF4D00;margin-bottom:2.5rem;opacity:0;animation:fadeSlideUp .8s cubic-bezier(.16,1,.3,1) .5s forwards}
+.hero h1{font-size:clamp(3.5rem,9vw,7.5rem);line-height:.92;font-weight:700;letter-spacing:-.04em;opacity:0;animation:fadeSlideUp .8s cubic-bezier(.16,1,.3,1) .6s forwards}
+.hero h1 .orange{color:#FF4D00;position:relative;display:inline-block}
+.hero h1 .orange::after{content:'';position:absolute;bottom:.05em;left:0;width:100%;height:3px;background:#FF4D00;transform:scaleX(0);transform-origin:left;animation:lineIn .6s cubic-bezier(.16,1,.3,1) 1.2s forwards}
+@keyframes lineIn{to{transform:scaleX(1)}}
+.hero h1 .outline{-webkit-text-stroke:1.5px rgba(255,255,255,.6);color:transparent}
+.hero-sub{font-size:1.0625rem;color:rgba(255,255,255,.65);max-width:440px;margin:1.75rem auto 2.5rem;line-height:1.8;font-weight:300;opacity:0;animation:fadeSlideUp .8s cubic-bezier(.16,1,.3,1) .7s forwards}
+.hero-btns{display:flex;gap:12px;justify-content:center;opacity:0;animation:fadeSlideUp .8s cubic-bezier(.16,1,.3,1) .8s forwards}
+@keyframes fadeSlideUp{from{opacity:0;transform:translateY(35px)}to{opacity:1;transform:translateY(0)}}
+
+/* BUTTONS */
+.btn-fire{padding:14px 36px;background:#FF4D00;color:#090909;font-size:.8125rem;font-weight:700;letter-spacing:.06em;border:none;position:relative;overflow:hidden;transition:all .3s}
+.btn-fire::before{content:'';position:absolute;top:50%;left:50%;width:0;height:0;background:rgba(255,255,255,.5);border-radius:50%;transform:translate(-50%,-50%);transition:width .5s,height .5s}
+.btn-fire:hover::before{width:300px;height:300px}
+.btn-fire:hover{box-shadow:0 0 40px rgba(255,77,0,.35),0 0 80px rgba(255,77,0,.1);transform:translateY(-2px)}
+.btn-ghost{padding:14px 36px;border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.7);font-size:.8125rem;font-weight:500;letter-spacing:.06em;background:transparent;transition:all .3s;position:relative;overflow:hidden}
+.btn-ghost::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,77,0,.1),transparent);transform:translateX(-100%);transition:transform .5s}
+.btn-ghost:hover{border-color:#FF4D00;color:#FF4D00}
+.btn-ghost:hover::before{transform:translateX(100%)}
+
+/* SCROLL INDICATOR */
+.scroll-ind{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px}
+.scroll-ind .line{width:1px;height:48px;position:relative;overflow:hidden}
+.scroll-ind .line::before{content:'';position:absolute;top:-100%;left:0;width:100%;height:100%;background:linear-gradient(180deg,#FF4D00,transparent);animation:scrollLine 2s ease-in-out infinite}
+@keyframes scrollLine{0%{top:-100%}100%{top:100%}}
+.scroll-ind span{font-size:.5rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+
+/* === ANIMATED DIVIDER === */
+.divider-anim{height:30px;position:relative;overflow:hidden}
+.divider-anim svg{position:absolute;top:0;left:0;width:100%;height:100%}
+.divider-anim path{stroke:rgba(255,77,0,.12);stroke-width:1;fill:none;stroke-dasharray:800;stroke-dashoffset:800;animation:drawLine 3s cubic-bezier(.16,1,.3,1) forwards}
+@keyframes drawLine{to{stroke-dashoffset:0}}
+
+/* === STATS === */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.15);border-bottom:1px solid rgba(255,255,255,.15);position:relative;z-index:1}
+.stat{padding:20px 16px;text-align:center;position:relative;overflow:hidden}
+.stat::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(255,77,0,.05) 0%,transparent 70%);opacity:0;transition:opacity .5s}
+.stat:hover::before{opacity:1}
+.stat:not(:last-child)::after{content:'';position:absolute;right:0;top:20%;height:60%;width:1px;background:linear-gradient(180deg,transparent,rgba(255,77,0,.1),transparent)}
+.stat-val{font-size:2.25rem;font-weight:700;color:#FF4D00;line-height:1;transition:transform .3s}
+.stat:hover .stat-val{transform:scale(1.1)}
+.stat-label{font-size:.5625rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:8px}
+
+/* === MARQUEE === */
+.marquee{padding:10px 0;overflow:hidden;border-bottom:1px solid rgba(255,255,255,.03);position:relative;z-index:1}
+.marquee-track{display:flex;gap:0;animation:scroll-left 30s linear infinite;white-space:nowrap}
+.marquee-track span{flex-shrink:0;font-size:3rem;font-weight:700;letter-spacing:.04em;color:rgba(255,255,255,.02);padding:0 1.5rem;transition:color .3s}
+.marquee-track span:hover{color:rgba(255,77,0,.08)}
+.marquee-track .sep{color:rgba(255,77,0,.1);font-size:.5rem;padding:0 1rem}
+
+@keyframes scroll-left{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* === SECTIONS === */
+.sec{padding:48px clamp(20px,4vw,48px);position:relative;z-index:1}
+.sec-label{font-size:.5625rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:#FF4D00;margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.sec-label::before{content:'';width:28px;height:1px;background:#FF4D00;transition:width .4s}
+.sec:hover .sec-label::before{width:48px}
+.sec-title{font-size:clamp(2rem,4.5vw,3.5rem);font-weight:700;line-height:1.05;letter-spacing:-.03em}
+.sec-title .o{color:#FF4D00;position:relative}
+
+/* === ABOUT === */
+.about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:0;min-height:360px;position:relative}
+.about-img{position:relative;overflow:hidden}
+.about-img img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);transition:transform 1.2s cubic-bezier(.16,1,.3,1);filter:grayscale(.2)}
+.about-img:hover img{transform:scale(1);filter:grayscale(0)}
+.about-img::after{content:'';position:absolute;inset:0;border:1px solid rgba(255,77,0,.1);pointer-events:none;transform:translate(12px,12px);transition:transform .4s}
+.about-img:hover::after{transform:translate(6px,6px)}
+.about-body{padding:clamp(24px,4vw,40px);display:flex;flex-direction:column;justify-content:center;background:#111}
+.about-body p{font-size:.9375rem;color:rgba(255,255,255,.7);line-height:1.9;margin-bottom:1rem}
+.about-body em{color:#FF4D00;font-style:normal}
+
+/* === SERVICES — with animated border === */
+.svc-row{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:16px;margin-top:28px}
+.svc-card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.15);padding:24px 20px;position:relative;overflow:hidden;transition:all .5s cubic-bezier(.16,1,.3,1);cursor:default}
+.svc-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,77,0,.08) 0%,transparent 50%);opacity:0;transition:opacity .5s}
+.svc-card:hover::before{opacity:1}
+.svc-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#FF4D00,transparent);transform:scaleX(0);transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.svc-card:hover::after{transform:scaleX(1)}
+.svc-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.svc-card .idx{font-family:monospace;font-size:.5rem;letter-spacing:.1em;color:rgba(255,77,0,.3);margin-bottom:20px}
+.svc-card h3{font-size:1.25rem;font-weight:600;margin-bottom:8px;transition:color .3s}
+.svc-card:hover h3{color:#FF4D00}
+.svc-card p{font-size:.8125rem;color:rgba(255,255,255,.6);line-height:1.7}
+.svc-card .go{display:inline-flex;align-items:center;gap:6px;margin-top:20px;font-size:.6875rem;font-weight:600;color:rgba(255,77,0,.5);letter-spacing:.06em;text-transform:uppercase;transition:all .3s}
+.svc-card:hover .go{color:#FF4D00;gap:10px}
+
+/* === PROCESS — horizontal scroll === */
+.process-sec{overflow:hidden}
+.process-track{display:flex;gap:0;margin-top:28px;padding-left:clamp(24px,5vw,80px)}
+.pstep{flex-shrink:0;width:260px;padding:32px 36px;border-left:1px solid rgba(255,77,0,.08);position:relative;transition:all .3s}
+.pstep:last-child{border-right:1px solid rgba(255,77,0,.08)}
+.pstep:hover{background:rgba(255,77,0,.03)}
+.pstep .dot{position:absolute;top:0;left:-5px;width:9px;height:9px;border-radius:50%;border:2px solid rgba(255,77,0,.3);background:#090909;transition:all .3s}
+.pstep:hover .dot{border-color:#FF4D00;background:#FF4D00;box-shadow:0 0 12px rgba(255,77,0,.5)}
+.pstep .num{font-family:monospace;font-size:.5rem;color:rgba(255,77,0,.3);margin-bottom:16px}
+.pstep h4{font-size:1.0625rem;font-weight:600;margin-bottom:6px}
+.pstep p{font-size:.75rem;color:rgba(255,255,255,.5);line-height:1.7}
+
+/* === VEHICLES === */
+.v-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;margin-top:28px}
+.v-hero{position:relative;overflow:hidden;min-height:300px}
+.v-hero img{width:100%;height:100%;object-fit:cover;filter:brightness(.4) saturate(.8);transition:all .8s cubic-bezier(.16,1,.3,1)}
+.v-hero:hover img{filter:brightness(.6) saturate(1);transform:scale(1.05)}
+.v-hero-info{position:absolute;bottom:0;left:0;right:0;padding:32px;background:linear-gradient(to top,rgba(9,9,9,.95),transparent)}
+.v-hero-info .mk{font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:#FF4D00;margin-bottom:6px}
+.v-hero-info h3{font-size:1.75rem;font-weight:700;margin-bottom:8px}
+.v-hero-info .meta{font-size:.75rem;color:rgba(255,255,255,.65);margin-bottom:12px;display:flex;gap:1rem}
+.v-hero-info .price{font-size:1.5rem;font-weight:700;color:#FF4D00}
+.v-hero .badge-new{position:absolute;top:16px;right:16px;padding:6px 14px;background:#FF4D00;color:#000;font-size:.5625rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;animation:pulse-glow 2s ease-in-out infinite}
+@keyframes pulse-glow{0%,100%{box-shadow:0 0 0 0 rgba(255,77,0,.4)}50%{box-shadow:0 0 20px 4px rgba(255,77,0,.2)}}
+.v-list{display:flex;flex-direction:column;gap:16px}
+.v-item{display:grid;grid-template-columns:130px 1fr;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.03);overflow:hidden;transition:all .4s cubic-bezier(.16,1,.3,1);cursor:pointer;flex:1;position:relative}
+.v-item::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:#FF4D00;transform:scaleY(0);transition:transform .3s}
+.v-item:hover::before{transform:scaleY(1)}
+.v-item:hover{border-color:rgba(255,77,0,.1);transform:translateX(6px);background:rgba(255,77,0,.03)}
+.v-item img{width:130px;height:100%;object-fit:cover;filter:brightness(.4) saturate(.7);transition:filter .3s}
+.v-item:hover img{filter:brightness(.55)}
+.v-item-body{padding:16px 20px;display:flex;flex-direction:column;justify-content:center}
+.v-item-body .mk{font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;color:#FF4D00;margin-bottom:2px}
+.v-item-body .name{font-size:.9375rem;font-weight:600;margin-bottom:4px}
+.v-item-body .meta{font-size:.625rem;color:rgba(255,255,255,.5);margin-bottom:6px}
+.v-item-body .price{font-weight:700;font-size:.875rem}
+
+/* === BLOG === */
+.blog-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;margin-top:28px}
+.blg-big{position:relative;overflow:hidden;min-height:240px}
+.blg-big img{width:100%;height:100%;object-fit:cover;filter:brightness(.3) saturate(.7);transition:all .6s}
+.blg-big:hover img{filter:brightness(.5);transform:scale(1.04)}
+.blg-big-info{position:absolute;bottom:0;left:0;right:0;padding:28px;background:linear-gradient(to top,rgba(9,9,9,.9),transparent)}
+.blg-big-info .cat{font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:#FF4D00;margin-bottom:6px}
+.blg-big-info h3{font-size:1.375rem;font-weight:600;line-height:1.3;margin-bottom:4px}
+.blg-big-info .date{font-size:.6875rem;color:rgba(255,255,255,.5)}
+.blg-side{display:flex;flex-direction:column}
+.blg-sm{padding:22px 24px;border-bottom:1px solid rgba(255,255,255,.03);border-left:1px solid rgba(255,255,255,.03);transition:all .4s;cursor:pointer;flex:1;display:flex;flex-direction:column;justify-content:center;background:rgba(255,255,255,.01);position:relative;overflow:hidden}
+.blg-sm::before{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:#FF4D00;transition:width .4s cubic-bezier(.16,1,.3,1)}
+.blg-sm:hover::before{width:100%}
+.blg-sm:hover{background:rgba(255,77,0,.03)}
+.blg-sm .cat{font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;color:#FF4D00;margin-bottom:6px}
+.blg-sm h4{font-size:.9375rem;font-weight:500;line-height:1.4;margin-bottom:4px}
+.blg-sm .date{font-size:.5625rem;color:rgba(255,255,255,.12)}
+
+/* === FAQ === */
+.faq-list{max-width:700px;margin:48px auto 0}
+.faq-item{border-bottom:1px solid rgba(255,255,255,.15);transition:background .3s}
+.faq-item:hover{background:rgba(255,77,0,.02)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;cursor:pointer;font-weight:500;font-size:.9375rem;color:rgba(255,255,255,.5);transition:color .3s}
+.faq-q:hover{color:#FF4D00}
+.faq-q .pm{width:24px;height:24px;border:1px solid rgba(255,77,0,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.875rem;color:rgba(255,77,0,.3);transition:all .4s;flex-shrink:0;margin-left:16px}
+.faq-item.active .faq-q{color:#FF4D00}
+.faq-item.active .faq-q .pm{transform:rotate(45deg);border-color:#FF4D00;background:rgba(255,77,0,.1);color:#FF4D00}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.16,1,.3,1)}
+.faq-item.active .faq-a{max-height:120px}
+.faq-a p{padding:0 24px 20px;font-size:.875rem;color:rgba(255,255,255,.6);line-height:1.8}
+
+/* === CTA === */
+.cta-sec{padding:64px 24px;text-align:center;position:relative;overflow:hidden}
+.cta-sec .glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(255,77,0,.1) 0%,transparent 70%);pointer-events:none;animation:glowPulse 4s ease-in-out infinite}
+@keyframes glowPulse{0%,100%{opacity:.6;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.15)}}
+.cta-sec .bg-char{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:clamp(8rem,20vw,18rem);font-weight:700;color:rgba(255,255,255,.015);pointer-events:none;white-space:nowrap}
+.cta-sec h2{font-size:clamp(2rem,4.5vw,3.5rem);font-weight:700;letter-spacing:-.03em;margin-bottom:16px;position:relative}
+.cta-sec h2 .o{color:#FF4D00}
+.cta-sec p{font-size:1rem;color:rgba(255,255,255,.6);max-width:400px;margin:0 auto 32px;line-height:1.8;position:relative}
+.cta-btns{display:flex;gap:12px;justify-content:center;position:relative}
+
+/* === FOOTER === */
+footer{border-top:1px solid rgba(255,255,255,.03);padding:24px clamp(20px,4vw,48px);display:flex;justify-content:space-between;align-items:center;font-size:.6875rem;color:rgba(255,255,255,.4);position:relative;z-index:1}
+footer .brand{font-weight:700;color:rgba(255,255,255,.65);font-size:.875rem;transition:color .3s}
+footer .brand:hover{color:#FF4D00}
+footer .brand .o{color:#FF4D00}
+footer .links{display:flex;gap:20px}
+footer .links a{color:rgba(255,255,255,.4);transition:color .2s}
+footer .links a:hover{color:#FF4D00}
+
+/* === REVEAL ANIMATIONS === */
+.rv{opacity:0;transform:translateY(35px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.rv.show{opacity:1;transform:none}
+.rv-d1{transition-delay:.1s}.rv-d2{transition-delay:.2s}.rv-d3{transition-delay:.25s}
+.rv-left{opacity:0;transform:translateX(-40px)}.rv-left.show{opacity:1;transform:none}
+.rv-right{opacity:0;transform:translateX(40px)}.rv-right.show{opacity:1;transform:none}
+.rv-scale{opacity:0;transform:scale(.9)}.rv-scale.show{opacity:1;transform:none}
+.rv-clip{clip-path:inset(100% 0 0 0);transition:clip-path .8s cubic-bezier(.16,1,.3,1)}
+.rv-clip.show{clip-path:inset(0 0 0 0)}
+
+/* === RESPONSIVE === */
+@media(max-width:1024px){
+  .about-grid{grid-template-columns:1fr}
+  .about-img{min-height:300px}
+  .svc-row{grid-template-columns:1fr}
+  .v-grid{grid-template-columns:1fr}
+  .blog-grid{grid-template-columns:1fr}
+  .blg-sm{border-left:none}
+  .stats{grid-template-columns:1fr 1fr}
+  footer{flex-direction:column;gap:16px;text-align:center}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .cursor,.cursor-dot{display:none}
+  body{cursor:auto}
+  .hero h1{font-size:clamp(2.5rem,10vw,4rem)}
+  .stats{grid-template-columns:1fr 1fr}
+  .process-track .pstep{width:200px}
+  .v-item{grid-template-columns:100px 1fr}
+  .v-item img{width:100px}
+  .hero-btns{flex-direction:column;align-items:center}
+  .orb{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- SCROLL PROGRESS -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- FLOATING ORBS -->
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
+<nav id="nav">
+  <a href="#" class="nav-logo"><span class="v">V</span>Velocity JAPAN</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#vehicles">Vehicles</a></li>
+    <li><a href="#journal">Journal</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"><img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1600&q=80" alt=""></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">EST. 2011 · SAITAMA, JAPAN</div>
+    <h1><span class="outline">日本の</span><br><span class="orange">名車</span>を、<br><span class="outline">世界へ。</span></h1>
+    <p class="hero-sub">埼玉から世界へ。品質と信頼の日本車輸出。USSオークション直接連携で、理想の一台を最短ルートでお届けします。</p>
+    <div class="hero-btns">
+      <a href="#vehicles" class="btn-fire" data-hover>在庫を見る →</a>
+      <a href="#how" class="btn-ghost" data-hover>購入ガイド</a>
+    </div>
+  </div>
+  <div class="scroll-ind"><div class="line"></div><span>Scroll</span></div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><div class="stat-val" data-count="12000">0</div><div class="stat-label">取引実績</div></div>
+  <div class="stat"><div class="stat-val" data-count="50">0</div><div class="stat-label">輸出先国</div></div>
+  <div class="stat"><div class="stat-val" data-count="98">0</div><div class="stat-label">顧客満足度</div></div>
+  <div class="stat"><div class="stat-val" data-count="15">0</div><div class="stat-label">業界経験</div></div>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee"><div class="marquee-track">
+  <span>TOYOTA</span><span class="sep">◆</span><span>HONDA</span><span class="sep">◆</span><span>NISSAN</span><span class="sep">◆</span><span>MAZDA</span><span class="sep">◆</span><span>SUBARU</span><span class="sep">◆</span><span>LEXUS</span><span class="sep">◆</span><span>MITSUBISHI</span><span class="sep">◆</span><span>SUZUKI</span><span class="sep">◆</span><span>DAIHATSU</span><span class="sep">◆</span><span>ISUZU</span>
+  <span>TOYOTA</span><span class="sep">◆</span><span>HONDA</span><span class="sep">◆</span><span>NISSAN</span><span class="sep">◆</span><span>MAZDA</span><span class="sep">◆</span><span>SUBARU</span><span class="sep">◆</span><span>LEXUS</span><span class="sep">◆</span><span>MITSUBISHI</span><span class="sep">◆</span><span>SUZUKI</span><span class="sep">◆</span><span>DAIHATSU</span><span class="sep">◆</span><span>ISUZU</span>
+</div></div>
+
+<!-- ANIMATED DIVIDER -->
+<div class="divider-anim">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
+    <path d="M0,30 Q360,0 720,30 Q1080,60 1440,30" class="rv-clip"/>
+  </svg>
+</div>
+
+<!-- ABOUT -->
+<section class="sec" id="about" style="padding-left:0;padding-right:0">
+  <div class="about-grid">
+    <div class="about-img rv-left">
+      <img src="https://images.unsplash.com/photo-1580274455191-1c62238ce452?w=900&q=80" alt="">
+    </div>
+    <div class="about-body rv-right">
+      <div class="sec-label">01 — About</div>
+      <h2 class="sec-title" style="margin-bottom:20px">品質への<span class="o">こだわり</span></h2>
+      <p>Velocity JAPANは<em>埼玉県三芳町</em>を拠点に、USSオークションネットワークと直接連携。厳選された中古車を世界<em>50カ国以上</em>へお届けしてきました。</p>
+      <p>一台一台を丁寧に検査し、お客様の国の法規制に合わせた最適な輸出プランを提案するプロフェッショナル集団です。</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="sec" id="services">
+  <div class="rv">
+    <div class="sec-label">02 — Services</div>
+    <h2 class="sec-title">ワンストップで、<span class="o">すべてを。</span></h2>
+  </div>
+  <div class="svc-row">
+    <div class="svc-card rv rv-d1" data-hover><div class="idx">001</div><h3>車両販売</h3><p>USSオークション直接連携。全国の提携ネットワークから最適な一台を提案。品質検査済みの安心車両のみ。</p><span class="go">詳しく →</span></div>
+    <div class="svc-card rv rv-d2" data-hover><div class="idx">002</div><h3>海外輸出</h3><p>50カ国以上への輸出実績。通関手続き、船積み、必要書類の作成まで完全サポート。</p><span class="go">詳しく →</span></div>
+    <div class="svc-card rv rv-d3" data-hover><div class="idx">003</div><h3>整備・点検</h3><p>輸出前の徹底整備と点検。日本の厳しい品質基準をクリアした車両のみを出荷。</p><span class="go">詳しく →</span></div>
+  </div>
+</section>
+
+<!-- DIVIDER -->
+<div class="divider-anim">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none">
+    <path d="M0,30 Q360,60 720,30 Q1080,0 1440,30" class="rv-clip"/>
+  </svg>
+</div>
+
+<!-- PROCESS -->
+<section class="sec process-sec" id="how">
+  <div class="rv" style="padding:0 clamp(24px,5vw,80px)">
+    <div class="sec-label">03 — Process</div>
+    <h2 class="sec-title">ご購入の<span class="o">流れ</span></h2>
+  </div>
+  <div class="process-track rv rv-d1">
+    <div class="pstep" data-hover><div class="dot"></div><div class="num">01</div><h4>お問い合わせ</h4><p>希望車種・予算をご相談。</p></div>
+    <div class="pstep" data-hover><div class="dot"></div><div class="num">02</div><h4>車両選定</h4><p>USSから最適な車両を。</p></div>
+    <div class="pstep" data-hover><div class="dot"></div><div class="num">03</div><h4>品質検査</h4><p>専門スタッフが徹底検査。</p></div>
+    <div class="pstep" data-hover><div class="dot"></div><div class="num">04</div><h4>輸出・配送</h4><p>安全に配送。追跡可能。</p></div>
+    <div class="pstep" data-hover><div class="dot"></div><div class="num">05</div><h4>アフター</h4><p>納車後もサポート。</p></div>
+  </div>
+</section>
+
+<!-- VEHICLES -->
+<section class="sec" id="vehicles">
+  <div class="rv">
+    <div class="sec-label">04 — Inventory</div>
+    <h2 class="sec-title">厳選<span class="o">中古車</span>ラインナップ</h2>
+  </div>
+  <div class="v-grid rv rv-d1">
+    <div class="v-hero" data-hover>
+      <img src="https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=1000&q=80" alt="">
+      <div class="v-hero-info">
+        <div class="mk">Featured · Toyota</div>
+        <h3>Land Cruiser 300 ZAX</h3>
+        <div class="meta"><span>2023</span><span>32,000km</span><span>3.5L V6 TT</span><span>4WD</span></div>
+        <div class="price">¥8,450,000</div>
+      </div>
+      <span class="badge-new">NEW</span>
+    </div>
+    <div class="v-list">
+      <div class="v-item" data-hover><img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=300&q=80" alt=""><div class="v-item-body"><div class="mk">Honda</div><div class="name">Civic Type R FL5</div><div class="meta">2024 · 12,000km · 2.0T</div><div class="price">¥5,280,000</div></div></div>
+      <div class="v-item" data-hover><img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=300&q=80" alt=""><div class="v-item-body"><div class="mk">Nissan</div><div class="name">GT-R NISMO R35</div><div class="meta">2022 · 8,500km · 3.8TT</div><div class="price">¥22,800,000</div></div></div>
+      <div class="v-item" data-hover><img src="https://images.unsplash.com/photo-1606611013016-969c19ba27bb?w=300&q=80" alt=""><div class="v-item-body"><div class="mk">Lexus</div><div class="name">LS 500h</div><div class="meta">2023 · 18,000km · Hybrid</div><div class="price">¥12,600,000</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="sec" id="journal" style="background:#0b0b0b">
+  <div class="rv">
+    <div class="sec-label">05 — Journal</div>
+    <h2 class="sec-title">最新<span class="o">トピックス</span></h2>
+  </div>
+  <div class="blog-grid rv rv-d1">
+    <div class="blg-big" data-hover>
+      <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=800&q=80" alt="">
+      <div class="blg-big-info"><div class="cat">Industry Report</div><h3>2026年 中古車輸出の最新トレンド分析</h3><div class="date">2026.06.05</div></div>
+    </div>
+    <div class="blg-side">
+      <div class="blg-sm" data-hover><div class="cat">Buying Guide</div><h4>オークションで失敗しない車両選びのコツ</h4><div class="date">2026.05.28</div></div>
+      <div class="blg-sm" data-hover><div class="cat">Export Guide</div><h4>輸出手続きの流れ：完全ガイド</h4><div class="date">2026.05.15</div></div>
+      <div class="blg-sm" data-hover><div class="cat">Company</div><h4>新規輸出ルート開設のお知らせ</h4><div class="date">2026.05.02</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" id="faq">
+  <div class="rv" style="text-align:center">
+    <div class="sec-label" style="justify-content:center">06 — FAQ</div>
+    <h2 class="sec-title">よくある<span class="o">ご質問</span></h2>
+  </div>
+  <div class="faq-list rv rv-d1">
+    <div class="faq-item active"><div class="faq-q"><span>輸出対象国はどこですか？</span><span class="pm">+</span></div><div class="faq-a"><p>アフリカ、中東、東南アジア、大洋州、中南米など50カ国以上。</p></div></div>
+    <div class="faq-item"><div class="faq-q"><span>支払い方法は？</span><span class="pm">+</span></div><div class="faq-a"><p>銀行振込（T/T）、L/C（信用状）に対応。</p></div></div>
+    <div class="faq-item"><div class="faq-q"><span>車両の状態は確認できますか？</span><span class="pm">+</span></div><div class="faq-a"><p>詳細な写真、検査レポート、動画を提供。</p></div></div>
+    <div class="faq-item"><div class="faq-q"><span>輸出までどのくらいかかりますか？</span><span class="pm">+</span></div><div class="faq-a"><p>契約から出荷まで2〜4週間。海上輸送に2〜6週間。</p></div></div>
+    <div class="faq-item"><div class="faq-q"><span>日本の中古車はなぜ人気？</span><span class="pm">+</span></div><div class="faq-a"><p>車検制度により整備状態が良く、低走行の車両が多く出回ります。</p></div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec" id="contact">
+  <div class="glow"></div>
+  <div class="bg-char">GO</div>
+  <div class="rv">
+    <h2>理想の一台を、<br><span class="o">見つけましょう。</span></h2>
+    <p>お気軽にご相談ください。プロフェッショナルが最適なプランをご提案します。</p>
+    <div class="cta-btns">
+      <a href="#" class="btn-fire" data-hover>無料相談する</a>
+      <a href="#" class="btn-ghost" data-hover>049-257-4332</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a href="#" class="brand"><span class="o">V</span>elocity JAPAN</a>
+  <div class="links">
+    <a href="#">049-257-4332</a>
+    <a href="#">kaiseisg@kaiseisg.com</a>
+    <span>© 2026</span>
+  </div>
+</footer>
+
+<script>
+// === CUSTOM CURSOR ===
+const cursor=document.getElementById('cursor'),dot=document.getElementById('cursorDot');
+let cx=0,cy=0,dx=0,dy=0;
+document.addEventListener('mousemove',e=>{cx=e.clientX;cy=e.clientY;dot.style.left=cx+'px';dot.style.top=cy+'px'});
+(function animCursor(){cursor.style.left=dx+'px';cursor.style.top=dy+'px';dx+=(cx-dx)*.12;dy+=(cy-dy)*.12;requestAnimationFrame(animCursor)})();
+document.querySelectorAll('[data-hover],a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>cursor.classList.add('hover'));
+  el.addEventListener('mouseleave',()=>cursor.classList.remove('hover'));
+});
+
+// === SCROLL PROGRESS ===
+const prog=document.getElementById('scrollProgress');
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  prog.style.width=(scrollY/h*100)+'%';
+});
+
+// === NAV SCROLL ===
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>80));
+
+// === REVEAL ANIMATIONS ===
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');obs.unobserve(e.target)}});
+},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv,.rv-left,.rv-right,.rv-scale,.rv-clip').forEach(el=>obs.observe(el));
+
+// === FAQ ACCORDION ===
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.addEventListener('click',()=>{
+    const i=q.parentElement,w=i.classList.contains('active');
+    document.querySelectorAll('.faq-item').forEach(x=>x.classList.remove('active'));
+    if(!w) i.classList.add('active');
+  });
+});
+
+// === SMOOTH SCROLL ===
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})});
+});
+
+// === COUNTER ANIMATION ===
+const cObs=new IntersectionObserver(entries=>{
+  entries.forEach(en=>{
+    if(!en.isIntersecting)return;
+    const el=en.target,target=parseInt(el.dataset.count),dur=1800,start=performance.now();
+    function tick(now){
+      const p=Math.min((now-start)/dur,1);
+      const eased=1-Math.pow(1-p,4);
+      const v=Math.round(eased*target);
+      el.textContent=v.toLocaleString()+(target>=100?'+':target===98?'%':'');
+      if(p<1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+    cObs.unobserve(el);
+  });
+},{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el=>cObs.observe(el));
+
+// === PARALLAX ORBS ON SCROLL ===
+const orbs=document.querySelectorAll('.orb');
+window.addEventListener('scroll',()=>{
+  const s=scrollY;
+  orbs.forEach((o,i)=>{o.style.transform=`translateY(${s*(.05+i*.02)}px)`});
+});
+
+// === TILT EFFECT ON SERVICE CARDS ===
+document.querySelectorAll('.svc-card').forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect();
+    const x=(e.clientX-r.left)/r.width-.5;
+    const y=(e.clientY-r.top)/r.height-.5;
+    card.style.transform=`perspective(800px) rotateY(${x*8}deg) rotateX(${-y*8}deg) translateY(-6px)`;
+  });
+  card.addEventListener('mouseleave',()=>{
+    card.style.transform='';
+  });
+});
+
+// === TILT ON VEHICLE HERO ===
+const vHero=document.querySelector('.v-hero');
+if(vHero){
+  vHero.addEventListener('mousemove',e=>{
+    const r=vHero.getBoundingClientRect();
+    const x=(e.clientX-r.left)/r.width-.5;
+    const y=(e.clientY-r.top)/r.height-.5;
+    vHero.querySelector('img').style.transform=`scale(1.04) translate(${x*-10}px,${y*-10}px)`;
+  });
+  vHero.addEventListener('mouseleave',()=>{
+    vHero.querySelector('img').style.transform='';
+  });
+}
+</script>
+</body>
+</html>
