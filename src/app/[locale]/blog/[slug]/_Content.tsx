@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { usePathname } from "@/i18n/routing";
 import { Link } from "@/i18n/routing";
 import { cn, formatDate } from "@/lib/utils";
-import { demoPosts } from "@/lib/demo-blog";
+import { demoPosts, getLocalized } from "@/lib/demo-blog";
 import {
   ArrowLeft,
   Calendar,
@@ -21,6 +21,14 @@ const categoryColors: Record<string, string> = {
   "Buying Tips": "bg-green-100 text-green-700",
   "Shipping": "bg-purple-100 text-purple-700",
   "Market News": "bg-amber-100 text-amber-700",
+  "市场资讯": "bg-amber-100 text-amber-700",
+  "市場情報": "bg-amber-100 text-amber-700",
+  "购车指南": "bg-blue-100 text-blue-700",
+  "購入ガイド": "bg-blue-100 text-blue-700",
+  "购车贴士": "bg-green-100 text-green-700",
+  "購入のヒント": "bg-green-100 text-green-700",
+  "物流运输": "bg-purple-100 text-purple-700",
+  "物流・輸送": "bg-purple-100 text-purple-700",
 };
 
 // Inline markdown renderer: **bold** and *italic*
@@ -68,12 +76,20 @@ function renderItalic(text: string, baseKey: number): React.ReactNode {
 export default function BlogPostPage() {
   const t = useTranslations("blog");
   const tc = useTranslations("common");
+  const locale = useLocale();
   const pathname = usePathname();
   const [shareLabel, setShareLabel] = useState(t("share"));
 
-  // Extract slug from pathname (/zh/blog/xxx -> xxx)
+  // Extract slug from pathname (returns /blog/xxx without locale prefix)
   const slug = pathname.split("/blog/")[1]?.replace(/\/$/, "") || "";
   const post = demoPosts.find((p) => p.slug === slug) || demoPosts[0];
+
+  // Localized fields
+  const postTitle = getLocalized(post.title, locale);
+  const postExcerpt = getLocalized(post.excerpt, locale);
+  const postCategory = getLocalized(post.category, locale);
+  const postReadTime = getLocalized(post.readTime, locale);
+  const postContent = post.content ? getLocalized(post.content, locale) : postExcerpt;
 
   // Related posts: other posts (not current), take up to 3
   const relatedPosts = demoPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
@@ -82,7 +98,7 @@ export default function BlogPostPage() {
     const url = `${window.location.origin}${pathname}`;
     if (navigator.share) {
       try {
-        await navigator.share({ title: post.title, url });
+        await navigator.share({ title: postTitle, url });
       } catch {
         // user cancelled
       }
@@ -111,10 +127,10 @@ export default function BlogPostPage() {
         <div className="flex items-center gap-3 mb-4">
           <span className={cn(
             "inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium",
-            categoryColors[post.category] || "bg-gray-100 text-gray-600"
+            categoryColors[postCategory] || "bg-gray-100 text-gray-600"
           )}>
             <Tag className="w-3 h-3" />
-            {post.category}
+            {postCategory}
           </span>
           <span className="text-sm text-gray-400 flex items-center gap-1">
             <Calendar className="w-3.5 h-3.5" />
@@ -122,12 +138,12 @@ export default function BlogPostPage() {
           </span>
           <span className="text-sm text-gray-400 flex items-center gap-1">
             <Clock className="w-3.5 h-3.5" />
-            {post.readTime}
+            {postReadTime}
           </span>
         </div>
 
         <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight">
-          {post.title}
+          {postTitle}
         </h1>
 
         {/* Share */}
@@ -147,7 +163,7 @@ export default function BlogPostPage() {
         <div className="relative w-full h-64 sm:h-80 rounded-xl overflow-hidden bg-gray-100">
           <Image
             src={post.image}
-            alt={post.title}
+            alt={postTitle}
             fill
             className="object-cover"
             priority
@@ -158,7 +174,7 @@ export default function BlogPostPage() {
       {/* Article Body */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <article className="prose prose-gray max-w-none prose-headings:font-semibold prose-h2:text-xl prose-h3:text-lg prose-a:text-primary">
-          {(post.content || post.excerpt).split("\n\n").map((block, idx) => {
+          {postContent.split("\n\n").map((block, idx) => {
             const trimmed = block.trim();
             if (!trimmed) return null;
 
@@ -276,7 +292,11 @@ export default function BlogPostPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <h2 className="text-xl font-semibold text-gray-900 mb-6">{t("relatedPosts")}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {relatedPosts.map((rp) => (
+            {relatedPosts.map((rp) => {
+              const rpTitle = getLocalized(rp.title, locale);
+              const rpCategory = getLocalized(rp.category, locale);
+
+              return (
               <Link
                 key={rp.slug}
                 href={`/blog/${rp.slug}`}
@@ -284,12 +304,12 @@ export default function BlogPostPage() {
               >
                 <span className={cn(
                   "inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium mb-2",
-                  categoryColors[rp.category] || "bg-gray-100 text-gray-600"
+                  categoryColors[rpCategory] || "bg-gray-100 text-gray-600"
                 )}>
-                  {rp.category}
+                  {rpCategory}
                 </span>
                 <h3 className="text-sm font-semibold text-gray-900 group-hover:text-primary transition-colors line-clamp-2">
-                  {rp.title}
+                  {rpTitle}
                 </h3>
                 <p className="text-sm text-gray-400 mt-1.5">{formatDate(rp.date)}</p>
                 <div className="mt-3 flex items-center gap-1 text-sm font-medium text-primary">
@@ -297,7 +317,8 @@ export default function BlogPostPage() {
                   <ArrowRight className="w-3 h-3" />
                 </div>
               </Link>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

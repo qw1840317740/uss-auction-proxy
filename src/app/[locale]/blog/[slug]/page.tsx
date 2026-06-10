@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { JsonLdBreadcrumb } from "@/components/seo/JsonLdBreadcrumb";
-import { demoPosts } from "@/lib/demo-blog";
+import { demoPosts, getLocalized } from "@/lib/demo-blog";
 import Page from "./_Content";
 
 const BASE_URL = "https://uss-auction-proxy.vercel.app";
@@ -16,9 +16,10 @@ export async function generateMetadata({
   const post = demoPosts.find((p) => p.slug === slug);
 
   // Use actual article data if available, fallback to generic
-  const title = post?.title ?? "Velocity JAPAN Blog";
-  const description = post?.excerpt
-    ?? "Latest news and insights about Japanese used car exports.";
+  const title = post ? getLocalized(post.title, locale) : "Velocity JAPAN Blog";
+  const description = post
+    ? getLocalized(post.excerpt, locale)
+    : "Latest news and insights about Japanese used car exports.";
 
   return {
     title,
@@ -49,13 +50,13 @@ export default async function BlogPostPage({
   const tBlog = await getTranslations({ locale, namespace: "blog" });
   const post = demoPosts.find((p) => p.slug === slug);
 
-  const articleTitle = post?.title ?? tBlog("title");
+  const articleTitle = post ? getLocalized(post.title, locale) : tBlog("title");
 
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: articleTitle,
-    description: post?.excerpt ?? "",
+    description: post ? getLocalized(post.excerpt, locale) : "",
     image: post?.image ?? "",
     datePublished: post?.date ?? "2026-01-01",
     dateModified: post?.date ?? "2026-01-01",
