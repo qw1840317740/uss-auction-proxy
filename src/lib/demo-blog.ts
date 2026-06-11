@@ -36,7 +36,577 @@ export const demoPosts: BlogPostData[] = [
     readTime: { zh: "18分钟阅读", en: "18 min read", ja: "18分で読める" },
     color: "bg-red-500",
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Nissan_Skyline_GT-R_R34_V_Spec_II.jpg/960px-Nissan_Skyline_GT-R_R34_V_Spec_II.jpg",
-    content: `The phrase **JDM** — Japanese Domestic Market — refers to vehicles manufactured specifically for sale inside Japan. For decades, Japanese automakers produced their most potent, most exotic, and most technically adventurous machines exclusively for domestic buyers, leaving the rest of the world to watch and wish.
+    content: {
+      zh: `**JDM**——日本国内市场（Japanese Domestic Market）——指的是专门为日本本土销售而制造的车辆。数十年来，日本汽车制造商为国内买家生产了最强劲、最具异国情调、技术最大胆的车型，而让世界其他地区只能观望和羡慕。
+
+得益于**25年进口法规**，许多传奇车型现在已合法进口到美国，需求的井喷将价格推至天际。无论你是资深收藏家还是首次购买者试图解读JDM市场，这份权威指南评选出有史以来最伟大的25款日本国内市场汽车——以工程创新、赛车运动传承、文化影响和驾驶纯粹度为评判标准。
+
+## 什么是JDM车？
+
+JDM是*日本国内市场*（Japanese Domestic Market）的缩写。这些车是按照日本政府规格制造的——右舵驾驶，针对日本道路调校，通常配备从未出口的性能版本或配置。25年规则（49 CFR 591.5）允许进口任何制造超过25年的车辆进入美国，无论原始合规性如何，使标志性的JDM车型对美国收藏家变得触手可及。
+
+>>> 三大神车 — 绝对传奇
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">01</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Nissan · 1999–2002 · 传奇</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Nissan Skyline GT-R R34</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>发动机 <strong class="text-gray-900">RB26DETT 2.6L 双涡轮增压直列六缸</strong></span>
+<span>功率 <strong class="text-gray-900">276马力（出厂值 — 普遍超标）</strong></span>
+<span>驱动 <strong class="text-gray-900">ATTESA E-TS 四驱</strong></span>
+<span>0–60 <strong class="text-gray-900">~4.9秒</strong></span>
+<span>产量 <strong class="text-gray-900">~11,500辆</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Nissan_Skyline_GT-R_R34_V_Spec_II.jpg/960px-Nissan_Skyline_GT-R_R34_V_Spec_II.jpg" alt="Nissan Skyline GT-R R34 V-Spec II" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3">没有哪份JDM榜单会从别处开始。<strong>R34 Nissan Skyline GT-R</strong>是当之无愧的王者——这辆车如此强大，以至于日本房车锦标赛最终不得不施加限制，只为了给其他制造商一个机会。绰号<em>"哥斯拉"</em>，其RB26DETT双涡轮增压直列六缸发动机是汽车史上最受赞誉的发动机之一：无限改装潜力、扭矩凶猛，在适当保养下坚不可摧。</p>
+<p class="text-gray-600 leading-relaxed mb-3">ATTESA E-TS Pro全轮驱动系统、Super-HICAS四轮转向，以及借鉴自GT赛车的多功能显示屏，让R34领先时代数十年。由于总共仅生产约11,500辆，保养良好的 specimen 现在拍卖价已超过200,000美元——而且还在攀升。保罗·沃克在<em>《速度与激情2》</em>中那辆著名的海湾蓝R34，巩固了它在全球流行文化中不朽的地位。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 有史以来最伟大的JDM车型 — 毋庸置疑</div>
+</div>
+</div>
+</div>
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">02</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Toyota · 1993–2002 · 传奇</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Toyota Supra MK4 (A80)</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>发动机 <strong class="text-gray-900">2JZ-GTE 3.0L 双涡轮增压直列六缸</strong></span>
+<span>功率 <strong class="text-gray-900">320马力（JDM）/ 276马力（出口版）</strong></span>
+<span>驱动 <strong class="text-gray-900">后驱 6速手动</strong></span>
+<span>0–60 <strong class="text-gray-900">~4.6秒</strong></span>
+<span>极速 <strong class="text-gray-900">180英里/小时（限制版）</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Toyota_GR_Supra_%2851984008283crop%29.jpg/960px-Toyota_GR_Supra_%2851984008283crop%29.jpg" alt="Toyota Supra MK4 A80" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3"><strong>Toyota Supra MK4</strong>的2JZ-GTE发动机可以说是历史上最著名的直列六缸发动机。 notoriously 过度设计——丰田工程师设计的初衷是让它能在内部改装后承受1,000+马力——它成为了改装界的圣杯。JDM规格的车型出厂即输出320马力，而出口市场车型为276马力，这反映了日本的君子协定马力上限。</p>
+<p class="text-gray-600 leading-relaxed mb-3">布莱恩·奥康纳在<em>《速度与激情》</em>中那辆橙色Supra使其成为整整一代人的梦想之车。状况良好的原装手动挡Supra MK4现在售价在100,000至200,000美元之间，由稀缺性和近乎宗教般的追随热情所推动。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 2JZ-GTE 定义了整整一代改装文化</div>
+</div>
+</div>
+</div>
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">03</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Mazda · 1992–2002 · 驾驶者之车</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Mazda RX-7 FD</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>发动机 <strong class="text-gray-900">13B-REW 1.3L 双转子涡轮增压</strong></span>
+<span>功率 <strong class="text-gray-900">252–280马力（JDM）</strong></span>
+<span>重量 <strong class="text-gray-900">~2,800磅</strong></span>
+<span>0–60 <strong class="text-gray-900">~5.2秒</strong></span>
+<span>配重 <strong class="text-gray-900">50/50 前后</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/1994_Mazda_RX-7_R2_in_Vintage_Red%2C_front_left_%28Lime_Rock%29.jpg/960px-1994_Mazda_RX-7_R2_in_Vintage_Red%2C_front_left_%28Lime_Rock%29.jpg" alt="Mazda RX-7 FD in Vintage Red" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3">论纯粹的驾驶艺术，JDM经典中没有任何车型能匹敌<strong>Mazda RX-7 FD</strong>。其13B-REW双涡轮增压转子发动机被放置在前轴<em>后方</em>，实现了近乎完美的50/50重量分配。结果是一辆以超自然的平衡感旋转过弯的车，尽管配备了双 sequential 涡轮增压，重量仍不到2,900磅。<em>《Car and Driver》</em>连续五年将其评为十佳车型。</p>
+<p class="text-gray-600 leading-relaxed mb-3">转子发动机的标志性特征——高转速、平顺的动力输出，对改装反应极佳——使其成为漂移和赛车运动社区的首选利器。韩在<em>《东京漂移》</em>中的Veilside版RX-7为新一代粉丝留下了不朽印象。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ JDM历史上底盘平衡性最出色的车型</div>
+</div>
+</div>
+</div>
+
+>>> 日本超级跑车
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">04</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Honda · 1990–2005 · 超级跑车</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Honda NSX (NA1/NA2)</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>发动机 <strong class="text-gray-900">C30A / C32B 3.0–3.2L VTEC V6</strong></span>
+<span>功率 <strong class="text-gray-900">270–290马力</strong></span>
+<span>驱动 <strong class="text-gray-900">中置后驱</strong></span>
+<span>0–60 <strong class="text-gray-900">~5.7秒</strong></span>
+<span>极速 <strong class="text-gray-900">168英里/小时</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/AcuraNSX-05-cropped.jpg/960px-AcuraNSX-05-cropped.jpg" alt="Honda NSX NA1 supercar" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3">本田的目标是打造一款性能媲美法拉利但可以日常驾驶的超级跑车——他们成功了。<strong>Honda NSX</strong>在一级方程式传奇车手埃尔顿·塞纳的参与下开发，采用了全铝单体壳底盘、中置VTEC V6发动机，红线转速高达8,000 rpm，以及在当时量产车中前所未有的钛合金连杆。</p>
+<p class="text-gray-600 leading-relaxed mb-3">1990年发布时，它震惊了法拉利和保时捷的工程师，他们购买了早期车型进行拆解分析。NSX-R变体采用碳纤维制造并去除隔音材料，成为驾驶者导向的标杆。其价值已大幅升值——品相完好的NSX-R如今交易价已超过200,000美元。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 第一款"日常超级跑车" — 埃尔顿·塞纳认可</div>
+</div>
+</div>
+</div>
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">05</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Lexus · 2010–2012 · 旗舰之作</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Lexus LFA</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>发动机 <strong class="text-gray-900">1LR-GUE 4.8L 自然吸气V10</strong></span>
+<span>功率 <strong class="text-gray-900">552马力 @ 8,700 rpm</strong></span>
+<span>红线 <strong class="text-gray-900">9,000 rpm</strong></span>
+<span>0–60 <strong class="text-gray-900">3.7秒</strong></span>
+<span>产量 <strong class="text-gray-900">500辆</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Lexus_LFA_001.JPG/960px-Lexus_LFA_001.JPG" alt="Lexus LFA V10 supercar" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3"><strong>Lexus LFA</strong>是一个制造商在没有财务压力的情况下花费十年时间打磨旗舰之作的结晶。其4.8升自然吸气V10发动机转速高达9,000 rpm，排气声浪如此独特，以至于需要配备数字转速表——模拟指针根本无法跟上发动机加速响应的速度。</p>
+<p class="text-gray-600 leading-relaxed mb-3">车身65%采用碳纤维增强聚合物制造，LFA代表了日本工艺的绝对巅峰。总共仅生产了500辆。如今售价已超过900,000美元。这对雷克萨斯而言是财务上的亏损——却是史上最伟大汽车之一。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 500辆。有史以来最伟大的V10声浪之一。</div>
+</div>
+</div>
+</div>
+
+>>> 拉力传奇与认证特装版
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">06</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Mitsubishi · 1999 · 拉力特装版</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Mitsubishi Lancer Evolution VI T.M. Edition</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>发动机 <strong class="text-gray-900">4G63T 2.0L 涡轮增压直列四缸</strong></span>
+<span>功率 <strong class="text-gray-900">276马力（低估）</strong></span>
+<span>驱动 <strong class="text-gray-900">四驱 ACD/AYC</strong></span>
+<span>产量 <strong class="text-gray-900">限量生产</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/2017-04-02_Mitsubishi_Lancer_Evolution_X_MR_SST_14_%282%29.jpg/960px-2017-04-02_Mitsubishi_Lancer_Evolution_X_MR_SST_14_%282%29.jpg" alt="Mitsubishi Lancer Evolution" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3"><strong>Lancer Evolution VI Tommi Mäkinen Edition</strong>——以帮助三菱连续四年夺得WRC世界冠军的芬兰车手命名——代表了Evo车系的巅峰。更硬的悬挂、更通畅的排气、钛合金涡轮壳体以及微妙的空气动力学调整，使其成为当时最为纯粹的Evo。</p>
+<p class="text-gray-600 leading-relaxed mb-3">Lancer Evolution的每一代（I到X）都遵循相同的核心配方：涡轮增压2.0升直列四缸发动机、全轮驱动，以及用于认证拉力赛部件的方正功能性车身。没有哪款Evo比VI TME更忠实地体现了这一理念。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 4个WRC冠军。零妥协。</div>
+</div>
+</div>
+</div>
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">07</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Subaru · 1998 · 认证特装版</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Subaru Impreza 22B STi</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>发动机 <strong class="text-gray-900">EJ22 2.2L 涡轮增压水平对置四缸</strong></span>
+<span>功率 <strong class="text-gray-900">276马力（出厂值）</strong></span>
+<span>产量 <strong class="text-gray-900">424辆</strong></span>
+<span>车身 <strong class="text-gray-900">宽体双门</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/2011_Subaru_Impreza_WRX_STI_sedan_front_--_2011_DC.jpg/960px-2011_Subaru_Impreza_WRX_STI_sedan_front_--_2011_DC.jpg" alt="Subaru Impreza WRX STI" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3">为庆祝斯巴鲁连续三年夺得WRC制造商冠军而打造，<strong>22B STi</strong>是现存最稀有、最令人向往的JDM车型之一。总共仅生产了424辆——400辆面向日本市场，24辆面向其他市场。加大的2.2升水平对置四缸发动机和宽体套件直接源自WRC赛车，赋予了它真正硬核的拉力赛血统。</p>
+<p class="text-gray-600 leading-relaxed mb-3">低里程的案例在拍卖会上已售出超过200,000美元，对于一辆斯巴鲁来说几乎是不可想象的升值幅度。22B已成为1990年代末JDM时代的标杆收藏车型。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 仅造424辆。每一辆如今都是六位数身价。</div>
+</div>
+</div>
+</div>
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">08</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Honda · 1997–2000 · 仅限JDM的Type R</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Honda Civic Type R EK9</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>发动机 <strong class="text-gray-900">B16B 1.6L VTEC 直列四缸</strong></span>
+<span>功率 <strong class="text-gray-900">185马力 @ 8,200 rpm</strong></span>
+<span>驱动 <strong class="text-gray-900">前驱 5速密齿比</strong></span>
+<span>红线 <strong class="text-gray-900">8,600 rpm</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/2024_Honda_Civic_Type_R%2C_front_right%2C_06-15-2024.jpg/960px-2024_Honda_Civic_Type_R%2C_front_right%2C_06-15-2024.jpg" alt="Honda Civic Type R" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3">第一款Civic Type R仅在日本销售，其JDM独占性使其成为小钢炮社区的圣杯。B16B发动机——发布时世界上最高转速的自然吸气量产发动机——仅凭1.6升排量就输出了185马力，完全没有任何强制进气。</p>
+<p class="text-gray-600 leading-relaxed mb-3">去除隔音材料、配备密齿比变速箱、完全为赛道使用而调校，EK9确立了一款Type R应有的一切标准：激进、专注，在被推至8,600 rpm红线极限时给予驾驶者极致的回报。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 第一款 — 也是许多人认为最好的 — Civic Type R。</div>
+</div>
+</div>
+</div>
+
+>>> 经典跑车
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">09</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Honda · 1999–2009 · 敞篷跑车</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Honda S2000</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>Engine <strong class="text-gray-900">F20C / F22C 2.0–2.2L VTEC I4</strong></span>
+<span>Power <strong class="text-gray-900">240–247 hp</strong></span>
+<span>Specific Output <strong class="text-gray-900">120 hp/liter (F20C)</strong></span>
+<span>Redline <strong class="text-gray-900">9,000 rpm</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/HondaS2000-004.jpg/960px-HondaS2000-004.jpg" alt="Honda S2000 roadster" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3"><strong>Honda S2000</strong> 的自然吸气发动机达到了每升 120 马力的升功率——这是 1999 年发布时所有量产车中最高的比输出。这一成就至今仍然令人赞叹。JDM 专属的 Type S 版本增加了空气动力学套件、更宽的轮胎和重新调校的悬架，带来更加凌厉的驾驶体验。</p>
+<p class="text-gray-600 leading-relaxed mb-3">后轮驱动、近乎完美的前置中置发动机布局，以及被调校至极致平衡的底盘，使 S2000 成为那个时代 Affordable 跑车的标杆。如今，品相良好的 S2000 成交价已超过原始厂商建议零售价，成功避开了大多数跑车所经历的贬值低谷。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 9,000 RPM。120 hp/升。Honda 的绝对巅峰之作。</div>
+</div>
+</div>
+</div>
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">10</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Honda · 1995–2001 · Type R</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Honda Integra Type R (DC2)</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>Engine <strong class="text-gray-900">B18C Spec-R 1.8L VTEC I4</strong></span>
+<span>Power <strong class="text-gray-900">200 hp (JDM) / 195 hp (USDM)</strong></span>
+<span>Redline <strong class="text-gray-900">8,500 rpm</strong></span>
+<span>Drive <strong class="text-gray-900">FWD 5-Speed</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/2002_Honda_Integra_%28DC5%29_Special_Edition_coupe_%282015-07-24%29_01.jpg/960px-2002_Honda_Integra_%28DC5%29_Special_Edition_coupe_%282015-07-24%29_01.jpg" alt="Honda Integra Type R DC2" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3"><strong>DC2 Integra Type R</strong> 在发布时便打破了纽博格林前驱车圈速纪录——并保持多年。其 B18C Spec-R 发动机由手工组装，每台都刻有制造技师的签名。Honda 对 NVH 平衡和换挡精度的极致追求，使其成为前驱操控的标杆，在驾驶参与感方面至今无人超越。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 前驱车的巅峰之作。纽博格林纪录保持者。</div>
+</div>
+</div>
+</div>
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">11</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Nissan · 1989–1994 · "哥斯拉"</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Nissan Skyline GT-R R32</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>Engine <strong class="text-gray-900">RB26DETT 2.6L Twin-Turbo I6</strong></span>
+<span>Power <strong class="text-gray-900">276 hp (official)</strong></span>
+<span>Drive <strong class="text-gray-900">ATTESA E-TS AWD</strong></span>
+<span>JTCC Record <strong class="text-gray-900">29 races, 29 wins</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Nissan_Skyline_GT-R_R34_V_Spec_II.jpg/960px-Nissan_Skyline_GT-R_R34_V_Spec_II.jpg" alt="Nissan Skyline GT-R R32" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3">这辆车赢得了"哥斯拉"的绰号——<strong>R32 GT-R</strong> 以压倒性优势横扫日本房车锦标赛，以至于澳大利亚一度将其禁赛。其 ATTESA 全轮驱动系统和 Super-HICAS 四轮转向系统在 1989 年堪称真正的革命性技术。如今已符合美国进口条件，价值正在快速攀升，R32 以低于 R33/R34 继任者的价格提供了纯正的 GT-R 基因。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 参赛即夺冠。因太过强大而被禁赛。</div>
+</div>
+</div>
+</div>
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">12</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Nissan · 1999–2002 · 漂移标志</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Nissan Silvia S15 Spec-R</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>Engine <strong class="text-gray-900">SR20DET 2.0L Turbo I4</strong></span>
+<span>Power <strong class="text-gray-900">250 hp</strong></span>
+<span>Drive <strong class="text-gray-900">RWD 6-Speed Manual</strong></span>
+<span>Market <strong class="text-gray-900">Japan-Only</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Nissan_Silvia_S15_001.JPG/960px-Nissan_Silvia_S15_001.JPG" alt="Nissan Silvia S15 Spec-R" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3"><strong>S15 Silvia Spec-R</strong> 从未在日本以外地区正式销售，这使其成为当今最受追捧的 JDM 进口车型之一。Spec-R 调校下的 SR20DET 发动机从 2.0 升排量中榨取出 250 马力——通过六速 Getrag 变速箱传递至后轮。均衡、轻量化且拥有无限的改装潜力，它成为了全球职业漂移的标准用车。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 日本专属。250 hp。全世界最爱的漂移战车。</div>
+</div>
+</div>
+</div>
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">13</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Toyota · 1983–1987 · 漂移起源</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Toyota Corolla AE86 Sprinter Trueno</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>Engine <strong class="text-gray-900">4A-GE 1.6L DOHC I4</strong></span>
+<span>Power <strong class="text-gray-900">128 hp</strong></span>
+<span>Drive <strong class="text-gray-900">RWD 5-Speed</strong></span>
+<span>Heritage <strong class="text-gray-900">Inspired GR86 / BRZ</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/1983_Toyota_Corolla_Levin.jpg/960px-1983_Toyota_Corolla_Levin.jpg" alt="Toyota Corolla AE86 Levin" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3"><strong>AE86</strong> 是此后所有轻量化后驱跑车的精神始祖。土屋圭市——"漂移之王"——正是驾驶着 AE86 在日本的盘山公路上书写了自己的传奇，由此诞生了现代漂移运动。其与 Yamaha 共同开发的 4A-GE 发动机，至今仍是那个时代自然吸气 DOHC 设计的经典范例。</p>
+<p class="text-gray-600 leading-relaxed mb-3">AE86 直接启发了 Toyota GR86 和 Subaru BRZ 的诞生。在动漫《<em>头文字D</em>》中作为主角座驾，它成为了将数百万人引入 JDM 文化的启蒙之车。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 将漂移变为赛车运动的那辆车。</div>
+</div>
+</div>
+</div>
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">14</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Nissan · 1989–2000 · GT 跑车</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Nissan 300ZX Twin Turbo (Z32)</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>Engine <strong class="text-gray-900">VG30DETT 3.0L Twin-Turbo V6</strong></span>
+<span>Power <strong class="text-gray-900">300 hp (JDM)</strong></span>
+<span>Top Speed <strong class="text-gray-900">155 mph (limited)</strong></span>
+<span>0–60 <strong class="text-gray-900">~5.6 sec</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/1996_Nissan_300ZX_2-seater_t-top%2C_front_left%2C_06-15-2025.jpg/960px-1996_Nissan_300ZX_2-seater_t-top%2C_front_left%2C_06-15-2025.jpg" alt="Nissan 300ZX Twin Turbo Z32" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3"><strong>Z32 300ZX Twin Turbo</strong> 荣获 1990 年<em>《Road & Track》</em>年度最佳汽车，震惊了当时所有欧洲 GT 竞争对手。其 3.0 升双涡轮增压 V6 发动机配备四轮转向和精密的主动悬架系统，让人感觉仿佛在驾驶一台来自未来的跑车。JDM 版本输出 300 马力——显著高于出口版车型的 283 马力。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 《Road & Track》年度最佳。一台让欧洲颜面尽失的 GT 跑车。</div>
+</div>
+</div>
+</div>
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">15</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Toyota · 1986–1992 · 涡轮经典</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Toyota Supra MK3 Turbo (A70)</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>Engine <strong class="text-gray-900">7M-GTE 3.0L Turbo I6</strong></span>
+<span>Power <strong class="text-gray-900">230 hp</strong></span>
+<span>Drive <strong class="text-gray-900">RWD</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Toyota_Supra_%28A70%2C_pre-facelift%29_1X7A2552.jpg/960px-Toyota_Supra_%28A70%2C_pre-facelift%29_1X7A2552.jpg" alt="Toyota Supra MK3 Turbo A70" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3">MK3 Supra 奠定了 MK4 后来将其封神的血脉传承。JDM 涡轮增压版本的动力输出强于出口市场版本，配备翻盖大灯、修长的引擎盖，以及充满 1980 年代末奢华感的内饰。随着 MK4 价格已令许多买家望而却步，MK3 正获得越来越多收藏家的关注。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 2JZ 传奇的祖父。</div>
+</div>
+</div>
+</div>
+
+>>> 隐藏瑰宝与邪典经典
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">16</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Mitsubishi · 1996 · 拉力血统</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Mitsubishi Lancer Evolution IV</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>Engine <strong class="text-gray-900">4G63T 2.0L Turbo I4</strong></span>
+<span>Power <strong class="text-gray-900">280 hp</strong></span>
+<span>Drive <strong class="text-gray-900">AWD AYC</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/2017-04-02_Mitsubishi_Lancer_Evolution_X_MR_SST_14_%282%29.jpg/960px-2017-04-02_Mitsubishi_Lancer_Evolution_X_MR_SST_14_%282%29.jpg" alt="Mitsubishi Lancer Evolution IV" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3">Evo IV 是首款搭载主动偏航控制（AYC）系统的 Evolution 车型——这是一种扭矩矢量差速器，彻底改变了车辆在极限状态下的操控表现。WRC 赛事的胜利随即接踵而至。其强悍的拉力血统、出色的性能表现，以及 AYC 系统的引入，使 Evo IV 成为 Evo 家族历程中的里程碑，也是 JDM 社区中备受推崇的标志性车型。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 搭载 AYC 的 Evolution——从此改变了一切。</div>
+</div>
+</div>
+</div>
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">17</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Nissan NISMO · 1997 · 极致稀有</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Nissan Skyline GT-R NISMO 400R</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>Engine <strong class="text-gray-900">RB-X GT2 2.8L Twin-Turbo I6</strong></span>
+<span>Power <strong class="text-gray-900">400 hp</strong></span>
+<span>Units Made <strong class="text-gray-900">~44</strong></span>
+<span>Price (1997) <strong class="text-gray-900">¥12,800,000</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Nissan_Skyline_GT-R_R34_V_Spec_II.jpg/960px-Nissan_Skyline_GT-R_R34_V_Spec_II.jpg" alt="Nissan Skyline GT-R NISMO 400R" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3">NISMO 原厂打造的 R33 GT-R 赛车认证版本，搭载了扩缸至 2.8 升的 RB26DETT 发动机，输出真正的 400 马力。全球仅生产约 44 台，400R 是现存最稀有的 JDM 车型之一。有记录的实车拍卖价已超过 50 万美元——这是市场上最极端的升值案例之一。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 44 台。400 hp。拍卖价 50 万美元。</div>
+</div>
+</div>
+</div>
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">18</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Toyota · 1989–1999 · 中置引擎经典</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Toyota MR2 SW20 Turbo</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>Engine <strong class="text-gray-900">3S-GTE 2.0L Turbo I4</strong></span>
+<span>Power <strong class="text-gray-900">245 hp (JDM)</strong></span>
+<span>Drive <strong class="text-gray-900">Mid-Engine RWD</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/1993ToyotaMR2Hardtop.jpg/960px-1993ToyotaMR2Hardtop.jpg" alt="Toyota MR2 SW20 Turbo" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3">丰田的中置引擎双座跑车以远低于法拉利的价格提供了接近法拉利的造型和操控体验。JDM版SW20 Turbo输出245马力——显著高于出口版本——其中置引擎布局赋予了它非凡的弯道平衡性。臭名昭著的"突然甩尾"特性使其在极限驾驶时极具挑战性，也为其赢得了忠实的车迷追随。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 中置引擎，后轮驱动。法拉利的比例，丰田的价格。</div>
+</div>
+</div>
+</div>
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">19</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Nissan · 1997 · JDM 睡袍猛兽</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Nissan Stagea 260RS</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>Engine <strong class="text-gray-900">RB26DETT 2.6L Twin-Turbo I6</strong></span>
+<span>Power <strong class="text-gray-900">276 hp</strong></span>
+<span>Drive <strong class="text-gray-900">ATTESA E-TS AWD</strong></span>
+<span>Body <strong class="text-gray-900">5-Door Wagon</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/2001-2004_NISSAN_STAGEA.jpg/960px-2001-2004_NISSAN_STAGEA.jpg" alt="Nissan Stagea 260RS wagon" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3">客观地说，这是有史以来最实用的GT-R——<strong>Stagea 260RS</strong>采用了来自R33 Skyline GT-R的RB26DETT发动机、ATTESA四驱系统和制动系统，并装配在实用的五门旅行车车身上。NISMO提供完整的GT-R前脸改装套件。它是现存最实用、也最出人意料地快速的旅行车。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ GT-R发动机。旅行车车身。世上独一无二。</div>
+</div>
+</div>
+</div>
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">20</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Honda · 1991–1996 · K-Car 敞篷跑车</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Honda Beat</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>Engine <strong class="text-gray-900">E07A 0.66L Mid-Mounted I3</strong></span>
+<span>Power <strong class="text-gray-900">64 hp</strong></span>
+<span>Drive <strong class="text-gray-900">Mid-Engine RWD</strong></span>
+<span>Weight <strong class="text-gray-900">1,650 lbs</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Honda_Beat_PP1_front.jpg/960px-Honda_Beat_PP1_front.jpg" alt="Honda Beat kei roadster" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3">这是宗一郎本人的告别之作——由本田创始人在1991年去世前亲自批准——<strong>Honda Beat</strong>将一台660cc中置发动机装进了仅重1,650磅的微型敞篷跑车中。64马力搭配不到2,000磅的整备质量，它开起来比物理定律所允许的还要快。这是本田创始人亲自批准的最后一款车。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 本田宗一郎留给世界的最后礼物。</div>
+</div>
+</div>
+</div>
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">21</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Toyota · 1989–1999 · WRC 英雄</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Toyota Celica GT-Four (ST185/ST205)</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>Engine <strong class="text-gray-900">3S-GTE 2.0L Turbo I4</strong></span>
+<span>Power <strong class="text-gray-900">255 hp (ST205)</strong></span>
+<span>Drive <strong class="text-gray-900">AWD</strong></span>
+<span>WRC Titles <strong class="text-gray-900">3 (1992–1994)</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/CelicaST185GT4APuenteHills.jpg/960px-CelicaST185GT4APuenteHills.jpg" alt="Toyota Celica GT-Four ST185" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3">Celica GT-Four在1990年代初为丰田赢得了三个WRC制造商冠军。JDM版ST205输出255马力——是有史以来最强大的Celica——并配备了更激进的中冷器和源自拉力赛的四驱系统。ST205后来因非法限流器板被WRC取消资格，为这台本已传奇的赛车增添了更多传奇色彩。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 3个WRC冠军。因作弊被禁赛。依然传奇。</div>
+</div>
+</div>
+</div>
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">22</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Mazda · 1985–1992 · 第二代</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Mazda RX-7 FC Turbo</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>Engine <strong class="text-gray-900">13B Turbo 1.3L Twin-Rotor</strong></span>
+<span>Power <strong class="text-gray-900">185–215 hp (JDM)</strong></span>
+<span>Drive <strong class="text-gray-900">RWD</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Tuned_Mazda_SAVANNA_RX-7_GT-R_%28E-FC3S%29_front.jpg/960px-Tuned_Mazda_SAVANNA_RX-7_GT-R_%28E-FC3S%29_front.jpg" alt="Mazda Savanna RX-7 FC3S" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3">在传奇的FD之前，还有<strong>FC</strong>——在JDM涡轮增压版本中，它是一台真正的跑车。马自达在FC底盘上的涡轮增压13B转子发动机提供了纯粹的驾驶体验：跳灯、近乎完美的平衡，以及任何活塞发动机都无法比拟的独特声浪。随着FD的价格逐渐超出预算范围，FC的收藏价值正在不断攀升。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ FD的被低估、同样纯粹的前身。</div>
+</div>
+</div>
+</div>
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">23</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Toyota / Yamaha · 1967–1970 · 初代传奇</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Toyota 2000GT</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>Engine <strong class="text-gray-900">2M 2.0L DOHC I6</strong></span>
+<span>Power <strong class="text-gray-900">150 hp</strong></span>
+<span>Units Made <strong class="text-gray-900">351</strong></span>
+<span>Value <strong class="text-gray-900">$500,000–$1,000,000+</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/TOYOTA_2000GT.jpg/960px-TOYOTA_2000GT.jpg" alt="Toyota 2000GT classic" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3">这辆车证明了日本也能打造世界级跑车——<strong>Toyota 2000GT</strong>由丰田与雅马哈联合开发，在1967年东京车展首次亮相时震惊了全场。一款敞篷版出现在詹姆斯·邦德电影<em>你只能活两次</em>（1967年）中。仅生产了351辆；如今它们是有史以来拍卖价格最高的日本汽车，经常超过1,000,000美元。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 日本的第一辆超级跑车。詹姆斯·邦德的座驾。一百万美元。</div>
+</div>
+</div>
+</div>
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">24</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Nissan · 1969–1972 · 经典 GT-R</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Nissan Skyline GT-R KPGC10 "Hakosuka"</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>Engine <strong class="text-gray-900">S20 2.0L DOHC 24V I6</strong></span>
+<span>Power <strong class="text-gray-900">160 hp</strong></span>
+<span>Race Record <strong class="text-gray-900">50 consecutive wins in Japan</strong></span>
+<span>Units Made <strong class="text-gray-900">~1,945</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Nissan_KPGC10_Skyline_2000GT-R_%2822091110222%29.jpg/960px-Nissan_KPGC10_Skyline_2000GT-R_%2822091110222%29.jpg" alt="Nissan Skyline 2000GT-R KPGC10 Hakosuka" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3">初代GT-R——<strong>Hakosuka</strong>（箱型Skyline）——在1969年首秀后连续赢得50场日本赛事冠军，奠定了GT-R铭牌作为赛车传奇的地位。其由雅马哈开发的S20发动机源自日产Prince赛车项目。如今找到一台真正的KPGC10 GT-R是日本汽车收藏界最具声望的成就之一。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 连续50场赛事胜利。GT-R传奇的起点。</div>
+</div>
+</div>
+</div>
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">25</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Mazda · 1989–1997 · 世纪经典</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Mazda MX-5 Miata / Eunos Roadster (NA)</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>Engine <strong class="text-gray-900">B6-ZE / BP-ZE 1.6–1.8L I4</strong></span>
+<span>Power <strong class="text-gray-900">115–131 hp</strong></span>
+<span>Weight <strong class="text-gray-900">~2,100 lbs</strong></span>
+<span>Production <strong class="text-gray-900">World's Best-Selling Roadster</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Eunos.jpg/960px-Eunos.jpg" alt="Mazda MX-5 Miata NA Eunos Roadster" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3">JDM版本——以<strong>Eunos Roadster</strong>之名销售——配备了出口市场无法获得的真皮内饰和标配升级装备。NA Miata对汽车文化的影响是不可估量的：它一手复兴了在1970年代消亡的小型经济型敞篷跑车细分市场，其"轻量化胜过纯粹马力"的理念影响了此后几十年间开发的每一款跑车。</p>
+<p class="text-gray-600 leading-relaxed mb-3">它是历史上最畅销的敞篷跑车、世界上参赛最多的量产车，在许多方面也是无论价格如何都最纯粹地表达驾驶乐趣的车型。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 过去40年最重要的跑车。</div>
+</div>
+</div>
+</div>
+
+<div class="jdm-buying-guide">
+<h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">JDM购买指南：您需要了解的一切</h2>
+<p class="text-gray-500 leading-relaxed mb-6">进口一辆JDM汽车远不仅仅是找到合适的车型。以下是每位买家在向海外汇款之前都应该了解的事项。</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+<div class="bg-gray-50 border border-gray-100 rounded-lg p-5">
+<h4 class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-2">25年进口法规</h4>
+<p class="text-sm text-gray-600 leading-relaxed">在美国，任何25年以上的车辆均可免EPA/NHTSA合规要求进口（49 CFR 591.5）。请仔细核对制造日期——而非车型年份。</p>
+</div>
+<div class="bg-gray-50 border border-gray-100 rounded-lg p-5">
+<h4 class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-2">里程与文件</h4>
+<p class="text-sm text-gray-600 leading-relaxed">日本拍卖检验单（3.5分以上为良好，4分以上为优秀）和日文保养记录是您主要的质量参考。里程表欺诈不常见但确实存在。</p>
+</div>
+<div class="bg-gray-50 border border-gray-100 rounded-lg p-5">
+<h4 class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-2">锈蚀是最大敌人</h4>
+<p class="text-sm text-gray-600 leading-relaxed">日本的沿海气候和道路撒盐意味着锈蚀检查至关重要。请彻底检查底盘纵梁、轮拱和底板——或者付费进行购车前检查。</p>
+</div>
+<div class="bg-gray-50 border border-gray-100 rounded-lg p-5">
+<h4 class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-2">运输与关税</h4>
+<p class="text-sm text-gray-600 leading-relaxed">请预算滚装或集装箱运输费用（1,500–4,000美元）、美国海关关税（申报价值的2.5%）、港口费用和州注册费。总到岸成本通常比购买价格高15–20%。</p>
+</div>
+<div class="bg-gray-50 border border-gray-100 rounded-lg p-5">
+<h4 class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-2">零件供应</h4>
+<p class="text-sm text-gray-600 leading-relaxed">主流JDM车型（Skyline、Supra、S15、Evo）通过专业经销商有充足的零件供应。较冷门的车型可能需要直接从日本采购。</p>
+</div>
+<div class="bg-gray-50 border border-gray-100 rounded-lg p-5">
+<h4 class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-2">价值走势</h4>
+<p class="text-sm text-gray-600 leading-relaxed">标志性车型（R34、Supra MK4、NSX-R、22B）在过去十年中升值了300–800%。目前最佳入手点是R32、FC RX-7和S13 Silvia——它们都刚刚符合进口资格。</p>
+</div>
+</div>
+</div>
+
+<div class="jdm-faq">
+<h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">常见问题解答</h2>
+<div class="border-b border-gray-100 py-5">
+<p class="font-semibold text-gray-900 mb-2">JDM代表什么？</p>
+<p class="text-sm text-gray-600 leading-relaxed">JDM代表日本国内市场（Japanese Domestic Market）——指的是按照日本规格制造、在日本国内销售的车辆。这些车型通常与同款的出口版本在规格、配置等级和功率输出上有所不同。</p>
+</div>
+<div class="border-b border-gray-100 py-5">
+<p class="font-semibold text-gray-900 mb-2">哪款JDM车在2025年最有投资潜力？</p>
+<p class="text-sm text-gray-600 leading-relaxed">Nissan Skyline GT-R R34和Toyota Supra MK4已经稳稳进入收藏品行列。对于寻求具有升值潜力入手点的买家来说，R32 GT-R、Honda S2000和Mazda RX-7 FC经常被进口商认为相对于其历史意义被低估了。</p>
+</div>
+<div class="border-b border-gray-100 py-5">
+<p class="font-semibold text-gray-900 mb-2">哪些JDM车现在可以合法进口到美国？</p>
+<p class="text-sm text-gray-600 leading-relaxed">截至2025年，任何在2000年或之前制造的车辆都有资格根据25年法规进口。这包括Nissan Skyline R34 GT-R（2002年款仍需等到2027年才符合资格）、Honda S2000（1999–2009年，早期型号已符合资格）以及所有Evo I至VI车型。该法规每年推进一年。</p>
+</div>
+<div class="border-b border-gray-100 py-5">
+<p class="font-semibold text-gray-900 mb-2">为什么有些JDM车从未在日本以外销售？</p>
+<p class="text-sm text-gray-600 leading-relaxed">有几个原因：JDM专属车型产量较低，出口认证不具备成本效益；有些是专门针对日本道路或条件进行性能调校的；另一些则受到日本君子协定的限制，将宣传功率上限设为276马力（这一上限使得在某些市场的出口销售变得棘手）；还有一些，如Civic Type R EK9，被认为太过专注而不适合更广泛的市场口味。</p>
+</div>
+<div class="border-b border-gray-100 py-5">
+<p class="font-semibold text-gray-900 mb-2">最有价值的JDM车是什么？</p>
+<p class="text-sm text-gray-600 leading-relaxed">Toyota 2000GT保持着JDM最高拍卖价格纪录，最精美的样本超过1,000,000美元。在现代JDM车中，Nissan Skyline GT-R NISMO 400R经常达到500,000美元以上，其次是Subaru Impreza 22B STi，完美状态下的样本可达200,000–300,000美元以上。</p>
+</div>
+<div class="border-b border-gray-100 py-5">
+<p class="font-semibold text-gray-900 mb-2">最适合首次购买者的JDM车是什么？</p>
+<p class="text-sm text-gray-600 leading-relaxed">Mazda MX-5 Miata NA / Eunos Roadster提供了价格亲民、零件充足、可靠性高和纯粹驾驶乐趣的最佳组合。对于预算有限但追求涡轮增压体验的人来说，早期的Nissan Silvia（S13、S14）和Honda Civic以可负担的价格提供了真正的JDM性格。</p>
+</div>
+</div>
+
+## 结语
+
+从**Nissan Skyline GT-R R34**到**Mazda MX-5 Miata**，这份榜单上的每一款车都代表了一个时刻——日本工程师拒绝按常规出牌的时刻。他们打造的汽车比同价位的欧洲或美国产品更轻、更聪明、更有改装潜力、更令人激动。JDM时代不仅仅是汽车历史中的一个篇章——它是一场革命，重新塑造了全世界对性能车的认知。
+
+信息汇编自制造商规格、JDMBUYSELL、JDMDrives、TopSpeed、Drifted、VividRacing和JDM Sport Classics。所有价格均为市场估计，可能会有变动。进口前请务必核实车辆资格。`,
+      en: `The phrase **JDM** — Japanese Domestic Market — refers to vehicles manufactured specifically for sale inside Japan. For decades, Japanese automakers produced their most potent, most exotic, and most technically adventurous machines exclusively for domestic buyers, leaving the rest of the world to watch and wish.
 
 Thanks to the **25-year import rule**, many of these legends are now legal to import into the United States, opening a floodgate of demand that has pushed values into the stratosphere. Whether you're a seasoned collector or a first-time buyer trying to decode the JDM scene, this authoritative guide ranks the 25 greatest Japanese Domestic Market cars ever built — judged on engineering innovation, motorsport heritage, cultural impact, and driving purity.
 
@@ -605,6 +1175,576 @@ JDM stands for *Japanese Domestic Market*. These are cars built to Japanese gove
 From the **Nissan Skyline GT-R R34** to the **Mazda MX-5 Miata**, every car on this list represents a moment when Japanese engineers refused to play by conventional rules. They built cars that were lighter, smarter, more tunable, and more thrilling than anything Europe or America produced at the same price point. The JDM era wasn't just a chapter in automotive history — it was a revolution that reshaped how the world thinks about performance cars.
 
 Information compiled from manufacturer specifications, JDMBUYSELL, JDMDrives, TopSpeed, Drifted, VividRacing, and JDM Sport Classics. All prices are market estimates and subject to change. Always verify vehicle eligibility before importation.`,
+      ja: `**JDM**（Japanese Domestic Market）という言葉は、日本国内での販売を目的として製造された車両を指します。数十年にわたり、日本の自動車メーカーは最も強力で、最もエキゾチックで、最も技術的に野心的なマシンを国内のバイヤー向けに独占的に生産し、世界の他の地域はそれを見つめ、羨望するしかありませんでした。
+
+**25年輸入ルール**のおかげで、これらのレジェンドの多くが現在アメリカへの輸入が合法となり、需要の洪水が価格を成層圏へと押し上げています。経験豊富なコレクターであれ、JDMシーンを解読しようとする初めてのバイヤーであれ、この権威あるガイドは、エンジニアリングの革新性、モータースポーツの遺産、文化的影響、そしてドライビングの純粋さを基準に、史上最高の日本の domestic market 車25台をランキングしています。
+
+## JDMカーとは何か？
+
+JDMは*Japanese Domestic Market*（日本国内市場）の略です。これらは日本政府の仕様に合わせて製造された車 — 右ハンドルで、日本の道路に合わせてチューニングされ、輸出されることのなかったパフォーマンスバリアントやトリムを特徴とすることが多い車です。25年ルール（49 CFR 591.5）により、元の適合性に関わらず、25年以上前に製造された車両のアメリカへの輸入が認められており、象徴的なJDMカーがアメリカのコレクターにとって入手可能となっています。
+
+>>> ホーリートリニティ — 絶対的レジェンド
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">01</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Nissan · 1999–2002 · Icon</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Nissan Skyline GT-R R34</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>Engine <strong class="text-gray-900">RB26DETT 2.6L Twin-Turbo I6</strong></span>
+<span>Power <strong class="text-gray-900">276 hp (factory — widely exceeded)</strong></span>
+<span>Drive <strong class="text-gray-900">ATTESA E-TS AWD</strong></span>
+<span>0–60 <strong class="text-gray-900">~4.9 sec</strong></span>
+<span>Units Made <strong class="text-gray-900">~11,500</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Nissan_Skyline_GT-R_R34_V_Spec_II.jpg/960px-Nissan_Skyline_GT-R_R34_V_Spec_II.jpg" alt="Nissan Skyline GT-R R34 V-Spec II" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3">JDMリストは他のどこからも始まらない。<strong>R34 Nissan Skyline GT-R</strong>は不動の王 — 日本ツーリングカーチャンピオンシップが結局、他のメーカーにチャンスを与えるために制限を課さざるを得なかったほど圧倒的な車だ。<em>"ゴジラ"</em>という愛称で呼ばれるRB26DETTツインターボ直列6気筒エンジンは、自動車史上最も称賛されたエンジンの一つである：際限なくチューン可能で、猛烈なトルクを誇り、適切なメンテナンスを受ければ完全に無敵である。</p>
+<p class="text-gray-600 leading-relaxed mb-3">ATTESA E-TS Proフルタイム四輪駆動システム、スーパーHICAS四輪操舵、そしてGTレーシングから借用したマルチファンクションディスプレイにより、R34は時代を数十年先取りしているかのように感じられた。約11,500台しか生産されず、状態の良い車は現在オークションで$200,000以上 — しかも上昇中 — で取引されている。ポール・ウォーカーが<em>2 Fast 2 Furious</em>で運転した有名なベイサイドブルーのR34は、そのグローバルなポップカルチャーにおける不死性を決定づけた。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 史上最高のJDMカー — 異論の余地なし</div>
+</div>
+</div>
+</div>
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">02</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Toyota · 1993–2002 · Legend</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Toyota Supra MK4 (A80)</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>Engine <strong class="text-gray-900">2JZ-GTE 3.0L Twin-Turbo I6</strong></span>
+<span>Power <strong class="text-gray-900">320 hp (JDM) / 276 hp export</strong></span>
+<span>Drive <strong class="text-gray-900">RWD 6-Speed Manual</strong></span>
+<span>0–60 <strong class="text-gray-900">~4.6 sec</strong></span>
+<span>Top Speed <strong class="text-gray-900">180 mph (limited)</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Toyota_GR_Supra_%2851984008283crop%29.jpg/960px-Toyota_GR_Supra_%2851984008283crop%29.jpg" alt="Toyota Supra MK4 A80" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3"><strong>Toyota Supra MK4</strong>の2JZ-GTEエンジンは、おそらく史上最も有名な直列6気筒エンジンである。意図的にオーバービルトに設計されており — トヨタのエンジニアは内部改造で1,000馬力以上に耐えられるよう設計した — チューナーコミュニティの究極の聖杯となった。JDM仕様の車は工場出荷時で320馬力を発揮し、輸出市場向けの276馬力に対して、日本の紳士協定の出力上限を反映していた。</p>
+<p class="text-gray-600 leading-relaxed mb-3"><em>The Fast and the Furious</em>でのブライアン・オコナーのオレンジ色のSupraは、ひと世代全体の象徴的な車となった。状態の良い本物のマニュアルトランスミッション Supra MK4は現在$100,000〜$200,000で取引されており、その希少性とほぼ宗教的な熱狂的なファンベースが価格を押し上げている。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 2JZ-GTEがチューナー世代を定義した</div>
+</div>
+</div>
+</div>
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">03</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Mazda · 1992–2002 · Driver's Car</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Mazda RX-7 FD</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>Engine <strong class="text-gray-900">13B-REW 1.3L Twin-Rotor Turbo</strong></span>
+<span>Power <strong class="text-gray-900">252–280 hp (JDM)</strong></span>
+<span>Weight <strong class="text-gray-900">~2,800 lbs</strong></span>
+<span>0–60 <strong class="text-gray-900">~5.2 sec</strong></span>
+<span>Balance <strong class="text-gray-900">50/50 F/R</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/1994_Mazda_RX-7_R2_in_Vintage_Red%2C_front_left_%28Lime_Rock%29.jpg/960px-1994_Mazda_RX-7_R2_in_Vintage_Red%2C_front_left_%28Lime_Rock%29.jpg" alt="Mazda RX-7 FD in Vintage Red" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3">純粋なドライビングアートのために、JDMカノンの中で<strong>Mazda RX-7 FD</strong>に匹敵するものはない。13B-REWツインターボロータリーエンジンはフロントアクスルの<em>後ろ</em>に配置され、ほぼ完璧な50/50の重量配分を実現した。その結果、ツインシーケンシャルターボを搭載しながら2,900 lbs未満の重量で、超自然的なバランスでコーナーを回る車が完成した。<em>Car and Driver</em>誌は5年連続でテンベストリストに選出した。</p>
+<p class="text-gray-600 leading-relaxed mb-3">ロータリーエンジンの決定的な特徴 — 高回転で滑らかなパワー供給と、改造に対する素晴らしいレスポンス — は、ドリフトやモータースポーツコミュニティにとって究極の武器となった。<em>Tokyo Drift</em>でのハンのVeilside仕様のRX-7は、新世代にその名を永遠に刻み込んだ。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ JDM史上最もバランスの良いシャシー</div>
+</div>
+</div>
+</div>
+
+>>> ジャパニーズ・スーパーカー
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">04</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Honda · 1990–2005 · Supercar</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Honda NSX (NA1/NA2)</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>Engine <strong class="text-gray-900">C30A / C32B 3.0–3.2L VTEC V6</strong></span>
+<span>Power <strong class="text-gray-900">270–290 hp</strong></span>
+<span>Drive <strong class="text-gray-900">Mid-Engine RWD</strong></span>
+<span>0–60 <strong class="text-gray-900">~5.7 sec</strong></span>
+<span>Top Speed <strong class="text-gray-900">168 mph</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/AcuraNSX-05-cropped.jpg/960px-AcuraNSX-05-cropped.jpg" alt="Honda NSX NA1 supercar" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3">ホンダはフェラーリに匹敵するパフォーマンスを持ちながら、日常的にトラブルなく運転できるスーパーカーを作ることを目指した — そして成功した。F1のレジェンド、アイルトン・セナの協力を得て開発された<strong>Honda NSX</strong>は、オールアルミニウムモノコックシャシー、ミッドマウントVTEC V6（8,000 rpmのレブリミット）、そして量産車では前例のないチタン製コネクティングロッドを搭載していた。</p>
+<p class="text-gray-600 leading-relaxed mb-3">1990年の発売時、フェラーリとポルシェのエンジニアは衝撃を受け、初期モデルを分解分析のために購入した。カーボンファイバーで製造され、防音材を排除したNSX-Rバリアントは、ドライバー重視のベンチマークとなった。価値は大きく上昇しており — 状態の良いNSX-Rは現在$200,000以上で取引されている。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 初の「日常のスーパーカー」— アイルトン・セナ承認</div>
+</div>
+</div>
+</div>
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">05</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Lexus · 2010–2012 · Halo Car</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Lexus LFA</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>Engine <strong class="text-gray-900">1LR-GUE 4.8L NA V10</strong></span>
+<span>Power <strong class="text-gray-900">552 hp @ 8,700 rpm</strong></span>
+<span>Redline <strong class="text-gray-900">9,000 rpm</strong></span>
+<span>0–60 <strong class="text-gray-900">3.7 sec</strong></span>
+<span>Units Made <strong class="text-gray-900">500</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Lexus_LFA_001.JPG/960px-Lexus_LFA_001.JPG" alt="Lexus LFA V10 supercar" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3"><strong>Lexus LFA</strong>は、メーカーが財政的なプレッシャーを一切受けずに10年かけてハローカーを完璧に仕上げた結果である。4.8リッターの自然吸気V10エンジンは9,000 rpmまで回り、そのあまりに独自の排気音のためデジタルタコメーターが必要だった — アナログ針ではエンジンの加速レスポンスを追跡するのに十分な速さで動くことができなかったのだ。</p>
+<p class="text-gray-600 leading-relaxed mb-3">ボディの65%にカーボンファイバー強化ポリマーを使用して製造されたLFAは、日本の職人技の絶対的な頂点を体現している。わずか500台しか生産されなかった。現在では$900,000以上で取引されている。レクサスにとっては財政的な損失であった — そして史上最高の車の一つであった。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 500台。史上最高のV10サウンドの一つ。</div>
+</div>
+</div>
+</div>
+
+>>> ラリーレジェンド＆ホモロゲーションスペシャル
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">06</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Mitsubishi · 1999 · Rally Special</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Mitsubishi Lancer Evolution VI T.M. Edition</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>Engine <strong class="text-gray-900">4G63T 2.0L Turbo I4</strong></span>
+<span>Power <strong class="text-gray-900">276 hp (underrated)</strong></span>
+<span>Drive <strong class="text-gray-900">AWD ACD/AYC</strong></span>
+<span>Production <strong class="text-gray-900">Limited Run</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/2017-04-02_Mitsubishi_Lancer_Evolution_X_MR_SST_14_%282%29.jpg/960px-2017-04-02_Mitsubishi_Lancer_Evolution_X_MR_SST_14_%282%29.jpg" alt="Mitsubishi Lancer Evolution" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3"><strong>Lancer Evolution VI Tommi Mäkinen Edition</strong> — ミツビシにWRCラリーワールドタイトルを4連覇をもたらしたフィンランド人WRCチャンピオンの名を冠したこの車 — はEvo系譜の頂点を表している。よりタイトなサスペンション、より流量の多いエキゾースト、チタンターボハウジング、そして微妙なエアロの調整により、それまでに作られた中最もフォーカスされたEvoとなった。</p>
+<p class="text-gray-600 leading-relaxed mb-3">ランサーエボリューションのすべての世代（IからXまで）は同じ核心のレシピを共有していた：ターボチャージャー付き2.0リッター直列4気筒、四輪駆動、そしてラリーパーツをホモロゲーションするために設計された四角く機能的なボディ。VI TMEほど忠実にそのフォーミュラを体現したEvoは他にない。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ WRCタイトル4連覇。妥協なし。</div>
+</div>
+</div>
+</div>
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">07</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Subaru · 1998 · Homologation Special</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Subaru Impreza 22B STi</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>Engine <strong class="text-gray-900">EJ22 2.2L Turbo Flat-4</strong></span>
+<span>Power <strong class="text-gray-900">276 hp (factory)</strong></span>
+<span>Units Made <strong class="text-gray-900">424</strong></span>
+<span>Body <strong class="text-gray-900">Wide-Body 2-Door</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/2011_Subaru_Impreza_WRX_STI_sedan_front_--_2011_DC.jpg/960px-2011_Subaru_Impreza_WRX_STI_sedan_front_--_2011_DC.jpg" alt="Subaru Impreza WRX STI" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3">スバルのWRCマニュファクチャラーズチャンピオンシップ3連覇を記念して製造された<strong>22B STi</strong>は、存在する中で最も希少で最も望ましいJDMカーの一つである。わずか424台のみが生産された — 日本向けに400台、他市場向けに24台。拡大された2.2リッターフラットフォーとWRCカーから直接派生したワイドボディキットは、真のハードコアなラリーブリードのパフォーマンスを与えていた。</p>
+<p class="text-gray-600 leading-relaxed mb-3">低走行距離の車はオークションで$200,000 USD以上で落札されており、スバルとしてはほとんど想像もつかないほどの価値上昇である。22Bは1990年代後半のJDM時代を代表するコレクターカーのベンチマークとなっている。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 424台製造。その一台一台が今や6桁の車。</div>
+</div>
+</div>
+</div>
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">08</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Honda · 1997–2000 · JDM-Only Type R</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Honda Civic Type R EK9</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>Engine <strong class="text-gray-900">B16B 1.6L VTEC I4</strong></span>
+<span>Power <strong class="text-gray-900">185 hp @ 8,200 rpm</strong></span>
+<span>Drive <strong class="text-gray-900">FWD 5-Speed Close-Ratio</strong></span>
+<span>Redline <strong class="text-gray-900">8,600 rpm</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/2024_Honda_Civic_Type_R%2C_front_right%2C_06-15-2024.jpg/960px-2024_Honda_Civic_Type_R%2C_front_right%2C_06-15-2024.jpg" alt="Honda Civic Type R" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3">初代Civic Type Rは日本国内でのみ販売され、そのJDM exclusivityはホットハッチコミュニティにとって究極の聖杯となった。B16Bエンジン — 発売時に世界で最も高回転する自然吸気量産エンジン — は、たった1.6リッターから185馬力を生み出し、一切の過給機なしでそれを実現していた。</p>
+<p class="text-gray-600 leading-relaxed mb-3">防音材を排除し、クロスレシオギアボックスを装備し、何よりもサーキットでの使用に向けてチューンされたEK9は、Type Rであるべきすべてのテンプレートを設定した：アグレッシブで、フォーカスされ、8,600 rpmの限界までプッシュした時に圧倒的に報われる車。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 最初の — そして多くの人が最高と呼ぶ — Civic Type R。</div>
+</div>
+</div>
+</div>
+
+>>> スポーツカー・クラシック
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">09</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Honda · 1999–2009 · オープンスポーツ</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Honda S2000</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>エンジン <strong class="text-gray-900">F20C / F22C 2.0–2.2L VTEC 直列4気筒</strong></span>
+<span>最高出力 <strong class="text-gray-900">240–247 hp</strong></span>
+<span>リッター出力 <strong class="text-gray-900">120 hp/リッター (F20C)</strong></span>
+<span>レブリミット <strong class="text-gray-900">9,000 rpm</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/HondaS2000-004.jpg/960px-HondaS2000-004.jpg" alt="Honda S2000 roadster" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3"><strong>Honda S2000</strong> は、自然吸気エンジンから1リッターあたり120馬力を叩き出しました — 1999年の登場時における量産車として世界最高のリッター出力でした。この偉業は今日でもなお驚異的な記録として語り継がれています。日本国内専用のType S仕様は、エアロボディキット、大径タイヤ、および改良されたサスペンションを追加し、さらに鋭敏なドライビング体験を実現していました。</p>
+<p class="text-gray-600 leading-relaxed mb-3">後輪駆動、ほぼ完璧なフロントミッドシップエンジンレイアウト、そして刃のように研ぎ澄まされたシャシーバランスにより、S2000はその時代を代表する手頃なスポーツカーの基準となりました。良質な個体は現在、新車時の希望小売価格を上回る価格で取引されており、多くのスポーツカーが直面する価値の谷間をほぼ回避しています。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 9,000 RPM。120 hp/リッター。Hondaの絶対的な頂点。</div>
+</div>
+</div>
+</div>
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">10</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Honda · 1995–2001 · Type R</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Honda Integra Type R (DC2)</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>エンジン <strong class="text-gray-900">B18C Spec-R 1.8L VTEC 直列4気筒</strong></span>
+<span>最高出力 <strong class="text-gray-900">200 hp (JDM) / 195 hp (USDM)</strong></span>
+<span>レブリミット <strong class="text-gray-900">8,500 rpm</strong></span>
+<span>駆動方式 <strong class="text-gray-900">FF 5速</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/2002_Honda_Integra_%28DC5%29_Special_Edition_coupe_%282015-07-24%29_01.jpg/960px-2002_Honda_Integra_%28DC5%29_Special_Edition_coupe_%282015-07-24%29_01.jpg" alt="Honda Integra Type R DC2" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3"><strong>DC2 Integra Type R</strong> は、発売時に前輪駆動車のニュルブルクリンク ラップレコードを樹立し、その後何年にもわたり記録を保持し続けました。B18C Spec-Rエンジンは手作業で組み立てられ、各ユニットには組み立てた技術者のサインが入れられていました。HondaのNVHバランスと回転数マッチングの精度に対する執念ある追求は、ドライバーとの一体感において未だに凌駕されていない前輪駆動ハンドリングの基準を作り上げました。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ FFの究極形。ニュルブルクリンク レコードホルダー。</div>
+</div>
+</div>
+</div>
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">11</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Nissan · 1989–1994 · "ゴジラ"</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Nissan Skyline GT-R R32</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>エンジン <strong class="text-gray-900">RB26DETT 2.6L ツインターボ 直列6気筒</strong></span>
+<span>最高出力 <strong class="text-gray-900">276 hp (公称)</strong></span>
+<span>駆動方式 <strong class="text-gray-900">ATTESA E-TS 4WD</strong></span>
+<span>JTCC戦績 <strong class="text-gray-900">29戦 29勝</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Nissan_Skyline_GT-R_R34_V_Spec_II.jpg/960px-Nissan_Skyline_GT-R_R34_V_Spec_II.jpg" alt="Nissan Skyline GT-R R32" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3">「ゴジラ」の異名を獲得した車 — <strong>R32 GT-R</strong> は全日本ツーリングカー選手権を圧倒的な強さで制し、オーストラリアでは一時的に出場禁止になりました。ATTESAフルタイム4WDとスーパーHICAS四輪操舵は、1989年当時として真に革新的な技術でした。現在はアメリカへの輸入が可能になり、急速に価値が上昇しています。R32は、R33/R34の後継モデルよりも低い価格帯で本物のGT-RのDNAを提供しています。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 出場した全レースで優勝。強すぎて禁止された伝説。</div>
+</div>
+</div>
+</div>
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">12</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Nissan · 1999–2002 · ドリフト・アイコン</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Nissan Silvia S15 Spec-R</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>エンジン <strong class="text-gray-900">SR20DET 2.0L ターボ 直列4気筒</strong></span>
+<span>最高出力 <strong class="text-gray-900">250 hp</strong></span>
+<span>駆動方式 <strong class="text-gray-900">FR 6速マニュアル</strong></span>
+<span>市場 <strong class="text-gray-900">日本国内専売</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Nissan_Silvia_S15_001.JPG/960px-Nissan_Silvia_S15_001.JPG" alt="Nissan Silvia S15 Spec-R" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3"><strong>S15 Silvia Spec-R</strong> は日本国外で正式に販売されたことがなく、現在のJDM輸入車の中で最も熱望される一台となっています。Spec-RチューンのSR20DETは、2.0リッターから250馬力を発生し — 6速ゲトラグギアボックスを通じて後輪に駆動力を伝達します。優れたバランス、軽量な車体、そして無限のチューニングポテンシャルにより、プロフェッショナル・ドリフトの世界的なスタンダードとなりました。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 日本専売。250 hp。世界が愛したドリフトカー。</div>
+</div>
+</div>
+</div>
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">13</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Toyota · 1983–1987 · ドリフトの原点</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Toyota Corolla AE86 Sprinter Trueno</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>エンジン <strong class="text-gray-900">4A-GE 1.6L DOHC 直列4気筒</strong></span>
+<span>最高出力 <strong class="text-gray-900">128 hp</strong></span>
+<span>駆動方式 <strong class="text-gray-900">FR 5速</strong></span>
+<span>ヘリテージ <strong class="text-gray-900">GR86 / BRZの原型</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/1983_Toyota_Corolla_Levin.jpg/960px-1983_Toyota_Corolla_Levin.jpg" alt="Toyota Corolla AE86 Levin" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3"><strong>AE86</strong> は、その後に登場したすべての軽量後輪駆動スポーツカーの精神的先祖です。「ドリフト王」土屋圭市は、日本の峠道でこの車を駆り、自身の伝説の全てを築き上げるとともに、現代ドリフトという芸術を誕生させました。ヤマハと共同開発された4A-GEエンジンは、その時代の自然吸気DOHC設計の模範として今なお高く評価されています。</p>
+<p class="text-gray-600 leading-relaxed mb-3">AE86は、Toyota GR86およびSubaru BRZに直接的なインスピレーションを与えました。アニメ<em>頭文字D</em>の主人公の車として、何百万人もの人々にJDM文化を紹介した存在となりました。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ ドリフトをモータースポーツとして確立した車。</div>
+</div>
+</div>
+</div>
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">14</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Nissan · 1989–2000 · グランドツアラー</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Nissan 300ZX Twin Turbo (Z32)</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>エンジン <strong class="text-gray-900">VG30DETT 3.0L ツインターボ V6</strong></span>
+<span>最高出力 <strong class="text-gray-900">300 hp (JDM)</strong></span>
+<span>最高速度 <strong class="text-gray-900">155 mph (リミッター付き)</strong></span>
+<span>0–60 <strong class="text-gray-900">約5.6秒</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/1996_Nissan_300ZX_2-seater_t-top%2C_front_left%2C_06-15-2025.jpg/960px-1996_Nissan_300ZX_2-seater_t-top%2C_front_left%2C_06-15-2025.jpg" alt="Nissan 300ZX Twin Turbo Z32" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3"><strong>Z32 300ZX Twin Turbo</strong> は、1990年に<em>Road & Track</em>誌のカ・オブ・ザ・イヤーに選出され、当時のすべてのヨーロッパのGTライバルを驚嘆させました。3.0リッターツインターボV6、四輪操舵、そして高度なアクティブサスペンションにより、未来のスポーツカーのような感覚を与えました。JDM仕様は300馬力を発生し、輸出仕様の283馬力を明確に上回っていました。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ Road & Track カ・オブ・ザ・イヤー。ヨーロッパを唸らせたグランドツアラー。</div>
+</div>
+</div>
+</div>
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">15</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Toyota · 1986–1992 · ターボ・クラシック</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Toyota Supra MK3 Turbo (A70)</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>エンジン <strong class="text-gray-900">7M-GTE 3.0L ターボ 直列6気筒</strong></span>
+<span>最高出力 <strong class="text-gray-900">230 hp</strong></span>
+<span>駆動方式 <strong class="text-gray-900">FR</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Toyota_Supra_%28A70%2C_pre-facelift%29_1X7A2552.jpg/960px-Toyota_Supra_%28A70%2C_pre-facelift%29_1X7A2552.jpg" alt="Toyota Supra MK3 Turbo A70" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3">MK3 Supraは、後にMK4が不滅の名声を得ることになる血統を確立しました。JDMのターボ仕様は輸出仕様よりも高出力を誇り、跳ね上がるヘッドライト、ロングノーズ、そして1980年代後半の豪華さを漂わせる内装を特徴としていました。MK4の価格が多くのバイヤーにとって手の届かないものとなった現在、真剣なコレクターの注目を集め始めています。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 2JZ伝説の祖。</div>
+</div>
+</div>
+</div>
+
+>>> 隠れた名車 & カルト・クラシック
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">16</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Mitsubishi · 1996 · ラリー・ブレッド</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Mitsubishi Lancer Evolution IV</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>エンジン <strong class="text-gray-900">4G63T 2.0L ターボ 直列4気筒</strong></span>
+<span>最高出力 <strong class="text-gray-900">280 hp</strong></span>
+<span>駆動方式 <strong class="text-gray-900">4WD AYC</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/2017-04-02_Mitsubishi_Lancer_Evolution_X_MR_SST_14_%282%29.jpg/960px-2017-04-02_Mitsubishi_Lancer_Evolution_X_MR_SST_14_%282%29.jpg" alt="Mitsubishi Lancer Evolution IV" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3">Evo IVは、アクティブ・ヨー・コントロール（AYC）システムを採用した最初のエボリューションモデルでした — リミットでのハンドリングを変革するトルクベクタリング・デファレンシャルです。WRCでの勝利が直ちに続きました。そのアグレッシブなラリーヘリテージ、堅牢なパフォーマンス、そしてAYCの登場により、IVはエボリューションの歴史におけるマイルストーンとなり、JDMコミュニティで愛されるアイコンとなりました。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ AYCを獲得したエボリューション — すべてを変えた一台。</div>
+</div>
+</div>
+</div>
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">17</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Nissan NISMO · 1997 · 究極の希少性</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Nissan Skyline GT-R NISMO 400R</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>エンジン <strong class="text-gray-900">RB-X GT2 2.8L ツインターボ 直列6気筒</strong></span>
+<span>最高出力 <strong class="text-gray-900">400 hp</strong></span>
+<span>生産台数 <strong class="text-gray-900">約44台</strong></span>
+<span>価格 (1997年) <strong class="text-gray-900">¥12,800,000</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Nissan_Skyline_GT-R_R34_V_Spec_II.jpg/960px-Nissan_Skyline_GT-R_R34_V_Spec_II.jpg" alt="Nissan Skyline GT-R NISMO 400R" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3">NISMOがファクトリーで製造したR33 GT-Rのレースホモロゲーションモデルは、RB26DETTの拡大版である2.8リッターエンジンを搭載し、真正の400馬力を発生していました。約44台のみが製造された400Rは、存在する中で最も希少なJDMカーの一台です。記録された個体の価値は50万ドル以上に達しており — 市場で最も極端な価値上昇の一つとなっています。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 44台。400 hp。オークションで50万ドル。</div>
+</div>
+</div>
+</div>
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">18</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Toyota · 1989–1999 · ミッドシップ・クラシック</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Toyota MR2 SW20 Turbo</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>Engine <strong class="text-gray-900">3S-GTE 2.0L Turbo I4</strong></span>
+<span>Power <strong class="text-gray-900">245 hp (JDM)</strong></span>
+<span>Drive <strong class="text-gray-900">Mid-Engine RWD</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/1993ToyotaMR2Hardtop.jpg/960px-1993ToyotaMR2Hardtop.jpg" alt="Toyota MR2 SW20 Turbo" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3">Toyotaのミッドシップ2シーターは、フェラーリに匹敵するスタイリングとハンドリングを、その何分の一かの価格で提供した。JDM仕様のSW20 Turboは245馬力を発生し — 輸出仕様よりも大幅に高出力 — ミッドシップレイアウトによる卓越したコーナリングバランスを備えていた。悪名高い「スナップオーバーステア」の特性により、限界域でのドライビングが難しく、熱心なマニアたちの絶大な支持を集めることとなった。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ ミッドシップ、後輪駆動。フェラーリのプロポーション、Toyotaの価格。</div>
+</div>
+</div>
+</div>
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">19</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Nissan · 1997 · JDMスリーパー</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Nissan Stagea 260RS</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>Engine <strong class="text-gray-900">RB26DETT 2.6L Twin-Turbo I6</strong></span>
+<span>Power <strong class="text-gray-900">276 hp</strong></span>
+<span>Drive <strong class="text-gray-900">ATTESA E-TS AWD</strong></span>
+<span>Body <strong class="text-gray-900">5-Door Wagon</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/2001-2004_NISSAN_STAGEA.jpg/960px-2001-2004_NISSAN_STAGEA.jpg" alt="Nissan Stagea 260RS wagon" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3">客観的に見て史上最も実用的なGT-R — <strong>Stagea 260RS</strong> はR33 Skyline GT-RからRB26DETTエンジン、ATTESA AWD、ブレーキシステムを移植し、実用的な5ドアワゴンボディに搭載していた。NISMOはフルGT-Rフロントコンバージョンキットを提供していた。同時に史上最も実用的で、かつ最も予想外に速いエステートカーである。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ GT-Rエンジン。ワゴンボディ。世界で類を見ない存在。</div>
+</div>
+</div>
+</div>
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">20</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Honda · 1991–1996 · 軽オープンカー</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Honda Beat</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>Engine <strong class="text-gray-900">E07A 0.66L Mid-Mounted I3</strong></span>
+<span>Power <strong class="text-gray-900">64 hp</strong></span>
+<span>Drive <strong class="text-gray-900">Mid-Engine RWD</strong></span>
+<span>Weight <strong class="text-gray-900">1,650 lbs</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Honda_Beat_PP1_front.jpg/960px-Honda_Beat_PP1_front.jpg" alt="Honda Beat kei roadster" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3">宗一郎本田自身の個人的な farewell project — 1991年の他界前に創業者自身が承認した — <strong>Honda Beat</strong> は660ccのミッドマウントエンジンをわずか1,650ポンドの小さなオープンロードスターに搭載した。64馬力と2,000ポンド未満の車体重量で、物理的にあり得ないほど速く感じる。Hondaの創業者が個人的に承認した最後の車である。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 宗一郎本田から世界への最後の贈り物。</div>
+</div>
+</div>
+</div>
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">21</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Toyota · 1989–1999 · WRCの英雄</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Toyota Celica GT-Four (ST185/ST205)</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>Engine <strong class="text-gray-900">3S-GTE 2.0L Turbo I4</strong></span>
+<span>Power <strong class="text-gray-900">255 hp (ST205)</strong></span>
+<span>Drive <strong class="text-gray-900">AWD</strong></span>
+<span>WRC Titles <strong class="text-gray-900">3 (1992–1994)</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/CelicaST185GT4APuenteHills.jpg/960px-CelicaST185GT4APuenteHills.jpg" alt="Toyota Celica GT-Four ST185" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3">Celica GT-Fourは1990年代前半にToyotaにWRCマニュファクチャラータイトルを3回もたらした。JDM仕様のST205は255馬力を発生 — 歴代最強のCelica — され、よりアグレッシブなインタークーラーとラリー由来のAWDシステムを搭載していた。ST205は後にWRCで不正なリストリクタープレートにより失格となり、すでに伝説的なマシンにさらなる悪名を加えることとなった。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ WRCタイトル3回。不正で失格。それでも伝説。</div>
+</div>
+</div>
+</div>
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">22</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Mazda · 1985–1992 · セカンドジェネレーション</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Mazda RX-7 FC Turbo</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>Engine <strong class="text-gray-900">13B Turbo 1.3L Twin-Rotor</strong></span>
+<span>Power <strong class="text-gray-900">185–215 hp (JDM)</strong></span>
+<span>Drive <strong class="text-gray-900">RWD</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Tuned_Mazda_SAVANNA_RX-7_GT-R_%28E-FC3S%29_front.jpg/960px-Tuned_Mazda_SAVANNA_RX-7_GT-R_%28E-FC3S%29_front.jpg" alt="Mazda Savanna RX-7 FC3S" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3">伝説のFDが登場する前に<strong>FC</strong>が存在した — JDMターボ仕様では、それは真剣なスポーツカーだった。Mazdaのターボチャージド13BロータリーをFCシャシーに搭載し、ポップアップヘッドライト、ほぼ完璧なバランス、そしてピストンエンジンとは全く異なるサウンドで純粋なドライビング体験を提供した。FDが予算を超えて手が届かなくなる中、コレクター価値が高まりつつある。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ FDの過小評価された、同じく純粋な先代。</div>
+</div>
+</div>
+</div>
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">23</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Toyota / Yamaha · 1967–1970 · オリジナル</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Toyota 2000GT</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>Engine <strong class="text-gray-900">2M 2.0L DOHC I6</strong></span>
+<span>Power <strong class="text-gray-900">150 hp</strong></span>
+<span>Units Made <strong class="text-gray-900">351</strong></span>
+<span>Value <strong class="text-gray-900">$500,000–$1,000,000+</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/TOYOTA_2000GT.jpg/960px-TOYOTA_2000GT.jpg" alt="Toyota 2000GT classic" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3">日本が世界水準のスポーツカーを作れることを証明した車 — Yamahaと共同開発された<strong>Toyota 2000GT</strong> は、1967年の東京モーターショーで初公開され、観衆を驚嘆させた。オープンモデルはジェームズ・ボンド映画<em>007は二度死ぬ</em>（1967年）に登場した。わずか351台が生産され、現在ではオークション史上最も高価な日本車であり、 regularly exceeding $1,000,000 で取引されている。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 日本初のスーパーカー。ジェームズ・ボンドカー。100万ドル。</div>
+</div>
+</div>
+</div>
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">24</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Nissan · 1969–1972 · ビンテージGT-R</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Nissan Skyline GT-R KPGC10 "Hakosuka"</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>Engine <strong class="text-gray-900">S20 2.0L DOHC 24V I6</strong></span>
+<span>Power <strong class="text-gray-900">160 hp</strong></span>
+<span>Race Record <strong class="text-gray-900">50 consecutive wins in Japan</strong></span>
+<span>Units Made <strong class="text-gray-900">~1,945</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Nissan_KPGC10_Skyline_2000GT-R_%2822091110222%29.jpg/960px-Nissan_KPGC10_Skyline_2000GT-R_%2822091110222%29.jpg" alt="Nissan Skyline 2000GT-R KPGC10 Hakosuka" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3">初代GT-R — <strong>Hakosuka</strong>（箱型スカイライン） — は1969年のデビュー後、日本で50連勝を達成し、GT-Rの名をレーシングレジェンドとして確立した。Yamahaが開発したS20エンジンはNissan Princeレーシングプログラムをベースとしていた。今日、本物のKPGC10 GT-Rを見つけることは、日本車コレクティングにおける最も名誉ある成就の一つである。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 50連勝。GT-Rレガシーの原点。</div>
+</div>
+</div>
+</div>
+
+<div class="jdm-car-entry">
+<div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-10">
+<div class="text-6xl sm:text-7xl font-bold text-gray-200 leading-none select-none shrink-0">25</div>
+<div class="flex-1 min-w-0">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-1">Mazda · 1989–1997 · 万人に愛されるクラシック</p>
+<h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">Mazda MX-5 Miata / Eunos Roadster (NA)</h2>
+<div class="flex flex-wrap gap-x-5 gap-y-1 mb-4 font-mono text-xs text-gray-400">
+<span>Engine <strong class="text-gray-900">B6-ZE / BP-ZE 1.6–1.8L I4</strong></span>
+<span>Power <strong class="text-gray-900">115–131 hp</strong></span>
+<span>Weight <strong class="text-gray-900">~2,100 lbs</strong></span>
+<span>Production <strong class="text-gray-900">World's Best-Selling Roadster</strong></span>
+</div>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Eunos.jpg/960px-Eunos.jpg" alt="Mazda MX-5 Miata NA Eunos Roadster" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<p class="text-gray-600 leading-relaxed mb-3">JDM仕様 — <strong>Eunos Roadster</strong> として販売 — はレザーインテリアと輸出市場では利用できない標準装備のアップグレードを備えていた。NA Miataの自動車文化への影響は計り知れない：1970年代に消滅していた小型で手頃な価格のロードスターセグメントを単独で復活させ、パワーよりも軽さを重視する哲学はその後数十年にわたって開発されるあらゆるスポーツカーに影響を与えた。</p>
+<p class="text-gray-600 leading-relaxed mb-3">史上最も売れたロードスターであり、世界で最もレースに使われている量産車であり、多くの指標においてあらゆる価格帯で最も純粋なドライビングの歓びを表現している。</p>
+<div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 過去40年間で最も重要なスポーツカー。</div>
+</div>
+</div>
+</div>
+
+<div class="jdm-buying-guide">
+<h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">JDM購入ガイド：知っておくべきこと</h2>
+<p class="text-gray-500 leading-relaxed mb-6">JDM車を輸入するには、適切なモデルを見つける以上のことが必要です。海外に送金する前に、すべての購入者が理解すべき重要なポイントを紹介します。</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+<div class="bg-gray-50 border border-gray-100 rounded-lg p-5">
+<h4 class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-2">25年輸入ルール</h4>
+<p class="text-sm text-gray-600 leading-relaxed">米国では、25年以上経過した車両はEPA/NHTSA適合免除で輸入可能（49 CFR 591.5）。モデル年式ではなく、製造年月日を慎重に確認すること。</p>
+</div>
+<div class="bg-gray-50 border border-gray-100 rounded-lg p-5">
+<h4 class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-2">走行距離と書類</h4>
+<p class="text-sm text-gray-600 leading-relaxed">日本のオークション検査シート（評価3.5以上が良好、4以上が優秀）と日本語のサービス記録が主な品質の指標。メーターの改ざんは稀だが存在する。</p>
+</div>
+<div class="bg-gray-50 border border-gray-100 rounded-lg p-5">
+<h4 class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-2">錆は最大の敵</h4>
+<p class="text-sm text-gray-600 leading-relaxed">日本の沿岸気候と凍結防止剤の使用により、錆の点検が極めて重要。シャシレール、ホイールハウス、フロアパンを徹底的に点検するか、購入前点検に費用を払うこと。</p>
+</div>
+<div class="bg-gray-50 border border-gray-100 rounded-lg p-5">
+<h4 class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-2">送料と関税</h4>
+<p class="text-sm text-gray-600 leading-relaxed">RoRoまたはコンテナ輸送（$1,500–$4,000）、米国関税（申告価額の2.5%）、港湾手数料、州登録費用を見込むこと。陸送込み総費用は通常購入価格の15–20%増となる。</p>
+</div>
+<div class="bg-gray-50 border border-gray-100 rounded-lg p-5">
+<h4 class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-2">パーツの入手性</h4>
+<p class="text-sm text-gray-600 leading-relaxed">主流のJDM車（Skyline、Supra、S15、Evo）は専門店を通じてパーツが豊富に入手可能。よりマニアックなモデルは日本から直接調達する必要がある場合がある。</p>
+</div>
+<div class="bg-gray-50 border border-gray-100 rounded-lg p-5">
+<h4 class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-2">価値の推移</h4>
+<p class="text-sm text-gray-600 leading-relaxed">アイコンモデル（R34、Supra MK4、NSX-R、22B）は過去10年で300–800%価値が上昇した。現在の最適なエントリーポイントはR32、FC RX-7、S13 Silvia — いずれも最近輸入対象となったばかり。</p>
+</div>
+</div>
+</div>
+
+<div class="jdm-faq">
+<h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">よくある質問</h2>
+<div class="border-b border-gray-100 py-5">
+<p class="font-semibold text-gray-900 mb-2">JDMとは何の略ですか？</p>
+<p class="text-sm text-gray-600 leading-relaxed">JDMはJapanese Domestic Market（日本国内市場）の略 — 日本国内向けに日本の仕様で製造された車両を指す。これらは同じモデルの輸出仕様と比較して、異なる仕様、トリムレベル、出力を持つことが多い。</p>
+</div>
+<div class="border-b border-gray-100 py-5">
+<p class="font-semibold text-gray-900 mb-2">2025年に最も投資価値の高いJDM車はどれですか？</p>
+<p class="text-sm text-gray-600 leading-relaxed">Nissan Skyline GT-R R34とToyota Supra MK4はすでにコレクターの領域にある。値上がり余地を探している購入者にとって、R32 GT-R、Honda S2000、Mazda RX-7 FCは輸入業者から歴史的意義に比べて過小評価されていると頻繁に挙げられる。</p>
+</div>
+<div class="border-b border-gray-100 py-5">
+<p class="font-semibold text-gray-900 mb-2">米国に合法輸入できるJDM車はどれですか？</p>
+<p class="text-sm text-gray-600 leading-relaxed">2025年現在、2000年以前に製造された車両は25年ルールにより輸入対象となる。これにはNissan Skyline R34 GT-R（2002年モデルは2027年まで対象外）、Honda S2000（1999–2009年、初期モデルが対象）、すべてのEvo I～VIモデルが含まれる。このルールは毎年1年ずつ適用が進む。</p>
+</div>
+<div class="border-b border-gray-100 py-5">
+<p class="font-semibold text-gray-900 mb-2">なぜ一部のJDM車は日本国外で販売されなかったのですか？</p>
+<p class="text-sm text-gray-600 leading-relaxed">いくつかの理由がある：JDM専用モデルは少量生産で輸出用の適合認証にコストが合わなかった；一部は日本の道路や条件に特化してチューンされていた；他は日本の紳士協定により出力を276馬力に制限していた（この上限により一部市場での輸出販売が難しかった）；そしてCivic Type R EK9のように、より広い市場の嗜好には焦点が絞りすぎていると見なされたものもあった。</p>
+</div>
+<div class="border-b border-gray-100 py-5">
+<p class="font-semibold text-gray-900 mb-2">最も高価なJDM車はどれですか？</p>
+<p class="text-sm text-gray-600 leading-relaxed">Toyota 2000GTがJDMオークション史上最高額を記録しており、最良の個体は$1,000,000を超える。現代のJDM車の中では、Nissan Skyline GT-R NISMO 400Rが常に$500,000以上で取引され、次いでSubaru Impreza 22B STiが状態の良い個体で$200,000–$300,000以上となっている。</p>
+</div>
+<div class="border-b border-gray-100 py-5">
+<p class="font-semibold text-gray-900 mb-2">初めての購入者に最適なJDM車はどれですか？</p>
+<p class="text-sm text-gray-600 leading-relaxed">Mazda MX-5 Miata NA / Eunos Roadsterは、手頃な価格、パーツの入手性、信頼性、純粋なドライビングプレジャーのバランスが最も優れている。ターボチャージド体験を予算内で求める人には、初期のNissan Silvia（S13、S14）やHonda Civicが本物のJDMキャラクターを手頃な価格で提供している。</p>
+</div>
+</div>
+
+## 結論
+
+**Nissan Skyline GT-R R34** から **Mazda MX-5 Miata** に至るまで、このリストのすべての車は、日本のエンジニアたちが従来のルールに従うことを拒否した瞬間を代表している。彼らはヨーロッパやアメリカが同じ価格帯で生み出したものよりも、軽く、賢く、チューン可能で、スリリングな車を作り上げた。JDMの時代は自動車史の一章に過ぎなかったのではない — それは世界がパフォーマンスカーについて考える方法を根本から変えた革命だった。
+
+メーカー仕様、JDMBUYSELL、JDMDrives、TopSpeed、Drifted、VividRacing、JDM Sport Classicsから編集された情報。すべての価格は市場推定値であり、変更される可能性があります。輸入前に必ず車両の適格性を確認してください。`,
+    },
   },
   {
     slug: "japan-used-car-market-news-2025-2026",
