@@ -21,6 +21,8 @@ const categoryColors: Record<string, string> = {
   "購入のヒント": "bg-green-100 text-green-700",
   "物流运输": "bg-purple-100 text-purple-700",
   "物流・輸送": "bg-purple-100 text-purple-700",
+  "JDM Culture": "bg-red-100 text-red-700",
+  "JDM文化": "bg-red-100 text-red-700",
 };
 
 export default function BlogPage() {

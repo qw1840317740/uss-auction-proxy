@@ -29,6 +29,8 @@ const categoryColors: Record<string, string> = {
   "購入のヒント": "bg-green-100 text-green-700",
   "物流运输": "bg-purple-100 text-purple-700",
   "物流・輸送": "bg-purple-100 text-purple-700",
+  "JDM Culture": "bg-red-100 text-red-700",
+  "JDM文化": "bg-red-100 text-red-700",
 };
 
 // Inline markdown renderer: **bold** and *italic*
@@ -275,6 +277,23 @@ export default function BlogPostPage() {
                     </li>
                   ))}
                 </ol>
+              );
+            }
+            // Custom HTML block (for enriched content like car entries, buying guide, FAQ)
+            if (trimmed.startsWith('<div class="jdm-')) {
+              return (
+                <div key={idx} className="jdm-block" dangerouslySetInnerHTML={{ __html: trimmed }} />
+              );
+            }
+            // Tier divider: >>> Section Title
+            if (trimmed.startsWith(">>> ")) {
+              return (
+                <div key={idx} className="flex items-center gap-4 pt-12 pb-4">
+                  <h3 className="text-sm font-mono uppercase tracking-widest text-red-600 whitespace-nowrap">
+                    {trimmed.replace(">>> ", "")}
+                  </h3>
+                  <div className="flex-1 h-px bg-gray-200" />
+                </div>
               );
             }
             // Paragraph
