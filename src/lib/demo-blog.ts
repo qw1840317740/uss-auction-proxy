@@ -35,7 +35,7 @@ export const demoPosts: BlogPostData[] = [
     date: "2026-06-11",
     readTime: { zh: "18分钟阅读", en: "18 min read", ja: "18分で読める" },
     color: "bg-red-500",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/R34_Skyline_GT-R.jpg/1280px-R34_Skyline_GT-R.jpg",
+    image: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=1200&q=80",
     content: `The phrase **JDM** — Japanese Domestic Market — refers to vehicles manufactured specifically for sale inside Japan. For decades, Japanese automakers produced their most potent, most exotic, and most technically adventurous machines exclusively for domestic buyers, leaving the rest of the world to watch and wish.
 
 Thanks to the **25-year import rule**, many of these legends are now legal to import into the United States, opening a floodgate of demand that has pushed values into the stratosphere. Whether you're a seasoned collector or a first-time buyer trying to decode the JDM scene, this authoritative guide ranks the 25 greatest Japanese Domestic Market cars ever built — judged on engineering innovation, motorsport heritage, cultural impact, and driving purity.
@@ -59,7 +59,7 @@ JDM stands for *Japanese Domestic Market*. These are cars built to Japanese gove
 <span>0–60 <strong class="text-gray-900">~4.9 sec</strong></span>
 <span>Units Made <strong class="text-gray-900">~11,500</strong></span>
 </div>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/R34_Skyline_GT-R.jpg/1280px-R34_Skyline_GT-R.jpg" alt="Nissan Skyline GT-R R34 — the most iconic JDM car ever built" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800&q=80" alt="Nissan Skyline GT-R R34 — the most iconic JDM car ever built" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
 <p class="text-gray-600 leading-relaxed mb-3">No JDM list begins anywhere else. The <strong>R34 Nissan Skyline GT-R</strong> is the undisputed king — a car so dominant that the Japanese Touring Car Championship ultimately had to impose restrictions just to give other manufacturers a chance. Nicknamed <em>"Godzilla"</em>, its RB26DETT twin-turbocharged inline-six is one of the most celebrated engines in automotive history: endlessly tunable, ferociously torquey, and utterly bulletproof with proper maintenance.</p>
 <p class="text-gray-600 leading-relaxed mb-3">The ATTESA E-TS Pro all-wheel-drive system, Super-HICAS four-wheel steering, and a multifunction display borrowed from GT racing made the R34 feel decades ahead of the curve. With only around 11,500 ever produced, well-preserved examples now command $200,000+ at auction — and climbing. Paul Walker's famous Bayside Blue R34 in <em>2 Fast 2 Furious</em> cemented its global pop-culture immortality.</p>
 <div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ The Greatest JDM Car Ever Built — Full Stop</div>
@@ -80,7 +80,7 @@ JDM stands for *Japanese Domestic Market*. These are cars built to Japanese gove
 <span>0–60 <strong class="text-gray-900">~4.6 sec</strong></span>
 <span>Top Speed <strong class="text-gray-900">180 mph (limited)</strong></span>
 </div>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Toyota_Supra_A80_-_Goodwood_Festival_of_Speed_2019_%2848404818636%29_%28cropped%29.jpg/1280px-Toyota_Supra_A80_-_Goodwood_Festival_of_Speed_2019_%2848404818636%29_%28cropped%29.jpg" alt="Toyota Supra MK4 A80 with 2JZ-GTE engine — JDM legend" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=800&q=80" alt="Toyota Supra MK4 A80 with 2JZ-GTE engine — JDM legend" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
 <p class="text-gray-600 leading-relaxed mb-3">The <strong>Toyota Supra MK4</strong>'s 2JZ-GTE engine is arguably the most famous straight-six in history. Notoriously overbuilt — Toyota engineers designed it to handle 1,000+ horsepower with internal modifications — it became the holy grail of the tuner community. The JDM-spec car produced 320 hp from the factory, versus the 276 hp delivered to export markets, reflecting Japan's gentleman's agreement horsepower cap.</p>
 <p class="text-gray-600 leading-relaxed mb-3">Brian O'Conner's orange Supra in <em>The Fast and the Furious</em> made it the car of an entire generation. Genuine manual-transmission Supra MK4s in good condition now sell for $100,000–$200,000, driven by scarcity and an almost religious following.</p>
 <div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ The 2JZ-GTE Defined an Entire Tuner Generation</div>
@@ -101,7 +101,7 @@ JDM stands for *Japanese Domestic Market*. These are cars built to Japanese gove
 <span>0–60 <strong class="text-gray-900">~5.2 sec</strong></span>
 <span>Balance <strong class="text-gray-900">50/50 F/R</strong></span>
 </div>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Mazda_RX-7_FD_-_Goodwood_Festival_of_Speed_2019_%2848404822021%29.jpg/1280px-Mazda_RX-7_FD_-_Goodwood_Festival_of_Speed_2019_%2848404822021%29.jpg" alt="Mazda RX-7 FD with twin-rotor rotary engine" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=800&q=80" alt="Mazda RX-7 FD with twin-rotor rotary engine" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
 <p class="text-gray-600 leading-relaxed mb-3">For pure driving art, nothing in the JDM canon matches the <strong>Mazda RX-7 FD</strong>. Its 13B-REW twin-turbo rotary engine was positioned <em>behind</em> the front axle, achieving a near-perfect 50/50 weight distribution. The result is a car that rotates through corners with supernatural balance, weighing under 2,900 lbs despite twin sequential turbos. <em>Car and Driver</em> named it to their Ten Best list five consecutive years.</p>
 <p class="text-gray-600 leading-relaxed mb-3">The rotary engine's defining characteristic — a high-revving, smooth power delivery that responds brilliantly to modification — made it the weapon of choice for the drifting and motorsport community. Han's RX-7 Veilside in <em>Tokyo Drift</em> immortalized it for a new generation.</p>
 <div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ The Most Balanced Chassis in JDM History</div>
