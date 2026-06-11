@@ -35,7 +35,7 @@ export const demoPosts: BlogPostData[] = [
     date: "2026-06-11",
     readTime: { zh: "18分钟阅读", en: "18 min read", ja: "18分で読める" },
     color: "bg-red-500",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Nissan_Skyline_GT-R_R34_V_Spec_II.jpg/800px-Nissan_Skyline_GT-R_R34_V_Spec_II.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Nissan_Skyline_GT-R_R34_V_Spec_II.jpg/960px-Nissan_Skyline_GT-R_R34_V_Spec_II.jpg",
     content: `The phrase **JDM** — Japanese Domestic Market — refers to vehicles manufactured specifically for sale inside Japan. For decades, Japanese automakers produced their most potent, most exotic, and most technically adventurous machines exclusively for domestic buyers, leaving the rest of the world to watch and wish.
 
 Thanks to the **25-year import rule**, many of these legends are now legal to import into the United States, opening a floodgate of demand that has pushed values into the stratosphere. Whether you're a seasoned collector or a first-time buyer trying to decode the JDM scene, this authoritative guide ranks the 25 greatest Japanese Domestic Market cars ever built — judged on engineering innovation, motorsport heritage, cultural impact, and driving purity.
@@ -59,7 +59,7 @@ JDM stands for *Japanese Domestic Market*. These are cars built to Japanese gove
 <span>0–60 <strong class="text-gray-900">~4.9 sec</strong></span>
 <span>Units Made <strong class="text-gray-900">~11,500</strong></span>
 </div>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Nissan_Skyline_GT-R_R34_V_Spec_II.jpg/800px-Nissan_Skyline_GT-R_R34_V_Spec_II.jpg" alt="Nissan Skyline GT-R R34 V-Spec II" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Nissan_Skyline_GT-R_R34_V_Spec_II.jpg/960px-Nissan_Skyline_GT-R_R34_V_Spec_II.jpg" alt="Nissan Skyline GT-R R34 V-Spec II" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
 <p class="text-gray-600 leading-relaxed mb-3">No JDM list begins anywhere else. The <strong>R34 Nissan Skyline GT-R</strong> is the undisputed king — a car so dominant that the Japanese Touring Car Championship ultimately had to impose restrictions just to give other manufacturers a chance. Nicknamed <em>"Godzilla"</em>, its RB26DETT twin-turbocharged inline-six is one of the most celebrated engines in automotive history: endlessly tunable, ferociously torquey, and utterly bulletproof with proper maintenance.</p>
 <p class="text-gray-600 leading-relaxed mb-3">The ATTESA E-TS Pro all-wheel-drive system, Super-HICAS four-wheel steering, and a multifunction display borrowed from GT racing made the R34 feel decades ahead of the curve. With only around 11,500 ever produced, well-preserved examples now command $200,000+ at auction — and climbing. Paul Walker's famous Bayside Blue R34 in <em>2 Fast 2 Furious</em> cemented its global pop-culture immortality.</p>
 <div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ The Greatest JDM Car Ever Built — Full Stop</div>
@@ -80,7 +80,7 @@ JDM stands for *Japanese Domestic Market*. These are cars built to Japanese gove
 <span>0–60 <strong class="text-gray-900">~4.6 sec</strong></span>
 <span>Top Speed <strong class="text-gray-900">180 mph (limited)</strong></span>
 </div>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Toyota_GR_Supra_%2851984008283crop%29.jpg/800px-Toyota_GR_Supra_%2851984008283crop%29.jpg" alt="Toyota Supra MK4 A80" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Toyota_GR_Supra_%2851984008283crop%29.jpg/960px-Toyota_GR_Supra_%2851984008283crop%29.jpg" alt="Toyota Supra MK4 A80" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
 <p class="text-gray-600 leading-relaxed mb-3">The <strong>Toyota Supra MK4</strong>'s 2JZ-GTE engine is arguably the most famous straight-six in history. Notoriously overbuilt — Toyota engineers designed it to handle 1,000+ horsepower with internal modifications — it became the holy grail of the tuner community. The JDM-spec car produced 320 hp from the factory, versus the 276 hp delivered to export markets, reflecting Japan's gentleman's agreement horsepower cap.</p>
 <p class="text-gray-600 leading-relaxed mb-3">Brian O'Conner's orange Supra in <em>The Fast and the Furious</em> made it the car of an entire generation. Genuine manual-transmission Supra MK4s in good condition now sell for $100,000–$200,000, driven by scarcity and an almost religious following.</p>
 <div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ The 2JZ-GTE Defined an Entire Tuner Generation</div>
@@ -101,7 +101,7 @@ JDM stands for *Japanese Domestic Market*. These are cars built to Japanese gove
 <span>0–60 <strong class="text-gray-900">~5.2 sec</strong></span>
 <span>Balance <strong class="text-gray-900">50/50 F/R</strong></span>
 </div>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/1994_Mazda_RX-7_R2_in_Vintage_Red%2C_front_left_%28Lime_Rock%29.jpg/800px-1994_Mazda_RX-7_R2_in_Vintage_Red%2C_front_left_%28Lime_Rock%29.jpg" alt="Mazda RX-7 FD in Vintage Red" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/1994_Mazda_RX-7_R2_in_Vintage_Red%2C_front_left_%28Lime_Rock%29.jpg/960px-1994_Mazda_RX-7_R2_in_Vintage_Red%2C_front_left_%28Lime_Rock%29.jpg" alt="Mazda RX-7 FD in Vintage Red" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
 <p class="text-gray-600 leading-relaxed mb-3">For pure driving art, nothing in the JDM canon matches the <strong>Mazda RX-7 FD</strong>. Its 13B-REW twin-turbo rotary engine was positioned <em>behind</em> the front axle, achieving a near-perfect 50/50 weight distribution. The result is a car that rotates through corners with supernatural balance, weighing under 2,900 lbs despite twin sequential turbos. <em>Car and Driver</em> named it to their Ten Best list five consecutive years.</p>
 <p class="text-gray-600 leading-relaxed mb-3">The rotary engine's defining characteristic — a high-revving, smooth power delivery that responds brilliantly to modification — made it the weapon of choice for the drifting and motorsport community. Han's RX-7 Veilside in <em>Tokyo Drift</em> immortalized it for a new generation.</p>
 <div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ The Most Balanced Chassis in JDM History</div>
@@ -124,7 +124,7 @@ JDM stands for *Japanese Domestic Market*. These are cars built to Japanese gove
 <span>0–60 <strong class="text-gray-900">~5.7 sec</strong></span>
 <span>Top Speed <strong class="text-gray-900">168 mph</strong></span>
 </div>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/AcuraNSX-05-cropped.jpg/800px-AcuraNSX-05-cropped.jpg" alt="Honda NSX NA1 supercar" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/AcuraNSX-05-cropped.jpg/960px-AcuraNSX-05-cropped.jpg" alt="Honda NSX NA1 supercar" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
 <p class="text-gray-600 leading-relaxed mb-3">Honda set out to build a supercar that matched Ferrari in performance but could be driven daily without drama — and they succeeded. The <strong>Honda NSX</strong>, developed with input from Formula 1 legend Ayrton Senna, featured an all-aluminum monocoque chassis, a mid-mounted VTEC V6 with an 8,000 rpm redline, and titanium connecting rods that were unprecedented in a production car.</p>
 <p class="text-gray-600 leading-relaxed mb-3">At launch in 1990, it stunned Ferrari and Porsche engineers who bought early examples for teardown analysis. The NSX-R variant, built with carbon fiber and stripped of sound deadening, became a benchmark for driver focus. Values have appreciated strongly — clean NSX-Rs now trade at $200,000+.</p>
 <div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ The First "Everyday Supercar" — Ayrton Senna Approved</div>
@@ -145,7 +145,7 @@ JDM stands for *Japanese Domestic Market*. These are cars built to Japanese gove
 <span>0–60 <strong class="text-gray-900">3.7 sec</strong></span>
 <span>Units Made <strong class="text-gray-900">500</strong></span>
 </div>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Lexus_LFA_001.JPG/800px-Lexus_LFA_001.JPG" alt="Lexus LFA V10 supercar" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Lexus_LFA_001.JPG/960px-Lexus_LFA_001.JPG" alt="Lexus LFA V10 supercar" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
 <p class="text-gray-600 leading-relaxed mb-3">The <strong>Lexus LFA</strong> is what happens when a manufacturer spends a decade perfecting a halo car without any financial pressure. Its 4.8-liter naturally aspirated V10 revs to 9,000 rpm with an exhaust note so singular that a digital tachometer was required — analog needles couldn't move fast enough to track the engine's acceleration response.</p>
 <p class="text-gray-600 leading-relaxed mb-3">Built with carbon fiber reinforced polymer for 65% of its body, the LFA embodies Japanese craftsmanship at its absolute peak. Only 500 were ever built. Today they sell for $900,000+. It was a financial loss for Lexus — and one of the greatest cars ever made.</p>
 <div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 500 Units. One of the Greatest V10 Sounds Ever Made.</div>
@@ -167,7 +167,7 @@ JDM stands for *Japanese Domestic Market*. These are cars built to Japanese gove
 <span>Drive <strong class="text-gray-900">AWD ACD/AYC</strong></span>
 <span>Production <strong class="text-gray-900">Limited Run</strong></span>
 </div>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/2017-04-02_Mitsubishi_Lancer_Evolution_X_MR_SST_14_%282%29.jpg/800px-2017-04-02_Mitsubishi_Lancer_Evolution_X_MR_SST_14_%282%29.jpg" alt="Mitsubishi Lancer Evolution" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/2017-04-02_Mitsubishi_Lancer_Evolution_X_MR_SST_14_%282%29.jpg/960px-2017-04-02_Mitsubishi_Lancer_Evolution_X_MR_SST_14_%282%29.jpg" alt="Mitsubishi Lancer Evolution" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
 <p class="text-gray-600 leading-relaxed mb-3">The <strong>Lancer Evolution VI Tommi Mäkinen Edition</strong> — named for the Finnish WRC champion who delivered Mitsubishi four consecutive rally world titles — represents the peak of the Evo lineage. Tighter suspension, a freer-flowing exhaust, titanium turbo housing, and subtle aero tweaks made it the most focused Evo built to that point.</p>
 <p class="text-gray-600 leading-relaxed mb-3">Every generation of the Lancer Evolution (I through X) shared the same core recipe: turbocharged 2.0-liter inline-four, all-wheel drive, and a boxy, functional body designed to homologate rally parts. No Evo ever embodied that formula more faithfully than the VI TME.</p>
 <div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 4 WRC Titles. Zero Compromise.</div>
@@ -187,7 +187,7 @@ JDM stands for *Japanese Domestic Market*. These are cars built to Japanese gove
 <span>Units Made <strong class="text-gray-900">424</strong></span>
 <span>Body <strong class="text-gray-900">Wide-Body 2-Door</strong></span>
 </div>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/2011_Subaru_Impreza_WRX_STI_sedan_front_--_2011_DC.jpg/800px-2011_Subaru_Impreza_WRX_STI_sedan_front_--_2011_DC.jpg" alt="Subaru Impreza WRX STI" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/2011_Subaru_Impreza_WRX_STI_sedan_front_--_2011_DC.jpg/960px-2011_Subaru_Impreza_WRX_STI_sedan_front_--_2011_DC.jpg" alt="Subaru Impreza WRX STI" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
 <p class="text-gray-600 leading-relaxed mb-3">Built to celebrate Subaru's three consecutive WRC constructors' championships, the <strong>22B STi</strong> is one of the rarest and most desirable JDM cars in existence. Only 424 were produced — 400 for Japan, 24 for other markets. The enlarged 2.2-liter flat-four and wide-body kit derived directly from the WRC car, giving it genuinely hardcore rally-bred performance.</p>
 <p class="text-gray-600 leading-relaxed mb-3">Low-mileage examples have sold at auction for over $200,000 USD, an almost unthinkable appreciation for a Subaru. The 22B has become the benchmark collector car of the late 1990s JDM era.</p>
 <div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 424 Built. Every Single One Is Now a Six-Figure Car.</div>
@@ -207,7 +207,7 @@ JDM stands for *Japanese Domestic Market*. These are cars built to Japanese gove
 <span>Drive <strong class="text-gray-900">FWD 5-Speed Close-Ratio</strong></span>
 <span>Redline <strong class="text-gray-900">8,600 rpm</strong></span>
 </div>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/2024_Honda_Civic_Type_R%2C_front_right%2C_06-15-2024.jpg/800px-2024_Honda_Civic_Type_R%2C_front_right%2C_06-15-2024.jpg" alt="Honda Civic Type R" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/2024_Honda_Civic_Type_R%2C_front_right%2C_06-15-2024.jpg/960px-2024_Honda_Civic_Type_R%2C_front_right%2C_06-15-2024.jpg" alt="Honda Civic Type R" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
 <p class="text-gray-600 leading-relaxed mb-3">The first-ever Civic Type R was sold only in Japan, and its JDM exclusivity made it the holy grail of the hot-hatch community. The B16B engine — the highest-revving naturally aspirated production engine in the world at launch — produced 185 hp from just 1.6 liters, entirely without forced induction.</p>
 <p class="text-gray-600 leading-relaxed mb-3">Stripped of sound deadening, equipped with a close-ratio gearbox, and tuned for track use above all else, the EK9 set the template for everything a Type R should be: aggressive, focused, and utterly rewarding when pushed to its 8,600 rpm limit.</p>
 <div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ The First — and Many Say the Best — Civic Type R.</div>
@@ -229,7 +229,7 @@ JDM stands for *Japanese Domestic Market*. These are cars built to Japanese gove
 <span>Specific Output <strong class="text-gray-900">120 hp/liter (F20C)</strong></span>
 <span>Redline <strong class="text-gray-900">9,000 rpm</strong></span>
 </div>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/HondaS2000-004.jpg/800px-HondaS2000-004.jpg" alt="Honda S2000 roadster" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/HondaS2000-004.jpg/960px-HondaS2000-004.jpg" alt="Honda S2000 roadster" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
 <p class="text-gray-600 leading-relaxed mb-3">The <strong>Honda S2000</strong> produced 120 horsepower per liter from a naturally aspirated engine — the highest specific output of any production car at launch in 1999. That achievement remains remarkable to this day. The JDM-exclusive Type S variant added an aero body kit, larger tires, and revised suspension for an even sharper driving experience.</p>
 <p class="text-gray-600 leading-relaxed mb-3">Rear-wheel drive, a near-perfect front-mid engine layout, and a chassis balanced to a razor's edge made the S2000 the benchmark affordable sports car of its era. Good examples now trade above their original MSRP, having largely avoided the depreciation valley most sports cars endure.</p>
 <div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 9,000 RPM. 120 hp/liter. Honda at Its Absolute Peak.</div>
@@ -249,7 +249,7 @@ JDM stands for *Japanese Domestic Market*. These are cars built to Japanese gove
 <span>Redline <strong class="text-gray-900">8,500 rpm</strong></span>
 <span>Drive <strong class="text-gray-900">FWD 5-Speed</strong></span>
 </div>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/2002_Honda_Integra_%28DC5%29_Special_Edition_coupe_%282015-07-24%29_01.jpg/800px-2002_Honda_Integra_%28DC5%29_Special_Edition_coupe_%282015-07-24%29_01.jpg" alt="Honda Integra Type R DC2" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/2002_Honda_Integra_%28DC5%29_Special_Edition_coupe_%282015-07-24%29_01.jpg/960px-2002_Honda_Integra_%28DC5%29_Special_Edition_coupe_%282015-07-24%29_01.jpg" alt="Honda Integra Type R DC2" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
 <p class="text-gray-600 leading-relaxed mb-3">The <strong>DC2 Integra Type R</strong> set the Nürburgring lap record for front-wheel drive cars when it launched — and held it for years. Its B18C Spec-R engine was hand-assembled, with each unit signed by the technician who built it. Honda's relentless attention to NVH balance and rev-match precision made it a front-wheel drive handling benchmark that still hasn't been equaled for driver engagement.</p>
 <div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ FWD Perfected. The Nürburgring Record Holder.</div>
 </div>
@@ -268,7 +268,7 @@ JDM stands for *Japanese Domestic Market*. These are cars built to Japanese gove
 <span>Drive <strong class="text-gray-900">ATTESA E-TS AWD</strong></span>
 <span>JTCC Record <strong class="text-gray-900">29 races, 29 wins</strong></span>
 </div>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Nissan_Skyline_GT-R_R34_V_Spec_II.jpg/800px-Nissan_Skyline_GT-R_R34_V_Spec_II.jpg" alt="Nissan Skyline GT-R R32" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Nissan_Skyline_GT-R_R34_V_Spec_II.jpg/960px-Nissan_Skyline_GT-R_R34_V_Spec_II.jpg" alt="Nissan Skyline GT-R R32" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
 <p class="text-gray-600 leading-relaxed mb-3">The car that earned the Godzilla nickname — the <strong>R32 GT-R</strong> obliterated the Japanese Touring Car Championship so completely that Australia temporarily banned it. Its ATTESA all-wheel drive and Super-HICAS four-wheel steering were genuinely revolutionary for 1989. Now eligible for U.S. import and rapidly appreciating in value, the R32 offers genuine GT-R DNA at a lower price point than its R33/R34 successors.</p>
 <div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ Won Every Race It Entered. Banned for Being Too Good.</div>
 </div>
@@ -287,7 +287,7 @@ JDM stands for *Japanese Domestic Market*. These are cars built to Japanese gove
 <span>Drive <strong class="text-gray-900">RWD 6-Speed Manual</strong></span>
 <span>Market <strong class="text-gray-900">Japan-Only</strong></span>
 </div>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Nissan_Silvia_S15_001.JPG/800px-Nissan_Silvia_S15_001.JPG" alt="Nissan Silvia S15 Spec-R" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Nissan_Silvia_S15_001.JPG/960px-Nissan_Silvia_S15_001.JPG" alt="Nissan Silvia S15 Spec-R" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
 <p class="text-gray-600 leading-relaxed mb-3">The <strong>S15 Silvia Spec-R</strong> was never officially sold outside Japan, making it one of the most coveted JDM imports of the current era. The SR20DET in Spec-R tune pushed 250 hp from 2.0 liters — through a six-speed Getrag gearbox to the rear wheels. Balanced, lightweight, and endlessly tunable, it became the global standard for professional drifting.</p>
 <div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ Japan-Only. 250 hp. The World's Favourite Drift Car.</div>
 </div>
@@ -306,7 +306,7 @@ JDM stands for *Japanese Domestic Market*. These are cars built to Japanese gove
 <span>Drive <strong class="text-gray-900">RWD 5-Speed</strong></span>
 <span>Heritage <strong class="text-gray-900">Inspired GR86 / BRZ</strong></span>
 </div>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/1983_Toyota_Corolla_Levin.jpg/800px-1983_Toyota_Corolla_Levin.jpg" alt="Toyota Corolla AE86 Levin" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/1983_Toyota_Corolla_Levin.jpg/960px-1983_Toyota_Corolla_Levin.jpg" alt="Toyota Corolla AE86 Levin" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
 <p class="text-gray-600 leading-relaxed mb-3">The <strong>AE86</strong> is the spiritual ancestor of every lightweight rear-wheel-drive sports car that followed. Keiichi Tsuchiya — the "Drift King" — built his entire legend driving one on Japanese mountain passes, giving birth to the art of modern drifting. Its 4A-GE engine, developed with Yamaha, remains a masterclass in naturally aspirated DOHC design for its era.</p>
 <p class="text-gray-600 leading-relaxed mb-3">The AE86 directly inspired the Toyota GR86 and Subaru BRZ. In anime form, as the hero car of <em>Initial D</em>, it became the vehicle that introduced millions to JDM culture.</p>
 <div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ The Car That Invented Drifting as a Motorsport.</div>
@@ -326,7 +326,7 @@ JDM stands for *Japanese Domestic Market*. These are cars built to Japanese gove
 <span>Top Speed <strong class="text-gray-900">155 mph (limited)</strong></span>
 <span>0–60 <strong class="text-gray-900">~5.6 sec</strong></span>
 </div>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/1996_Nissan_300ZX_2-seater_t-top%2C_front_left%2C_06-15-2025.jpg/800px-1996_Nissan_300ZX_2-seater_t-top%2C_front_left%2C_06-15-2025.jpg" alt="Nissan 300ZX Twin Turbo Z32" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/1996_Nissan_300ZX_2-seater_t-top%2C_front_left%2C_06-15-2025.jpg/960px-1996_Nissan_300ZX_2-seater_t-top%2C_front_left%2C_06-15-2025.jpg" alt="Nissan 300ZX Twin Turbo Z32" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
 <p class="text-gray-600 leading-relaxed mb-3">The <strong>Z32 300ZX Twin Turbo</strong> was <em>Road & Track's</em> Car of the Year in 1990 and stunned every European GT rival of the era. Its 3.0-liter twin-turbo V6 with four-wheel steering and sophisticated active suspension made it feel like a sports car from the future. The JDM variant produced 300 hp — notably above the export market's 283 hp.</p>
 <div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ Road & Track Car of the Year. A Grand Tourer That Embarrassed Europe.</div>
 </div>
@@ -344,7 +344,7 @@ JDM stands for *Japanese Domestic Market*. These are cars built to Japanese gove
 <span>Power <strong class="text-gray-900">230 hp</strong></span>
 <span>Drive <strong class="text-gray-900">RWD</strong></span>
 </div>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Toyota_Supra_%28A70%2C_pre-facelift%29_1X7A2552.jpg/800px-Toyota_Supra_%28A70%2C_pre-facelift%29_1X7A2552.jpg" alt="Toyota Supra MK3 Turbo A70" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Toyota_Supra_%28A70%2C_pre-facelift%29_1X7A2552.jpg/960px-Toyota_Supra_%28A70%2C_pre-facelift%29_1X7A2552.jpg" alt="Toyota Supra MK3 Turbo A70" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
 <p class="text-gray-600 leading-relaxed mb-3">The MK3 Supra established the lineage that the MK4 would immortalize. The JDM turbocharged version punched harder than export-market equivalents and featured pop-up headlights, a long hood, and an interior that oozed late-1980s excess. Now gaining serious collector attention as the MK4 prices have climbed out of reach for many buyers.</p>
 <div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ The Grandfather of the 2JZ Legend.</div>
 </div>
@@ -364,7 +364,7 @@ JDM stands for *Japanese Domestic Market*. These are cars built to Japanese gove
 <span>Power <strong class="text-gray-900">280 hp</strong></span>
 <span>Drive <strong class="text-gray-900">AWD AYC</strong></span>
 </div>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/2017-04-02_Mitsubishi_Lancer_Evolution_X_MR_SST_14_%282%29.jpg/800px-2017-04-02_Mitsubishi_Lancer_Evolution_X_MR_SST_14_%282%29.jpg" alt="Mitsubishi Lancer Evolution IV" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/2017-04-02_Mitsubishi_Lancer_Evolution_X_MR_SST_14_%282%29.jpg/960px-2017-04-02_Mitsubishi_Lancer_Evolution_X_MR_SST_14_%282%29.jpg" alt="Mitsubishi Lancer Evolution IV" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
 <p class="text-gray-600 leading-relaxed mb-3">The Evo IV was the first Evolution to feature the Active Yaw Control system — a torque-vectoring differential that transformed the car's handling at the limit. WRC victories followed immediately. Its aggressive rally heritage, robust performance, and the arrival of AYC made the IV a landmark in the Evo story and a beloved icon in the JDM community.</p>
 <div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ The Evolution That Got AYC — And Changed Everything.</div>
 </div>
@@ -383,7 +383,7 @@ JDM stands for *Japanese Domestic Market*. These are cars built to Japanese gove
 <span>Units Made <strong class="text-gray-900">~44</strong></span>
 <span>Price (1997) <strong class="text-gray-900">¥12,800,000</strong></span>
 </div>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Nissan_Skyline_GT-R_R34_V_Spec_II.jpg/800px-Nissan_Skyline_GT-R_R34_V_Spec_II.jpg" alt="Nissan Skyline GT-R NISMO 400R" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Nissan_Skyline_GT-R_R34_V_Spec_II.jpg/960px-Nissan_Skyline_GT-R_R34_V_Spec_II.jpg" alt="Nissan Skyline GT-R NISMO 400R" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
 <p class="text-gray-600 leading-relaxed mb-3">NISMO's factory-built race-homologation version of the R33 GT-R featured an enlarged 2.8-liter version of the RB26DETT producing a genuine 400 hp. With only around 44 units made, the 400R is among the rarest JDM cars in existence. Values have reached $500,000+ for documented examples — one of the most extreme appreciations in the market.</p>
 <div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 44 Units. 400 hp. Half a Million Dollars at Auction.</div>
 </div>
@@ -401,7 +401,7 @@ JDM stands for *Japanese Domestic Market*. These are cars built to Japanese gove
 <span>Power <strong class="text-gray-900">245 hp (JDM)</strong></span>
 <span>Drive <strong class="text-gray-900">Mid-Engine RWD</strong></span>
 </div>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/1993ToyotaMR2Hardtop.jpg/800px-1993ToyotaMR2Hardtop.jpg" alt="Toyota MR2 SW20 Turbo" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/1993ToyotaMR2Hardtop.jpg/960px-1993ToyotaMR2Hardtop.jpg" alt="Toyota MR2 SW20 Turbo" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
 <p class="text-gray-600 leading-relaxed mb-3">Toyota's mid-engine two-seater offered Ferrari-adjacent styling and handling at a fraction of the price. The JDM SW20 Turbo produced 245 hp — significantly more than the export versions — with a mid-engine layout that gave it extraordinary cornering balance. The infamous "snap oversteer" characteristic made it demanding to drive at the limit, earning it a devoted enthusiast following.</p>
 <div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ Mid-Engine, Rear-Drive. Ferrari Proportions, Toyota Price.</div>
 </div>
@@ -420,7 +420,7 @@ JDM stands for *Japanese Domestic Market*. These are cars built to Japanese gove
 <span>Drive <strong class="text-gray-900">ATTESA E-TS AWD</strong></span>
 <span>Body <strong class="text-gray-900">5-Door Wagon</strong></span>
 </div>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/2001-2004_NISSAN_STAGEA.jpg/800px-2001-2004_NISSAN_STAGEA.jpg" alt="Nissan Stagea 260RS wagon" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/2001-2004_NISSAN_STAGEA.jpg/960px-2001-2004_NISSAN_STAGEA.jpg" alt="Nissan Stagea 260RS wagon" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
 <p class="text-gray-600 leading-relaxed mb-3">Objectively the most practical GT-R ever built — the <strong>Stagea 260RS</strong> used the RB26DETT engine, ATTESA AWD, and braking system from the R33 Skyline GT-R, fitted to a practical five-door wagon body. NISMO offered a full GT-R front conversion kit. It is simultaneously the most useful and most unexpectedly fast estate car in existence.</p>
 <div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ GT-R Engine. Wagon Body. Nothing Else Like It on Earth.</div>
 </div>
@@ -439,7 +439,7 @@ JDM stands for *Japanese Domestic Market*. These are cars built to Japanese gove
 <span>Drive <strong class="text-gray-900">Mid-Engine RWD</strong></span>
 <span>Weight <strong class="text-gray-900">1,650 lbs</strong></span>
 </div>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Honda_Beat_PP1_front.jpg/800px-Honda_Beat_PP1_front.jpg" alt="Honda Beat kei roadster" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Honda_Beat_PP1_front.jpg/960px-Honda_Beat_PP1_front.jpg" alt="Honda Beat kei roadster" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
 <p class="text-gray-600 leading-relaxed mb-3">Sochiro Honda's personal farewell project — approved by the founder himself before his 1991 death — the <strong>Honda Beat</strong> placed a 660cc mid-mounted engine in a tiny open roadster weighing just 1,650 lbs. With 64 hp and sub-2,000 lb curb weight, it feels faster than physics should allow. The last car personally approved by Honda's founder.</p>
 <div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ Sochiro Honda's Final Gift to the World.</div>
 </div>
@@ -458,7 +458,7 @@ JDM stands for *Japanese Domestic Market*. These are cars built to Japanese gove
 <span>Drive <strong class="text-gray-900">AWD</strong></span>
 <span>WRC Titles <strong class="text-gray-900">3 (1992–1994)</strong></span>
 </div>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/CelicaST185GT4APuenteHills.jpg/800px-CelicaST185GT4APuenteHills.jpg" alt="Toyota Celica GT-Four ST185" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/CelicaST185GT4APuenteHills.jpg/960px-CelicaST185GT4APuenteHills.jpg" alt="Toyota Celica GT-Four ST185" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
 <p class="text-gray-600 leading-relaxed mb-3">The Celica GT-Four won three WRC manufacturer titles for Toyota in the early 1990s. The JDM ST205 variant produced 255 hp — the most powerful Celica ever built — and featured a more aggressive intercooler and rally-derived AWD system. The ST205 was later disqualified from WRC for an illegal restrictor plate, adding notoriety to an already legendary machine.</p>
 <div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 3 WRC Titles. Banned for Cheating. Still Legendary.</div>
 </div>
@@ -476,7 +476,7 @@ JDM stands for *Japanese Domestic Market*. These are cars built to Japanese gove
 <span>Power <strong class="text-gray-900">185–215 hp (JDM)</strong></span>
 <span>Drive <strong class="text-gray-900">RWD</strong></span>
 </div>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Tuned_Mazda_SAVANNA_RX-7_GT-R_%28E-FC3S%29_front.jpg/800px-Tuned_Mazda_SAVANNA_RX-7_GT-R_%28E-FC3S%29_front.jpg" alt="Mazda Savanna RX-7 FC3S" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Tuned_Mazda_SAVANNA_RX-7_GT-R_%28E-FC3S%29_front.jpg/960px-Tuned_Mazda_SAVANNA_RX-7_GT-R_%28E-FC3S%29_front.jpg" alt="Mazda Savanna RX-7 FC3S" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
 <p class="text-gray-600 leading-relaxed mb-3">Before the legendary FD came the <strong>FC</strong> — and in JDM turbocharged form, it was a serious sports car. Mazda's turbocharged 13B rotary in the FC chassis offered a pure driver's experience with pop-up headlights, near-perfect balance, and a sound unlike any piston engine. Growing in collector value as the FD pushes beyond budget reach.</p>
 <div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ The FD's Underrated, Equally Pure Predecessor.</div>
 </div>
@@ -495,7 +495,7 @@ JDM stands for *Japanese Domestic Market*. These are cars built to Japanese gove
 <span>Units Made <strong class="text-gray-900">351</strong></span>
 <span>Value <strong class="text-gray-900">$500,000–$1,000,000+</strong></span>
 </div>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/TOYOTA_2000GT.jpg/800px-TOYOTA_2000GT.jpg" alt="Toyota 2000GT classic" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/TOYOTA_2000GT.jpg/960px-TOYOTA_2000GT.jpg" alt="Toyota 2000GT classic" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
 <p class="text-gray-600 leading-relaxed mb-3">The car that proved Japan could build a world-class sports car — the <strong>Toyota 2000GT</strong>, co-developed with Yamaha, stunned audiences at its 1967 Tokyo Motor Show debut. A roadster version appeared in the James Bond film <em>You Only Live Twice</em> (1967). Only 351 were built; today they are the most valuable Japanese cars ever auctioned, regularly exceeding $1,000,000.</p>
 <div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ Japan's First Supercar. A James Bond Car. One Million Dollars.</div>
 </div>
@@ -514,7 +514,7 @@ JDM stands for *Japanese Domestic Market*. These are cars built to Japanese gove
 <span>Race Record <strong class="text-gray-900">50 consecutive wins in Japan</strong></span>
 <span>Units Made <strong class="text-gray-900">~1,945</strong></span>
 </div>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Nissan_KPGC10_Skyline_2000GT-R_%2822091110222%29.jpg/800px-Nissan_KPGC10_Skyline_2000GT-R_%2822091110222%29.jpg" alt="Nissan Skyline 2000GT-R KPGC10 Hakosuka" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Nissan_KPGC10_Skyline_2000GT-R_%2822091110222%29.jpg/960px-Nissan_KPGC10_Skyline_2000GT-R_%2822091110222%29.jpg" alt="Nissan Skyline 2000GT-R KPGC10 Hakosuka" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
 <p class="text-gray-600 leading-relaxed mb-3">The original GT-R — the <strong>Hakosuka</strong> (box-shaped Skyline) — won 50 consecutive races in Japan after its 1969 debut and established the GT-R nameplate as a racing legend. Its Yamaha-developed S20 engine was derived from the Nissan Prince racing program. Finding an authentic KPGC10 GT-R today is among the most prestigious achievements in Japanese car collecting.</p>
 <div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ 50 Consecutive Race Wins. Where the GT-R Legacy Began.</div>
 </div>
@@ -533,7 +533,7 @@ JDM stands for *Japanese Domestic Market*. These are cars built to Japanese gove
 <span>Weight <strong class="text-gray-900">~2,100 lbs</strong></span>
 <span>Production <strong class="text-gray-900">World's Best-Selling Roadster</strong></span>
 </div>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Eunos.jpg/800px-Eunos.jpg" alt="Mazda MX-5 Miata NA Eunos Roadster" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Eunos.jpg/960px-Eunos.jpg" alt="Mazda MX-5 Miata NA Eunos Roadster" class="w-full aspect-video object-cover rounded my-5" loading="lazy" />
 <p class="text-gray-600 leading-relaxed mb-3">The JDM version — sold as the <strong>Eunos Roadster</strong> — featured a leather-trimmed interior and standard equipment upgrades unavailable in export markets. The NA Miata's impact on automotive culture is immeasurable: it single-handedly revived the small, affordable roadster segment that had died in the 1970s, and its philosophy of light weight over raw power influenced every sports car developed in the decades that followed.</p>
 <p class="text-gray-600 leading-relaxed mb-3">It is the best-selling roadster in history, the most-raced production car in the world, and by many measures the most pure expression of driving joy at any price.</p>
 <div class="inline-flex items-center gap-2 mt-4 bg-red-50 border border-red-200 rounded px-3 py-2 text-sm font-medium text-red-800">★ The Most Important Sports Car of the Last 40 Years.</div>
