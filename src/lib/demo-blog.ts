@@ -36,7 +36,7 @@ export const demoPosts: BlogPostData[] = [
     date: "2026-06-12",
     readTime: { zh: "8分钟阅读", en: "8 min read", ja: "8分で読める" },
     color: "bg-red-600",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Ferrari_Roma_2.jpg/1280px-Ferrari_Roma_2.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Red_2019_Ferrari_SF90_Stradale_%2848264238897%29_%28cropped%29.jpg/1280px-Red_2019_Ferrari_SF90_Stradale_%2848264238897%29_%28cropped%29.jpg",
     content: {
       zh: `为什么现在是入手法拉利中古车的好时机？法拉利官方订单已排至2027年底，新车根本抢不到。与此同时，法拉利正式踏入电动化时代——首款纯电量产车型 Luce 于2026年5月正式发布，搭载四电机、最大马力超过1,000匹。
 
