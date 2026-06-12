@@ -206,7 +206,7 @@ export const demoPosts: BlogPostData[] = [
 <p class="font-mono text-xs tracking-widest uppercase text-red-600 mb-3">代拍服务</p>
 <h3 style="font-family:Georgia,serif;font-size:1.5rem;font-weight:400;color:#fff;margin-bottom:0.75rem;line-height:1.3">找不到心仪的车款？<br>我们帮你从日本拍回来</h3>
 <p style="font-size:0.875rem;color:rgba(255,255,255,0.5);max-width:480px;margin-bottom:1.5rem;line-height:1.75">我们深耕日本超跑中古市场多年，可协助您从 USS、TAA、HAA 等日本主要拍卖场代为竞标。全程透明报价、提供现场照片影片，安全出口至您所在地区。</p>
-<a href="/contact" style="display:inline-block;background:#dc2626;color:#fff;font-size:0.8125rem;font-weight:500;letter-spacing:0.06em;padding:0.75rem 1.75rem;text-decoration:none;border-radius:0.25rem">立即咨询代拍服务</a>
+<a href="/zh/contact" style="display:inline-block;background:#dc2626;color:#fff;font-size:0.8125rem;font-weight:500;letter-spacing:0.06em;padding:0.75rem 1.75rem;text-decoration:none;border-radius:0.25rem">立即咨询代拍服务</a>
 <p style="margin-top:0.75rem;font-size:0.75rem;color:rgba(255,255,255,0.3);font-family:monospace;letter-spacing:0.04em">通常于24小时内回复 · 中文、日文均可沟通</p>
 </div>`,
       en: `Why is now the perfect time to buy a used Ferrari? Ferrari's official order books are filled through the end of 2027 — getting a new car is nearly impossible. Meanwhile, Ferrari has officially entered the electric era: their first fully electric production model, the Luce, was announced in May 2026, featuring quad motors and over 1,000 horsepower.
@@ -377,7 +377,7 @@ Japan has one of the highest Ferrari ownership rates in Asia, with a mature supe
 <p class="font-mono text-xs tracking-widest uppercase text-red-600 mb-3">Proxy Bidding</p>
 <h3 style="font-family:Georgia,serif;font-size:1.5rem;font-weight:400;color:#fff;margin-bottom:0.75rem;line-height:1.3">Can't find the model you want?<br>We'll bid on your behalf at Japan's auctions</h3>
 <p style="font-size:0.875rem;color:rgba(255,255,255,0.5);max-width:480px;margin-bottom:1.5rem;line-height:1.75">We can help you bid at Japan's major auction houses (USS, TAA, HAA). Fully transparent pricing, on-site photos and video, safe export to your location.</p>
-<a href="/contact" style="display:inline-block;background:#dc2626;color:#fff;font-size:0.8125rem;font-weight:500;letter-spacing:0.06em;padding:0.75rem 1.75rem;text-decoration:none;border-radius:0.25rem">Contact Proxy Bidding Service</a>
+<a href="/en/contact" style="display:inline-block;background:#dc2626;color:#fff;font-size:0.8125rem;font-weight:500;letter-spacing:0.06em;padding:0.75rem 1.75rem;text-decoration:none;border-radius:0.25rem">Contact Proxy Bidding Service</a>
 <p style="margin-top:0.75rem;font-size:0.75rem;color:rgba(255,255,255,0.3);font-family:monospace;letter-spacing:0.04em">Usually responds within 24 hours · English & Japanese available</p>
 </div>`,
       ja: `なぜ今がフェラーリ中古車を購入するベストタイミングなのか？フェラーリの公式オーダーは2027年末まで埋まっており、新車の入手はほぼ不可能です。同時に、フェラーリは電動化時代に突入しました。2026年5月に初の純電気量産モデル「Luce」が発表され、4モーター、1,000馬力以上を搭載しています。
@@ -548,7 +548,7 @@ Japan has one of the highest Ferrari ownership rates in Asia, with a mature supe
 <p class="font-mono text-xs tracking-widest uppercase text-red-600 mb-3">代行入札サービス</p>
 <h3 style="font-family:Georgia,serif;font-size:1.5rem;font-weight:400;color:#fff;margin-bottom:0.75rem;line-height:1.3">希望のモデルが見つからない？<br>日本のオークションで代行入札いたします</h3>
 <p style="font-size:0.875rem;color:rgba(255,255,255,0.5);max-width:480px;margin-bottom:1.5rem;line-height:1.75">日本の主要オークション会場（USS、TAA、HAA）で代行入札いたします。完全透明な価格提示、現地写真・動画提供、お住まいの地域への安全な輸出。</p>
-<a href="/contact" style="display:inline-block;background:#dc2626;color:#fff;font-size:0.8125rem;font-weight:500;letter-spacing:0.06em;padding:0.75rem 1.75rem;text-decoration:none;border-radius:0.25rem">代行入札サービスに相談する</a>
+<a href="/ja/contact" style="display:inline-block;background:#dc2626;color:#fff;font-size:0.8125rem;font-weight:500;letter-spacing:0.06em;padding:0.75rem 1.75rem;text-decoration:none;border-radius:0.25rem">代行入札サービスに相談する</a>
 <p style="margin-top:0.75rem;font-size:0.75rem;color:rgba(255,255,255,0.3);font-family:monospace;letter-spacing:0.04em">通常24時間以内に返信 · 日本語・英語対応可能</p>
 </div>`,
     },
