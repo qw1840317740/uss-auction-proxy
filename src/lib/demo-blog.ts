@@ -1,3 +1,4 @@
+// Blog posts data — updated 2026-06-12
 // Get a localized string from either a plain string or a {zh,en,ja} map
 export type LocalizedText = string | Record<string, string>;
 
