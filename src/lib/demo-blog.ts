@@ -20,6 +20,224 @@ export interface BlogPostData {
 
 export const demoPosts: BlogPostData[] = [
   {
+    slug: "ferrari-used-car-buying-guide-2026",
+    title: {
+      zh: "2026年买法拉利中古车完整指南：价格、车款、陷阱一次搞懂",
+      en: "Complete Ferrari Used Car Buying Guide 2026: Prices, Models & Pitfalls",
+      ja: "2026年フェラーリ中古車完全購入ガイド：価格・モデル・注意点を徹底解説",
+    },
+    excerpt: {
+      zh: "从入门款 Portofino 到旗舰 SF90，带你用最聪明的方式买到心目中那匹跃马。价格行情、热门车款分析、5大购车陷阱，一次搞懂。",
+      en: "From the entry-level Portofino to the flagship SF90, your smart guide to buying a used Ferrari in Japan. Prices, model analysis, 5 common pitfalls, and proxy bidding service.",
+      ja: "エントリーモデルのPortofinoからフラッグシップSF90まで、日本でフェラーリ中古車を賢く購入するための完全ガイド。価格相場、人気モデル分析、5つの注意点、代行入札サービスまで。",
+    },
+    category: { zh: "购车指南", en: "Guide", ja: "購入ガイド" },
+    date: "2026-06-12",
+    readTime: { zh: "8分钟阅读", en: "8 min read", ja: "8分で読める" },
+    color: "bg-red-600",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Ferrari_Roma_2.jpg/1280px-Ferrari_Roma_2.jpg",
+    content: {
+      zh: `为什么现在是入手法拉利中古车的好时机？法拉利官方订单已排至2027年底，新车根本抢不到。与此同时，法拉利正式踏入电动化时代——首款纯电量产车型 Luce 于2026年5月正式发布，搭载四电机、最大马力超过1,000匹。
+
+这对中古市场意味着什么？经典汽油款的稀缺性正在上升。许多买家开始提前布局，将V8、V12汽油版法拉利视为可驾驶的投资品。现在入场，等于卡在最好的时间点——既能享受驾驶乐趣，又不错过保值机会。
+
+**编辑观点：**电动化转型往往让旧款燃油车保值力增强。参考保时捷911 GT3 RS的历史，这个规律在法拉利身上会更明显——因为产量本就极少，每一台汽油版都是有限资源。
+
+## 2026年法拉利中古车价格总览
+
+以下数据来自日本主要中古车平台（カーセンサー、グーネット、価格.com）的实时统计，单位为日元。实际成交价因里程、车况、选配差异相当大，仅供参考。
+
+| 车款 | 价格区间（万円） | 特点 |
+|------|------------------|------|
+| California T / Portofino | 1,358～2,980 | 入门敞篷GT · 最易驾驭 |
+| Roma / Roma Spider | 2,358～4,550 | 最热门款 · 库存量最大 |
+| 488 GTB / Spider | 2,168～3,980 | 经典V8 · 高性价比首选 |
+| 296 GTB / GTS | 2,930～6,200 | V6混动 · 最新世代技术 |
+| F8 Spider / Tributo | 3,500～5,930 | 488的后继款 · 性能更强 |
+| SF90 Stradale | 4,180～23,310 | 旗舰插混 · 极度稀缺 |
+
+## 最值得入手的车款推荐
+
+根据保值性、日常可用性与中古市场流动性三个维度，以下是目前日本市场最具入手价值的法拉利车款。
+
+| 车款 | 推荐理由 | 保值性 | 日常驾驭 |
+|------|----------|--------|----------|
+| Ferrari Roma | 设计最现代、库存充足、2+2座配置更实用 | 优 | 易 |
+| 488 GTB / Spider | V8涡轮经典款，价格已趋稳，性价比最高 | 中 | 中 |
+| 296 GTS | 最新引擎技术，V6混动增值潜力大 | 优 | 易 |
+| Portofino M | 敞篷GT首选，预算有限的最佳起点 | 中 | 易 |
+| SF90 Stradale | 旗舰收藏，限量性带来极高溢价空间 | 优 | 难 |
+
+## 买之前必看：5大常见陷阱
+
+### 01 — 忽略选配记录
+
+法拉利的选配金额动辄数百万日元，直接影响车辆的市场转售价值。购车前务必索取原始发票或出厂配置表（Carpass），逐项核对选配内容，缺少记录的车辆应要求大幅议价。
+
+### 02 — 只看里程，不看保养历史
+
+低里程未必等于好车况。法拉利的液压系统、双离合变速箱若长期闲置，反而容易产生密封件老化等问题。请务必要求完整的保养纪录，优先选择由原厂认证工场维护的车辆。
+
+**⚠ 红旗信号：**无保养记录、曾在非原厂工场维修、更换过发动机或变速箱——三者任一出现，都应谨慎看待，或以此为筹码大幅压低出价。
+
+### 03 — 不了解 Ferrari Approved 认证差异
+
+Ferrari Approved认证中古车须通过原厂190项严苛检查，提供至少12个月原厂保固与24小时道路救援。价格虽比一般中古车高出约10～15%，但对首次购入法拉利的买家而言，这笔溢价往往物有所值。
+
+### 04 — 未确认左右驾及进口规格
+
+日本市场同时流通左驾（欧规）与右驾车辆。左驾车售价通常偏低，但停车场、高速收费站使用不便，且在日本市场转售时流通性较差，出口至其他地区前也需确认当地法规。
+
+### 05 — 低估持有成本
+
+法拉利的年度持有费用（保险、原厂保养、车辆重量税、轮胎等）通常落在100～200万日元之间，视车款与保险条件而定。购车预算之外，请务必预留充足的持有费用，避免买得到、养不起的窘况。
+
+## 从日本购入法拉利的五大优势
+
+日本是全亚洲法拉利保有量最高的市场之一，拥有成熟完整的超跑生态系——从原厂维修体系到中古流通机制，都远优于其他亚洲市场。
+
+- **库存量大**——目前日本中古市场流通约935台法拉利，选择远超其他亚洲市场
+- **车况透明**——日本用车习惯佳，里程造假极为少见，保养记录完整可查
+- **价格竞争力**——部分热门车款比欧美市场便宜15～25%，汇率优势不容忽视
+- **原厂维修记录完整**——易于核实，提高转售时的说服力与成交速度
+- **出口流程成熟**——支持全球发货，出口文件、验关、运输均有完整配套
+
+找不到心仪的车款？我们帮您从日本拍回来。我们深耕日本超跑中古市场多年，可协助您从USS、TAA、HAA等日本主要拍卖场代为竞标。全程透明报价、提供现场照片影片，安全出口至您所在地区。`,
+      en: `Why is now the perfect time to buy a used Ferrari? Ferrari's official order books are filled through the end of 2027 — getting a new car is nearly impossible. Meanwhile, Ferrari has officially entered the electric era: their first fully electric production model, the Luce, was announced in May 2026, featuring quad motors and over 1,000 horsepower.
+
+What does this mean for the used market? The scarcity of classic gasoline models is rising fast. Many buyers are positioning early, treating V8 and V12 Ferraris as drivable investments. Buying now means catching the sweet spot — enjoying the driving pleasure while benefiting from appreciation potential.
+
+**Editor's take:** Electrification transitions typically strengthen the resale value of older combustion models. The pattern seen with the Porsche 911 GT3 RS will be even more pronounced with Ferrari — production volumes were already tiny, making every gasoline model a finite resource.
+
+## 2026 Ferrari Used Car Price Overview
+
+Data below is sourced from Japan's major used car platforms (CarSensor, Goo-net, Price.com) in real time. All prices are in Japanese Yen. Actual transaction prices vary significantly based on mileage, condition, and optional equipment.
+
+| Model | Price Range (万円) | Notes |
+|-------|-------------------|-------|
+| California T / Portofino | 1,358–2,980 | Entry open GT · Easiest to drive |
+| Roma / Roma Spider | 2,358–4,550 | Most popular · Largest inventory |
+| 488 GTB / Spider | 2,168–3,980 | Classic V8 · Best value pick |
+| 296 GTB / GTS | 2,930–6,200 | V6 hybrid · Latest tech |
+| F8 Spider / Tributo | 3,500–5,930 | 488 successor · More power |
+| SF90 Stradale | 4,180–23,310 | Flagship PHEV · Extremely scarce |
+
+## Best Value Models to Buy
+
+Based on resale value, daily usability, and market liquidity, here are the most worthwhile Ferrari models currently available in the Japanese used car market.
+
+| Model | Why Buy | Resale | Daily Use |
+|-------|---------|--------|-----------|
+| Ferrari Roma | Modern design, ample stock, practical 2+2 seating | Excellent | Easy |
+| 488 GTB / Spider | Classic turbo V8, prices stabilized, best value | Good | Moderate |
+| 296 GTS | Latest engine tech, V6 hybrid appreciation potential | Excellent | Easy |
+| Portofino M | Top open GT pick, best starting point on a budget | Good | Easy |
+| SF90 Stradale | Flagship collectible, extreme scarcity premium | Excellent | Challenging |
+
+## 5 Common Pitfalls Before You Buy
+
+### 01 — Ignoring Option Records
+
+Ferrari options can cost several million yen and directly affect resale value. Always request the original invoice or factory spec sheet (Carpass) and verify every option. Cars without documentation should be negotiated down significantly.
+
+### 02 — Focusing Only on Mileage
+
+Low mileage doesn't guarantee good condition. Ferrari hydraulic systems and dual-clutch transmissions can develop seal degradation from prolonged sitting. Always demand complete service records and prioritize cars maintained at authorized Ferrari workshops.
+
+**⚠ Red flags:** No service history, repairs at non-authorized shops, engine or transmission replacement — any of these warrant caution or a significantly lower offer.
+
+### 03 — Not Understanding Ferrari Approved Certification
+
+Ferrari Approved certified pre-owned cars must pass a rigorous 190-point factory inspection, offering at least 12 months of original warranty and 24-hour roadside assistance. Prices run about 10–15% higher than non-certified used cars, but for first-time Ferrari buyers, this premium is often worth it.
+
+### 04 — Not Confirming LHD/RHD and Import Specs
+
+The Japanese market circulates both left-hand drive (European spec) and right-hand drive vehicles. LHD cars are typically priced lower but are less convenient at parking lots and toll stations, and have lower resale liquidity in Japan. Confirm local regulations before export.
+
+### 05 — Underestimating Ownership Costs
+
+Annual Ferrari ownership costs (insurance, factory maintenance, vehicle weight tax, tires, etc.) typically range from 1 to 2 million yen, depending on the model and insurance conditions. Budget for these beyond the purchase price to avoid buying a car you can't afford to maintain.
+
+## 5 Reasons to Buy from Japan
+
+Japan has one of the highest Ferrari ownership rates in Asia, with a mature supercar ecosystem — from the factory service network to used car distribution mechanisms — far superior to other Asian markets.
+
+- **Large inventory** — approximately 935 Ferraris currently in circulation on Japan's used market, far exceeding other Asian markets
+- **Transparent condition** — excellent Japanese car-care culture, odometer fraud is extremely rare, complete service records available
+- **Competitive pricing** — some popular models are 15–25% cheaper than Western markets, plus favorable exchange rates
+- **Complete factory service records** — easy to verify, boosting buyer confidence and resale speed
+- **Mature export process** — global shipping with full documentation, customs clearance, and transport support
+
+Can't find the model you want? We can bid on your behalf at Japan's major auction houses (USS, TAA, HAA). Fully transparent pricing, on-site photos and video, safe export to your location.`,
+      ja: `なぜ今がフェラーリ中古車を購入するベストタイミングなのか？フェラーリの公式オーダーは2027年末まで埋まっており、新車の入手はほぼ不可能です。同時に、フェラーリは電動化時代に突入しました。2026年5月に初の純電気量産モデル「Luce」が発表され、4モーター、1,000馬力以上を搭載しています。
+
+これは中古市場に何を意味するのでしょうか？クラシックなガソリンモデルの希少性が急速に高まっています。多くのバイヤーがV8・V12ガソリンフェラーリを「走れる投資対象」として早期に позиционеしています。今購入すれば、ドライビングプレジャーを楽しみながら価値上昇の恩恵も受けられる絶妙なタイミングです。
+
+**編集部の見解：**電動化への移行は、従来の内燃機関モデルの再販価値を典型的に強化します。ポルシェ911 GT3 RSで見られたパターンはフェラーリでさらに顕著になります。生産台数がすでに極めて少なく、ガソリンモデル1台1台が有限資源だからです。
+
+## 2026年フェラーリ中古車価格一覧
+
+以下のデータは日本の主要中古車プラットフォーム（カーセンサー、グーネット、価格.com）のリアルタイム統計に基づいています。単位は万円。実際の取引価格は走行距離、車況、オプションにより大きく変動します。
+
+| モデル | 価格帯（万円） | 特徴 |
+|--------|---------------|------|
+| California T / Portofino | 1,358～2,980 | エントリーオープンGT · 運転しやすい |
+| Roma / Roma Spider | 2,358～4,550 | 人気No.1 · 在庫最多 |
+| 488 GTB / Spider | 2,168～3,980 | クラシックV8 · コストパフォーマンス抜群 |
+| 296 GTB / GTS | 2,930～6,200 | V6ハイブリッド · 最新技術 |
+| F8 Spider / Tributo | 3,500～5,930 | 488の後継 · 更なる高性能化 |
+| SF90 Stradale | 4,180～23,310 | フラッグシップPHEV · 極めて希少 |
+
+## おすすめ購入モデル
+
+再販価値、日常実用性、中古市場の流動性の3つの観点から、現在の日本市場で最も購入価値の高いフェラーリモデルをご紹介します。
+
+| モデル | おすすめ理由 | 再販価値 | 日常使用 |
+|--------|------------|---------|---------|
+| Ferrari Roma | 最もモダンなデザイン、豊富な在庫、2+2シートで実用的 | 優 | 容易 |
+| 488 GTB / Spider | V8ターボクラシック、価格安定、最高コスパ | 良 | 普通 |
+| 296 GTS | 最新エンジン技術、V6ハイブリッド価値上昇余地大 | 優 | 容易 |
+| Portofino M | オープンGTの筆頭、予算限定のベストスタート | 良 | 容易 |
+| SF90 Stradale | フラッグシップコレクション、希少性による高プレミアム | 優 | 上級者向け |
+
+## 購入前に知っておくべき5つの落とし穴
+
+### 01 — オプション記録の見落とし
+
+フェラーリのオプションは数百万円に上ることがあり、再販価値に直接影響します。購入前に必ず元の請求書または出荷仕様書（Carpass）を入手し、全オプションを確認してください。記録のない車両は大幅な価格交渉が必要です。
+
+### 02 — 走行距離ばかり気にしてメンテナンス履歴を無視
+
+低走行距離＝良い車況とは限りません。フェラーリの油圧システムやDCTトランスミッションは長期間の放置でシール劣化などの問題が発生しやすくなります。完全なメンテナンス記録を必ず要求し、正規ディーラーでの整備歴がある車両を優先してください。
+
+**⚠ 危険信号：**メンテナンス記録なし、非正規店での修理、エンジンまたはトランスミッションの交換——いずれかが該当する場合は要注意、または大幅な値下げ交渉の材料に。
+
+### 03 — Ferrari Approved認証の違いを理解していない
+
+Ferrari Approved認定中古車は190項目の厳格な工場検査に合格し、12ヶ月以上の正規保証と24時間ロードサイドアシスタンスが付帯します。一般中古車より10～15%高いですが、初めてフェラーリを購入する方にはこのプレミアムは十分な価値があります。
+
+### 04 — 左右ハンドルと輸入仕様の確認不足
+
+日本市場には左ハンドル（欧州仕様）と右ハンドル車両が流通しています。左ハンドル車は価格が低めですが、駐車場や料金所で不便であり、日本市場での再販流動性も低いです。輸出先の地域の法規も事前に確認が必要です。
+
+### 05 — 所有コストの過小評価
+
+フェラーリの年間所有費用（保険、正規メンテナンス、自動車重量税、タイヤ等）は通常100～200万円で、モデルと保険条件により変動します。購入予算以外にも十分な所有費用を確保してください。
+
+## 日本からフェラーリを購入する5つのメリット
+
+日本はアジアで最もフェラーリ保有量が高い市場の一つで、正規サービスネットワークから中古車流通メカニズムまで、他のアジア市場を遥かに凌ぐ成熟したスーパーカーエコシステムを備えています。
+
+- **豊富な在庫**——日本中古市場に約935台のフェラーリが流通、他のアジア市場を大きく上回る選択肢
+- **透明な車況**——日本のカーケア文化は優秀、走行距離の改ざんは極めて稀で、メンテナンス記録も完全に確認可能
+- **競争力のある価格**——一部の人気モデルは欧米市場より15～25%安く、為替メリットも無視できない
+- **完全な正規サービス記録**——確認が容易で、再販時の説得力と成約スピードを向上
+- **成熟した輸出プロセス**——世界中への発送に対応、輸出書類、通関、輸送のフルサポート
+
+希望するモデルが見つからない？日本の主要オークション会場（USS、TAA、HAA）で代行入札いたします。完全透明な価格提示、現地写真・動画提供、お住まいの地域への安全な輸出。`,
+    },
+  },
+  {
     slug: "25-best-jdm-cars-all-time",
     title: {
       zh: "史上最伟大的25款JDM名车：终极排行与购车指南",
