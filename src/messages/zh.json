@@ -172,7 +172,10 @@
       "maxPower": "最大功率",
       "fuelEconomy": "油耗",
       "feeNote": "含诸费用（约本体价10%）",
-      "photos": "张照片"
+      "photos": "张照片",
+      "savedToFavorites": "已收藏",
+      "savedCountLabel": "辆已收藏",
+      "viewFavorites": "查看收藏"
     },
     "noResults": "未找到符合条件的车辆，请调整筛选条件"
   },

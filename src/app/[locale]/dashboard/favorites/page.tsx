@@ -1,34 +1,33 @@
 "use client";
 
-import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { formatPrice, formatMileage } from "@/lib/utils";
 import { Heart, Trash2, Eye, Gauge } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import Image from "next/image";
 import { demoVehicles } from "@/lib/demo-vehicles";
-
-const demoFavorites = demoVehicles.slice(0, 4);
+import { useFavorites } from "@/lib/useFavorites";
 
 export default function FavoritesPage() {
   const t = useTranslations("dashboard");
   const tVehicles = useTranslations("vehicles");
-  const [favorites, setFavorites] = useState(demoFavorites);
+  const { favorites, toggle } = useFavorites();
 
-  const handleRemove = (id: string) => {
-    setFavorites((prev) => prev.filter((f) => f.id !== id));
-  };
+  // Resolve saved IDs to actual vehicle records, preserving save order
+  const savedVehicles = favorites
+    .map((id) => demoVehicles.find((v) => v.id === id))
+    .filter((v): v is (typeof demoVehicles)[number] => Boolean(v));
 
   return (
     <div className="space-y-6">
       <div>
         <h1 className="text-2xl font-bold text-gray-900">{t("favorites")}</h1>
-        <p className="text-sm text-gray-500 mt-1">{favorites.length} {t("vehiclesSaved")}</p>
+        <p className="text-sm text-gray-500 mt-1">{savedVehicles.length} {t("vehiclesSaved")}</p>
       </div>
 
-      {favorites.length > 0 ? (
+      {savedVehicles.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {favorites.map((fav) => (
+          {savedVehicles.map((fav) => (
             <div key={fav.id} className="bg-white rounded-xl border border-gray-100 overflow-hidden hover:shadow-sm transition-shadow group">
               <div className="relative h-44 overflow-hidden bg-gray-100">
                 <Image
@@ -39,7 +38,7 @@ export default function FavoritesPage() {
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
                 <button
-                  onClick={() => handleRemove(fav.id)}
+                  onClick={() => toggle(fav.id)}
                   className="absolute top-3 right-3 p-2 bg-white/90 rounded-full text-red-500 hover:bg-red-50 transition-colors shadow-sm"
                   title={t("removeFromFavorites")}
                 >
@@ -60,7 +59,7 @@ export default function FavoritesPage() {
                   </div>
                   <div className="flex items-center gap-1">
                     <Link href={`/vehicles/${fav.id}`} className="p-2 text-gray-400 hover:text-primary transition-colors"><Eye className="w-4 h-4" /></Link>
-                    <button className="p-2 text-primary hover:bg-primary/5 rounded-lg transition-colors"><Heart className="w-4 h-4 fill-primary" /></button>
+                    <button onClick={() => toggle(fav.id)} className="p-2 text-red-500 hover:bg-red-50 rounded-lg transition-colors"><Heart className="w-4 h-4 fill-current" /></button>
                   </div>
                 </div>
               </div>

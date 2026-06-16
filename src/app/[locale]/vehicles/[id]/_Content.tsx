@@ -60,7 +60,7 @@ export default function VehicleDetailPage({
   const locale = useLocale();
 
   const vehicle = vehicles[id] ?? { ...defaultVehicle, id };
-  const { toggle, isFavorite } = useFavorites();
+  const { toggle, isFavorite, favorites } = useFavorites();
 
   const [activeImg, setActiveImg] = useState(0);
   const [activeTab, setActiveTab] = useState<"condition" | "equipment" | "catalog">("condition");
@@ -369,11 +369,22 @@ export default function VehicleDetailPage({
               {/* Favorite button */}
               <button
                 onClick={() => toggle(vehicle.id)}
-                className={`mt-4 w-full inline-flex items-center justify-center gap-2 rounded-lg border border-gray-200 px-4 py-2.5 text-sm font-medium transition-colors ${isFavorite(vehicle.id) ? "text-red-500" : "text-gray-700"} hover:bg-gray-50`}
+                className={`mt-4 w-full inline-flex items-center justify-center gap-2 rounded-lg border border-gray-200 px-4 py-2.5 text-sm font-medium transition-colors ${isFavorite(vehicle.id) ? "text-red-500 border-red-200 bg-red-50" : "text-gray-700"} hover:bg-gray-50`}
               >
                 <Heart className="h-4 w-4" fill={isFavorite(vehicle.id) ? "currentColor" : "none"} />
-                {vt("addToFavorites")}
+                {isFavorite(vehicle.id) ? vt("savedToFavorites") : vt("addToFavorites")}
               </button>
+
+              {/* Link to saved list */}
+              {favorites.length > 0 && (
+                <Link
+                  href="/dashboard/favorites"
+                  className="mt-2 w-full inline-flex items-center justify-between gap-2 rounded-lg px-4 py-2 text-xs text-gray-400 hover:text-primary transition-colors"
+                >
+                  <span>{favorites.length} {vt("savedCountLabel")}</span>
+                  <span className="inline-flex items-center gap-1">{vt("viewFavorites")} →</span>
+                </Link>
+              )}
             </div>
           </div>
         </div>
