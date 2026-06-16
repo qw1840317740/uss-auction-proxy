@@ -175,7 +175,9 @@
       "photos": "photos",
       "savedToFavorites": "Saved",
       "savedCountLabel": "saved",
-      "viewFavorites": "View Favorites"
+      "viewFavorites": "View Favorites",
+      "addedToFavorites": "Added to favorites",
+      "removedFromFavorites": "Removed from favorites"
     },
     "noResults": "No vehicles found matching your criteria. Please adjust your filters."
   },

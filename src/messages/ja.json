@@ -175,7 +175,9 @@
       "photos": "枚の写真",
       "savedToFavorites": "保存済み",
       "savedCountLabel": "件保存済み",
-      "viewFavorites": "お気に入りを見る"
+      "viewFavorites": "お気に入りを見る",
+      "addedToFavorites": "お気に入りに追加しました",
+      "removedFromFavorites": "お気に入りから削除しました"
     },
     "noResults": "条件に一致する車両が見つかりません。絞り込み条件を変更してください。"
   },

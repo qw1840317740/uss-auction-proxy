@@ -175,7 +175,9 @@
       "photos": "张照片",
       "savedToFavorites": "已收藏",
       "savedCountLabel": "辆已收藏",
-      "viewFavorites": "查看收藏"
+      "viewFavorites": "查看收藏",
+      "addedToFavorites": "已加入收藏",
+      "removedFromFavorites": "已取消收藏"
     },
     "noResults": "未找到符合条件的车辆，请调整筛选条件"
   },

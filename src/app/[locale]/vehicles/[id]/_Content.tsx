@@ -64,6 +64,16 @@ export default function VehicleDetailPage({
 
   const [activeImg, setActiveImg] = useState(0);
   const [activeTab, setActiveTab] = useState<"condition" | "equipment" | "catalog">("condition");
+  const [toast, setToast] = useState<{ msg: string; saved: boolean } | null>(null);
+
+  // Wrap toggle so we surface an obvious toast on every click
+  const handleToggle = (vehicleId: string) => {
+    const willSave = !isFavorite(vehicleId);
+    toggle(vehicleId);
+    setToast({ msg: willSave ? vt("addedToFavorites") : vt("removedFromFavorites"), saved: willSave });
+    window.clearTimeout((handleToggle as any)._t);
+    (handleToggle as any)._t = window.setTimeout(() => setToast(null), 2500);
+  };
 
   const images = vehicle.images?.length ? vehicle.images : ["/images/cars/car-side-1.jpg"];
   const highlights = getVehicleList(vehicle.highlights, locale);
@@ -117,7 +127,7 @@ export default function VehicleDetailPage({
                 {/* Action buttons */}
                 <div className="absolute top-4 right-4 flex gap-2">
                   <button
-                    onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggle(vehicle.id); }}
+                    onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleToggle(vehicle.id); }}
                     className={`w-10 h-10 bg-white/90 rounded-full flex items-center justify-center shadow-sm ${isFavorite(vehicle.id) ? "text-red-500" : "text-gray-600"} hover:text-red-500`}
                   >
                     <Heart className="h-5 w-5" fill={isFavorite(vehicle.id) ? "currentColor" : "none"} />
@@ -368,7 +378,7 @@ export default function VehicleDetailPage({
 
               {/* Favorite button */}
               <button
-                onClick={() => toggle(vehicle.id)}
+                onClick={() => handleToggle(vehicle.id)}
                 className={`mt-4 w-full inline-flex items-center justify-center gap-2 rounded-lg border border-gray-200 px-4 py-2.5 text-sm font-medium transition-colors ${isFavorite(vehicle.id) ? "text-red-500 border-red-200 bg-red-50" : "text-gray-700"} hover:bg-gray-50`}
               >
                 <Heart className="h-4 w-4" fill={isFavorite(vehicle.id) ? "currentColor" : "none"} />
@@ -389,6 +399,33 @@ export default function VehicleDetailPage({
           </div>
         </div>
       </div>
+
+      {/* Toast feedback for favorite toggle */}
+      {toast && (
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[60] animate-in fade-in slide-in-from-bottom-2">
+          <div
+            className={cn(
+              "flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium shadow-lg",
+              toast.saved ? "bg-gray-900 text-white" : "bg-gray-200 text-gray-700"
+            )}
+          >
+            {toast.saved ? (
+              <CheckCircle2 className="h-4 w-4 text-green-400" />
+            ) : (
+              <Heart className="h-4 w-4" />
+            )}
+            {toast.msg}
+            {toast.saved && (
+              <Link
+                href="/dashboard/favorites"
+                className="ml-2 underline-offset-2 hover:underline text-primary-foreground/80"
+              >
+                {vt("viewFavorites")}
+              </Link>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
