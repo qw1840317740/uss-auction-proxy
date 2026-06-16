@@ -55,7 +55,9 @@
     "blog": "ニュース",
     "dashboard": "マイページ",
     "login": "ログイン",
-    "register": "新規登録"
+    "register": "新規登録",
+    "favorites": "お気に入り",
+    "logout": "ログアウト"
   },
   "home": {
     "hero": {
@@ -381,7 +383,8 @@
       "forgotPassword": "パスワードをお忘れですか？",
       "noAccount": "アカウントをお持ちでないですか？",
       "registerNow": "新規登録",
-      "submit": "ログイン"
+      "submit": "ログイン",
+      "loggingIn": "ログイン中…"
     },
     "register": {
       "title": "新規アカウント登録",
@@ -394,7 +397,13 @@
       "agreeTerms": "利用規約とプライバシーポリシーに同意する",
       "hasAccount": "すでにアカウントをお持ちですか？",
       "loginNow": "ログイン",
-      "submit": "登録"
+      "submit": "登録",
+      "creating": "登録中…"
+    },
+    "errors": {
+      "invalidCredentials": "メールアドレスまたはパスワードが正しくありません",
+      "emailExists": "このメールアドレスは既に登録されています",
+      "generic": "エラーが発生しました。もう一度お試しください"
     }
   },
   "dashboard": {

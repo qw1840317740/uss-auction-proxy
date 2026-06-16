@@ -55,7 +55,9 @@
     "blog": "新闻资讯",
     "dashboard": "会员中心",
     "login": "登录",
-    "register": "免费注册"
+    "register": "免费注册",
+    "favorites": "我的收藏",
+    "logout": "退出登录"
   },
   "home": {
     "hero": {
@@ -381,7 +383,8 @@
       "forgotPassword": "忘记密码？",
       "noAccount": "还没有账户？",
       "registerNow": "立即注册",
-      "submit": "登录"
+      "submit": "登录",
+      "loggingIn": "登录中…"
     },
     "register": {
       "title": "注册新账户",
@@ -394,7 +397,13 @@
       "agreeTerms": "我同意服务条款和隐私政策",
       "hasAccount": "已有账户？",
       "loginNow": "立即登录",
-      "submit": "注册"
+      "submit": "注册",
+      "creating": "注册中…"
+    },
+    "errors": {
+      "invalidCredentials": "邮箱或密码不正确",
+      "emailExists": "该邮箱已注册",
+      "generic": "操作失败，请稍后再试"
     }
   },
   "dashboard": {

@@ -388,7 +388,7 @@ export default function VehicleDetailPage({
               {/* Link to saved list */}
               {favorites.length > 0 && (
                 <Link
-                  href="/dashboard/favorites"
+                  href="/favorites"
                   className="mt-2 w-full inline-flex items-center justify-between gap-2 rounded-lg px-4 py-2 text-xs text-gray-400 hover:text-primary transition-colors"
                 >
                   <span>{favorites.length} {vt("savedCountLabel")}</span>
@@ -417,7 +417,7 @@ export default function VehicleDetailPage({
             {toast.msg}
             {toast.saved && (
               <Link
-                href="/dashboard/favorites"
+                href="/favorites"
                 className="ml-2 underline-offset-2 hover:underline text-primary-foreground/80"
               >
                 {vt("viewFavorites")}

@@ -1,20 +1,43 @@
 "use client";
 
 import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
+import { useRouter } from "@/i18n/routing";
+import { signIn } from "next-auth/react";
+import { useSearchParams } from "next/navigation";
 import { Link } from "@/i18n/routing";
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff, Loader2 } from "lucide-react";
 import { Logo } from "@/components/layout/Logo";
 
 export default function LoginPage() {
   const t = useTranslations("auth.login");
+  const te = useTranslations("auth.errors");
+  const locale = useLocale();
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle login logic
+    setError("");
+    setLoading(true);
+    const callbackUrl = searchParams.get("callbackUrl") || `/${locale}/dashboard`;
+    const res = await signIn("credentials", {
+      email,
+      password,
+      redirect: false,
+    });
+    setLoading(false);
+    if (res?.ok) {
+      router.push(callbackUrl);
+      router.refresh();
+    } else {
+      setError(te("invalidCredentials"));
+    }
   };
 
   return (
@@ -88,11 +111,18 @@ export default function LoginPage() {
             {/* Submit */}
             <button
               type="submit"
-              className="w-full py-2.5 bg-primary hover:bg-primary-dark text-white font-medium rounded-lg transition-colors text-sm"
+              disabled={loading}
+              className="w-full py-2.5 bg-primary hover:bg-primary-dark text-white font-medium rounded-lg transition-colors text-sm disabled:opacity-60 disabled:cursor-not-allowed inline-flex items-center justify-center gap-2"
             >
-              {t("submit")}
+              {loading && <Loader2 className="w-4 h-4 animate-spin" />}
+              {loading ? t("loggingIn") : t("submit")}
             </button>
           </form>
+
+          {/* Error */}
+          {error && (
+            <p className="mt-4 text-center text-sm text-red-600 bg-red-50 border border-red-100 rounded-lg py-2 px-3">{error}</p>
+          )}
 
           {/* Register Link */}
           <p className="mt-6 text-center text-sm text-gray-600">

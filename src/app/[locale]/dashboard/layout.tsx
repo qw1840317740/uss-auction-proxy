@@ -1,13 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
+import { signOut } from "next-auth/react";
 import { Link, usePathname } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 import {
   LayoutDashboard,
   Package,
-  Heart,
   MessageSquare,
   User,
   FileText,
@@ -22,7 +22,6 @@ const sidebarLinks = [
   { href: "/dashboard", icon: LayoutDashboard, labelKey: "overview" },
   { href: "/dashboard/orders", icon: Package, labelKey: "orders" },
   { href: "/dashboard/blog", icon: FileText, labelKey: "blog" },
-  { href: "/dashboard/favorites", icon: Heart, labelKey: "favorites" },
   { href: "/dashboard/inquiries", icon: MessageSquare, labelKey: "inquiries" },
   { href: "/dashboard/profile", icon: User, labelKey: "profile" },
 ] as const;
@@ -33,6 +32,7 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   const t = useTranslations("dashboard");
+  const locale = useLocale();
   const pathname = usePathname();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -99,13 +99,13 @@ export default function DashboardLayout({
 
           {/* Sidebar Footer */}
           <div className="px-3 py-4 border-t border-gray-100">
-            <Link
-              href="/"
-              className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-red-50 hover:text-red-600 transition-colors"
+            <button
+              onClick={() => signOut({ callbackUrl: `/${locale}` })}
+              className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600 hover:bg-red-50 hover:text-red-600 transition-colors"
             >
               <LogOut className="w-5 h-5" />
-              <span>Logout</span>
-            </Link>
+              <span>{t("logout") || "Logout"}</span>
+            </button>
           </div>
         </div>
       </aside>

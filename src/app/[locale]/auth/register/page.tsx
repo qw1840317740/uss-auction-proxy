@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
+import { useRouter } from "@/i18n/routing";
+import { signIn } from "next-auth/react";
 import { Link } from "@/i18n/routing";
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff, Loader2 } from "lucide-react";
 import { Logo } from "@/components/layout/Logo";
 
 const countries = [
@@ -30,8 +32,13 @@ const countries = [
 
 export default function RegisterPage() {
   const t = useTranslations("auth.register");
+  const te = useTranslations("auth.errors");
+  const locale = useLocale();
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -51,9 +58,41 @@ export default function RegisterPage() {
     setForm((prev) => ({ ...prev, agreeTerms: e.target.checked }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle register logic
+    setError("");
+    setLoading(true);
+    try {
+      const res = await fetch("/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (res.status === 409) {
+        setError(te("emailExists"));
+        setLoading(false);
+        return;
+      }
+      if (!res.ok) {
+        setError(te("generic"));
+        setLoading(false);
+        return;
+      }
+      // Auto sign-in after successful registration
+      const result = await signIn("credentials", {
+        email: form.email,
+        password: form.password,
+        redirect: false,
+      });
+      if (result?.ok) {
+        router.push(`/${locale}/dashboard`);
+      } else {
+        router.push(`/${locale}/auth/login`);
+      }
+    } catch {
+      setError(te("generic"));
+      setLoading(false);
+    }
   };
 
   return (
@@ -210,11 +249,18 @@ export default function RegisterPage() {
             {/* Submit */}
             <button
               type="submit"
-              className="w-full py-2.5 bg-primary hover:bg-primary-dark text-white font-medium rounded-lg transition-colors text-sm"
+              disabled={loading}
+              className="w-full py-2.5 bg-primary hover:bg-primary-dark text-white font-medium rounded-lg transition-colors text-sm disabled:opacity-60 disabled:cursor-not-allowed inline-flex items-center justify-center gap-2"
             >
-              {t("submit")}
+              {loading && <Loader2 className="w-4 h-4 animate-spin" />}
+              {loading ? t("creating") : t("submit")}
             </button>
           </form>
+
+          {/* Error */}
+          {error && (
+            <p className="mt-4 text-center text-sm text-red-600 bg-red-50 border border-red-100 rounded-lg py-2 px-3">{error}</p>
+          )}
 
           {/* Login Link */}
           <p className="mt-6 text-center text-sm text-gray-600">

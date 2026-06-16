@@ -5,12 +5,17 @@ import { Link, useRouter, usePathname } from "@/i18n/routing";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { MobileNav } from "./MobileNav";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Heart, LogOut } from "lucide-react";
 import { Logo, LogoMark } from "./Logo";
+import { useSession, signOut } from "next-auth/react";
+import { useFavorites } from "@/lib/useFavorites";
 
 export function Header({ locale }: { locale: string }) {
   const t = useTranslations("nav");
+  const { data: session, status } = useSession();
+  const { favorites } = useFavorites();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const isAuthenticated = status === "authenticated";
 
   const navItems = [
     { href: "/", label: t("home") },
@@ -76,19 +81,55 @@ export function Header({ locale }: { locale: string }) {
           {/* Right side */}
           <div className="flex items-center gap-2">
             <LanguageSwitcher locale={locale} />
+
+            {/* Favorites entry */}
+            <Link
+              href="/favorites"
+              className="relative p-2 text-gray-700 hover:text-primary transition-colors"
+              aria-label={t("favorites")}
+              title={t("favorites")}
+            >
+              <Heart className="w-5 h-5" />
+              {favorites.length > 0 && (
+                <span className="absolute -top-0.5 -right-0.5 min-w-[16px] h-4 px-1 bg-red-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center">
+                  {favorites.length}
+                </span>
+              )}
+            </Link>
+
             <div className="hidden sm:flex items-center gap-2">
-              <Link
-                href="/auth/login"
-                className="px-3 py-1.5 text-sm font-medium text-gray-700 hover:text-primary transition-colors"
-              >
-                {t("login")}
-              </Link>
-              <Link
-                href="/auth/register"
-                className="px-4 py-1.5 text-sm font-medium text-white bg-primary hover:bg-primary-dark rounded-lg transition-colors"
-              >
-                {t("register")}
-              </Link>
+              {isAuthenticated ? (
+                <>
+                  <Link
+                    href="/dashboard"
+                    className="px-3 py-1.5 text-sm font-medium text-gray-700 hover:text-primary transition-colors"
+                  >
+                    {t("dashboard")}
+                  </Link>
+                  <button
+                    onClick={() => signOut({ callbackUrl: `/${locale}` })}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-gray-700 hover:text-red-600 transition-colors"
+                  >
+                    <LogOut className="w-4 h-4" />
+                    {t("logout")}
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link
+                    href="/auth/login"
+                    className="px-3 py-1.5 text-sm font-medium text-gray-700 hover:text-primary transition-colors"
+                  >
+                    {t("login")}
+                  </Link>
+                  <Link
+                    href="/auth/register"
+                    className="px-4 py-1.5 text-sm font-medium text-white bg-primary hover:bg-primary-dark rounded-lg transition-colors"
+                  >
+                    {t("register")}
+                  </Link>
+                </>
+              )}
             </div>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}

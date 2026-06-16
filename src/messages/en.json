@@ -55,7 +55,9 @@
     "blog": "News",
     "dashboard": "Dashboard",
     "login": "Login",
-    "register": "Register"
+    "register": "Register",
+    "favorites": "Favorites",
+    "logout": "Logout"
   },
   "home": {
     "hero": {
@@ -381,7 +383,8 @@
       "forgotPassword": "Forgot Password?",
       "noAccount": "Don't have an account?",
       "registerNow": "Register Now",
-      "submit": "Login"
+      "submit": "Login",
+      "loggingIn": "Signing in…"
     },
     "register": {
       "title": "Create Account",
@@ -394,7 +397,13 @@
       "agreeTerms": "I agree to the Terms of Service and Privacy Policy",
       "hasAccount": "Already have an account?",
       "loginNow": "Login Now",
-      "submit": "Register"
+      "submit": "Register",
+      "creating": "Creating…"
+    },
+    "errors": {
+      "invalidCredentials": "Invalid email or password",
+      "emailExists": "This email is already registered",
+      "generic": "Something went wrong, please try again"
     }
   },
   "dashboard": {
