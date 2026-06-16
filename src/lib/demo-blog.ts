@@ -199,7 +199,6 @@ export const demoPosts: BlogPostData[] = [
 </tbody>
 </table>
 </div></div>
-
 <div style="border-left:3px solid #ef4444;background:#fff8f8;padding:0.75rem 1rem;margin:0.75rem 0;border-radius:0 6px 6px 0">
 <p style="margin:0;color:#374151;font-size:0.8125rem;line-height:1.75"><strong style="color:#991f1f">⚠ 警示案例：</strong>日本最大二手车公司 BIGMOTOR 曾于2023年曝出大规模骗保丑闻——员工系统性地对收购车辆进行人为破坏后向保险公司索取高额修理费。即使是知名连锁品牌也应保持审慎，多方对比。</p>
 </div>
@@ -388,7 +387,6 @@ Japan's vehicle auction houses use a specialized grading system based on overall
 </tbody>
 </table>
 </div></div>
-
 <div style="border-left:3px solid #ef4444;background:#fff8f8;padding:0.75rem 1rem;margin:0.75rem 0;border-radius:0 6px 6px 0">
 <p style="margin:0;color:#374151;font-size:0.8125rem;line-height:1.75"><strong style="color:#991f1f">⚠ Cautionary tale:</strong> BIGMOTOR, once Japan's largest used-car chain, was exposed in 2023 for a massive insurance-fraud scandal — employees systematically damaged acquired vehicles to claim inflated repair payouts. Even well-known brands warrant skepticism and cross-shopping.</p>
 </div>
@@ -577,7 +575,6 @@ Before viewing cars or signing anything, make sure these are in order:
 </tbody>
 </table>
 </div></div>
-
 <div style="border-left:3px solid #ef4444;background:#fff8f8;padding:0.75rem 1rem;margin:0.75rem 0;border-radius:0 6px 6px 0">
 <p style="margin:0;color:#374151;font-size:0.8125rem;line-height:1.75"><strong style="color:#991f1f">⚠ 警戒すべき事例：</strong>日本最大級の中古車チェーン BIGMOTOR は2023年に大規模な保険金不正請求スキャンダルが発覚——従業員が仕入車両を計画的に破損し保険会社に高額修理費を請求していました。有名チェーンであっても慎重に、複数比較しましょう。</p>
 </div>

@@ -280,7 +280,9 @@ export default function BlogPostPage() {
               );
             }
             // Custom HTML block (for enriched content like car entries, buying guide, FAQ)
-            if (trimmed.startsWith('<div class="jdm-')) {
+            // Matches any block starting with an HTML tag (e.g. <div>, <table>) so that
+            // inline style blocks and nested structures render as HTML instead of leaking.
+            if (/^<(div|section|table|figure)\b/.test(trimmed)) {
               return (
                 <div key={idx} className="jdm-block" dangerouslySetInnerHTML={{ __html: trimmed }} />
               );
