@@ -21,6 +21,621 @@ export interface BlogPostData {
 
 export const demoPosts: BlogPostData[] = [
   {
+    slug: "japan-used-car-pitfall-guide-2026",
+    title: {
+      zh: "在日本买二手车必看！2026年最全避坑指南（附评级解读）",
+      en: "The Ultimate Guide to Avoiding Pitfalls When Buying a Used Car in Japan (2026)",
+      ja: "日本での中古車購入に必見！2026年最新・失敗しないための完全ガイド（評価解説付き）",
+    },
+    excerpt: {
+      zh: "日本二手车市场透明度高、车况良好，但新手入手仍有不少坑。本文整合车主真实经历与行业资料，涵盖拍卖评级、修复歴、里程造假、冠水车、车检保险、贷款等7大陷阱，助你在日本买到称心如意的中古车。",
+      en: "Japan's used car market is transparent and well-maintained, but pitfalls still await first-time buyers. This guide covers auction grading, repair history, mileage fraud, flood damage, inspection, insurance, and loans — 7 common traps to avoid.",
+      ja: "日本中古車市場は透明性が高く車況も良好ですが、初心者には落とし穴が潜んでいます。オークション評価、修復歴、走行距離の不正、冠水車、車検・保険、ローンなど、7つのよくある罠を回避するための完全ガイド。",
+    },
+    category: { zh: "购车指南", en: "Guide", ja: "購入ガイド" },
+    date: "2026-06-13",
+    readTime: { zh: "10分钟阅读", en: "10 min read", ja: "10分で読める" },
+    color: "bg-amber-600",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Honda_U-car_at_Tsurumi_Osaka.jpg/1280px-Honda_U-car_at_Tsurumi_Osaka.jpg",
+    content: {
+      zh: `日本拥有成熟完善的中古车（二手车）交易体系。日本消费者普遍重视车辆保养，定期进行检查与维修，加之日本交通状况良好、公共交通发达，许多私家车使用强度较低，车况往往保持得相当不错。此外，日本还拥有严格的二手车评估制度，市场透明度较高，调表、隐瞒维修历史等情况相对少见。
+
+但这并不意味着购买过程毫无风险。一旦不了解行业规则，从低价陷阱到隐藏费用，普通买家依然可能"哑巴吃黄连"。本指南带你逐一识破。
+
+<div class="jdm-callout" style="border-left:3px solid #d97706;background:#fffbeb;padding:1rem 1.25rem;margin:1.5rem 0;border-radius:0 6px 6px 0">
+<p style="margin:0;color:#374151;font-size:0.9375rem;line-height:1.75"><strong style="color:#111">本文适用人群：</strong>在日本生活的外国人、留学生、初来乍到的上班族，以及任何打算从日本中古车市场购车的买家。无论你是在 Goo-NET、CarSensor 线上选车，还是去实体车行看车，以下内容都适用。</p>
+</div>
+
+![日本热门中古车丰田普锐斯，混动车在日本二手车市场流通量极大](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/2015-2018_Toyota_Prius_S.jpg/960px-2015-2018_Toyota_Prius_S.jpg)
+
+>>> 看懂拍卖评级系统
+
+日本的车辆拍卖行有一套特设的汽车评级系统，基于车辆整体状况分为 **RA、R、1–6 级和 S 级**等13个等级，帮助买家筛走低质素的破旧车辆。看懂这套评级，是避开事故车、买到优质中古车的第一步。
+
+<div class="jdm-model-table"><div class="overflow-x-auto my-6">
+<table class="w-full text-sm border-collapse">
+<thead><tr class="border-b-2 border-gray-900">
+<th class="px-3 py-2.5 text-left font-mono text-xs tracking-wider uppercase text-gray-400 font-normal">评级</th>
+<th class="px-3 py-2.5 text-left font-mono text-xs tracking-wider uppercase text-gray-400 font-normal">里程参考</th>
+<th class="px-3 py-2.5 text-left font-mono text-xs tracking-wider uppercase text-gray-400 font-normal">车况描述</th>
+</tr></thead>
+<tbody>
+<tr class="border-b border-gray-100">
+<td class="px-3 py-3 font-semibold text-gray-900 whitespace-nowrap"><span class="inline-block text-xs px-2 py-0.5 rounded bg-green-100 text-green-700 font-medium mr-1">S级</span></td>
+<td class="px-3 py-3 text-gray-600">不足1年</td>
+<td class="px-3 py-3 text-gray-600">近乎全新，可视为新车</td>
+</tr>
+<tr class="border-b border-gray-100">
+<td class="px-3 py-3 font-semibold text-gray-900 whitespace-nowrap"><span class="inline-block text-xs px-2 py-0.5 rounded bg-green-100 text-green-700 font-medium mr-1">6级</span></td>
+<td class="px-3 py-3 text-gray-600">不到3万公里</td>
+<td class="px-3 py-3 text-gray-600">使用极少，几乎完好无缺</td>
+</tr>
+<tr class="border-b border-gray-100">
+<td class="px-3 py-3 font-semibold text-gray-900 whitespace-nowrap"><span class="inline-block text-xs px-2 py-0.5 rounded bg-green-100 text-green-700 font-medium mr-1">5级</span></td>
+<td class="px-3 py-3 text-gray-600">不到6万公里</td>
+<td class="px-3 py-3 text-gray-600">保养妥当，状况极佳</td>
+</tr>
+<tr class="border-b border-gray-100">
+<td class="px-3 py-3 font-semibold text-gray-900 whitespace-nowrap"><span class="inline-block text-xs px-2 py-0.5 rounded bg-amber-100 text-amber-700 font-medium mr-1">4.5级</span></td>
+<td class="px-3 py-3 text-gray-600">不到10万公里</td>
+<td class="px-3 py-3 text-gray-600">轻微磨损，未必需要维修</td>
+</tr>
+<tr class="border-b border-gray-100">
+<td class="px-3 py-3 font-semibold text-gray-900 whitespace-nowrap"><span class="inline-block text-xs px-2 py-0.5 rounded bg-amber-100 text-amber-700 font-medium mr-1">4级</span></td>
+<td class="px-3 py-3 text-gray-600">不到15万公里</td>
+<td class="px-3 py-3 text-gray-600">有轻微磨损，需小量维修</td>
+</tr>
+<tr class="border-b border-gray-100">
+<td class="px-3 py-3 font-semibold text-gray-900 whitespace-nowrap"><span class="inline-block text-xs px-2 py-0.5 rounded bg-red-100 text-red-700 font-medium mr-1">R级</span></td>
+<td class="px-3 py-3 text-gray-600">—</td>
+<td class="px-3 py-3 text-gray-600">有修复歴（事故修复记录）</td>
+</tr>
+<tr class="border-b border-gray-100">
+<td class="px-3 py-3 font-semibold text-gray-900 whitespace-nowrap"><span class="inline-block text-xs px-2 py-0.5 rounded bg-red-100 text-red-700 font-medium mr-1">RA级</span></td>
+<td class="px-3 py-3 text-gray-600">—</td>
+<td class="px-3 py-3 text-gray-600">有修复歴且内外损伤较重</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+
+<div class="jdm-callout" style="border-left:3px solid #16a34a;background:#f0fdf4;padding:1rem 1.25rem;margin:1.5rem 0;border-radius:0 6px 6px 0">
+<p style="margin:0;color:#374151;font-size:0.9375rem;line-height:1.75"><strong style="color:#111">✅ 评级建议：</strong>普通买家优先考虑4级及以上车辆（绿色）；R/RA级（红色）为事故修复车，需有丰富经验或经专业第三方检查才可考虑，新手建议直接避开。</p>
+</div>
+
+>>> 七大常见陷阱
+
+<div class="jdm-trap-item"><div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-8">
+<div class="text-5xl sm:text-6xl font-bold text-gray-200 leading-none select-none shrink-0" style="font-family:Georgia,serif">01</div>
+<div class="flex-1 min-w-0">
+<h3 class="text-base font-semibold text-gray-900 mb-2 mt-0">低价诱饵 + 诸费用陷阱</h3>
+<p class="text-gray-600 leading-relaxed text-sm mb-2"><strong class="text-gray-900">典型套路：</strong>网上看到一辆"30万日元"的极低标价，到了店里才发现：镀膜费、清洗费、手续费、代办费……各种"必选项"叠加下来，总价直接翻到80万日元甚至更高。有些店还会搭配"走合作贷款才享受此价"的条件，软磨硬泡不让你轻易离开。</p>
+<p class="text-gray-600 leading-relaxed text-sm"><strong class="text-gray-900">如何避坑：</strong>要求出具含所有费用的总价报价单（车辆本体价、自动车税、重量税、法定保险费、登录手续费、车库证明代办费等）。警惕"镀膜""清洁""强制选装"等没有明码标价的附加项，绝不在第一次到访时仓促签约，多对比3家以上车行。</p>
+</div>
+</div></div>
+
+<div class="jdm-trap-item"><div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-8">
+<div class="text-5xl sm:text-6xl font-bold text-gray-200 leading-none select-none shrink-0" style="font-family:Georgia,serif">02</div>
+<div class="flex-1 min-w-0">
+<h3 class="text-base font-semibold text-gray-900 mb-2 mt-0">修复歴（事故车）的识别</h3>
+<p class="text-gray-600 leading-relaxed text-sm mb-2"><strong class="text-gray-900">什么是修复歴车？</strong>修复歴有车（修復歴あり）是指车辆的骨架部分（フレーム）曾受损并被修复的车辆。价格通常较低，但若损伤波及底盘或车架，可能对行驶安全性造成影响。</p>
+<p class="text-gray-600 leading-relaxed text-sm mb-3"><strong class="text-gray-900">识别方法：</strong>① 查看车辆信息页是否明确标注"修復歴なし"（无修复歴）；② 实车查看时，重点检查引擎盖周围的螺丝痕迹、车门缝隙是否均匀、车身漆面颜色一致性；③ 委托第三方机构（如日本自動車査定協会 JAAI）进行独立评估。</p>
+<div style="border-left:3px solid #ef4444;background:#fff8f8;padding:0.75rem 1rem;margin:0.75rem 0;border-radius:0 6px 6px 0">
+<p style="margin:0;color:#374151;font-size:0.8125rem;line-height:1.75"><strong style="color:#991f1f">⚠ 注意：</strong>水没车（冠水车）的损伤不属于"修复歴"范畴，需要另行确认（见陷阱04）。</p>
+</div>
+</div>
+</div></div>
+
+![购车前务必由专业技师检查发动机舱，核对保养记录](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mechanic_works_on_car_engine_performing_routine_maintenance_and_inspections_on_vehicle_parts.jpg/960px-Mechanic_works_on_car_engine_performing_routine_maintenance_and_inspections_on_vehicle_parts.jpg)
+
+<div class="jdm-trap-item"><div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-8">
+<div class="text-5xl sm:text-6xl font-bold text-gray-200 leading-none select-none shrink-0" style="font-family:Georgia,serif">03</div>
+<div class="flex-1 min-w-0">
+<h3 class="text-base font-semibold text-gray-900 mb-2 mt-0">走行距离造假与过走行车</h3>
+<p class="text-gray-600 leading-relaxed text-sm mb-2"><strong class="text-gray-900">参考标准：</strong>日本一般认为，车辆每年行驶约8,000～10,000公里属于正常范围。超过每年1万公里则可能被视为"过走行车"，零部件消耗较快。</p>
+<p class="text-gray-600 leading-relaxed text-sm mb-2"><strong class="text-gray-900">注意事项：</strong>年式与走行距离要结合来看——10年车型走行5万公里（每年仅5,000公里）并非过走行；反之5年车型走行10万公里则需留意。走行距离极低也不代表没问题，长期不开动的车可能存在皮带老化、密封件硬化等问题。</p>
+<p class="text-gray-600 leading-relaxed text-sm">一般认为<strong class="text-gray-900">正时皮带寿命约10万公里，发动机寿命约15万公里</strong>，购买时需确认是否已更换。日本已有车辆历史信息查询服务，可核对车检记录中的历史里程数，比对是否前后矛盾。</p>
+</div>
+</div></div>
+
+<div class="jdm-trap-item"><div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-8">
+<div class="text-5xl sm:text-6xl font-bold text-gray-200 leading-none select-none shrink-0" style="font-family:Georgia,serif">04</div>
+<div class="flex-1 min-w-0">
+<h3 class="text-base font-semibold text-gray-900 mb-2 mt-0">冠水车、塩害车、雹害车</h3>
+<p class="text-gray-600 leading-relaxed text-sm mb-2">这三类车辆都不属于"修复歴有车"，但都有隐患，需要特别留意：</p>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3 my-3">
+<div class="bg-gray-50 border border-gray-100 rounded-lg p-4">
+<h4 class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-2">冠水车（水没車）</h4>
+<p class="text-xs text-gray-600 leading-relaxed">长时间浸水后，发动机及电装系统极易劣化。识别：检查引擎盖内、脚垫、后备箱有无水渍、霉味或腐蚀。</p>
+</div>
+<div class="bg-gray-50 border border-gray-100 rounded-lg p-4">
+<h4 class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-2">塩害车（塩害車）</h4>
+<p class="text-xs text-gray-600 leading-relaxed">沿海地区行驶受盐分侵蚀，底盘和车架易生锈。识别：检查底盘下方、排气管周围、门槛内侧有无大面积锈蚀。</p>
+</div>
+<div class="bg-gray-50 border border-gray-100 rounded-lg p-4">
+<h4 class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-2">雹害车（ひょう害車）</h4>
+<p class="text-xs text-gray-600 leading-relaxed">被冰雹打出凹痕，通常低价销售。走行性能影响不大，但修复可能费用不低，部分修复后会被列为修复歴有车。</p>
+</div>
+</div>
+</div>
+</div></div>
+
+<div class="jdm-trap-item"><div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-8">
+<div class="text-5xl sm:text-6xl font-bold text-gray-200 leading-none select-none shrink-0" style="font-family:Georgia,serif">05</div>
+<div class="flex-1 min-w-0">
+<h3 class="text-base font-semibold text-gray-900 mb-2 mt-0">车检与保险的误区</h3>
+<p class="text-gray-600 leading-relaxed text-sm mb-2"><strong class="text-gray-900">车检周期：</strong>日本自家用车的车检周期为——新车登录后首次3年，之后每2年一次。购买二手车时有"车检有"（剩余有效期内无需再检，是加分项）和"车检无"（需买家自行安排，费用和时间要提前计划）两种情况。</p>
+<p class="text-gray-600 leading-relaxed text-sm mb-2"><strong class="text-gray-900">保险误区：</strong>很多人以为附带的"自賠責保険（强制责任险）"已足够，其实不然。强制险<strong style="color:#dc2626">仅保障对方的人身伤亡</strong>，不赔对方车辆损失，更不赔自己的损失，且赔付上限有限。</p>
+<p class="text-gray-600 leading-relaxed text-sm">强烈建议另行购买<strong class="text-gray-900">任意保险（商业险）</strong>，通过 価格.com 等平台对比报价，第一年费用约5万～7万日元，通常包含对方无限赔付、自身人身赔偿及律师特约。提车当天即需保险生效，建议在过户完成、拿到新车检证扫描件后提前网上申请并设定生效日。</p>
+</div>
+</div></div>
+
+<div class="jdm-trap-item"><div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-8">
+<div class="text-5xl sm:text-6xl font-bold text-gray-200 leading-none select-none shrink-0" style="font-family:Georgia,serif">06</div>
+<div class="flex-1 min-w-0">
+<h3 class="text-base font-semibold text-gray-900 mb-2 mt-0">贷款买车的隐性成本</h3>
+<p class="text-gray-600 leading-relaxed text-sm mb-2">日本二手日系车保值率较高，价格也相对不低，若选择有息贷款，<strong style="color:#dc2626">利息成本可能超过直接购买新车</strong>。在决定贷款前，请务必：</p>
+<p class="text-gray-600 leading-relaxed text-sm">明确贷款年利率（金利），注意部分车行的"低标价+高利贷款"组合套路；比较车行贷款与银行贷款的综合成本；确认贷款条款中是否捆绑了车行独家保险或维修合同。</p>
+</div>
+</div></div>
+
+<div class="jdm-trap-item"><div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start py-8">
+<div class="text-5xl sm:text-6xl font-bold text-gray-200 leading-none select-none shrink-0" style="font-family:Georgia,serif">07</div>
+<div class="flex-1 min-w-0">
+<h3 class="text-base font-semibold text-gray-900 mb-2 mt-0">选择车行与购车渠道</h3>
+
+<div class="jdm-model-table"><div class="overflow-x-auto my-3">
+<table class="w-full text-sm border-collapse">
+<thead><tr class="border-b-2 border-gray-900">
+<th class="px-3 py-2 text-left font-mono text-xs tracking-wider uppercase text-gray-400 font-normal">渠道</th>
+<th class="px-3 py-2 text-left font-mono text-xs tracking-wider uppercase text-gray-400 font-normal">优点</th>
+<th class="px-3 py-2 text-left font-mono text-xs tracking-wider uppercase text-gray-400 font-normal">注意事项</th>
+</tr></thead>
+<tbody>
+<tr class="border-b border-gray-100"><td class="px-3 py-2.5 font-semibold text-gray-900 whitespace-nowrap">厂商认定中古车</td><td class="px-3 py-2.5 text-gray-600">车况有保障，附原厂质保</td><td class="px-3 py-2.5 text-gray-600">价格较高</td></tr>
+<tr class="border-b border-gray-100"><td class="px-3 py-2.5 font-semibold text-gray-900 whitespace-nowrap">大型连锁中古车商</td><td class="px-3 py-2.5 text-gray-600">库存丰富，信息透明</td><td class="px-3 py-2.5 text-gray-600">诸费用需仔细核实</td></tr>
+<tr class="border-b border-gray-100"><td class="px-3 py-2.5 font-semibold text-gray-900 whitespace-nowrap">拍卖代行</td><td class="px-3 py-2.5 text-gray-600">价格接近批发价</td><td class="px-3 py-2.5 text-gray-600">需信任代行方专业判断</td></tr>
+<tr class="border-b border-gray-100"><td class="px-3 py-2.5 font-semibold text-gray-900 whitespace-nowrap">个人卖家</td><td class="px-3 py-2.5 text-gray-600">价格可能更低</td><td class="px-3 py-2.5 text-gray-600">无保障，风险高，不建议新手</td></tr>
+</tbody>
+</table>
+</div></div>
+
+<div style="border-left:3px solid #ef4444;background:#fff8f8;padding:0.75rem 1rem;margin:0.75rem 0;border-radius:0 6px 6px 0">
+<p style="margin:0;color:#374151;font-size:0.8125rem;line-height:1.75"><strong style="color:#991f1f">⚠ 警示案例：</strong>日本最大二手车公司 BIGMOTOR 曾于2023年曝出大规模骗保丑闻——员工系统性地对收购车辆进行人为破坏后向保险公司索取高额修理费。即使是知名连锁品牌也应保持审慎，多方对比。</p>
+</div>
+</div>
+</div></div>
+
+![日本正规厂商认定中古车经销店，车况有保障但价格略高](https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Toyota_TOYOPET_Japan_Car_dealership_Saitama_1.jpg/960px-Toyota_TOYOPET_Japan_Car_dealership_Saitama_1.jpg)
+
+>>> 购车前必备的准备清单
+
+在正式看车、签约前，请确认以下事项已就绪：
+
+<div class="jdm-checklist" style="margin:1.5rem 0">
+<div class="flex items-start gap-3 py-3 border-b border-gray-100">
+<div class="w-5 h-5 rounded-full bg-amber-600 flex items-center justify-center flex-shrink-0 mt-0.5"><svg viewBox="0 0 10 10" fill="none" class="w-2.5 h-2.5"><polyline points="2,5 4.5,7.5 8,3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<span class="text-gray-600 text-sm leading-relaxed"><strong class="text-gray-900 font-medium">车库证明（車庫証明）</strong>——购车时必须提交停车位证明，租赁车位也可，需提前与停车场签约</span>
+</div>
+<div class="flex items-start gap-3 py-3 border-b border-gray-100">
+<div class="w-5 h-5 rounded-full bg-amber-600 flex items-center justify-center flex-shrink-0 mt-0.5"><svg viewBox="0 0 10 10" fill="none" class="w-2.5 h-2.5"><polyline points="2,5 4.5,7.5 8,3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<span class="text-gray-600 text-sm leading-relaxed"><strong class="text-gray-900 font-medium">驾照（運転免許証）</strong>——在留外国人需持有日本驾照或经公证的国际驾照翻译件</span>
+</div>
+<div class="flex items-start gap-3 py-3 border-b border-gray-100">
+<div class="w-5 h-5 rounded-full bg-amber-600 flex items-center justify-center flex-shrink-0 mt-0.5"><svg viewBox="0 0 10 10" fill="none" class="w-2.5 h-2.5"><polyline points="2,5 4.5,7.5 8,3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<span class="text-gray-600 text-sm leading-relaxed"><strong class="text-gray-900 font-medium">印章（認印）</strong>——签合同时通常需要</span>
+</div>
+<div class="flex items-start gap-3 py-3 border-b border-gray-100">
+<div class="w-5 h-5 rounded-full bg-amber-600 flex items-center justify-center flex-shrink-0 mt-0.5"><svg viewBox="0 0 10 10" fill="none" class="w-2.5 h-2.5"><polyline points="2,5 4.5,7.5 8,3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<span class="text-gray-600 text-sm leading-relaxed"><strong class="text-gray-900 font-medium">初期预算规划</strong>——车辆本体价 + 诸费用（通常占车价的10%～20%）+ 任意保险 + 首次车检费（如需）</span>
+</div>
+<div class="flex items-start gap-3 py-3 border-b border-gray-100">
+<div class="w-5 h-5 rounded-full bg-amber-600 flex items-center justify-center flex-shrink-0 mt-0.5"><svg viewBox="0 0 10 10" fill="none" class="w-2.5 h-2.5"><polyline points="2,5 4.5,7.5 8,3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<span class="text-gray-600 text-sm leading-relaxed"><strong class="text-gray-900 font-medium">比价准备</strong>——在 Goo-NET、CarSensor 等平台查询同款车型行情，建立价格基准</span>
+</div>
+<div class="flex items-start gap-3 py-3">
+<div class="w-5 h-5 rounded-full bg-amber-600 flex items-center justify-center flex-shrink-0 mt-0.5"><svg viewBox="0 0 10 10" fill="none" class="w-2.5 h-2.5"><polyline points="2,5 4.5,7.5 8,3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<span class="text-gray-600 text-sm leading-relaxed"><strong class="text-gray-900 font-medium">实车检查</strong>——试乘、检查车内外、索取車両検査証</span>
+</div>
+</div>
+
+>>> 总结：买车核心原则
+
+1. **不被低价标签迷惑**，看总价，要求车行出具含所有费用的完整报价单。
+2. **优先选择无修复歴、无冠水记录**的车辆，并索取第三方检查报告。
+3. **走行距离要结合年式综合判断**，留意极低走行距离背后的异常。
+4. **车险不能只靠强制险**，务必在提车当日前配置好任意保险。
+5. **贷款有成本**，对比多方利率，警惕低价捆绑高利贷。
+6. **货比三家**，不在第一次到店时仓促签约，多看多比较。
+
+<div class="jdm-cta" style="background:#111;margin:2rem -1rem;padding:2.5rem 1.5rem;border-radius:0.75rem">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-500 mb-3">代拍服务</p>
+<h3 style="font-family:Georgia,serif;font-size:1.5rem;font-weight:400;color:#fff;margin-bottom:0.75rem;line-height:1.3">担心自己踩坑？<br>让专业代拍帮你把关</h3>
+<p style="font-size:0.875rem;color:rgba(255,255,255,0.5);max-width:480px;margin-bottom:1.5rem;line-height:1.75">我们深耕日本中古车市场多年，熟悉拍卖评级、修复歴甄别、实车检查全流程。可协助您从 USS、TAA、HAA 等拍卖场代为竞标，全程透明报价，安全出口至您所在地区。</p>
+<a href="/zh/contact" style="display:inline-block;background:#d97706;color:#fff;font-size:0.8125rem;font-weight:500;letter-spacing:0.06em;padding:0.75rem 1.75rem;text-decoration:none;border-radius:0.25rem">立即咨询代拍服务</a>
+<p style="margin-top:0.75rem;font-size:0.75rem;color:rgba(255,255,255,0.3);font-family:monospace;letter-spacing:0.04em">通常于24小时内回复 · 中文、日文均可沟通</p>
+</div>`,
+      en: `Japan has one of the most mature used car (中古車) trading systems in the world. Japanese consumers generally take vehicle maintenance seriously, conducting regular inspections and repairs. Combined with good road conditions and a robust public transit network, many privately-owned cars see relatively light use and remain in excellent condition. Japan also enforces a strict used car assessment system, making the market highly transparent — odometer fraud and concealed repair histories are comparatively rare.
+
+But that doesn't mean buying is risk-free. Without understanding the rules of the industry, an ordinary buyer can still get burned — from low-price bait to hidden fees. This guide helps you see through every trap.
+
+<div class="jdm-callout" style="border-left:3px solid #d97706;background:#fffbeb;padding:1rem 1.25rem;margin:1.5rem 0;border-radius:0 6px 6px 0">
+<p style="margin:0;color:#374151;font-size:0.9375rem;line-height:1.75"><strong style="color:#111">Who this is for:</strong> Foreigners living in Japan, students, new workers, and anyone buying from Japan's used car market. Whether browsing Goo-NET and CarSensor online or visiting dealers in person, the advice below applies.</p>
+</div>
+
+![The Toyota Prius — a hugely popular model in Japan's used car market](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/2015-2018_Toyota_Prius_S.jpg/960px-2015-2018_Toyota_Prius_S.jpg)
+
+>>> Understanding the Auction Grading System
+
+Japan's vehicle auction houses use a specialized grading system based on overall condition, ranging across **RA, R, grades 1–6, and S** (13 levels in total), helping buyers filter out low-quality vehicles. Understanding this system is the first step to avoiding accident cars and buying a quality used car.
+
+<div class="jdm-model-table"><div class="overflow-x-auto my-6">
+<table class="w-full text-sm border-collapse">
+<thead><tr class="border-b-2 border-gray-900">
+<th class="px-3 py-2.5 text-left font-mono text-xs tracking-wider uppercase text-gray-400 font-normal">Grade</th>
+<th class="px-3 py-2.5 text-left font-mono text-xs tracking-wider uppercase text-gray-400 font-normal">Mileage Ref.</th>
+<th class="px-3 py-2.5 text-left font-mono text-xs tracking-wider uppercase text-gray-400 font-normal">Condition</th>
+</tr></thead>
+<tbody>
+<tr class="border-b border-gray-100"><td class="px-3 py-3 font-semibold text-gray-900 whitespace-nowrap"><span class="inline-block text-xs px-2 py-0.5 rounded bg-green-100 text-green-700 font-medium mr-1">S</span></td><td class="px-3 py-3 text-gray-600">< 1 year</td><td class="px-3 py-3 text-gray-600">Nearly new, virtually brand new</td></tr>
+<tr class="border-b border-gray-100"><td class="px-3 py-3 font-semibold text-gray-900 whitespace-nowrap"><span class="inline-block text-xs px-2 py-0.5 rounded bg-green-100 text-green-700 font-medium mr-1">6</span></td><td class="px-3 py-3 text-gray-600">< 30,000 km</td><td class="px-3 py-3 text-gray-600">Very lightly used, near flawless</td></tr>
+<tr class="border-b border-gray-100"><td class="px-3 py-3 font-semibold text-gray-900 whitespace-nowrap"><span class="inline-block text-xs px-2 py-0.5 rounded bg-green-100 text-green-700 font-medium mr-1">5</span></td><td class="px-3 py-3 text-gray-600">< 60,000 km</td><td class="px-3 py-3 text-gray-600">Well maintained, excellent</td></tr>
+<tr class="border-b border-gray-100"><td class="px-3 py-3 font-semibold text-gray-900 whitespace-nowrap"><span class="inline-block text-xs px-2 py-0.5 rounded bg-amber-100 text-amber-700 font-medium mr-1">4.5</span></td><td class="px-3 py-3 text-gray-600">< 100,000 km</td><td class="px-3 py-3 text-gray-600">Minor wear, may not need repair</td></tr>
+<tr class="border-b border-gray-100"><td class="px-3 py-3 font-semibold text-gray-900 whitespace-nowrap"><span class="inline-block text-xs px-2 py-0.5 rounded bg-amber-100 text-amber-700 font-medium mr-1">4</span></td><td class="px-3 py-3 text-gray-600">< 150,000 km</td><td class="px-3 py-3 text-gray-600">Minor wear, small repairs needed</td></tr>
+<tr class="border-b border-gray-100"><td class="px-3 py-3 font-semibold text-gray-900 whitespace-nowrap"><span class="inline-block text-xs px-2 py-0.5 rounded bg-red-100 text-red-700 font-medium mr-1">R</span></td><td class="px-3 py-3 text-gray-600">—</td><td class="px-3 py-3 text-gray-600">Repair history (accident-repaired)</td></tr>
+<tr class="border-b border-gray-100"><td class="px-3 py-3 font-semibold text-gray-900 whitespace-nowrap"><span class="inline-block text-xs px-2 py-0.5 rounded bg-red-100 text-red-700 font-medium mr-1">RA</span></td><td class="px-3 py-3 text-gray-600">—</td><td class="px-3 py-3 text-gray-600">Repair history, heavier damage</td></tr>
+</tbody>
+</table>
+</div></div>
+
+<div class="jdm-callout" style="border-left:3px solid #16a34a;background:#f0fdf4;padding:1rem 1.25rem;margin:1.5rem 0;border-radius:0 6px 6px 0">
+<p style="margin:0;color:#374151;font-size:0.9375rem;line-height:1.75"><strong style="color:#111">✅ Recommendation:</strong> Ordinary buyers should prioritize grade 4 and above (green). R/RA grades (red) are accident-repaired cars — only consider with extensive experience or a professional third-party inspection; beginners should avoid them entirely.</p>
+</div>
+
+>>> 7 Common Pitfalls
+
+<div class="jdm-trap-item"><div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-8">
+<div class="text-5xl sm:text-6xl font-bold text-gray-200 leading-none select-none shrink-0" style="font-family:Georgia,serif">01</div>
+<div class="flex-1 min-w-0">
+<h3 class="text-base font-semibold text-gray-900 mb-2 mt-0">Low-Price Bait + Hidden Fees</h3>
+<p class="text-gray-600 leading-relaxed text-sm mb-2"><strong class="text-gray-900">The trap:</strong> You spot a car listed at "300,000 yen." At the dealership, coating fees, cleaning fees, processing fees, agency fees pile on until the total doubles to 800,000 yen or more. Some insist you take their partner loan to get the advertised price.</p>
+<p class="text-gray-600 leading-relaxed text-sm"><strong class="text-gray-900">How to avoid:</strong> Demand an all-inclusive itemized quote (vehicle price, auto tax, weight tax, mandatory insurance, registration, parking certificate). Beware unlabeled add-ons like "coating" and "cleaning." Never sign on the first visit — compare at least 3 dealers.</p>
+</div>
+</div></div>
+
+<div class="jdm-trap-item"><div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-8">
+<div class="text-5xl sm:text-6xl font-bold text-gray-200 leading-none select-none shrink-0" style="font-family:Georgia,serif">02</div>
+<div class="flex-1 min-w-0">
+<h3 class="text-base font-semibold text-gray-900 mb-2 mt-0">Identifying Repair History (Accident Cars)</h3>
+<p class="text-gray-600 leading-relaxed text-sm mb-2"><strong class="text-gray-900">What it is:</strong> A car with repair history (修復歴あり) has had its frame (フレーム) damaged and repaired. Priced lower, but if damage reached the chassis or frame, it may affect driving safety.</p>
+<p class="text-gray-600 leading-relaxed text-sm mb-3"><strong class="text-gray-900">How to detect:</strong> ① Check the spec sheet for "修復歴なし" (no repair history); ② Inspect screw marks around the hood, door gap uniformity, and paint color consistency; ③ Commission an independent assessment from JAAI.</p>
+<div style="border-left:3px solid #ef4444;background:#fff8f8;padding:0.75rem 1rem;margin:0.75rem 0;border-radius:0 6px 6px 0">
+<p style="margin:0;color:#374151;font-size:0.8125rem;line-height:1.75"><strong style="color:#991f1f">⚠ Note:</strong> Flood damage (冠水車) is NOT classified as "repair history" — it must be checked separately (see pitfall 04).</p>
+</div>
+</div>
+</div></div>
+
+![Always have a professional mechanic inspect the engine bay and verify service records before purchase](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mechanic_works_on_car_engine_performing_routine_maintenance_and_inspections_on_vehicle_parts.jpg/960px-Mechanic_works_on_car_engine_performing_routine_maintenance_and_inspections_on_vehicle_parts.jpg)
+
+<div class="jdm-trap-item"><div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-8">
+<div class="text-5xl sm:text-6xl font-bold text-gray-200 leading-none select-none shrink-0" style="font-family:Georgia,serif">03</div>
+<div class="flex-1 min-w-0">
+<h3 class="text-base font-semibold text-gray-900 mb-2 mt-0">Mileage Fraud & High-Mileage Cars</h3>
+<p class="text-gray-600 leading-relaxed text-sm mb-2"><strong class="text-gray-900">Reference:</strong> 8,000–10,000 km/year is considered normal in Japan. Over 10,000 km/year may mark a car as "high-mileage," with faster component wear.</p>
+<p class="text-gray-600 leading-relaxed text-sm mb-2"><strong class="text-gray-900">Key points:</strong> Combine mileage with model year — a 10-year-old car with 50,000 km (5,000 km/year) is fine; a 5-year-old car with 100,000 km needs scrutiny. Extremely low mileage isn't always good — long-idle cars may suffer belt aging and seal hardening.</p>
+<p class="text-gray-600 leading-relaxed text-sm"><strong class="text-gray-900">Timing belts last ~100,000 km; engines ~150,000 km.</strong> Confirm whether these have been replaced. Japan now offers vehicle-history lookup services to cross-check mileage records for inconsistencies.</p>
+</div>
+</div></div>
+
+<div class="jdm-trap-item"><div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-8">
+<div class="text-5xl sm:text-6xl font-bold text-gray-200 leading-none select-none shrink-0" style="font-family:Georgia,serif">04</div>
+<div class="flex-1 min-w-0">
+<h3 class="text-base font-semibold text-gray-900 mb-2 mt-0">Flood, Salt & Hail Damage</h3>
+<p class="text-gray-600 leading-relaxed text-sm mb-2">These three aren't classified as "repair history" but carry hidden risks:</p>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3 my-3">
+<div class="bg-gray-50 border border-gray-100 rounded-lg p-4">
+<h4 class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-2">Flood (水没車)</h4>
+<p class="text-xs text-gray-600 leading-relaxed">Prolonged submersion degrades the engine and electrical systems. Check hood interior, floor mats, trunk for water stains, mildew, corrosion.</p>
+</div>
+<div class="bg-gray-50 border border-gray-100 rounded-lg p-4">
+<h4 class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-2">Salt (塩害車)</h4>
+<p class="text-xs text-gray-600 leading-relaxed">Coastal-area cars suffer salt corrosion to chassis and frame. Check undercarriage, exhaust, door sills for rust.</p>
+</div>
+<div class="bg-gray-50 border border-gray-100 rounded-lg p-4">
+<h4 class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-2">Hail (ひょう害車)</h4>
+<p class="text-xs text-gray-600 leading-relaxed">Hail dents, usually sold cheap. Driving impact is minor, but repairs can be costly and may later be logged as repair history.</p>
+</div>
+</div>
+</div>
+</div></div>
+
+<div class="jdm-trap-item"><div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-8">
+<div class="text-5xl sm:text-6xl font-bold text-gray-200 leading-none select-none shrink-0" style="font-family:Georgia,serif">05</div>
+<div class="flex-1 min-w-0">
+<h3 class="text-base font-semibold text-gray-900 mb-2 mt-0">Inspection (Shaken) & Insurance Misconceptions</h3>
+<p class="text-gray-600 leading-relaxed text-sm mb-2"><strong class="text-gray-900">Inspection cycle:</strong> First shaken 3 years after registration, then every 2 years. Used cars come "with" (valid period remaining — a plus) or "without" shaken (you arrange and pay).</p>
+<p class="text-gray-600 leading-relaxed text-sm mb-2"><strong class="text-gray-900">Insurance myth:</strong> Many think the mandatory CALI (自賠責保険) is enough. It's not — it <strong style="color:#dc2626">only covers the other party's bodily injury</strong>, not their vehicle, not yours, and caps are low.</p>
+<p class="text-gray-600 leading-relaxed text-sm"><strong class="text-gray-900">Buy voluntary insurance (任意保険)</strong> via comparison sites like Kakaku.com — roughly 50,000–70,000 yen/year, usually with unlimited third-party coverage, own-injury, and legal rider. Have it effective on pickup day; apply online after getting the new shaken certificate.</p>
+</div>
+</div></div>
+
+<div class="jdm-trap-item"><div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-8">
+<div class="text-5xl sm:text-6xl font-bold text-gray-200 leading-none select-none shrink-0" style="font-family:Georgia,serif">06</div>
+<div class="flex-1 min-w-0">
+<h3 class="text-base font-semibold text-gray-900 mb-2 mt-0">Hidden Costs of Financing</h3>
+<p class="text-gray-600 leading-relaxed text-sm mb-2">Japanese cars hold value well and aren't cheap; with an interest-bearing loan, <strong style="color:#dc2626">interest costs can exceed buying new outright</strong>. Before financing:</p>
+<p class="text-gray-600 leading-relaxed text-sm">Clarify the annual rate (金利); watch for the "low sticker + high-rate loan" combo; compare dealer financing vs. bank loans; confirm the terms aren't bundled with dealer-exclusive insurance or maintenance contracts.</p>
+</div>
+</div></div>
+
+<div class="jdm-trap-item"><div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start py-8">
+<div class="text-5xl sm:text-6xl font-bold text-gray-200 leading-none select-none shrink-0" style="font-family:Georgia,serif">07</div>
+<div class="flex-1 min-w-0">
+<h3 class="text-base font-semibold text-gray-900 mb-2 mt-0">Choosing Dealers & Channels</h3>
+
+<div class="jdm-model-table"><div class="overflow-x-auto my-3">
+<table class="w-full text-sm border-collapse">
+<thead><tr class="border-b-2 border-gray-900">
+<th class="px-3 py-2 text-left font-mono text-xs tracking-wider uppercase text-gray-400 font-normal">Channel</th>
+<th class="px-3 py-2 text-left font-mono text-xs tracking-wider uppercase text-gray-400 font-normal">Pros</th>
+<th class="px-3 py-2 text-left font-mono text-xs tracking-wider uppercase text-gray-400 font-normal">Watch out</th>
+</tr></thead>
+<tbody>
+<tr class="border-b border-gray-100"><td class="px-3 py-2.5 font-semibold text-gray-900 whitespace-nowrap">Certified Pre-Owned</td><td class="px-3 py-2.5 text-gray-600">Guaranteed condition, factory warranty</td><td class="px-3 py-2.5 text-gray-600">Higher price</td></tr>
+<tr class="border-b border-gray-100"><td class="px-3 py-2.5 font-semibold text-gray-900 whitespace-nowrap">Big chain dealers</td><td class="px-3 py-2.5 text-gray-600">Large inventory, transparent info</td><td class="px-3 py-2.5 text-gray-600">Scrutinize fees</td></tr>
+<tr class="border-b border-gray-100"><td class="px-3 py-2.5 font-semibold text-gray-900 whitespace-nowrap">Auction proxy</td><td class="px-3 py-2.5 text-gray-600">Near-wholesale price</td><td class="px-3 py-2.5 text-gray-600">Trust the proxy's expertise</td></tr>
+<tr class="border-b border-gray-100"><td class="px-3 py-2.5 font-semibold text-gray-900 whitespace-nowrap">Private sellers</td><td class="px-3 py-2.5 text-gray-600">Potentially cheaper</td><td class="px-3 py-2.5 text-gray-600">No warranty, high risk, not for beginners</td></tr>
+</tbody>
+</table>
+</div></div>
+
+<div style="border-left:3px solid #ef4444;background:#fff8f8;padding:0.75rem 1rem;margin:0.75rem 0;border-radius:0 6px 6px 0">
+<p style="margin:0;color:#374151;font-size:0.8125rem;line-height:1.75"><strong style="color:#991f1f">⚠ Cautionary tale:</strong> BIGMOTOR, once Japan's largest used-car chain, was exposed in 2023 for a massive insurance-fraud scandal — employees systematically damaged acquired vehicles to claim inflated repair payouts. Even well-known brands warrant skepticism and cross-shopping.</p>
+</div>
+</div>
+</div></div>
+
+![A certified dealer storefront in Japan — better guarantees but slightly higher prices](https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Toyota_TOYOPET_Japan_Car_dealership_Saitama_1.jpg/960px-Toyota_TOYOPET_Japan_Car_dealership_Saitama_1.jpg)
+
+>>> Pre-Purchase Checklist
+
+Before viewing cars or signing anything, make sure these are in order:
+
+<div class="jdm-checklist" style="margin:1.5rem 0">
+<div class="flex items-start gap-3 py-3 border-b border-gray-100">
+<div class="w-5 h-5 rounded-full bg-amber-600 flex items-center justify-center flex-shrink-0 mt-0.5"><svg viewBox="0 0 10 10" fill="none" class="w-2.5 h-2.5"><polyline points="2,5 4.5,7.5 8,3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<span class="text-gray-600 text-sm leading-relaxed"><strong class="text-gray-900 font-medium">Parking certificate (車庫証明)</strong> — mandatory; a leased space works, but sign the contract in advance</span>
+</div>
+<div class="flex items-start gap-3 py-3 border-b border-gray-100">
+<div class="w-5 h-5 rounded-full bg-amber-600 flex items-center justify-center flex-shrink-0 mt-0.5"><svg viewBox="0 0 10 10" fill="none" class="w-2.5 h-2.5"><polyline points="2,5 4.5,7.5 8,3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<span class="text-gray-600 text-sm leading-relaxed"><strong class="text-gray-900 font-medium">Driver's license</strong> — foreigners need a Japanese license or a notarized international translation</span>
+</div>
+<div class="flex items-start gap-3 py-3 border-b border-gray-100">
+<div class="w-5 h-5 rounded-full bg-amber-600 flex items-center justify-center flex-shrink-0 mt-0.5"><svg viewBox="0 0 10 10" fill="none" class="w-2.5 h-2.5"><polyline points="2,5 4.5,7.5 8,3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<span class="text-gray-600 text-sm leading-relaxed"><strong class="text-gray-900 font-medium">Personal seal (認印)</strong> — usually required to sign contracts</span>
+</div>
+<div class="flex items-start gap-3 py-3 border-b border-gray-100">
+<div class="w-5 h-5 rounded-full bg-amber-600 flex items-center justify-center flex-shrink-0 mt-0.5"><svg viewBox="0 0 10 10" fill="none" class="w-2.5 h-2.5"><polyline points="2,5 4.5,7.5 8,3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<span class="text-gray-600 text-sm leading-relaxed"><strong class="text-gray-900 font-medium">Budget planning</strong> — car price + fees (10–20% of price) + voluntary insurance + first shaken (if needed)</span>
+</div>
+<div class="flex items-start gap-3 py-3 border-b border-gray-100">
+<div class="w-5 h-5 rounded-full bg-amber-600 flex items-center justify-center flex-shrink-0 mt-0.5"><svg viewBox="0 0 10 10" fill="none" class="w-2.5 h-2.5"><polyline points="2,5 4.5,7.5 8,3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<span class="text-gray-600 text-sm leading-relaxed"><strong class="text-gray-900 font-medium">Price benchmarking</strong> — check comparable models on Goo-NET / CarSensor to build a reference</span>
+</div>
+<div class="flex items-start gap-3 py-3">
+<div class="w-5 h-5 rounded-full bg-amber-600 flex items-center justify-center flex-shrink-0 mt-0.5"><svg viewBox="0 0 10 10" fill="none" class="w-2.5 h-2.5"><polyline points="2,5 4.5,7.5 8,3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<span class="text-gray-600 text-sm leading-relaxed"><strong class="text-gray-900 font-medium">Physical inspection</strong> — test drive, inspect interior/exterior, request the 車両検査証</span>
+</div>
+</div>
+
+>>> Core Principles
+
+1. **Don't be seduced by the sticker price** — look at the total and demand an all-inclusive quote.
+2. **Prioritize cars with no repair history and no flood record** — get a third-party inspection.
+3. **Judge mileage alongside model year** — watch for anomalies behind ultra-low mileage.
+4. **Don't rely on mandatory insurance alone** — set up voluntary coverage before pickup day.
+5. **Loans have a cost** — compare rates everywhere; beware low-price + high-rate bundles.
+6. **Shop around** — never sign on the first visit; compare broadly.
+
+<div class="jdm-cta" style="background:#111;margin:2rem -1rem;padding:2.5rem 1.5rem;border-radius:0.75rem">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-500 mb-3">Proxy Bidding</p>
+<h3 style="font-family:Georgia,serif;font-size:1.5rem;font-weight:400;color:#fff;margin-bottom:0.75rem;line-height:1.3">Worried about pitfalls?<br>Let our experts vet your car</h3>
+<p style="font-size:0.875rem;color:rgba(255,255,255,0.5);max-width:480px;margin-bottom:1.5rem;line-height:1.75">We've worked Japan's used car market for years — fluent in auction grading, repair-history detection, and physical inspection. We can bid on your behalf at USS, TAA, and HAA auctions with transparent pricing and safe export to your location.</p>
+<a href="/en/contact" style="display:inline-block;background:#d97706;color:#fff;font-size:0.8125rem;font-weight:500;letter-spacing:0.06em;padding:0.75rem 1.75rem;text-decoration:none;border-radius:0.25rem">Contact Proxy Bidding Service</a>
+<p style="margin-top:0.75rem;font-size:0.75rem;color:rgba(255,255,255,0.3);font-family:monospace;letter-spacing:0.04em">Usually responds within 24 hours · English & Japanese available</p>
+</div>`,
+      ja: `日本は世界でも最も成熟した中古車取引システムを持っています。日本の消費者は車のメンテナンスを重んじ、定期的に点検・整備を行います。良好な道路事情と発達した公共交通機関も相まって、多くの自家用車は使用頻度が低く、車況が非常に良好に保たれています。また、厳格な中古車評価制度により市場の透明性が高く、メーター戻しや修理歴の隠蔽は比較的稀です。
+
+しかし、購入にリスクが全くないわけではありません。業界のルールを理解していなければ、一般のバイヤーでも低価格の罠から隠れ費用まで「泣き寝入り」しかねません。本ガイドが一つひとつの罠を見抜くお手伝いをします。
+
+<div class="jdm-callout" style="border-left:3px solid #d97706;background:#fffbeb;padding:1rem 1.25rem;margin:1.5rem 0;border-radius:0 6px 6px 0">
+<p style="margin:0;color:#374151;font-size:0.9375rem;line-height:1.75"><strong style="color:#111">対象読者：</strong>日本に住む外国人、留学生、赴任したばかりの社会人、日本中古車市場から購入を検討するすべての方。Goo-NETやCarSensorでのオンライン選びでも、実店舗での見学でも、以下の内容はそのまま通用します。</p>
+</div>
+
+![日本中古車市場で圧倒的な流通量を誇る人気車種、トヨタ・プリウス](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/2015-2018_Toyota_Prius_S.jpg/960px-2015-2018_Toyota_Prius_S.jpg)
+
+>>> オークション評価を理解する
+
+日本の車両オークション会場には、車両の総合状態に基づき **RA、R、1〜6級、S級**など13段階の特別な評価システムがあり、低品質な車両を弾くのに役立ちます。この評価を理解することが、事故車を避け良質な中古車を買うための第一歩です。
+
+<div class="jdm-model-table"><div class="overflow-x-auto my-6">
+<table class="w-full text-sm border-collapse">
+<thead><tr class="border-b-2 border-gray-900">
+<th class="px-3 py-2.5 text-left font-mono text-xs tracking-wider uppercase text-gray-400 font-normal">評価</th>
+<th class="px-3 py-2.5 text-left font-mono text-xs tracking-wider uppercase text-gray-400 font-normal">走行距離目安</th>
+<th class="px-3 py-2.5 text-left font-mono text-xs tracking-wider uppercase text-gray-400 font-normal">車況</th>
+</tr></thead>
+<tbody>
+<tr class="border-b border-gray-100"><td class="px-3 py-3 font-semibold text-gray-900 whitespace-nowrap"><span class="inline-block text-xs px-2 py-0.5 rounded bg-green-100 text-green-700 font-medium mr-1">S</span></td><td class="px-3 py-3 text-gray-600">1年未満</td><td class="px-3 py-3 text-gray-600">ほぼ新車同様</td></tr>
+<tr class="border-b border-gray-100"><td class="px-3 py-3 font-semibold text-gray-900 whitespace-nowrap"><span class="inline-block text-xs px-2 py-0.5 rounded bg-green-100 text-green-700 font-medium mr-1">6</span></td><td class="px-3 py-3 text-gray-600">3万km未満</td><td class="px-3 py-3 text-gray-600">ほとんど使用なし、ほぼ完璧</td></tr>
+<tr class="border-b border-gray-100"><td class="px-3 py-3 font-semibold text-gray-900 whitespace-nowrap"><span class="inline-block text-xs px-2 py-0.5 rounded bg-green-100 text-green-700 font-medium mr-1">5</span></td><td class="px-3 py-3 text-gray-600">6万km未満</td><td class="px-3 py-3 text-gray-600">整備良好、極めて良好</td></tr>
+<tr class="border-b border-gray-100"><td class="px-3 py-3 font-semibold text-gray-900 whitespace-nowrap"><span class="inline-block text-xs px-2 py-0.5 rounded bg-amber-100 text-amber-700 font-medium mr-1">4.5</span></td><td class="px-3 py-3 text-gray-600">10万km未満</td><td class="px-3 py-3 text-gray-600">軽微な磨耗、修理不要の場合も</td></tr>
+<tr class="border-b border-gray-100"><td class="px-3 py-3 font-semibold text-gray-900 whitespace-nowrap"><span class="inline-block text-xs px-2 py-0.5 rounded bg-amber-100 text-amber-700 font-medium mr-1">4</span></td><td class="px-3 py-3 text-gray-600">15万km未満</td><td class="px-3 py-3 text-gray-600">軽微な磨耗、小修理が必要</td></tr>
+<tr class="border-b border-gray-100"><td class="px-3 py-3 font-semibold text-gray-900 whitespace-nowrap"><span class="inline-block text-xs px-2 py-0.5 rounded bg-red-100 text-red-700 font-medium mr-1">R</span></td><td class="px-3 py-3 text-gray-600">—</td><td class="px-3 py-3 text-gray-600">修復歴あり（事故修復記録）</td></tr>
+<tr class="border-b border-gray-100"><td class="px-3 py-3 font-semibold text-gray-900 whitespace-nowrap"><span class="inline-block text-xs px-2 py-0.5 rounded bg-red-100 text-red-700 font-medium mr-1">RA</span></td><td class="px-3 py-3 text-gray-600">—</td><td class="px-3 py-3 text-gray-600">修復歴あり、内外の損傷が大きい</td></tr>
+</tbody>
+</table>
+</div></div>
+
+<div class="jdm-callout" style="border-left:3px solid #16a34a;background:#f0fdf4;padding:1rem 1.25rem;margin:1.5rem 0;border-radius:0 6px 6px 0">
+<p style="margin:0;color:#374151;font-size:0.9375rem;line-height:1.75"><strong style="color:#111">✅ 評価の目安：</strong>一般のバイヤーは4級以上（緑）を優先検討しましょう。R/RA級（赤）は事故修復車です。経験豊富な方や専門の第三者点検を通す場合を除き、初心者は避けるのが無難です。</p>
+</div>
+
+>>> よくある7つの落とし穴
+
+<div class="jdm-trap-item"><div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-8">
+<div class="text-5xl sm:text-6xl font-bold text-gray-200 leading-none select-none shrink-0" style="font-family:Georgia,serif">01</div>
+<div class="flex-1 min-w-0">
+<h3 class="text-base font-semibold text-gray-900 mb-2 mt-0">低価格の餌 + 諸費用の罠</h3>
+<p class="text-gray-600 leading-relaxed text-sm mb-2"><strong class="text-gray-900">典型手口：</strong>ネットで「30万円」の激安車を見つけて来店すると、コーティング費・清掃費・手数料・代行費……さまざまな「必須項目」が積み重なり、総額は80万円以上に跳ね上がります。提携ローンを組む条件で「この価格」と粘る店もあります。</p>
+<p class="text-gray-600 leading-relaxed text-sm"><strong class="text-gray-900">回避策：</strong>すべての費用を含む総額見積書（車両本体価格・自動車税・重量税・自賠責保険・登録手数料・車庫証明代行費など）の提出を求めましょう。「コーティング」「清掃」「強制オプション」など価格表示のない追加項目に警戒し、初回訪問での契約は絶対に避け、3社以上比較しましょう。</p>
+</div>
+</div></div>
+
+<div class="jdm-trap-item"><div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-8">
+<div class="text-5xl sm:text-6xl font-bold text-gray-200 leading-none select-none shrink-0" style="font-family:Georgia,serif">02</div>
+<div class="flex-1 min-w-0">
+<h3 class="text-base font-semibold text-gray-900 mb-2 mt-0">修復歴（事故車）の見極め</h3>
+<p class="text-gray-600 leading-relaxed text-sm mb-2"><strong class="text-gray-900">修復歴車とは：</strong>車の骨格部分（フレーム）が損傷し修復された車両です。価格は低めですが、損傷が足回りやフレームに及んでいる場合、走行の安全性に影響する可能性があります。</p>
+<p class="text-gray-600 leading-relaxed text-sm mb-3"><strong class="text-gray-900">見極め方：</strong>① 車両情報欄に「修復歴なし」の明記があるか確認；② 実車確認ではボンネット周辺のネジ痕・ドア隙間の均一さ・ボディ塗装の色味の一致を重点確認；③ 第三者機関（JAAI等）に独立評価を依頼。</p>
+<div style="border-left:3px solid #ef4444;background:#fff8f8;padding:0.75rem 1rem;margin:0.75rem 0;border-radius:0 6px 6px 0">
+<p style="margin:0;color:#374151;font-size:0.8125rem;line-height:1.75"><strong style="color:#991f1f">⚠ 注意：</strong>水没車の損傷は「修復歴」に含まれず、別途確認が必要です（落とし穴04を参照）。</p>
+</div>
+</div>
+</div></div>
+
+![購入前には必ず専門の整備士にエンジンルームを点検し、整備記録を確認しましょう](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mechanic_works_on_car_engine_performing_routine_maintenance_and_inspections_on_vehicle_parts.jpg/960px-Mechanic_works_on_car_engine_performing_routine_maintenance_and_inspections_on_vehicle_parts.jpg)
+
+<div class="jdm-trap-item"><div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-8">
+<div class="text-5xl sm:text-6xl font-bold text-gray-200 leading-none select-none shrink-0" style="font-family:Georgia,serif">03</div>
+<div class="flex-1 min-w-0">
+<h3 class="text-base font-semibold text-gray-900 mb-2 mt-0">走行距離の不正と過走行車</h3>
+<p class="text-gray-600 leading-relaxed text-sm mb-2"><strong class="text-gray-900">参考基準：</strong>日本では年間8,000〜10,000kmが正常範囲とされます。年間1万km超は「過走行車」とされ、部品の消耗が早まります。</p>
+<p class="text-gray-600 leading-relaxed text-sm mb-2"><strong class="text-gray-900">注意点：</strong>年式と走行距離を併せて判断しましょう——10年式で5万km（年5,000km）は過走行ではありませんが、5年式で10万kmは要注意。極端に走行距離が低くても問題なしとは限らず、長期間動かさない車はベルト劣化やシール硬化を起こします。</p>
+<p class="text-gray-600 leading-relaxed text-sm"><strong class="text-gray-900">タイミングベルトは約10万km、エンジンは約15万kmが寿命</strong>とされ、交換済みか購入時に確認が必要です。日本では車歴情報照会サービスもあり、車検記録の歴史走行距離を照合して矛盾がないか確認できます。</p>
+</div>
+</div></div>
+
+<div class="jdm-trap-item"><div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-8">
+<div class="text-5xl sm:text-6xl font-bold text-gray-200 leading-none select-none shrink-0" style="font-family:Georgia,serif">04</div>
+<div class="flex-1 min-w-0">
+<h3 class="text-base font-semibold text-gray-900 mb-2 mt-0">冠水車・塩害車・雹害車</h3>
+<p class="text-gray-600 leading-relaxed text-sm mb-2">この3種は「修復歴車」には含まれませんが、いずれも隠れたリスクがあり要注意です：</p>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3 my-3">
+<div class="bg-gray-50 border border-gray-100 rounded-lg p-4">
+<h4 class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-2">冠水車（水没車）</h4>
+<p class="text-xs text-gray-600 leading-relaxed">長時間浸水するとエンジンや電装系が劣化しやすい。確認：ボンネット内・フロアマット・トランクに水濡れ・カビ臭・腐食がないか。</p>
+</div>
+<div class="bg-gray-50 border border-gray-100 rounded-lg p-4">
+<h4 class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-2">塩害車</h4>
+<p class="text-xs text-gray-600 leading-relaxed">沿岸部走行車は塩分侵食で足回りやフレームが錆びやすい。確認：床下・マフラー周辺・ドア下部内側に広範な錆がないか。</p>
+</div>
+<div class="bg-gray-50 border border-gray-100 rounded-lg p-4">
+<h4 class="font-mono text-xs tracking-widest uppercase text-amber-600 mb-2">雹害車（ひょう害車）</h4>
+<p class="text-xs text-gray-600 leading-relaxed">雹で凹み、通常安価販売。走行性能への影響は軽微だが修理費用がかさむ場合も。一部は修復歴に分類されます。</p>
+</div>
+</div>
+</div>
+</div></div>
+
+<div class="jdm-trap-item"><div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-8">
+<div class="text-5xl sm:text-6xl font-bold text-gray-200 leading-none select-none shrink-0" style="font-family:Georgia,serif">05</div>
+<div class="flex-1 min-w-0">
+<h3 class="text-base font-semibold text-gray-900 mb-2 mt-0">車検と保険の誤解</h3>
+<p class="text-gray-600 leading-relaxed text-sm mb-2"><strong class="text-gray-900">車検周期：</strong>日本の自家用車は新車登録後初回3年、以降2年ごと。中古車は「車検あり」（有効期間内は再検不要、プラス要因）と「車検なし」（手配と費用・時間の計画が必要）があります。</p>
+<p class="text-gray-600 leading-relaxed text-sm mb-2"><strong class="text-gray-900">保険の誤解：</strong>付帯する「自賠責保険」で十分と思われがちですが、実は不足です。自賠責は<strong style="color:#dc2626">相手の人身傷害のみ</strong>を補償し、相手の車両損害も自分の損害も補償せず、支払上限もあります。</p>
+<p class="text-gray-600 leading-relaxed text-sm"><strong class="text-gray-900">任意保険（商業保険）</strong>の併用を強く推奨します。価格.com等で比較し、初年度5万〜7万円程度で、相手無制限補償・自己人身補償・弁護士特約等を含む内容が一般的です。引き渡し当日から保険を有効にし、名義変更後・新車検証受領後に网上で事前申し込み・開始日を設定しましょう。</p>
+</div>
+</div></div>
+
+<div class="jdm-trap-item"><div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start border-b border-gray-100 py-8">
+<div class="text-5xl sm:text-6xl font-bold text-gray-200 leading-none select-none shrink-0" style="font-family:Georgia,serif">06</div>
+<div class="flex-1 min-w-0">
+<h3 class="text-base font-semibold text-gray-900 mb-2 mt-0">ローン購入の隠れたコスト</h3>
+<p class="text-gray-600 leading-relaxed text-sm mb-2">日本中古車は保值率が高く価格も安くはないため、金利付きローンを選ぶと<strong style="color:#dc2626">利息コストが新車直接購入を上回る</strong>こともあります。ローン決定前に：</p>
+<p class="text-gray-600 leading-relaxed text-sm">年利（金利）を明確にし、店舗の「低価格＋高金利ローン」の手口に注意。店舗ローンと銀行ローンの総コストを比較。条件に店舗独占の保険や整備契約が紐づいていないか確認。</p>
+</div>
+</div></div>
+
+<div class="jdm-trap-item"><div class="flex flex-col sm:flex-row gap-4 sm:gap-8 items-start py-8">
+<div class="text-5xl sm:text-6xl font-bold text-gray-200 leading-none select-none shrink-0" style="font-family:Georgia,serif">07</div>
+<div class="flex-1 min-w-0">
+<h3 class="text-base font-semibold text-gray-900 mb-2 mt-0">販売店と購入ルートの選択</h3>
+
+<div class="jdm-model-table"><div class="overflow-x-auto my-3">
+<table class="w-full text-sm border-collapse">
+<thead><tr class="border-b-2 border-gray-900">
+<th class="px-3 py-2 text-left font-mono text-xs tracking-wider uppercase text-gray-400 font-normal">ルート</th>
+<th class="px-3 py-2 text-left font-mono text-xs tracking-wider uppercase text-gray-400 font-normal">メリット</th>
+<th class="px-3 py-2 text-left font-mono text-xs tracking-wider uppercase text-gray-400 font-normal">注意点</th>
+</tr></thead>
+<tbody>
+<tr class="border-b border-gray-100"><td class="px-3 py-2.5 font-semibold text-gray-900 whitespace-nowrap">メーカー認定中古車</td><td class="px-3 py-2.5 text-gray-600">車況保証、純正保証付</td><td class="px-3 py-2.5 text-gray-600">価格が高め</td></tr>
+<tr class="border-b border-gray-100"><td class="px-3 py-2.5 font-semibold text-gray-900 whitespace-nowrap">大型チェーン店</td><td class="px-3 py-2.5 text-gray-600">在庫豊富、情報透明</td><td class="px-3 py-2.5 text-gray-600">諸費用を精査</td></tr>
+<tr class="border-b border-gray-100"><td class="px-3 py-2.5 font-semibold text-gray-900 whitespace-nowrap">オークション代行</td><td class="px-3 py-2.5 text-gray-600">卸値に近い価格</td><td class="px-3 py-2.5 text-gray-600">代行店の専門性に依存</td></tr>
+<tr class="border-b border-gray-100"><td class="px-3 py-2.5 font-semibold text-gray-900 whitespace-nowrap">個人売買</td><td class="px-3 py-2.5 text-gray-600">より安価な可能性</td><td class="px-3 py-2.5 text-gray-600">保証なし、リスク高、初心者非推奨</td></tr>
+</tbody>
+</table>
+</div></div>
+
+<div style="border-left:3px solid #ef4444;background:#fff8f8;padding:0.75rem 1rem;margin:0.75rem 0;border-radius:0 6px 6px 0">
+<p style="margin:0;color:#374151;font-size:0.8125rem;line-height:1.75"><strong style="color:#991f1f">⚠ 警戒すべき事例：</strong>日本最大級の中古車チェーン BIGMOTOR は2023年に大規模な保険金不正請求スキャンダルが発覚——従業員が仕入車両を計画的に破損し保険会社に高額修理費を請求していました。有名チェーンであっても慎重に、複数比較しましょう。</p>
+</div>
+</div>
+</div></div>
+
+![日本の正規認定中古車ディーラー店舗——保証があるが価格はやや高め](https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Toyota_TOYOPET_Japan_Car_dealership_Saitama_1.jpg/960px-Toyota_TOYOPET_Japan_Car_dealership_Saitama_1.jpg)
+
+>>> 購入前の必須チェックリスト
+
+本格的に見学・契約する前に、以下が整っているか確認しましょう：
+
+<div class="jdm-checklist" style="margin:1.5rem 0">
+<div class="flex items-start gap-3 py-3 border-b border-gray-100">
+<div class="w-5 h-5 rounded-full bg-amber-600 flex items-center justify-center flex-shrink-0 mt-0.5"><svg viewBox="0 0 10 10" fill="none" class="w-2.5 h-2.5"><polyline points="2,5 4.5,7.5 8,3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<span class="text-gray-600 text-sm leading-relaxed"><strong class="text-gray-900 font-medium">車庫証明</strong>——購入時に駐車場証明の提出が必須。賃貸も可、事前に駐車場契約が必要</span>
+</div>
+<div class="flex items-start gap-3 py-3 border-b border-gray-100">
+<div class="w-5 h-5 rounded-full bg-amber-600 flex items-center justify-center flex-shrink-0 mt-0.5"><svg viewBox="0 0 10 10" fill="none" class="w-2.5 h-2.5"><polyline points="2,5 4.5,7.5 8,3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<span class="text-gray-600 text-sm leading-relaxed"><strong class="text-gray-900 font-medium">運転免許証</strong>——在留外国人は日本免許または公証済み国際免許翻訳文が必要</span>
+</div>
+<div class="flex items-start gap-3 py-3 border-b border-gray-100">
+<div class="w-5 h-5 rounded-full bg-amber-600 flex items-center justify-center flex-shrink-0 mt-0.5"><svg viewBox="0 0 10 10" fill="none" class="w-2.5 h-2.5"><polyline points="2,5 4.5,7.5 8,3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<span class="text-gray-600 text-sm leading-relaxed"><strong class="text-gray-900 font-medium">認印</strong>——契約時に通常必要</span>
+</div>
+<div class="flex items-start gap-3 py-3 border-b border-gray-100">
+<div class="w-5 h-5 rounded-full bg-amber-600 flex items-center justify-center flex-shrink-0 mt-0.5"><svg viewBox="0 0 10 10" fill="none" class="w-2.5 h-2.5"><polyline points="2,5 4.5,7.5 8,3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<span class="text-gray-600 text-sm leading-relaxed"><strong class="text-gray-900 font-medium">初期予算計画</strong>——車両本体価格＋諸費用（通常車価の10〜20%）＋任意保険＋初回車検費（必要時）</span>
+</div>
+<div class="flex items-start gap-3 py-3 border-b border-gray-100">
+<div class="w-5 h-5 rounded-full bg-amber-600 flex items-center justify-center flex-shrink-0 mt-0.5"><svg viewBox="0 0 10 10" fill="none" class="w-2.5 h-2.5"><polyline points="2,5 4.5,7.5 8,3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<span class="text-gray-600 text-sm leading-relaxed"><strong class="text-gray-900 font-medium">価格比較</strong>——Goo-NET・CarSensor等で同モデルの相場を確認、基準を把握</span>
+</div>
+<div class="flex items-start gap-3 py-3">
+<div class="w-5 h-5 rounded-full bg-amber-600 flex items-center justify-center flex-shrink-0 mt-0.5"><svg viewBox="0 0 10 10" fill="none" class="w-2.5 h-2.5"><polyline points="2,5 4.5,7.5 8,3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<span class="text-gray-600 text-sm leading-relaxed"><strong class="text-gray-900 font-medium">実車点検</strong>——試乗、内外装確認、車両検査証の請求</span>
+</div>
+</div>
+
+>>> まとめ：購入の核心原則
+
+1. **価格ラベルに惑わされない**——総額を見て、すべての費用を含む見積書を請求する。
+2. **修復歴なし・冠水記録なしを優先**——第三者点検報告書を入手する。
+3. **走行距離は年式と併せて判断**——極端な低走行の裏にある異常に留意する。
+4. **強制保険のみに頼らない**——引き渡し日前に任意保険を手配する。
+5. **ローンにはコストがある**——複数の金利を比較、低価格＋高金利の抱き合わせに警戒する。
+6. **比較 shopping**——初回来店での契約は避け、多くを見て比較する。
+
+<div class="jdm-cta" style="background:#111;margin:2rem -1rem;padding:2.5rem 1.5rem;border-radius:0.75rem">
+<p class="font-mono text-xs tracking-widest uppercase text-amber-500 mb-3">代行入札サービス</p>
+<h3 style="font-family:Georgia,serif;font-size:1.5rem;font-weight:400;color:#fff;margin-bottom:0.75rem;line-height:1.3">落とし穴が心配？<br>プロの代行に任せましょう</h3>
+<p style="font-size:0.875rem;color:rgba(255,255,255,0.5);max-width:480px;margin-bottom:1.5rem;line-height:1.75">日本中古車市場に長年深耕し、オークション評価・修復歴甄別・実車点検の全プロセスに精通しています。USS・TAA・HAA等のオークション会場で代行入札、完全透明な価格提示、お住まいの地域への安全な輸出まで。</p>
+<a href="/ja/contact" style="display:inline-block;background:#d97706;color:#fff;font-size:0.8125rem;font-weight:500;letter-spacing:0.06em;padding:0.75rem 1.75rem;text-decoration:none;border-radius:0.25rem">代行入札サービスに相談する</a>
+<p style="margin-top:0.75rem;font-size:0.75rem;color:rgba(255,255,255,0.3);font-family:monospace;letter-spacing:0.04em">通常24時間以内に返信 · 日本語・英語対応可能</p>
+</div>`,
+    },
+  },
+  {
     slug: "ferrari-used-car-buying-guide-2026",
     title: {
       zh: "2026年买法拉利中古车完整指南：价格、车款、陷阱一次搞懂",
