@@ -9,7 +9,7 @@ export function CTASection() {
   const reveal = useScrollReveal();
 
   return (
-    <section className="py-24 bg-gradient-to-br from-primary via-primary-dark to-[#0f2044] text-white relative overflow-hidden">
+    <section className="py-16 bg-gradient-to-br from-primary via-primary-dark to-black text-white relative overflow-hidden">
       {/* Decorative background shapes */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-secondary rounded-full blur-3xl" />

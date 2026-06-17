@@ -35,11 +35,11 @@ export function BlogSection() {
   const { containerRef, isChildVisible } = useStaggerReveal(blogPosts.length, 30);
 
   return (
-    <section className="py-24 bg-gray-50">
+    <section className="py-16 bg-gray-50">
       <div className="container-main">
         <div
           ref={title.ref}
-          className={`text-center mb-14 reveal reveal-blur ${title.isVisible ? "revealed" : ""}`}
+          className={`text-center mb-10 reveal reveal-blur ${title.isVisible ? "revealed" : ""}`}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
             {t("title")}
@@ -60,7 +60,7 @@ export function BlogSection() {
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className={`reveal-stagger group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg hover:border-gray-200 transition-all ${isChildVisible(i) ? "revealed" : ""}`}
+              className={`reveal-stagger group bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-md hover:shadow-xl hover:border-gray-300 transition-all ${isChildVisible(i) ? "revealed" : ""}`}
               style={{ transitionDelay: `${i * 30}ms` }}
             >
               <div className="h-48 relative overflow-hidden bg-gray-100">

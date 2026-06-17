@@ -41,7 +41,7 @@ export default function FavoritesPage() {
         {savedVehicles.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {savedVehicles.map((fav) => (
-              <div key={fav.id} className="bg-white rounded-xl border border-gray-100 overflow-hidden hover:shadow-sm transition-shadow group">
+              <div key={fav.id} className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-md hover:shadow-xl hover:border-gray-300 transition-all group">
                 <div className="relative h-44 overflow-hidden bg-gray-100">
                   <Image
                     src={fav.images[0] || "/images/cars/car-side-1.jpg"}

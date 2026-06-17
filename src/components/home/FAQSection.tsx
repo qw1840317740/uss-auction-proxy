@@ -20,7 +20,7 @@ export function FAQSection() {
       <div className="container-main">
         <div
           ref={title.ref}
-          className={`text-center mb-14 reveal reveal-blur ${title.isVisible ? "revealed" : ""}`}
+          className={`text-center mb-10 reveal reveal-blur ${title.isVisible ? "revealed" : ""}`}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">{t("title")}</h2>
         </div>

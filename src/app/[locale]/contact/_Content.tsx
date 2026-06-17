@@ -461,9 +461,9 @@ export default function ContactPage() {
                       <div className="text-sm font-medium text-gray-900">
                         {t("info.email")}
                       </div>
-                      <div className="text-sm text-gray-500">
+                      <a href="mailto:kaiseisg@kaiseisg.com" className="text-sm text-gray-500 hover:text-primary transition-colors">
                         kaiseisg@kaiseisg.com
-                      </div>
+                      </a>
                     </div>
                   </div>
 
@@ -476,9 +476,9 @@ export default function ContactPage() {
                       <div className="text-sm font-medium text-gray-900">
                         {t("info.phone")}
                       </div>
-                      <div className="text-sm text-gray-500">
+                      <a href="tel:+81492574332" className="text-sm text-gray-500 hover:text-primary transition-colors">
                         049-257-4332
-                      </div>
+                      </a>
                     </div>
                   </div>
 

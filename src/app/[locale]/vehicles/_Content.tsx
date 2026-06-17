@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { formatPrice, formatMileage, cn } from "@/lib/utils";
@@ -10,7 +11,6 @@ import {
   ChevronDown,
   ChevronUp,
   Heart,
-  Eye,
   X,
 } from "lucide-react";
 import Image from "next/image";
@@ -72,6 +72,18 @@ export default function VehiclesPage() {
   const [selectedDrive, setSelectedDrive] = useState("");
   const [sortBy, setSortBy] = useState<SortKey>("newest");
   const [sidebarOpen, setSidebarOpen] = useState(true);
+
+  // Seed filters from URL params (e.g. homepage search bar → /vehicles?q=&make=&priceTo=)
+  const searchParams = useSearchParams();
+  useEffect(() => {
+    const q = searchParams.get("q");
+    const make = searchParams.get("make");
+    const priceTo = searchParams.get("priceTo");
+    if (q) setSearchText(q);
+    if (make) setSelectedMake(make);
+    if (priceTo) setPriceTo(priceTo);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams]);
 
   // Filter & sort vehicles
   const filteredVehicles = useMemo(() => {
@@ -500,9 +512,10 @@ export default function VehiclesPage() {
             {filteredVehicles.length > 0 ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
                 {filteredVehicles.map((v) => (
-                  <div
+                  <Link
                     key={v.id}
-                    className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md border border-gray-100 transition-all group"
+                    href={`/vehicles/${v.id}`}
+                    className="block bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl border border-gray-200 hover:border-gray-300 transition-all group"
                   >
                     {/* Vehicle image */}
                     <div className="aspect-[16/10] relative overflow-hidden bg-gray-100">
@@ -513,17 +526,11 @@ export default function VehiclesPage() {
                         className="object-cover group-hover:scale-105 transition-transform duration-300"
                         sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
                       />
-                      {/* Hover actions */}
+                      {/* Favorite action */}
                       <div className="absolute top-3 right-3 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
                         <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggle(v.id); }} className={`w-8 h-8 bg-white/90 rounded-full flex items-center justify-center ${isFavorite(v.id) ? "text-red-500" : "text-gray-600"} hover:text-red-500`}>
                           <Heart className="w-4 h-4" fill={isFavorite(v.id) ? "currentColor" : "none"} />
                         </button>
-                        <Link
-                          href={`/vehicles/${v.id}`}
-                          className="w-8 h-8 bg-white/90 rounded-full flex items-center justify-center text-gray-600 hover:text-primary"
-                        >
-                          <Eye className="w-4 h-4" />
-                        </Link>
                       </div>
                     </div>
                     {/* Info */}
@@ -545,15 +552,14 @@ export default function VehiclesPage() {
                             {formatPrice(v.price)}
                           </p>
                         </div>
-                        <Link
-                          href={`/vehicles/${v.id}`}
+                        <span
                           className="text-sm font-medium text-white bg-primary hover:bg-primary-dark px-4 py-2 rounded-lg transition-colors"
                         >
                           {vt("viewDetail")}
-                        </Link>
+                        </span>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
             ) : (

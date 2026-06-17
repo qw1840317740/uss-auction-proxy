@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { HeroSection } from "@/components/home/HeroSection";
+import { HomeSearchBar } from "@/components/home/HomeSearchBar";
 import { BrandShowcase } from "@/components/home/BrandShowcase";
 import { ServiceCards } from "@/components/home/ServiceCards";
 import { HowItWorks } from "@/components/home/HowItWorks";
@@ -75,6 +76,8 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <HeroSection />
+      {/* Floating vehicle search bar */}
+      <HomeSearchBar />
       {/* White background - Brand logos */}
       <BrandShowcase />
       {/* Gray-50 background - Services */}
