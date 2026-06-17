@@ -19,14 +19,14 @@ const regionIcons = [MapPin, Globe, MapPin, Globe, MapPin];
 const regionColors = [
   "bg-red-50 text-red-600",
   "bg-amber-50 text-amber-600",
-  "bg-blue-50 text-blue-600",
+  "bg-neutral-100 text-neutral-700",
   "bg-emerald-50 text-emerald-600",
   "bg-purple-50 text-purple-600",
 ];
 
 const reasonIcons = [Shield, DollarSign, Globe, Award];
 const reasonColors = [
-  "bg-blue-50 text-blue-600",
+  "bg-neutral-100 text-neutral-700",
   "bg-emerald-50 text-emerald-600",
   "bg-amber-50 text-amber-600",
   "bg-purple-50 text-purple-600",
@@ -55,13 +55,13 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary via-primary-dark to-blue-900 text-white">
+      <section className="bg-gradient-to-br from-primary via-primary-dark to-black text-white">
         <div className="container-main py-16 md:py-24">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-4">
               {t("title")}
             </h1>
-            <p className="text-lg md:text-xl text-blue-100">
+            <p className="text-lg md:text-xl text-neutral-100">
               {t("subtitle")}
             </p>
           </div>

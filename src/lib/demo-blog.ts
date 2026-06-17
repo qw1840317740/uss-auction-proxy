@@ -3281,7 +3281,7 @@ JDMスポーツカーがコレクターの話題を席巻する一方で、日�
     category: { zh: "购车指南", en: "Guide", ja: "購入ガイド" },
     date: "2025-05-20",
     readTime: { zh: "8分钟阅读", en: "8 min read", ja: "8分で読める" },
-    color: "bg-blue-500",
+    color: "bg-neutral-1000",
     image: "/images/blog/office-business.jpg",
     content: {
       zh: `## 为什么选择日本二手车？
@@ -3486,7 +3486,7 @@ When shopping for a used Japanese car, prioritize vehicles with complete service
     category: { zh: "购车指南", en: "Guide", ja: "購入ガイド" },
     date: "2025-05-15",
     readTime: { zh: "10分钟阅读", en: "10 min read", ja: "10分で読める" },
-    color: "bg-blue-500",
+    color: "bg-neutral-1000",
     image: "/images/blog/car-keys.jpg",
     content: {
       zh: `## 什么是日本车辆检查报告？

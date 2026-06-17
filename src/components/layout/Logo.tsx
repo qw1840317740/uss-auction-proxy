@@ -17,12 +17,12 @@ export function Logo({ className = "", size = "default" }: { className?: string;
       >
         {/* Main V shape */}
         <path d="M4 4 L20 44 L28 44 L12 4 Z" fill="url(#v-grad)" />
-        {/* Gold accent slash */}
-        <path d="M16 12 L32 44 L38 44 L22 6 Z" fill="#f59e0b" opacity="0.85" />
+        {/* Red accent slash */}
+        <path d="M16 12 L32 44 L38 44 L22 6 Z" fill="#dc2626" opacity="0.9" />
         <defs>
           <linearGradient id="v-grad" x1="4" y1="4" x2="28" y2="44" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#1e40af" />
-            <stop offset="1" stopColor="#3b82f6" />
+            <stop stopColor="#1c1c1c" />
+            <stop offset="1" stopColor="#3d3d3d" />
           </linearGradient>
         </defs>
       </svg>
@@ -48,11 +48,11 @@ export function LogoMark({ className = "" }: { className?: string }) {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path d="M4 4 L20 44 L28 44 L12 4 Z" fill="url(#mark-grad)" />
-      <path d="M16 12 L32 44 L38 44 L22 6 Z" fill="#f59e0b" opacity="0.85" />
+      <path d="M16 12 L32 44 L38 44 L22 6 Z" fill="#dc2626" opacity="0.9" />
       <defs>
         <linearGradient id="mark-grad" x1="4" y1="4" x2="28" y2="44" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#1e40af" />
-          <stop offset="1" stopColor="#3b82f6" />
+          <stop stopColor="#1c1c1c" />
+          <stop offset="1" stopColor="#3d3d3d" />
         </linearGradient>
       </defs>
     </svg>

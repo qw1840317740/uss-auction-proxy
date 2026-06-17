@@ -22,7 +22,7 @@ const featureColors = [
   "bg-emerald-50 text-emerald-600",
   "bg-teal-50 text-teal-600",
   "bg-cyan-50 text-cyan-600",
-  "bg-blue-50 text-blue-600",
+  "bg-neutral-100 text-neutral-700",
   "bg-amber-50 text-amber-600",
   "bg-purple-50 text-purple-600",
 ];
@@ -32,14 +32,14 @@ const processColors = [
   "bg-emerald-600",
   "bg-teal-600",
   "bg-cyan-600",
-  "bg-blue-600",
+  "bg-neutral-900",
 ];
 
 const combinationIcons = [Car, Settings, RefreshCw];
 const combinationColors = [
   "bg-emerald-50 text-emerald-600 border-emerald-100",
   "bg-teal-50 text-teal-600 border-teal-100",
-  "bg-blue-50 text-blue-600 border-blue-100",
+  "bg-neutral-100 text-neutral-700 border-neutral-200",
 ];
 
 export default function MaintenanceServicePage() {

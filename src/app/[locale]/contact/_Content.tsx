@@ -79,13 +79,13 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary via-primary-dark to-blue-900 text-white">
+      <section className="bg-gradient-to-br from-primary via-primary-dark to-black text-white">
         <div className="container-main py-16 md:py-24">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-4">
               {t("title")}
             </h1>
-            <p className="text-lg md:text-xl text-blue-100">
+            <p className="text-lg md:text-xl text-neutral-100">
               {t("subtitle")}
             </p>
           </div>
@@ -542,7 +542,7 @@ export default function ContactPage() {
                     href="https://lin.ee/xxxxx"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 p-3 rounded-lg bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors"
+                    className="flex items-center gap-3 p-3 rounded-lg bg-neutral-100 text-neutral-800 hover:bg-red-100 transition-colors"
                   >
                     <MessageCircle className="w-5 h-5 shrink-0" />
                     <span className="text-sm font-medium">

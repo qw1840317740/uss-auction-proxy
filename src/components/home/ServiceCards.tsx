@@ -6,7 +6,7 @@ import { Car, Ship, Wrench, ArrowRight } from "lucide-react";
 import { useScrollReveal, useStaggerReveal } from "@/lib/useScrollReveal";
 
 const services = [
-  { key: "vehicleSales", icon: Car, href: "/vehicles", color: "bg-blue-50 text-blue-600" },
+  { key: "vehicleSales", icon: Car, href: "/vehicles", color: "bg-neutral-100 text-neutral-700" },
   { key: "exportService", icon: Ship, href: "/services/export", color: "bg-amber-50 text-amber-600" },
   { key: "maintenancePrep", icon: Wrench, href: "/services/maintenance", color: "bg-emerald-50 text-emerald-600" },
 ];

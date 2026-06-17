@@ -15,7 +15,7 @@ import {
 
 const featureIcons = [Globe, FileText, Ship, MapPin, Shield, CreditCard];
 const featureColors = [
-  "bg-blue-50 text-blue-600",
+  "bg-neutral-100 text-neutral-700",
   "bg-indigo-50 text-indigo-600",
   "bg-cyan-50 text-cyan-600",
   "bg-emerald-50 text-emerald-600",
@@ -32,7 +32,7 @@ const processIcons = [
   Ship,
 ];
 const processColors = [
-  "bg-blue-600",
+  "bg-neutral-900",
   "bg-indigo-600",
   "bg-cyan-600",
   "bg-emerald-600",
@@ -63,7 +63,7 @@ export default function ExportServicePage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900 text-white">
+      <section className="bg-gradient-to-br from-neutral-900 via-neutral-800 to-black text-white">
         <div className="container-main py-16 md:py-24">
           <div className="max-w-3xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-sm mb-6">
@@ -73,7 +73,7 @@ export default function ExportServicePage() {
             <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-4">
               {t("title")}
             </h1>
-            <p className="text-lg md:text-xl text-blue-100">
+            <p className="text-lg md:text-xl text-neutral-100">
               {t("subtitle")}
             </p>
           </div>
@@ -156,15 +156,15 @@ export default function ExportServicePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900 text-white">
+      <section className="py-16 bg-gradient-to-br from-neutral-900 via-neutral-800 to-black text-white">
         <div className="container-main">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-4">{t("ctaTitle")}</h2>
-            <p className="text-blue-100 text-lg mb-8">{t("ctaDesc")}</p>
+            <p className="text-neutral-100 text-lg mb-8">{t("ctaDesc")}</p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-8 py-3 bg-white text-blue-700 font-semibold rounded-xl hover:bg-blue-50 transition-colors"
+                className="inline-flex items-center gap-2 px-8 py-3 bg-white text-red-600 font-semibold rounded-xl hover:bg-red-50 transition-colors"
               >
                 {t("ctaContact")}
                 <ArrowRight className="w-4 h-4" />

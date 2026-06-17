@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 
 const stats = [
-  { key: "activeInquiries", value: 3, icon: MessageSquare, color: "bg-blue-50 text-blue-600" },
+  { key: "activeInquiries", value: 3, icon: MessageSquare, color: "bg-neutral-100 text-neutral-700" },
   { key: "completedOrders", value: 12, icon: Package, color: "bg-green-50 text-green-600" },
   { key: "totalSpent", value: 4850000, icon: CreditCard, color: "bg-purple-50 text-purple-600", isPrice: true },
   { key: "savedVehicles", value: 8, icon: Heart, color: "bg-amber-50 text-amber-600" },
@@ -31,7 +31,7 @@ const recentInquiries = [
 
 const statusColors: Record<string, string> = {
   pending: "bg-yellow-100 text-yellow-700",
-  quoted: "bg-blue-100 text-blue-700",
+  quoted: "bg-red-50 text-red-700",
   confirmed: "bg-green-100 text-green-700",
   completed: "bg-emerald-100 text-emerald-700",
   cancelled: "bg-gray-100 text-gray-600",

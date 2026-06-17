@@ -38,7 +38,7 @@ export default function FAQPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary via-primary-dark to-blue-900 text-white">
+      <section className="bg-gradient-to-br from-primary via-primary-dark to-black text-white">
         <div className="container-main py-16 md:py-24">
           <div className="max-w-3xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-sm mb-6">
@@ -48,7 +48,7 @@ export default function FAQPage() {
             <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-4">
               {t("title")}
             </h1>
-            <p className="text-lg md:text-xl text-blue-100">
+            <p className="text-lg md:text-xl text-neutral-100">
               {t("subtitle")}
             </p>
           </div>

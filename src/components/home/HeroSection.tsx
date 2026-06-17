@@ -25,8 +25,8 @@ export function HeroSection() {
           className="object-cover"
           priority
         />
-        {/* Dark blue gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628]/95 via-[#0f2044]/85 to-[#1e3a8a]/60" />
+        {/* Dark charcoal gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/95 via-[#161616]/85 to-[#2d2d2d]/60" />
         <div className="absolute inset-0 hero-shimmer" />
       </div>
 
@@ -37,7 +37,7 @@ export function HeroSection() {
             className="text-3xl md:text-5xl lg:text-7xl font-bold leading-tight mb-6 drop-shadow-lg hero-title-animate"
             dangerouslySetInnerHTML={{ __html: t("title") }}
           />
-          <p className="text-lg md:text-xl text-blue-100 mb-10 drop-shadow-md hero-title-animate-delay-1 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-neutral-100 mb-10 drop-shadow-md hero-title-animate-delay-1 max-w-2xl mx-auto">
             {t("subtitle")}
           </p>
 
@@ -45,7 +45,7 @@ export function HeroSection() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 hero-title-animate-delay-2">
             <Link
               href="/vehicles"
-              className="w-full sm:w-auto px-10 py-4 bg-secondary hover:bg-secondary-light text-gray-900 font-bold rounded-xl text-lg transition-all duration-300 shadow-xl shadow-amber-500/25 hover:shadow-2xl hover:shadow-amber-500/30 hover:-translate-y-0.5 btn-premium"
+              className="w-full sm:w-auto px-10 py-4 bg-secondary hover:bg-secondary-light text-white font-bold rounded-xl text-lg transition-all duration-300 shadow-xl shadow-red-500/25 hover:shadow-2xl hover:shadow-red-500/30 hover:-translate-y-0.5 btn-premium"
             >
               {t("exploreVehicles")}
             </Link>
@@ -70,7 +70,7 @@ export function HeroSection() {
                 <div className="text-2xl md:text-3xl font-bold tracking-tight stat-animate" style={{ animationDelay: `${0.3 + i * 0.06}s` }}>
                   {stat.value}
                 </div>
-                <div className="text-sm text-blue-200 mt-1 stat-animate" style={{ animationDelay: `${0.36 + i * 0.06}s` }}>
+                <div className="text-sm text-neutral-300 mt-1 stat-animate" style={{ animationDelay: `${0.36 + i * 0.06}s` }}>
                   {t(`stats.${stat.key}`)}
                 </div>
               </div>

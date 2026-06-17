@@ -17,7 +17,7 @@ export default function TermsPage() {
         <div className="container-main">
           <Link
             href="/"
-            className="inline-flex items-center gap-1.5 text-sm text-blue-200 hover:text-white transition-colors mb-6"
+            className="inline-flex items-center gap-1.5 text-sm text-neutral-300 hover:text-white transition-colors mb-6"
           >
             <ArrowLeft className="w-4 h-4" />
             {tc("back")}
@@ -26,7 +26,7 @@ export default function TermsPage() {
             <FileText className="w-8 h-8 text-secondary" />
             <h1 className="text-3xl md:text-4xl font-bold">{t("title")}</h1>
           </div>
-          <p className="text-blue-200 text-sm">{t("lastUpdated")}</p>
+          <p className="text-neutral-300 text-sm">{t("lastUpdated")}</p>
         </div>
       </div>
 

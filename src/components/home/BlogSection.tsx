@@ -12,14 +12,14 @@ import { useScrollReveal, useStaggerReveal } from "@/lib/useScrollReveal";
 const blogPosts = demoPosts.slice(0, 3);
 
 const categoryColors: Record<string, string> = {
-  Guide: "bg-blue-100 text-blue-700",
+  Guide: "bg-red-50 text-red-700",
   "Buying Tips": "bg-green-100 text-green-700",
   Shipping: "bg-purple-100 text-purple-700",
   "Market News": "bg-amber-100 text-amber-700",
   "市场资讯": "bg-amber-100 text-amber-700",
   "市場情報": "bg-amber-100 text-amber-700",
-  "购车指南": "bg-blue-100 text-blue-700",
-  "購入ガイド": "bg-blue-100 text-blue-700",
+  "购车指南": "bg-red-50 text-red-700",
+  "購入ガイド": "bg-red-50 text-red-700",
   "购车贴士": "bg-green-100 text-green-700",
   "購入のヒント": "bg-green-100 text-green-700",
   "物流运输": "bg-purple-100 text-purple-700",

@@ -17,7 +17,7 @@ import {
 
 const stepIcons = [MessageCircle, Search, FileCheck, CreditCard, FileText, Ship];
 const stepColors = [
-  "bg-blue-50 text-blue-600",
+  "bg-neutral-100 text-neutral-700",
   "bg-emerald-50 text-emerald-600",
   "bg-amber-50 text-amber-600",
   "bg-purple-50 text-purple-600",
@@ -32,7 +32,7 @@ export default function ExportGuidePage() {
   const steps = ["step1", "step2", "step3", "step4", "step5", "step6"] as const;
 
   const paymentMethods = [
-    { key: "bankWire", icon: Banknote, color: "bg-blue-50 text-blue-600 border-blue-100" },
+    { key: "bankWire", icon: Banknote, color: "bg-neutral-100 text-neutral-700 border-neutral-200" },
     { key: "creditCard", icon: CreditCard, color: "bg-purple-50 text-purple-600 border-purple-100" },
     { key: "paypal", icon: FileText, color: "bg-indigo-50 text-indigo-600 border-indigo-100" },
   ] as const;
@@ -40,13 +40,13 @@ export default function ExportGuidePage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary via-primary-dark to-blue-900 text-white">
+      <section className="bg-gradient-to-br from-primary via-primary-dark to-black text-white">
         <div className="container-main py-16 md:py-24">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-4">
               {t("title")}
             </h1>
-            <p className="text-lg md:text-xl text-blue-100">
+            <p className="text-lg md:text-xl text-neutral-100">
               {t("subtitle")}
             </p>
           </div>
@@ -149,7 +149,7 @@ export default function ExportGuidePage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-gradient-to-br from-primary via-primary-dark to-blue-900 text-white">
+      <section className="py-16 bg-gradient-to-br from-primary via-primary-dark to-black text-white">
         <div className="container-main">
           <div className="max-w-3xl mx-auto text-center">
             <CheckCircle2 className="w-12 h-12 mx-auto mb-4 text-white/80" />
