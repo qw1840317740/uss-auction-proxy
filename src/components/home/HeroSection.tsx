@@ -19,11 +19,12 @@ export function HeroSection() {
       {/* Background image with gradient overlay */}
       <div className="absolute inset-0">
         <Image
-          src="/images/hero/car-showroom.jpg"
-          alt="Velocity JAPAN Showroom"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Nissan_Nismo_GTR.jpg/1280px-Nissan_Nismo_GTR.jpg"
+          alt="Velocity JAPAN — Nissan GT-R Nismo"
           fill
           className="object-cover"
           priority
+          sizes="100vw"
         />
         {/* Dark charcoal gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/95 via-[#161616]/85 to-[#2d2d2d]/60" />
