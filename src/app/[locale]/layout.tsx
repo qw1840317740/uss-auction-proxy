@@ -15,11 +15,19 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
+  const baseUrl = "https://uss-auction-proxy.vercel.app";
 
   return {
     title: t("title"),
     description: t("description"),
+    alternates: {
+      canonical: `${baseUrl}/${locale}`,
+      languages: Object.fromEntries(routing.locales.map((item) => [item, `${baseUrl}/${item}`])),
+    },
     openGraph: {
+      title: t("title"),
+      description: t("description"),
+      url: `${baseUrl}/${locale}`,
       locale: locale === "zh" ? "zh_CN" : locale === "ja" ? "ja_JP" : "en_US",
     },
   };
@@ -59,8 +67,13 @@ export default async function LocaleLayout({
       <body className="min-h-full flex flex-col bg-white text-gray-900">
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Providers>
+            <a href="#main-content" className="skip-link">
+              Skip to main content
+            </a>
             <Header locale={locale} />
-            <main className="flex-1">{children}</main>
+            <main id="main-content" className="flex-1" tabIndex={-1}>
+              {children}
+            </main>
             <Footer />
           </Providers>
         </NextIntlClientProvider>

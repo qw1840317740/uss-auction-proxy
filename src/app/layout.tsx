@@ -1,22 +1,49 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+const BASE_URL = "https://uss-auction-proxy.vercel.app";
+const SITE_NAME = "ClickCar（クリックカー）";
+const SITE_DESCRIPTION =
+  "ClickCar（クリックカー） provides premium Japanese used vehicle sales and global export support from Saitama, Japan.";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://uss-auction-proxy.vercel.app"),
+  metadataBase: new URL(BASE_URL),
+  applicationName: SITE_NAME,
   title: {
-    default: "ClickCar（クリックカー） — Premium Japanese Used Cars & Global Export",
-    template: "%s | ClickCar（クリックカー）",
+    default: `${SITE_NAME} - Premium Japanese Used Cars & Global Export`,
+    template: `%s | ${SITE_NAME}`,
   },
-  description:
-    "ClickCar（クリックカー） — Premium Japanese used vehicle sales and global export service. 日本のプレミアム中古車販売・輸出サービス。",
+  description: SITE_DESCRIPTION,
+  alternates: {
+    canonical: BASE_URL,
+    languages: {
+      zh: `${BASE_URL}/zh`,
+      en: `${BASE_URL}/en`,
+      ja: `${BASE_URL}/ja`,
+    },
+  },
   openGraph: {
-    siteName: "ClickCar（クリックカー）",
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+    siteName: SITE_NAME,
+    url: BASE_URL,
     type: "website",
     locale: "ja_JP",
     alternateLocale: ["en_US", "zh_CN"],
+    images: [
+      {
+        url: "/images/clickcar-logo.svg",
+        width: 520,
+        height: 128,
+        alt: `${SITE_NAME} logo`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+    images: ["/images/clickcar-logo.svg"],
   },
   robots: {
     index: true,
