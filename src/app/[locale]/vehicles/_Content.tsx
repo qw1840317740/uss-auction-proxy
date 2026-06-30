@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
@@ -55,15 +55,16 @@ export default function VehiclesPage() {
   const vt = useTranslations("vehicles.vehicle");
 
   const { toggle, isFavorite } = useFavorites();
+  const searchParams = useSearchParams();
 
   // Filter state
-  const [searchText, setSearchText] = useState("");
-  const [selectedMake, setSelectedMake] = useState("");
+  const [searchText, setSearchText] = useState(() => searchParams.get("q") ?? "");
+  const [selectedMake, setSelectedMake] = useState(() => searchParams.get("make") ?? "");
   const [selectedModel, setSelectedModel] = useState("");
   const [yearFrom, setYearFrom] = useState("");
   const [yearTo, setYearTo] = useState("");
   const [priceFrom, setPriceFrom] = useState("");
-  const [priceTo, setPriceTo] = useState("");
+  const [priceTo, setPriceTo] = useState(() => searchParams.get("priceTo") ?? "");
   const [mileageFrom, setMileageFrom] = useState("");
   const [mileageTo, setMileageTo] = useState("");
   const [selectedBodyType, setSelectedBodyType] = useState("");
@@ -73,21 +74,9 @@ export default function VehiclesPage() {
   const [sortBy, setSortBy] = useState<SortKey>("newest");
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
-  // Seed filters from URL params (e.g. homepage search bar → /vehicles?q=&make=&priceTo=)
-  const searchParams = useSearchParams();
-  useEffect(() => {
-    const q = searchParams.get("q");
-    const make = searchParams.get("make");
-    const priceTo = searchParams.get("priceTo");
-    if (q) setSearchText(q);
-    if (make) setSelectedMake(make);
-    if (priceTo) setPriceTo(priceTo);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchParams]);
-
   // Filter & sort vehicles
   const filteredVehicles = useMemo(() => {
-    let result = demoVehicles.filter((v) => {
+    const result = demoVehicles.filter((v) => {
       if (searchText) {
         const q = searchText.toLowerCase();
         if (

@@ -202,11 +202,12 @@ export default function BlogPostPage() {
               return (
                 <figure key={idx} className="my-8 -mx-4 sm:mx-0">
                   <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden bg-gray-100">
-                    <img
+                    <Image
                       src={imgMatch[2]}
                       alt={imgMatch[1]}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 100vw, 768px"
                     />
                   </div>
                   {imgMatch[1] && (

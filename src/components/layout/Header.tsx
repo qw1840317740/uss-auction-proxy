@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { Link, useRouter, usePathname } from "@/i18n/routing";
+import { Link } from "@/i18n/routing";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { MobileNav } from "./MobileNav";
 import { useState } from "react";
@@ -12,7 +12,7 @@ import { useFavorites } from "@/lib/useFavorites";
 
 export function Header({ locale }: { locale: string }) {
   const t = useTranslations("nav");
-  const { data: session, status } = useSession();
+  const { status } = useSession();
   const { favorites } = useFavorites();
   const [mobileOpen, setMobileOpen] = useState(false);
   const isAuthenticated = status === "authenticated";

@@ -12,15 +12,15 @@ export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const faqKeys = ["q1", "q2", "q3", "q4"];
-  const title = useScrollReveal();
+  const { ref: titleRef, isVisible: titleVisible } = useScrollReveal();
   const { containerRef, isChildVisible } = useStaggerReveal(faqKeys.length, 60);
 
   return (
     <section className="py-24">
       <div className="container-main">
         <div
-          ref={title.ref}
-          className={`text-center mb-10 reveal reveal-blur ${title.isVisible ? "revealed" : ""}`}
+          ref={titleRef}
+          className={`text-center mb-10 reveal reveal-blur ${titleVisible ? "revealed" : ""}`}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">{t("title")}</h2>
         </div>

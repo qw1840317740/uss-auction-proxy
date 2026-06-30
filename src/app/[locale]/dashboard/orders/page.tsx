@@ -5,7 +5,6 @@ import { cn, formatPrice, formatDate } from "@/lib/utils";
 import {
   Package,
   CheckCircle2,
-  Circle,
   Truck,
   CreditCard,
   FileCheck,

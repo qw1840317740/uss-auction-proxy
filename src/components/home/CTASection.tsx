@@ -6,7 +6,7 @@ import { useScrollReveal } from "@/lib/useScrollReveal";
 
 export function CTASection() {
   const t = useTranslations("home.cta");
-  const reveal = useScrollReveal();
+  const { ref: revealRef, isVisible: revealVisible } = useScrollReveal();
 
   return (
     <section className="py-16 bg-gradient-to-br from-primary via-primary-dark to-black text-white relative overflow-hidden">
@@ -18,8 +18,8 @@ export function CTASection() {
 
       <div className="container-main text-center relative">
         <div
-          ref={reveal.ref}
-          className={`reveal reveal-blur ${reveal.isVisible ? "revealed" : ""}`}
+          ref={revealRef}
+          className={`reveal reveal-blur ${revealVisible ? "revealed" : ""}`}
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">{t("title")}</h2>
           <p className="text-neutral-300 mb-10 max-w-xl mx-auto text-lg">{t("subtitle")}</p>

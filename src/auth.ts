@@ -1,7 +1,15 @@
 import type { NextAuthOptions } from "next-auth";
+import type { Role } from "@prisma/client";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import { prisma } from "@/lib/db";
+
+type AppUser = {
+  id: string;
+  email: string;
+  name?: string;
+  role: Role;
+};
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -22,12 +30,14 @@ export const authOptions: NextAuthOptions = {
         const valid = await bcrypt.compare(password, user.password);
         if (!valid) return null;
 
-        return {
+        const appUser: AppUser = {
           id: user.id,
           email: user.email,
           name: user.name ?? undefined,
           role: user.role,
-        } as any;
+        };
+
+        return appUser;
       },
     }),
   ],
@@ -36,18 +46,17 @@ export const authOptions: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
     async jwt({ token, user }) {
-      // On first sign-in `user` is populated; persist id + role onto the token
       if (user) {
-        token.id = user.id;
-        // role is attached to the user object returned by authorize()
-        token.role = (user as any).role;
+        const appUser = user as AppUser;
+        token.id = appUser.id;
+        token.role = appUser.role;
       }
       return token;
     },
     async session({ session, token }) {
       if (session.user) {
-        (session.user as any).id = token.id;
-        (session.user as any).role = token.role;
+        if (token.id) session.user.id = token.id;
+        if (token.role) session.user.role = token.role;
       }
       return session;
     },

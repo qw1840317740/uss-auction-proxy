@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { formatPrice, formatMileage, cn } from "@/lib/utils";
@@ -65,14 +65,15 @@ export default function VehicleDetailPage({
   const [activeImg, setActiveImg] = useState(0);
   const [activeTab, setActiveTab] = useState<"condition" | "equipment" | "catalog">("condition");
   const [toast, setToast] = useState<{ msg: string; saved: boolean } | null>(null);
+  const toastTimeoutRef = useRef<number | null>(null);
 
   // Wrap toggle so we surface an obvious toast on every click
   const handleToggle = (vehicleId: string) => {
     const willSave = !isFavorite(vehicleId);
     toggle(vehicleId);
     setToast({ msg: willSave ? vt("addedToFavorites") : vt("removedFromFavorites"), saved: willSave });
-    window.clearTimeout((handleToggle as any)._t);
-    (handleToggle as any)._t = window.setTimeout(() => setToast(null), 2500);
+    if (toastTimeoutRef.current) window.clearTimeout(toastTimeoutRef.current);
+    toastTimeoutRef.current = window.setTimeout(() => setToast(null), 2500);
   };
 
   const images = vehicle.images?.length ? vehicle.images : ["/images/cars/car-side-1.jpg"];

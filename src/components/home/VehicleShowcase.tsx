@@ -12,7 +12,7 @@ import { useFavorites } from "@/lib/useFavorites";
 export function VehicleShowcase() {
   const t = useTranslations("home.showcase");
   const vt = useTranslations("vehicles.vehicle");
-  const title = useScrollReveal();
+  const { ref: titleRef, isVisible: titleVisible } = useScrollReveal();
   const showcaseVehicles = demoVehicles;
   const { toggle, isFavorite } = useFavorites();
   const { containerRef, isChildVisible } = useStaggerReveal(showcaseVehicles.length, 60);
@@ -21,8 +21,8 @@ export function VehicleShowcase() {
     <section className="py-16 bg-gray-50">
       <div className="container-main">
         <div
-          ref={title.ref}
-          className={`flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 reveal reveal-up ${title.isVisible ? "revealed" : ""}`}
+          ref={titleRef}
+          className={`flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 reveal reveal-up ${titleVisible ? "revealed" : ""}`}
         >
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{t("title")}</h2>

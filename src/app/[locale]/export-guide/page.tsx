@@ -12,7 +12,6 @@ import {
   ArrowRight,
   Banknote,
   CheckCircle2,
-  Truck,
 } from "lucide-react";
 
 const stepIcons = [MessageCircle, Search, FileCheck, CreditCard, FileText, Ship];

@@ -13,15 +13,15 @@ const steps = [
 
 export function HowItWorks() {
   const t = useTranslations("home.howItWorks");
-  const title = useScrollReveal();
+  const { ref: titleRef, isVisible: titleVisible } = useScrollReveal();
   const { containerRef, isChildVisible } = useStaggerReveal(steps.length, 100);
 
   return (
     <section className="py-24">
       <div className="container-main">
         <div
-          ref={title.ref}
-          className={`text-center mb-16 reveal reveal-blur ${title.isVisible ? "revealed" : ""}`}
+          ref={titleRef}
+          className={`text-center mb-16 reveal reveal-blur ${titleVisible ? "revealed" : ""}`}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">{t("title")}</h2>
           <p className="text-gray-500 text-lg max-w-2xl mx-auto">{t("subtitle")}</p>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useCallback } from "react";
 
 const STORAGE_KEY = "clickcar_favorites";
 
@@ -20,11 +20,7 @@ function saveFavorites(ids: string[]) {
 }
 
 export function useFavorites() {
-  const [favorites, setFavorites] = useState<string[]>([]);
-
-  useEffect(() => {
-    setFavorites(getFavorites());
-  }, []);
+  const [favorites, setFavorites] = useState<string[]>(() => getFavorites());
 
   const toggle = useCallback((vehicleId: string) => {
     setFavorites((prev) => {
