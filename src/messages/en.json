@@ -1,12 +1,12 @@
 {
   "metadata": {
-    "title": "clickcar（クリックカー） — Premium Japanese Used Cars & Global Export",
+    "title": "ClickCar（クリックカー） — Premium Japanese Used Cars & Global Export",
     "description": "Quality Japanese used vehicles exported worldwide from Saitama, Japan. Full-service support from purchase to delivery, inspection, and after-sales care."
   },
   "seo": {
     "about": {
       "title": "About Us",
-      "description": "Learn about clickcar（クリックカー）. Based in Saitama, we specialize in premium Japanese used vehicle global export."
+      "description": "Learn about ClickCar（クリックカー）. Based in Saitama, we specialize in premium Japanese used vehicle global export."
     },
     "vehicles": {
       "title": "Vehicle Inventory",
@@ -34,7 +34,7 @@
     }
   },
   "common": {
-    "siteName": "clickcar（クリックカー）",
+    "siteName": "ClickCar（クリックカー）",
     "tagline": "Premium Japanese Used Cars · Global Export",
     "learnMore": "Learn More",
     "contactUs": "Contact Us",
@@ -382,10 +382,10 @@
   },
   "about": {
     "title": "About Us",
-    "subtitle": "clickcar（クリックカー） — Premium Japanese Used Vehicle Global Export",
+    "subtitle": "ClickCar（クリックカー） — Premium Japanese Used Vehicle Global Export",
     "companyProfile": {
       "title": "Company Profile",
-      "desc": "Headquartered in Saitama, Japan, clickcar（クリックカー） is a company specializing in the global export of premium used vehicles. Through our integrated online and offline operations, we connect Japan's quality vehicle resources with buyers worldwide, providing end-to-end solutions from procurement and inspection to export and shipping."
+      "desc": "Headquartered in Saitama, Japan, ClickCar（クリックカー） is a company specializing in the global export of premium used vehicles. Through our integrated online and offline operations, we connect Japan's quality vehicle resources with buyers worldwide, providing end-to-end solutions from procurement and inspection to export and shipping."
     },
     "globalNetwork": {
       "title": "Global Service Network",
@@ -652,19 +652,19 @@
     "publishedOn": "Published on"
   },
   "footer": {
-    "description": "clickcar（クリックカー） — Premium Japanese used vehicle global export service, providing transparent and professional sales and export services worldwide.",
+    "description": "ClickCar（クリックカー） — Premium Japanese used vehicle global export service, providing transparent and professional sales and export services worldwide.",
     "quickLinks": "Quick Links",
     "services": "Services",
     "support": "Support",
     "contactInfo": "Contact Info",
-    "copyright": "© {year} clickcar（クリックカー）. All rights reserved.",
+    "copyright": "© {year} ClickCar（クリックカー）. All rights reserved.",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service"
   },
   "privacy": {
     "title": "Privacy Policy",
     "lastUpdated": "Last updated: June 2026",
-    "intro": "clickcar（クリックカー） takes your privacy seriously. This policy explains how we collect, use, and protect your personal information.",
+    "intro": "ClickCar（クリックカー） takes your privacy seriously. This policy explains how we collect, use, and protect your personal information.",
     "sections": {
       "collect": {
         "title": "Information Collection",
@@ -695,11 +695,11 @@
   "terms": {
     "title": "Terms of Service",
     "lastUpdated": "Last updated: June 2026",
-    "intro": "By using the clickcar（クリックカー） website and services, you agree to the following terms. Please read them carefully.",
+    "intro": "By using the ClickCar（クリックカー） website and services, you agree to the following terms. Please read them carefully.",
     "sections": {
       "service": {
         "title": "Service Description",
-        "content": "clickcar（クリックカー） provides Japanese used vehicle display, sales brokerage, and global export services. All vehicle information is subject to actual condition; images and descriptions on the website are for reference only."
+        "content": "ClickCar（クリックカー） provides Japanese used vehicle display, sales brokerage, and global export services. All vehicle information is subject to actual condition; images and descriptions on the website are for reference only."
       },
       "pricing": {
         "title": "Pricing & Payment",

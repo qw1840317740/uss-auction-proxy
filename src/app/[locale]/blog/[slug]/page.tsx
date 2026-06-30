@@ -16,7 +16,7 @@ export async function generateMetadata({
   const post = demoPosts.find((p) => p.slug === slug);
 
   // Use actual article data if available, fallback to generic
-  const title = post ? getLocalized(post.title, locale) : "clickcar（クリックカー） Blog";
+  const title = post ? getLocalized(post.title, locale) : "ClickCar（クリックカー） Blog";
   const description = post
     ? getLocalized(post.excerpt, locale)
     : "Latest news and insights about Japanese used car exports.";
@@ -62,16 +62,16 @@ export default async function BlogPostPage({
     dateModified: post?.date ?? "2026-01-01",
     author: {
       "@type": "Organization",
-      name: "clickcar（クリックカー）",
+      name: "ClickCar（クリックカー）",
       url: BASE_URL,
     },
     publisher: {
       "@type": "Organization",
-      name: "clickcar（クリックカー）",
+      name: "ClickCar（クリックカー）",
       url: BASE_URL,
       logo: {
         "@type": "ImageObject",
-        url: `${BASE_URL}/images/brands/toyota.svg`,
+        url: `${BASE_URL}/images/clickcar-logo.svg`,
       },
     },
     mainEntityOfPage: {

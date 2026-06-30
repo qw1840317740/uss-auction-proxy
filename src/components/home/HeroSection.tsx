@@ -20,7 +20,7 @@ export function HeroSection() {
       <div className="absolute inset-0">
         <Image
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Nissan_Nismo_GTR.jpg/1280px-Nissan_Nismo_GTR.jpg"
-          alt="clickcar（クリックカー） — Nissan GT-R Nismo"
+          alt="ClickCar（クリックカー） — Nissan GT-R Nismo"
           fill
           className="object-cover"
           priority

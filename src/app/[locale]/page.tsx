@@ -14,10 +14,11 @@ import { CTASection } from "@/components/home/CTASection";
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "AutoDealer",
-  name: "clickcar（クリックカー）",
+  name: "ClickCar（クリックカー）",
   description:
     "Premium Japanese used vehicle sales and global export service from Saitama, Japan.",
   url: "https://uss-auction-proxy.vercel.app",
+  logo: "https://uss-auction-proxy.vercel.app/images/clickcar-logo.svg",
   telephone: "+81-49-257-4332",
   email: "kaiseisg@kaiseisg.com",
   address: {
