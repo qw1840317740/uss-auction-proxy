@@ -123,17 +123,6 @@ export default function LoginPage() {
           {error && (
             <p className="mt-4 text-center text-sm text-red-600 bg-red-50 border border-red-100 rounded-lg py-2 px-3">{error}</p>
           )}
-
-          {/* Register Link */}
-          <p className="mt-6 text-center text-sm text-gray-600">
-            {t("noAccount")}{" "}
-            <Link
-              href="/auth/register"
-              className="text-primary hover:text-primary-dark font-medium transition-colors"
-            >
-              {t("registerNow")}
-            </Link>
-          </p>
         </div>
       </div>
     </div>

@@ -114,22 +114,7 @@ export function Header({ locale }: { locale: string }) {
                     {t("logout")}
                   </button>
                 </>
-              ) : (
-                <>
-                  <Link
-                    href="/auth/login"
-                    className="px-3 py-1.5 text-sm font-medium text-gray-700 hover:text-primary transition-colors"
-                  >
-                    {t("login")}
-                  </Link>
-                  <Link
-                    href="/auth/register"
-                    className="px-4 py-1.5 text-sm font-medium text-white bg-primary hover:bg-primary-dark rounded-lg transition-colors"
-                  >
-                    {t("register")}
-                  </Link>
-                </>
-              )}
+              ) : null}
             </div>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
