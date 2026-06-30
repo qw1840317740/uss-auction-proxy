@@ -14,7 +14,7 @@ import { CTASection } from "@/components/home/CTASection";
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "AutoDealer",
-  name: "Velocity JAPAN",
+  name: "clickcar（クリックカー）",
   description:
     "Premium Japanese used vehicle sales and global export service from Saitama, Japan.",
   url: "https://uss-auction-proxy.vercel.app",

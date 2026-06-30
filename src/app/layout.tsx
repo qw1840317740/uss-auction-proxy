@@ -4,13 +4,13 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://uss-auction-proxy.vercel.app"),
   title: {
-    default: "Velocity JAPAN — Premium Japanese Used Cars & Global Export",
-    template: "%s | Velocity JAPAN",
+    default: "clickcar（クリックカー） — Premium Japanese Used Cars & Global Export",
+    template: "%s | clickcar（クリックカー）",
   },
   description:
-    "Velocity JAPAN — Premium Japanese used vehicle sales and global export service. 日本のプレミアム中古車販売・輸出サービス。",
+    "clickcar（クリックカー） — Premium Japanese used vehicle sales and global export service. 日本のプレミアム中古車販売・輸出サービス。",
   openGraph: {
-    siteName: "Velocity JAPAN",
+    siteName: "clickcar（クリックカー）",
     type: "website",
     locale: "ja_JP",
     alternateLocale: ["en_US", "zh_CN"],

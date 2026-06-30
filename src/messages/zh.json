@@ -1,12 +1,12 @@
 {
   "metadata": {
-    "title": "Velocity JAPAN — 日本优质二手车全球出口",
+    "title": "clickcar（クリックカー） — 日本优质二手车全球出口",
     "description": "从埼玉发往全球的优质日本二手车。涵盖采购、检测、出口运输及售后维护的一站式服务。"
   },
   "seo": {
     "about": {
       "title": "关于我们",
-      "description": "了解Velocity JAPAN。总部位于埼玉，专注于高品质日本二手车全球出口。"
+      "description": "了解clickcar（クリックカー）。总部位于埼玉，专注于高品质日本二手车全球出口。"
     },
     "vehicles": {
       "title": "车辆库存",
@@ -34,7 +34,7 @@
     }
   },
   "common": {
-    "siteName": "Velocity JAPAN",
+    "siteName": "clickcar（クリックカー）",
     "tagline": "日本优质二手车 · 全球出口服务",
     "learnMore": "了解更多",
     "contactUs": "联系我们",
@@ -382,10 +382,10 @@
   },
   "about": {
     "title": "关于我们",
-    "subtitle": "Velocity JAPAN — 日本优质二手车全球出口服务",
+    "subtitle": "clickcar（クリックカー） — 日本优质二手车全球出口服务",
     "companyProfile": {
       "title": "公司简介",
-      "desc": "Velocity JAPAN 总部位于日本埼玉，是一家专注于高品质二手车全球出口服务的企业。通过线上线下整合的运营模式，我们连接日本优质车辆资源与全球买家，提供从车辆采购、检测整备到出口运输的一站式解决方案。"
+      "desc": "clickcar（クリックカー） 总部位于日本埼玉，是一家专注于高品质二手车全球出口服务的企业。通过线上线下整合的运营模式，我们连接日本优质车辆资源与全球买家，提供从车辆采购、检测整备到出口运输的一站式解决方案。"
     },
     "globalNetwork": {
       "title": "全球服务网络",
@@ -652,19 +652,19 @@
     "publishedOn": "发布于"
   },
   "footer": {
-    "description": "Velocity JAPAN — 日本优质二手车全球出口服务，为全球客户提供透明、专业的日本二手车销售与出口服务。",
+    "description": "clickcar（クリックカー） — 日本优质二手车全球出口服务，为全球客户提供透明、专业的日本二手车销售与出口服务。",
     "quickLinks": "快速链接",
     "services": "服务内容",
     "support": "帮助与支持",
     "contactInfo": "联系方式",
-    "copyright": "© {year} Velocity JAPAN. 保留所有权利。",
+    "copyright": "© {year} clickcar（クリックカー）. 保留所有权利。",
     "privacy": "隐私政策",
     "terms": "服务条款"
   },
   "privacy": {
     "title": "隐私政策",
     "lastUpdated": "最后更新：2026年6月",
-    "intro": "Velocity JAPAN（以下简称「我们」）非常重视您的隐私。本隐私政策说明我们如何收集、使用和保护您的个人信息。",
+    "intro": "clickcar（クリックカー）（以下简称「我们」）非常重视您的隐私。本隐私政策说明我们如何收集、使用和保护您的个人信息。",
     "sections": {
       "collect": {
         "title": "信息收集",
@@ -695,11 +695,11 @@
   "terms": {
     "title": "服务条款",
     "lastUpdated": "最后更新：2026年6月",
-    "intro": "使用 Velocity JAPAN 网站和服务即表示您同意以下服务条款。请仔细阅读。",
+    "intro": "使用 clickcar（クリックカー） 网站和服务即表示您同意以下服务条款。请仔细阅读。",
     "sections": {
       "service": {
         "title": "服务说明",
-        "content": "Velocity JAPAN 提供日本二手车辆展示、销售中介及全球出口服务。所有车辆信息以实际车况为准，网站上的图片和描述仅供参考。"
+        "content": "clickcar（クリックカー） 提供日本二手车辆展示、销售中介及全球出口服务。所有车辆信息以实际车况为准，网站上的图片和描述仅供参考。"
       },
       "pricing": {
         "title": "价格与付款",

@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 
-const STORAGE_KEY = "velocity_favorites";
+const STORAGE_KEY = "clickcar_favorites";
 
 function getFavorites(): string[] {
   if (typeof window === "undefined") return [];
