@@ -12,13 +12,15 @@ export async function proxy(req: NextRequest) {
     return NextResponse.next();
   }
 
-  // Always run next-intl locale routing (synchronous in v4)
   const intlRes = intlMiddleware(req);
 
-  // Locale-aware auth check for the dashboard
   const match = pathname.match(/^\/(zh|en|ja)\/?(.*)$/);
   const stripped = match ? "/" + match[2] : pathname;
   const locale = match?.[1] ?? routing.defaultLocale;
+
+  if (stripped.startsWith("/auth") || stripped.startsWith("/dashboard")) {
+    intlRes.headers.set("X-Robots-Tag", "noindex, nofollow");
+  }
 
   if (stripped.startsWith("/dashboard")) {
     const { getToken } = await import("next-auth/jwt");
@@ -28,15 +30,18 @@ export async function proxy(req: NextRequest) {
       const url = req.nextUrl.clone();
       url.pathname = `/${locale}/auth/login`;
       url.searchParams.set("callbackUrl", req.nextUrl.pathname + req.nextUrl.search);
-      return NextResponse.redirect(url);
+      const response = NextResponse.redirect(url);
+      response.headers.set("X-Robots-Tag", "noindex, nofollow");
+      return response;
     }
 
-    // Role gate: blog management requires STAFF or ADMIN
     if (stripped.startsWith("/dashboard/blog") && !["ADMIN", "STAFF"].includes(token.role as string)) {
       const url = req.nextUrl.clone();
       url.pathname = `/${locale}/dashboard`;
       url.search = "";
-      return NextResponse.redirect(url);
+      const response = NextResponse.redirect(url);
+      response.headers.set("X-Robots-Tag", "noindex, nofollow");
+      return response;
     }
   }
 

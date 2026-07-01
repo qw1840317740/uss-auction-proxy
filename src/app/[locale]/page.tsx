@@ -11,21 +11,24 @@ import { BlogSection } from "@/components/home/BlogSection";
 import { FAQSection } from "@/components/home/FAQSection";
 import { CTASection } from "@/components/home/CTASection";
 
+const BASE_URL = "https://uss-auction-proxy.vercel.app";
+const BRAND_NAME = "ClickCar（クリックカー）";
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "AutoDealer",
-  name: "ClickCar（クリックカー）",
+  name: BRAND_NAME,
   description:
     "Premium Japanese used vehicle sales and global export service from Saitama, Japan.",
-  url: "https://uss-auction-proxy.vercel.app",
-  logo: "https://uss-auction-proxy.vercel.app/images/clickcar-logo.svg",
+  url: BASE_URL,
+  logo: `${BASE_URL}/images/clickcar-logo.svg`,
   telephone: "+81-49-257-4332",
   email: "kaiseisg@kaiseisg.com",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "北永井500番地2",
-    addressLocality: "三芳町",
-    addressRegion: "埼玉県",
+    streetAddress: "200-2 Kitanagaido",
+    addressLocality: "Miyoshi-machi",
+    addressRegion: "Saitama",
     postalCode: "354-0045",
     addressCountry: "JP",
   },
@@ -36,20 +39,12 @@ const jsonLd = {
   },
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
-    dayOfWeek: [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-    ],
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
     opens: "09:00",
     closes: "18:00",
   },
   priceRange: "$$",
 };
-
-const BASE_URL = "https://uss-auction-proxy.vercel.app";
 
 export async function generateMetadata({
   params,
@@ -77,31 +72,22 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <HeroSection />
-      {/* Floating vehicle search bar */}
       <HomeSearchBar />
-      {/* White background - Brand logos */}
       <BrandShowcase />
-      {/* Gray-50 background - Services */}
       <div className="bg-gray-50">
         <ServiceCards />
       </div>
-      {/* Decorative wave divider */}
       <div className="bg-gray-50">
         <div className="h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
       </div>
-      {/* White background - How It Works */}
       <div className="bg-white">
         <HowItWorks />
       </div>
-      {/* Gray-50 background - Vehicle Showcase */}
       <VehicleShowcase />
-      {/* Gray-50 background - Blog */}
       <BlogSection />
-      {/* White background - FAQ */}
       <div className="bg-white">
         <FAQSection />
       </div>
-      {/* Primary gradient - CTA */}
       <CTASection />
     </>
   );

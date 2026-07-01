@@ -6,6 +6,7 @@ import { demoPosts, getLocalized } from "@/lib/demo-blog";
 import Page from "./_Content";
 
 const BASE_URL = "https://uss-auction-proxy.vercel.app";
+const BRAND_NAME = "ClickCar（クリックカー）";
 
 export async function generateMetadata({
   params,
@@ -15,8 +16,7 @@ export async function generateMetadata({
   const { locale, slug } = await params;
   const post = demoPosts.find((p) => p.slug === slug);
 
-  // Use actual article data if available, fallback to generic
-  const title = post ? getLocalized(post.title, locale) : "ClickCar（クリックカー） Blog";
+  const title = post ? getLocalized(post.title, locale) : `${BRAND_NAME} Blog`;
   const description = post
     ? getLocalized(post.excerpt, locale)
     : "Latest news and insights about Japanese used car exports.";
@@ -62,12 +62,12 @@ export default async function BlogPostPage({
     dateModified: post?.date ?? "2026-01-01",
     author: {
       "@type": "Organization",
-      name: "ClickCar（クリックカー）",
+      name: BRAND_NAME,
       url: BASE_URL,
     },
     publisher: {
       "@type": "Organization",
-      name: "ClickCar（クリックカー）",
+      name: BRAND_NAME,
       url: BASE_URL,
       logo: {
         "@type": "ImageObject",

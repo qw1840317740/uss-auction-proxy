@@ -39,7 +39,7 @@ export async function generateMetadata({
   const url = `${BASE_URL}/${locale}/vehicles/${id}`;
 
   return {
-    title: `${vehicleName} - Japanese Used Car Export`,
+    title: `${vehicleName} for Export from Japan`,
     description,
     alternates: {
       canonical: url,
