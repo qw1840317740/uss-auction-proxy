@@ -1,17 +1,11 @@
-<svg width="520" height="128" viewBox="0 0 520 128" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ClickCar logo">
-  <circle cx="64" cy="64" r="48" fill="url(#badge)"/>
-  <path d="M79.1 43.2A28.8 28.8 0 1 0 79.1 84.8" stroke="white" stroke-width="10.5" stroke-linecap="round"/>
-  <path d="M80.5 52.8A16.9 16.9 0 1 0 80.5 75.2" stroke="white" stroke-width="8.2" stroke-linecap="round"/>
-  <path d="M53.7 64h36.1" stroke="#ef4444" stroke-width="8.8" stroke-linecap="round"/>
-  <path d="M80 54.4 90.5 64 80 73.6" stroke="#ef4444" stroke-width="8.8" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M37.5 91.8h53" stroke="#111827" stroke-width="6.4" stroke-linecap="round" opacity="0.55"/>
-  <text x="132" y="70" fill="#111827" font-family="Inter, Arial, sans-serif" font-size="54" font-weight="800" letter-spacing="0"><tspan fill="#b91c1c">Click</tspan><tspan>Car</tspan></text>
-  <text x="136" y="98" fill="#6b7280" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" letter-spacing="4">JAPAN AUTO EXPORT</text>
-  <defs>
-    <linearGradient id="badge" x1="26" y1="22" x2="102" y2="106" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#0f172a"/>
-      <stop offset="0.55" stop-color="#1f2937"/>
-      <stop offset="1" stop-color="#4b5563"/>
-    </linearGradient>
-  </defs>
+<svg width="720" height="180" viewBox="0 0 720 180" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ClickCar logo">
+  <rect width="720" height="180" fill="white"/>
+  <text x="70" y="118" fill="#050814" font-family="Inter, Arial, Helvetica, sans-serif" font-size="104" font-weight="900" letter-spacing="0">ClickCar</text>
+  <circle cx="263" cy="43" r="12" fill="#dc2626"/>
+  <g transform="translate(600 38)">
+    <rect x="0" y="0" width="104" height="104" rx="24" fill="white"/>
+    <rect x="0.75" y="0.75" width="102.5" height="102.5" rx="23.25" stroke="#e5e7eb" stroke-width="1.5"/>
+    <path d="M61.6 34.6A21 21 0 1 0 61.6 69.4" stroke="#050814" stroke-width="11" stroke-linecap="round"/>
+    <circle cx="75" cy="28" r="6.5" fill="#dc2626"/>
+  </g>
 </svg>
