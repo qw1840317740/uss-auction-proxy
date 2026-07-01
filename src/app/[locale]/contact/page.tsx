@@ -4,7 +4,7 @@ import { routing } from "@/i18n/routing";
 import { JsonLdBreadcrumb } from "@/components/seo/JsonLdBreadcrumb";
 import Page from "./_Content";
 
-const BASE_URL = "https://uss-auction-proxy.vercel.app";
+const BASE_URL = "https://clickcar.jp";
 
 export async function generateMetadata({
   params,

@@ -3,7 +3,7 @@ interface BreadcrumbItem {
   url?: string;
 }
 
-const BASE_URL = "https://uss-auction-proxy.vercel.app";
+const BASE_URL = "https://clickcar.jp";
 
 export function JsonLdBreadcrumb({
   items,

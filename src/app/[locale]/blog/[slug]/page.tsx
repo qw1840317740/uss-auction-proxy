@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { JsonLdBreadcrumb } from "@/components/seo/JsonLdBreadcrumb";
 import { demoPosts, getLocalized } from "@/lib/demo-blog";
 import Page from "./_Content";
 
-const BASE_URL = "https://uss-auction-proxy.vercel.app";
-const BRAND_NAME = "ClickCar（クリックカー）";
+const BASE_URL = "https://clickcar.jp";
+const BRAND_NAME = "ClickCar";
 
 export async function generateMetadata({
   params,

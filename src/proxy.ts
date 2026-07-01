@@ -35,7 +35,10 @@ export async function proxy(req: NextRequest) {
       return response;
     }
 
-    if (stripped.startsWith("/dashboard/blog") && !["ADMIN", "STAFF"].includes(token.role as string)) {
+    const staffOnlyRoutes = ["/dashboard/blog", "/dashboard/inquiries"];
+    const isStaffOnlyRoute = staffOnlyRoutes.some((route) => stripped.startsWith(route));
+
+    if (isStaffOnlyRoute && !["ADMIN", "STAFF"].includes(token.role as string)) {
       const url = req.nextUrl.clone();
       url.pathname = `/${locale}/dashboard`;
       url.search = "";

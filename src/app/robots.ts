@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 
-const BASE_URL = "https://uss-auction-proxy.vercel.app";
+const BASE_URL = "https://clickcar.jp";
 
 export default function robots(): MetadataRoute.Robots {
   return {

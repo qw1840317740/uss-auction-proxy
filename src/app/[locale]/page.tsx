@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { HeroSection } from "@/components/home/HeroSection";
@@ -11,8 +11,8 @@ import { BlogSection } from "@/components/home/BlogSection";
 import { FAQSection } from "@/components/home/FAQSection";
 import { CTASection } from "@/components/home/CTASection";
 
-const BASE_URL = "https://uss-auction-proxy.vercel.app";
-const BRAND_NAME = "ClickCar（クリックカー）";
+const BASE_URL = "https://clickcar.jp";
+const BRAND_NAME = "ClickCar";
 
 const jsonLd = {
   "@context": "https://schema.org",

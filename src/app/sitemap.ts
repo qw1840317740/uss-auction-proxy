@@ -3,7 +3,7 @@ import { routing } from "@/i18n/routing";
 import { demoPosts } from "@/lib/demo-blog";
 import { demoVehicles } from "@/lib/demo-vehicles";
 
-const BASE_URL = "https://uss-auction-proxy.vercel.app";
+const BASE_URL = "https://clickcar.jp";
 
 const staticPages = [
   { path: "", priority: 1.0, changeFrequency: "daily" as const },

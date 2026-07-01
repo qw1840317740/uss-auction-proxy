@@ -1,11 +1,11 @@
-import { Analytics } from "@vercel/analytics/next";
+﻿import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import "./globals.css";
 
-const BASE_URL = "https://uss-auction-proxy.vercel.app";
-const SITE_NAME = "ClickCar（クリックカー）";
+const BASE_URL = "https://clickcar.jp";
+const SITE_NAME = "ClickCar";
 const SITE_DESCRIPTION =
-  "ClickCar（クリックカー） provides premium Japanese used vehicle sales and global export support from Saitama, Japan.";
+  "ClickCar provides premium Japanese used vehicle sales and global export support from Saitama, Japan.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),

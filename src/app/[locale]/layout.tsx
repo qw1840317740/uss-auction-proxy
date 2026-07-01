@@ -15,7 +15,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
-  const baseUrl = "https://uss-auction-proxy.vercel.app";
+  const baseUrl = "https://clickcar.jp";
 
   return {
     title: t("title"),
