@@ -18,6 +18,7 @@ export default function ContactPage() {
   const [activeTab, setActiveTab] = useState<TabKey>("general");
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
   const [wechatCopied, setWechatCopied] = useState(false);
   const [formData, setFormData] = useState<Record<string, string>>({
     // General
@@ -50,6 +51,7 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    setSubmitError(false);
     try {
       const res = await fetch("/api/contacts", {
         method: "POST",
@@ -58,9 +60,11 @@ export default function ContactPage() {
       });
       if (res.ok) {
         setSubmitted(true);
+      } else {
+        setSubmitError(true);
       }
     } catch {
-      // error handling
+      setSubmitError(true);
     } finally {
       setLoading(false);
     }
@@ -411,6 +415,12 @@ export default function ContactPage() {
                     </div>
                   </div>
                 </div>
+
+                {submitError && (
+                  <div className="rounded-lg border border-red-100 bg-red-50 px-4 py-3 text-sm text-red-700">
+                    Unable to send your inquiry. Please contact us by email or phone.
+                  </div>
+                )}
 
                 {/* Submit */}
                 <div className="pt-2">

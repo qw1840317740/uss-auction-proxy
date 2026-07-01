@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
+import { sendContactNotification, type ContactInquiry } from "@/lib/mail";
+
+export const runtime = "nodejs";
 
 const contactSchema = z.object({
   name: z.string().optional(),
@@ -7,40 +10,68 @@ const contactSchema = z.object({
   phone: z.string().optional(),
   preferredLanguage: z.string().optional(),
   inquiryType: z.enum(["general", "specificVehicle", "rental"]).default("general"),
-  // General inquiry fields
   vehicleType: z.string().optional(),
   brand: z.string().optional(),
   budget: z.string().optional(),
   conditions: z.string().optional(),
-  // Specific vehicle fields
   vehicleModel: z.string().optional(),
   vehicleYear: z.string().optional(),
   vehicleMileage: z.string().optional(),
   vehicleColor: z.string().optional(),
   vehicleTrans: z.string().optional(),
-  // Rental fields
+  preferredModel: z.string().optional(),
+  year: z.string().optional(),
+  mileage: z.string().optional(),
+  color: z.string().optional(),
+  transmission: z.string().optional(),
   rentalCar: z.string().optional(),
   usage: z.string().optional(),
   rentalDate: z.string().optional(),
   rentalDuration: z.string().optional(),
   pickupLocation: z.string().optional(),
-  // Common
   message: z.string().optional(),
 });
+
+function normalizeInquiry(data: z.infer<typeof contactSchema>): ContactInquiry {
+  return {
+    name: data.name,
+    email: data.email,
+    phone: data.phone,
+    preferredLanguage: data.preferredLanguage,
+    inquiryType: data.inquiryType,
+    vehicleType: data.vehicleType,
+    brand: data.brand,
+    budget: data.budget,
+    conditions: data.conditions,
+    vehicleModel: data.vehicleModel || data.preferredModel,
+    vehicleYear: data.vehicleYear || data.year,
+    vehicleMileage: data.vehicleMileage || data.mileage,
+    vehicleColor: data.vehicleColor || data.color,
+    vehicleTrans: data.vehicleTrans || data.transmission,
+    rentalCar: data.rentalCar,
+    usage: data.usage,
+    rentalDate: data.rentalDate,
+    rentalDuration: data.rentalDuration,
+    pickupLocation: data.pickupLocation,
+    message: data.message,
+  };
+}
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const data = contactSchema.parse(body);
+    const parsed = contactSchema.parse(body);
+    const inquiry = normalizeInquiry(parsed);
 
-    // TODO: Save to database via Prisma + send email notification
-    console.log("Contact form submission:", data);
+    await sendContactNotification(inquiry);
 
     return NextResponse.json({ message: "Inquiry sent successfully" }, { status: 201 });
   } catch (error) {
     if (error instanceof z.ZodError) {
       return NextResponse.json({ error: error.issues }, { status: 400 });
     }
-    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
+
+    console.error("Contact form email failed:", error);
+    return NextResponse.json({ error: "Email notification failed" }, { status: 500 });
   }
 }

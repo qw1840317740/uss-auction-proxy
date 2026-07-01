@@ -34,3 +34,18 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Contact Form Email Notifications
+
+The contact form sends inquiry emails through SMTP. Configure these environment variables in Vercel Project Settings:
+
+```env
+SMTP_HOST=smtp.example.com
+SMTP_PORT=587
+SMTP_SECURE=false
+SMTP_USER=your-smtp-user@example.com
+SMTP_PASS=your-smtp-password-or-app-password
+CONTACT_TO_EMAIL=your-receiving-email@example.com
+CONTACT_FROM_EMAIL=ClickCar <your-smtp-user@example.com>
+```
+
+Use `SMTP_SECURE=true` when `SMTP_PORT` is `465`. For Gmail, QQ, and many business mailboxes, use an app password or SMTP authorization code instead of the normal login password.
