@@ -14,6 +14,13 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: [{ url: "/apple-icon.png", type: "image/png" }],
+  },
   alternates: {
     canonical: BASE_URL,
     languages: {
@@ -33,8 +40,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/images/clickcar-logo.svg",
-        width: 520,
-        height: 128,
+        width: 720,
+        height: 180,
         alt: `${SITE_NAME} logo`,
       },
     ],
