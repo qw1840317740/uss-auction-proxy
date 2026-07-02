@@ -83,26 +83,30 @@ export async function POST(request: NextRequest) {
     const parsed = contactSchema.parse(body);
     const inquiry = normalizeInquiry(parsed);
 
-    await prisma.contactMessage.create({
-      data: {
-        name: inquiry.name,
-        email: inquiry.email,
-        phone: inquiry.phone,
-        preferredLanguage: inquiry.preferredLanguage,
-        inquiryType: inquiry.inquiryType,
-        vehicleType: inquiry.vehicleType,
-        brand: inquiry.brand,
-        budget: inquiry.budget,
-        conditions: inquiry.conditions,
-        vehicleModel: inquiry.vehicleModel,
-        vehicleYear: inquiry.vehicleYear,
-        vehicleMileage: inquiry.vehicleMileage,
-        vehicleColor: inquiry.vehicleColor,
-        vehicleTrans: inquiry.vehicleTrans,
-        message: inquiry.message,
-        status: "pending",
-      },
-    });
+    try {
+      await prisma.contactMessage.create({
+        data: {
+          name: inquiry.name,
+          email: inquiry.email,
+          phone: inquiry.phone,
+          preferredLanguage: inquiry.preferredLanguage,
+          inquiryType: inquiry.inquiryType,
+          vehicleType: inquiry.vehicleType,
+          brand: inquiry.brand,
+          budget: inquiry.budget,
+          conditions: inquiry.conditions,
+          vehicleModel: inquiry.vehicleModel,
+          vehicleYear: inquiry.vehicleYear,
+          vehicleMileage: inquiry.vehicleMileage,
+          vehicleColor: inquiry.vehicleColor,
+          vehicleTrans: inquiry.vehicleTrans,
+          message: inquiry.message,
+          status: "pending",
+        },
+      });
+    } catch (error) {
+      console.warn("Contact inquiry database save failed:", describeError(error));
+    }
 
     await sendContactNotification(inquiry);
 
