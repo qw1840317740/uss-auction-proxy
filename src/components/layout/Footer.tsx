@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Phone, MapPin } from "lucide-react";
 import { Logo } from "./Logo";
 
 export function Footer() {
@@ -48,10 +48,6 @@ export function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-4">{t("contactInfo")}</h3>
             <ul className="space-y-3 text-sm">
-              <li className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-primary-light" />
-                <span>kaiseisg@kaiseisg.com</span>
-              </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-primary-light" />
                 <span>049-257-4332</span>

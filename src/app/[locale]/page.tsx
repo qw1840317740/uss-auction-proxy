@@ -23,7 +23,6 @@ const jsonLd = {
   url: BASE_URL,
   logo: `${BASE_URL}/images/clickcar-logo.svg`,
   telephone: "+81-49-257-4332",
-  email: "kaiseisg@kaiseisg.com",
   address: {
     "@type": "PostalAddress",
     streetAddress: "200-2 Kitanagaido",

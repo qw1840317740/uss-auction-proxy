@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import {
   MapPin,
-  Mail,
   Phone,
   Clock,
   Send,
@@ -418,7 +417,7 @@ export default function ContactPage() {
 
                 {submitError && (
                   <div className="rounded-lg border border-red-100 bg-red-50 px-4 py-3 text-sm text-red-700">
-                    Unable to send your inquiry. Please contact us by email or phone.
+                    Unable to send your inquiry. Please contact us by phone or messenger.
                   </div>
                 )}
 
@@ -459,21 +458,6 @@ export default function ContactPage() {
                       <div className="text-sm text-gray-500">
                         埼玉県入間郡三芳町北永井500番地2
                       </div>
-                    </div>
-                  </div>
-
-                  {/* Email */}
-                  <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center flex-shrink-0">
-                      <Mail className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <div className="text-sm font-medium text-gray-900">
-                        {t("info.email")}
-                      </div>
-                      <a href="mailto:kaiseisg@kaiseisg.com" className="text-sm text-gray-500 hover:text-primary transition-colors">
-                        kaiseisg@kaiseisg.com
-                      </a>
                     </div>
                   </div>
 
@@ -532,7 +516,7 @@ export default function ContactPage() {
                   <button
                     type="button"
                     onClick={() => {
-                      navigator.clipboard.writeText("uss_auction_wechat");
+                      navigator.clipboard.writeText("ks75995");
                       setWechatCopied(true);
                       setTimeout(() => setWechatCopied(false), 2000);
                     }}

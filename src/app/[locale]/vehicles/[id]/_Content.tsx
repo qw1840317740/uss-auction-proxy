@@ -16,7 +16,6 @@ import {
   Car,
   Palette,
   CircleDot,
-  Mail,
   Phone,
   Globe,
   MapPin,
@@ -363,10 +362,6 @@ export default function VehicleDetailPage({
               {/* Quick contact info */}
               <div className="mt-6 pt-6 border-t border-gray-100 space-y-3">
                 <h4 className="text-sm font-semibold text-gray-900">{ct("contactUs")}</h4>
-                <div className="flex items-center gap-3 text-sm text-gray-600">
-                  <Mail className="h-4 w-4 text-gray-400 shrink-0" />
-                  <span>kaiseisg@kaiseisg.com</span>
-                </div>
                 <div className="flex items-center gap-3 text-sm text-gray-600">
                   <Phone className="h-4 w-4 text-gray-400 shrink-0" />
                   <span>049-257-4332</span>
