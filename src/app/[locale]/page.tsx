@@ -21,7 +21,7 @@ const jsonLd = {
   description:
     "Premium Japanese used vehicle sales and global export service from Saitama, Japan.",
   url: BASE_URL,
-  logo: `${BASE_URL}/images/clickcar-logo.svg`,
+  logo: `${BASE_URL}/images/clickcar-logo.png`,
   telephone: "+81-49-257-4332",
   address: {
     "@type": "PostalAddress",

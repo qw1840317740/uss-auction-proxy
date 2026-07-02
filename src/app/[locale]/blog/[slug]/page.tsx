@@ -71,7 +71,7 @@ export default async function BlogPostPage({
       url: BASE_URL,
       logo: {
         "@type": "ImageObject",
-        url: `${BASE_URL}/images/clickcar-logo.svg`,
+        url: `${BASE_URL}/images/clickcar-logo.png`,
       },
     },
     mainEntityOfPage: {

@@ -13,7 +13,7 @@ function getVehicle(id: string) {
 }
 
 function absoluteImage(src?: string) {
-  if (!src) return `${BASE_URL}/images/clickcar-logo.svg`;
+  if (!src) return `${BASE_URL}/images/clickcar-logo.png`;
   return src.startsWith("http") ? src : `${BASE_URL}${src}`;
 }
 

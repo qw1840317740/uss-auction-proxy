@@ -17,8 +17,8 @@ export const metadata: Metadata = {
   description: SITE_DESCRIPTION,
   icons: {
     icon: [
-      { url: "/favicon.ico" },
-      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.png", type: "image/png" },
+      { url: "/icon.png", type: "image/png" },
     ],
     apple: [{ url: "/apple-icon.png", type: "image/png" }],
   },
@@ -40,9 +40,9 @@ export const metadata: Metadata = {
     alternateLocale: ["en_US", "zh_CN"],
     images: [
       {
-        url: "/images/clickcar-logo.svg",
-        width: 720,
-        height: 180,
+        url: "/images/clickcar-logo.png",
+        width: 960,
+        height: 145,
         alt: `${SITE_NAME} logo`,
       },
     ],
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: SITE_NAME,
     description: SITE_DESCRIPTION,
-    images: ["/images/clickcar-logo.svg"],
+    images: ["/images/clickcar-logo.png"],
   },
   robots: {
     index: true,
