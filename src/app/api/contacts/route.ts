@@ -4,6 +4,7 @@ import prisma from "@/lib/db";
 import { sendContactNotification, type ContactInquiry } from "@/lib/mail";
 
 export const runtime = "nodejs";
+export const preferredRegion = "hnd1";
 
 const contactSchema = z.object({
   name: z.string().optional(),
