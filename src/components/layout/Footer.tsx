@@ -15,8 +15,8 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div>
-            <div className="mb-4 [&_span]:!text-white [&_svg]:brightness-0 [&_svg]:invert">
-              <Logo size="default" />
+            <div className="mb-4">
+              <Logo size="default" variant="dark" />
             </div>
             <p className="text-sm leading-relaxed text-gray-400">{t("description")}</p>
           </div>

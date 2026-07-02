@@ -35,7 +35,7 @@ export function Header({ locale }: { locale: string }) {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#05070b]/95 shadow-[0_10px_30px_rgba(0,0,0,0.22)] backdrop-blur">
       <div className="container-main">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
@@ -49,16 +49,16 @@ export function Header({ locale }: { locale: string }) {
             {navItems.map((item) =>
               item.children ? (
                 <div key={item.label} className="relative group">
-                  <button className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary transition-colors rounded-md hover:bg-gray-50">
+                  <button className="px-3 py-2 text-sm font-medium text-gray-300 hover:text-white transition-colors rounded-md hover:bg-white/10">
                     {item.label}
                   </button>
                   <div className="absolute left-0 top-full pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                    <div className="bg-white rounded-lg shadow-lg border border-gray-100 py-2 min-w-[200px]">
+                    <div className="min-w-[200px] rounded-lg border border-white/10 bg-[#080b12] py-2 shadow-xl">
                       {item.children.map((child) => (
                         <Link
                           key={child.href}
                           href={child.href}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary/5 hover:text-primary transition-colors"
+                          className="block px-4 py-2 text-sm text-gray-300 transition-colors hover:bg-white/10 hover:text-white"
                         >
                           {child.label}
                         </Link>
@@ -70,7 +70,7 @@ export function Header({ locale }: { locale: string }) {
                 <Link
                   key={item.href}
                   href={item.href!}
-                  className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-primary transition-colors rounded-md hover:bg-gray-50"
+                  className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 transition-colors hover:bg-white/10 hover:text-white"
                 >
                   {item.label}
                 </Link>
@@ -85,7 +85,7 @@ export function Header({ locale }: { locale: string }) {
             {/* Favorites entry */}
             <Link
               href="/favorites"
-              className="relative p-2 text-gray-700 hover:text-primary transition-colors"
+              className="relative p-2 text-gray-300 transition-colors hover:text-white"
               aria-label={t("favorites")}
               title={t("favorites")}
             >
@@ -102,13 +102,13 @@ export function Header({ locale }: { locale: string }) {
                 <>
                   <Link
                     href="/dashboard"
-                    className="px-3 py-1.5 text-sm font-medium text-gray-700 hover:text-primary transition-colors"
+                    className="px-3 py-1.5 text-sm font-medium text-gray-300 transition-colors hover:text-white"
                   >
                     {t("dashboard")}
                   </Link>
                   <button
                     onClick={() => signOut({ callbackUrl: `/${locale}` })}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-gray-700 hover:text-red-600 transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-gray-300 transition-colors hover:text-red-400"
                   >
                     <LogOut className="w-4 h-4" />
                     {t("logout")}
@@ -118,7 +118,7 @@ export function Header({ locale }: { locale: string }) {
             </div>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="lg:hidden p-2 text-gray-700 hover:text-primary"
+              className="p-2 text-gray-300 transition-colors hover:text-white lg:hidden"
             >
               {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
