@@ -2,11 +2,12 @@
 
 import { useTranslations } from "next-intl";
 import { formatPrice, formatMileage } from "@/lib/utils";
-import { Heart, Trash2, Eye, Gauge, ArrowLeft } from "lucide-react";
+import { Heart, Trash2, Eye, Gauge } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import Image from "next/image";
 import { demoVehicles } from "@/lib/demo-vehicles";
 import { useFavorites } from "@/lib/useFavorites";
+import { GlassBreadcrumb } from "@/components/layout/GlassBreadcrumb";
 
 export default function FavoritesPage() {
   const t = useTranslations("dashboard");
@@ -19,16 +20,9 @@ export default function FavoritesPage() {
     .filter((v): v is (typeof demoVehicles)[number] => Boolean(v));
 
   return (
-    <div className="min-h-[calc(100vh-4rem)] bg-gray-50">
+    <div className="min-h-[calc(100vh-4rem)] bg-[radial-gradient(circle_at_top_left,rgba(220,38,38,0.08),transparent_32rem),#f9fafb]">
       <div className="container-main py-6 sm:py-8">
-        {/* Back link */}
-        <Link
-          href="/vehicles"
-          className="inline-flex items-center gap-1.5 text-sm text-gray-500 hover:text-primary transition-colors mb-6"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          {tc("back")}
-        </Link>
+        <GlassBreadcrumb backHref="/vehicles" backLabel={tc("back")} current={t("favorites")} className="mb-6" />
 
         <div className="mb-6">
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 flex items-center gap-2">

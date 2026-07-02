@@ -4,10 +4,10 @@ import { useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { usePathname } from "@/i18n/routing";
 import { Link } from "@/i18n/routing";
+import { GlassBreadcrumb } from "@/components/layout/GlassBreadcrumb";
 import { cn, formatDate } from "@/lib/utils";
 import { demoPosts, getLocalized } from "@/lib/demo-blog";
 import {
-  ArrowLeft,
   Calendar,
   Tag,
   Share2,
@@ -113,15 +113,8 @@ export default function BlogPostPage() {
 
   return (
     <div className="min-h-[calc(100vh-4rem)] bg-white">
-      {/* Back Link */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
-        <Link
-          href="/blog"
-          className="inline-flex items-center gap-1.5 text-sm text-gray-500 hover:text-primary transition-colors"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          {tc("back")}
-        </Link>
+        <GlassBreadcrumb backHref="/blog" backLabel={tc("back")} current={t("title")} />
       </div>
 
       {/* Article Header */}

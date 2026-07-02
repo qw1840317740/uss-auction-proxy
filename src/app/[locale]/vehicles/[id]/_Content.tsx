@@ -3,9 +3,9 @@
 import React, { useRef, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/routing";
+import { GlassBreadcrumb } from "@/components/layout/GlassBreadcrumb";
 import { formatPrice, formatMileage, cn } from "@/lib/utils";
 import {
-  ArrowLeft,
   Heart,
   Share2,
   CheckCircle2,
@@ -91,16 +91,9 @@ export default function VehicleDetailPage({
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Top bar */}
-      <div className="bg-white border-b border-gray-200">
+      <div className="border-b border-white/60 bg-gradient-to-r from-gray-50 via-white to-red-50/40">
         <div className="container-main py-4">
-          <Link
-            href="/vehicles"
-            className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-primary transition-colors"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            {ct("back")} — {t("title")}
-          </Link>
+          <GlassBreadcrumb backHref="/vehicles" backLabel={ct("back")} current={t("title")} />
         </div>
       </div>
 

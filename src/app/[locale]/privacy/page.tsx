@@ -1,8 +1,8 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/routing";
-import { ArrowLeft, Shield } from "lucide-react";
+import { Shield } from "lucide-react";
+import { GlassBreadcrumb } from "@/components/layout/GlassBreadcrumb";
 
 const sectionKeys = ["collect", "use", "protect", "cookies", "rights", "contact"];
 
@@ -15,13 +15,7 @@ export default function PrivacyPage() {
       {/* Header */}
       <div className="bg-gradient-to-r from-primary to-primary-dark text-white py-16">
         <div className="container-main">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-1.5 text-sm text-neutral-300 hover:text-white transition-colors mb-6"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            {tc("back")}
-          </Link>
+          <GlassBreadcrumb backHref="/" backLabel={tc("back")} current={t("title")} tone="dark" className="mb-6" />
           <div className="flex items-center gap-3 mb-4">
             <Shield className="w-8 h-8 text-secondary" />
             <h1 className="text-3xl md:text-4xl font-bold">{t("title")}</h1>
