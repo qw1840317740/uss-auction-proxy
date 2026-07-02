@@ -10,7 +10,7 @@ interface NavItem {
 
 export function MobileNav({ items, onClose }: { items: NavItem[]; onClose: () => void }) {
   return (
-    <div className="border-t border-white/10 bg-[#05070b] lg:hidden">
+    <div className="border-t border-white/15 bg-[#05070b]/82 shadow-[0_22px_48px_rgba(0,0,0,0.26)] backdrop-blur-2xl lg:hidden">
       <nav className="container-main py-4 space-y-1">
         {items.map((item) =>
           item.children ? (
