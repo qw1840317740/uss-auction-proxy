@@ -35,9 +35,10 @@ export function Header({ locale }: { locale: string }) {
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/15 bg-[#05070b]/72 shadow-[0_18px_44px_rgba(0,0,0,0.28)] backdrop-blur-2xl supports-[backdrop-filter]:bg-[#05070b]/62">
+    <header className="sticky top-0 z-50 border-b border-white/15 bg-[#05070b]/90 shadow-[0_18px_44px_rgba(0,0,0,0.28)] backdrop-blur-2xl supports-[backdrop-filter]:bg-[#05070b]/84">
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/28 via-black/12 to-transparent" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-white/35 to-transparent" />
-      <div className="container-main">
+      <div className="container-main relative z-10">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
