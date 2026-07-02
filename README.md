@@ -36,7 +36,17 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 ## Contact Form Email Notifications
 
-The contact form sends inquiry emails through SMTP. Configure these environment variables in Vercel Project Settings:
+The contact form sends inquiry emails through Resend when `RESEND_API_KEY` is configured. SMTP is kept as an optional fallback.
+
+Configure these environment variables in Vercel Project Settings:
+
+```env
+RESEND_API_KEY=re_xxxxxxxxx
+RESEND_FROM_EMAIL=ClickCar <inquiries@clickcar.jp>
+CONTACT_TO_EMAIL=your-receiving-email@example.com
+```
+
+Optional SMTP fallback:
 
 ```env
 SMTP_HOST=smtp.example.com
@@ -44,8 +54,7 @@ SMTP_PORT=587
 SMTP_SECURE=false
 SMTP_USER=your-smtp-user@example.com
 SMTP_PASS=your-smtp-password-or-app-password
-CONTACT_TO_EMAIL=your-receiving-email@example.com
 CONTACT_FROM_EMAIL=ClickCar <your-smtp-user@example.com>
 ```
 
-Use `SMTP_SECURE=true` when `SMTP_PORT` is `465`. For Gmail, QQ, and many business mailboxes, use an app password or SMTP authorization code instead of the normal login password.
+Use `SMTP_SECURE=true` when `SMTP_PORT` is `465`. For Resend, verify the sending domain before using a `clickcar.jp` sender address.

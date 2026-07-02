@@ -1,4 +1,5 @@
 import nodemailer from "nodemailer";
+import { Resend } from "resend";
 
 export type ContactInquiry = {
   name?: string;
@@ -67,26 +68,7 @@ function rows(data: ContactInquiry) {
     .filter(([, value]) => value !== undefined && value !== null && String(value).trim() !== "");
 }
 
-export async function sendContactNotification(data: ContactInquiry) {
-  const host = requireEnv("SMTP_HOST");
-  const user = requireEnv("SMTP_USER");
-  const pass = requireEnv("SMTP_PASS");
-  const to = requireEnv("CONTACT_TO_EMAIL");
-  const port = Number(process.env.SMTP_PORT ?? 587);
-  const secure = process.env.SMTP_SECURE === "true" || port === 465;
-  const from = process.env.CONTACT_FROM_EMAIL || user;
-  const servername = process.env.SMTP_TLS_SERVERNAME;
-  const authMethod = process.env.SMTP_AUTH_METHOD;
-
-  const transporter = nodemailer.createTransport({
-    host,
-    port,
-    secure,
-    auth: { user, pass },
-    authMethod,
-    tls: servername ? { servername } : undefined,
-  });
-
+function createContactEmail(data: ContactInquiry) {
   const safeRows = rows(data);
   const text = safeRows.map(([label, value]) => `${label}: ${value}`).join("\n");
   const html = `
@@ -106,13 +88,68 @@ export async function sendContactNotification(data: ContactInquiry) {
       </table>
     </div>
   `;
+  const subject = `New ClickCar inquiry: ${data.inquiryType} - ${data.email}`;
+
+  return { html, subject, text };
+}
+
+async function sendWithResend(data: ContactInquiry) {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) return false;
+
+  const to = requireEnv("CONTACT_TO_EMAIL");
+  const from = process.env.RESEND_FROM_EMAIL || "ClickCar <onboarding@resend.dev>";
+  const { html, subject, text } = createContactEmail(data);
+  const resend = new Resend(apiKey);
+
+  const { error } = await resend.emails.send({
+    from,
+    to: [to],
+    replyTo: data.email,
+    subject,
+    text,
+    html,
+  });
+
+  if (error) {
+    throw new Error(`Resend email failed: ${error.message}`);
+  }
+
+  return true;
+}
+
+async function sendWithSmtp(data: ContactInquiry) {
+  const host = requireEnv("SMTP_HOST");
+  const user = requireEnv("SMTP_USER");
+  const pass = requireEnv("SMTP_PASS");
+  const to = requireEnv("CONTACT_TO_EMAIL");
+  const port = Number(process.env.SMTP_PORT ?? 587);
+  const secure = process.env.SMTP_SECURE === "true" || port === 465;
+  const from = process.env.CONTACT_FROM_EMAIL || user;
+  const servername = process.env.SMTP_TLS_SERVERNAME;
+  const authMethod = process.env.SMTP_AUTH_METHOD;
+  const { html, subject, text } = createContactEmail(data);
+
+  const transporter = nodemailer.createTransport({
+    host,
+    port,
+    secure,
+    auth: { user, pass },
+    authMethod,
+    tls: servername ? { servername } : undefined,
+  });
 
   await transporter.sendMail({
     from,
     to,
     replyTo: data.email,
-    subject: `New ClickCar inquiry: ${data.inquiryType} - ${data.email}`,
+    subject,
     text,
     html,
   });
+}
+
+export async function sendContactNotification(data: ContactInquiry) {
+  if (await sendWithResend(data)) return;
+  await sendWithSmtp(data);
 }
