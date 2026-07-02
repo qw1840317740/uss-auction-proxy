@@ -58,6 +58,25 @@ function normalizeInquiry(data: z.infer<typeof contactSchema>): ContactInquiry {
   };
 }
 
+function describeError(error: unknown) {
+  if (!(error instanceof Error)) return error;
+  const smtpError = error as Error & {
+    code?: string;
+    command?: string;
+    response?: string;
+    responseCode?: number;
+  };
+
+  return {
+    name: smtpError.name,
+    message: smtpError.message,
+    code: smtpError.code,
+    command: smtpError.command,
+    responseCode: smtpError.responseCode,
+    response: smtpError.response,
+  };
+}
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
@@ -93,7 +112,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: error.issues }, { status: 400 });
     }
 
-    console.error("Contact form submission failed:", error);
+    console.error("Contact form submission failed:", describeError(error));
     return NextResponse.json({ error: "Inquiry submission failed" }, { status: 500 });
   }
 }
