@@ -75,12 +75,14 @@ export async function sendContactNotification(data: ContactInquiry) {
   const port = Number(process.env.SMTP_PORT ?? 587);
   const secure = process.env.SMTP_SECURE === "true" || port === 465;
   const from = process.env.CONTACT_FROM_EMAIL || user;
+  const servername = process.env.SMTP_TLS_SERVERNAME;
 
   const transporter = nodemailer.createTransport({
     host,
     port,
     secure,
     auth: { user, pass },
+    tls: servername ? { servername } : undefined,
   });
 
   const safeRows = rows(data);
