@@ -116,7 +116,14 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: error.issues }, { status: 400 });
     }
 
-    console.error("Contact form submission failed:", describeError(error));
-    return NextResponse.json({ error: "Inquiry submission failed" }, { status: 500 });
+    const details = describeError(error);
+    console.error("Contact form submission failed:", details);
+    return NextResponse.json(
+      {
+        error: "Inquiry submission failed",
+        details: process.env.CONTACT_DEBUG_ERRORS === "true" ? details : undefined,
+      },
+      { status: 500 },
+    );
   }
 }
