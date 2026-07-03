@@ -501,14 +501,19 @@ export default function ContactPage() {
                 <div className="space-y-3">
                   {/* WhatsApp */}
                   <a
-                    href="https://wa.me/81492574332"
+                    href="https://wa.me/817092869587"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 p-3 rounded-lg bg-green-50 text-green-700 hover:bg-green-100 transition-colors"
                   >
                     <MessageCircle className="w-5 h-5" />
-                    <span className="text-sm font-medium">
-                      {t("messenger.whatsapp")}
+                    <span className="flex flex-col">
+                      <span className="text-sm font-medium">
+                        {t("messenger.whatsapp")}
+                      </span>
+                      <span className="text-xs text-green-600">
+                        070-9286-9587
+                      </span>
                     </span>
                   </a>
 
