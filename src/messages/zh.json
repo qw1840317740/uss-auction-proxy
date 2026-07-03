@@ -87,9 +87,9 @@
       "exploreVehicles": "浏览车辆",
       "contactUs": "联系我们",
       "stats": {
-        "vehicles": "库存车辆",
+        "sourcing": "按需寻车",
         "brands": "品牌覆盖",
-        "countries": "服务国家"
+        "support": "全流程支持"
       }
     },
     "brands": {
@@ -453,10 +453,10 @@
       }
     },
     "stats": {
-      "vehicles": "库存车辆",
+      "sourcing": "日本本地寻车",
       "brands": "品牌覆盖",
-      "countries": "服务国家",
-      "partners": "合作经销商"
+      "support": "出口支持",
+      "contact": "直接沟通"
     }
   },
   "contact": {

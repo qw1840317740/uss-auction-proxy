@@ -87,9 +87,9 @@
       "exploreVehicles": "車両を探す",
       "contactUs": "お問い合わせ",
       "stats": {
-        "vehicles": "在庫車両",
+        "sourcing": "ご希望に合わせて提案",
         "brands": "取扱ブランド",
-        "countries": "対応国数"
+        "support": "一貫サポート"
       }
     },
     "brands": {
@@ -453,10 +453,10 @@
       }
     },
     "stats": {
-      "vehicles": "在庫車両",
+      "sourcing": "日本国内での車探し",
       "brands": "取扱ブランド",
-      "countries": "対応国数",
-      "partners": "提携ディーラー"
+      "support": "輸出サポート",
+      "contact": "直接相談"
     }
   },
   "contact": {

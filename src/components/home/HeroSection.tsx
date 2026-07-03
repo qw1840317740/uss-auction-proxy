@@ -2,13 +2,13 @@
 
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
-import { Car, Award, Globe } from "lucide-react";
+import { Award, SearchCheck, ShieldCheck } from "lucide-react";
 import Image from "next/image";
 
 const stats = [
-  { key: "vehicles", icon: Car, value: "50,000+" },
+  { key: "sourcing", icon: SearchCheck, value: "Tailored" },
   { key: "brands", icon: Award, value: "60+" },
-  { key: "countries", icon: Globe, value: "60+" },
+  { key: "support", icon: ShieldCheck, value: "End-to-End" },
 ];
 
 export function HeroSection() {

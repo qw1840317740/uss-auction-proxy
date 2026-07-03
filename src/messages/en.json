@@ -87,9 +87,9 @@
       "exploreVehicles": "Explore Vehicles",
       "contactUs": "Contact Us",
       "stats": {
-        "vehicles": "Vehicles in Stock",
+        "sourcing": "Sourcing by Request",
         "brands": "Brands Available",
-        "countries": "Countries Served"
+        "support": "Full Process Support"
       }
     },
     "brands": {
@@ -453,10 +453,10 @@
       }
     },
     "stats": {
-      "vehicles": "Vehicles in Stock",
+      "sourcing": "Local Sourcing",
       "brands": "Brands Available",
-      "countries": "Countries Served",
-      "partners": "Partner Dealers"
+      "support": "Export Support",
+      "contact": "Direct Contact"
     }
   },
   "contact": {
