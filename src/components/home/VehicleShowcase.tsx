@@ -17,6 +17,8 @@ export function VehicleShowcase() {
   const { toggle, isFavorite } = useFavorites();
   const { containerRef, isChildVisible } = useStaggerReveal(showcaseVehicles.length, 60);
 
+  if (showcaseVehicles.length === 0) return null;
+
   return (
     <section className="py-16 bg-gray-50">
       <div className="container-main">

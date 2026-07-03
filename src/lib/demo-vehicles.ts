@@ -36,7 +36,9 @@ export interface Vehicle {
   description: Record<string, string>;
 }
 
-export const demoVehicles: Vehicle[] = [
+export const demoVehicles: Vehicle[] = [];
+
+export const archivedDemoVehicles: Vehicle[] = [
   {
     id: "1",
     make: "Toyota",
