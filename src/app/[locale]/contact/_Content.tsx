@@ -538,14 +538,19 @@ export default function ContactPage() {
 
                   {/* LINE */}
                   <a
-                    href="https://lin.ee/xxxxx"
+                    href="https://line.me/ti/p/~07092869587"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 p-3 rounded-lg bg-neutral-100 text-neutral-800 hover:bg-red-100 transition-colors"
                   >
                     <MessageCircle className="w-5 h-5 shrink-0" />
-                    <span className="text-sm font-medium">
-                      {t("messenger.line")}
+                    <span className="flex flex-col">
+                      <span className="text-sm font-medium">
+                        {t("messenger.line")}
+                      </span>
+                      <span className="text-xs text-neutral-600">
+                        070-9286-9587
+                      </span>
                     </span>
                   </a>
                 </div>
