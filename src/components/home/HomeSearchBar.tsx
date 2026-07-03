@@ -4,19 +4,7 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/routing";
 import { Search } from "lucide-react";
-
-const makes = [
-  "Toyota",
-  "Honda",
-  "Nissan",
-  "Mazda",
-  "Subaru",
-  "Mitsubishi",
-  "Lexus",
-  "Suzuki",
-  "Daihatsu",
-  "Isuzu",
-];
+import { vehicleMakes } from "@/lib/brands";
 
 const priceBands = [
   { key: "", label: "any", to: "" },
@@ -77,7 +65,7 @@ export function HomeSearchBar() {
               className="w-full px-3 py-2.5 rounded-lg bg-gray-50 border border-gray-200 text-sm text-gray-900 focus:outline-none focus:border-primary focus:bg-white transition-colors"
             >
               <option value="">{t("anyMake")}</option>
-              {makes.map((m) => (
+              {vehicleMakes.map((m) => (
                 <option key={m} value={m}>
                   {m}
                 </option>

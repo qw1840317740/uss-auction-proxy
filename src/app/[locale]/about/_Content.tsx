@@ -47,7 +47,7 @@ export default function AboutPage() {
 
   const statsData = [
     { icon: Building2, value: "500+", label: t("stats.vehicles") },
-    { icon: Award, value: "20+", label: t("stats.brands") },
+    { icon: Award, value: "60+", label: t("stats.brands") },
     { icon: Globe, value: "50+", label: t("stats.countries") },
     { icon: Users, value: "30+", label: t("stats.partners") },
   ];

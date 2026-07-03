@@ -7,7 +7,7 @@ import Image from "next/image";
 
 const stats = [
   { key: "vehicles", icon: Car, value: "50,000+" },
-  { key: "brands", icon: Award, value: "20+" },
+  { key: "brands", icon: Award, value: "60+" },
   { key: "countries", icon: Globe, value: "60+" },
 ];
 

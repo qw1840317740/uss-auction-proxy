@@ -9,6 +9,7 @@ import {
   Send,
   MessageCircle,
 } from "lucide-react";
+import { vehicleMakes } from "@/lib/brands";
 
 type TabKey = "general" | "specificVehicle";
 
@@ -157,14 +158,11 @@ export default function ContactPage() {
                         className={selectClasses}
                       >
                         <option value="">--</option>
-                        <option value="toyota">Toyota</option>
-                        <option value="honda">Honda</option>
-                        <option value="nissan">Nissan</option>
-                        <option value="mazda">Mazda</option>
-                        <option value="subaru">Subaru</option>
-                        <option value="mitsubishi">Mitsubishi</option>
-                        <option value="suzuki">Suzuki</option>
-                        <option value="lexus">Lexus</option>
+                        {vehicleMakes.map((make) => (
+                          <option key={make} value={make}>
+                            {make}
+                          </option>
+                        ))}
                         <option value="other">Other</option>
                       </select>
                     </div>

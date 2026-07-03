@@ -16,23 +16,7 @@ import {
 import Image from "next/image";
 import { demoVehicles } from "@/lib/demo-vehicles";
 import { useFavorites } from "@/lib/useFavorites";
-
-// ---------------------------------------------------------------------------
-// Demo data
-// ---------------------------------------------------------------------------
-
-const makes = [
-  "Toyota",
-  "Honda",
-  "Nissan",
-  "Mazda",
-  "Subaru",
-  "Suzuki",
-  "Mitsubishi",
-  "Daihatsu",
-  "Lexus",
-  "Isuzu",
-];
+import { vehicleMakes } from "@/lib/brands";
 
 // ---------------------------------------------------------------------------
 // Filter option sets
@@ -259,7 +243,7 @@ export default function VehiclesPage() {
                   className={selectCls}
                 >
                   <option value="">--</option>
-                  {makes.map((m) => (
+                  {vehicleMakes.map((m) => (
                     <option key={m} value={m}>
                       {m}
                     </option>
