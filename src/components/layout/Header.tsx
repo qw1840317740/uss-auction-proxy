@@ -42,8 +42,12 @@ export function Header({ locale }: { locale: string }) {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex h-12 shrink-0 items-center">
-            <LogoMark className="block sm:hidden" />
-            <Logo size="default" className="hidden sm:inline-flex" />
+            <span className="block sm:hidden">
+              <LogoMark />
+            </span>
+            <span className="hidden sm:block">
+              <Logo size="default" />
+            </span>
           </Link>
 
           {/* Desktop Nav */}
