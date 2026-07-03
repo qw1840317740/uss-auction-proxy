@@ -63,7 +63,7 @@ export const vehicleMakes = [
   "Lucid",
 ] as const;
 
-export const featuredBrands = vehicleMakes.slice(0, 30);
+export const featuredBrands = vehicleMakes.slice(0, 10);
 
 export const brandLogos: Partial<Record<(typeof vehicleMakes)[number], string>> = {
   Toyota: "/images/brands/toyota.svg",
