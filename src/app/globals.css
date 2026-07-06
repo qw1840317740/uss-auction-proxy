@@ -266,6 +266,64 @@ html {
   outline-offset: 3px;
 }
 
+.article-body .section {
+  border-bottom: 1px solid #f1f1f1;
+  padding: 2rem 0;
+}
+
+.article-body .section-label,
+.article-body .step-badge {
+  color: var(--color-primary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.article-body .step-item {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr;
+  gap: 1rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.article-body .step-num {
+  color: #e5e7eb;
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.article-body .callout-green,
+.article-body .callout-amber,
+.article-body .callout-red {
+  border-left: 3px solid var(--color-primary);
+  border-radius: 0 0.5rem 0.5rem 0;
+  margin: 1rem 0;
+  padding: 1rem;
+}
+
+.article-body .callout-green { background: #f0fdf4; border-color: #16a34a; }
+.article-body .callout-amber { background: #fffbeb; border-color: #d97706; }
+.article-body .callout-red { background: #fff1f2; border-color: #dc2626; }
+
+.article-body table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.article-body th,
+.article-body td {
+  border-bottom: 1px solid #e5e7eb;
+  padding: 0.75rem;
+  text-align: left;
+  white-space: nowrap;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

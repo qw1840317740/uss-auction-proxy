@@ -1,5 +1,7 @@
 // Blog posts data — updated 2026-06-12
 // Get a localized string from either a plain string or a {zh,en,ja} map
+import { odometerFraudGuideHtml } from "./odometer-fraud-guide";
+
 export type LocalizedText = string | Record<string, string>;
 
 export function getLocalized(field: LocalizedText, locale: string): string {
@@ -20,6 +22,29 @@ export interface BlogPostData {
 }
 
 export const demoPosts: BlogPostData[] = [
+  {
+    slug: "odometer-fraud-guide",
+    title: {
+      zh: "日本中古车里程表造假识别指南",
+      en: "How to Spot Odometer Fraud When Buying a Used Car in Japan",
+      ja: "日本中古車の走行距離改ざんを見抜くガイド",
+    },
+    excerpt: {
+      zh: "从拍卖单、车检记录、保养历史和车辆磨损细节判断里程是否真实，降低日本中古车代购风险。",
+      en: "A practical guide to checking auction sheets, inspection records, service history, and wear clues before buying a used car in Japan.",
+      ja: "オークションシート、車検記録、整備履歴、内外装の摩耗から走行距離の信頼性を確認するための実用ガイド。",
+    },
+    category: { zh: "购车指南", en: "Guide", ja: "購入ガイド" },
+    date: "2026-07-06",
+    readTime: { zh: "8分钟阅读", en: "8 min read", ja: "8分で読める" },
+    color: "bg-red-600",
+    image: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=1280&q=80",
+    content: {
+      zh: odometerFraudGuideHtml,
+      en: odometerFraudGuideHtml,
+      ja: odometerFraudGuideHtml,
+    },
+  },
   {
     slug: "japan-used-car-pitfall-guide-2026",
     title: {
