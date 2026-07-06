@@ -33,10 +33,6 @@ const categoryColors: Record<string, string> = {
   "JDM文化": "bg-red-100 text-red-700",
 };
 
-const embeddedArticleCss = `
-  *,*::before,*::after{box-sizing:border-box}body{margin:0;background:#fff;color:#1c1c1c;font-family:Inter,system-ui,sans-serif;font-weight:300;line-height:1.7}.article-body{max-width:780px;margin:0 auto;padding:0 2rem 4rem}.section{border-bottom:1px solid #e5e7eb;padding:3rem 0}.section-label,.step-badge{color:#cc0000;font:500 11px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.16em;text-transform:uppercase}.article-body h2{color:#111;font-family:Georgia,serif;font-size:clamp(1.7rem,4vw,2.45rem);font-weight:400;line-height:1.2;margin:.8rem 0 1.25rem}.article-body h3{color:#111;font-size:1.05rem;font-weight:600;margin:.4rem 0 .75rem}.article-body p{color:#444;font-size:15.5px;margin:0 0 1rem}.stat-row{align-items:center;display:grid;gap:.75rem;grid-template-columns:minmax(7rem,10rem) 1fr 4.5rem;margin:.8rem 0}.stat-label,.stat-val{color:#888;font-size:12px}.stat-bar-wrap{background:#f5f5f5;border-radius:999px;height:7px;overflow:hidden}.stat-bar{background:#cc0000;border-radius:999px;height:100%}.callout-green,.callout-amber,.callout-red{border-left:3px solid #cc0000;border-radius:0 6px 6px 0;margin:1.2rem 0;padding:1rem 1.25rem}.callout-green{background:#f0fdf4;border-color:#15803d}.callout-amber{background:#fffbeb;border-color:#d97706}.callout-red{background:#fff0f0;border-color:#cc0000}.step-item{display:grid;grid-template-columns:4rem 1fr;gap:1.5rem;padding:2rem 0;border-bottom:1px solid #f3f4f6}.step-num{color:#ddd;font-family:Georgia,serif;font-size:3.5rem;line-height:1}.summary-table{border-collapse:collapse;display:block;overflow-x:auto;width:100%;font-size:14px}.summary-table th,.summary-table td{border-bottom:1px solid #e5e7eb;padding:.8rem;text-align:left;white-space:nowrap}.cta-section{background:#111;border-radius:0;color:#fff;margin-top:1rem;padding:2.5rem}.cta-title{color:#fff!important}.cta-desc,.cta-note{color:rgba(255,255,255,.72)!important}.cta-features{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.25rem 0}.cta-tag{border:1px solid rgba(255,255,255,.18);border-radius:999px;color:rgba(255,255,255,.84);font-size:12px;padding:.35rem .7rem}.cta-btn{background:#cc0000;color:#fff;display:inline-flex;margin:.5rem 0 1rem;padding:.8rem 1.1rem;text-decoration:none}@media(max-width:640px){.article-body{padding:0 1rem 3rem}.step-item{grid-template-columns:1fr}.step-num{font-size:2.5rem}.stat-row{grid-template-columns:1fr}.stat-val{text-align:left}}
-`;
-
 // Inline markdown renderer: **bold** and *italic*
 function renderInline(text: string): React.ReactNode {
   const parts: React.ReactNode[] = [];
@@ -175,7 +171,7 @@ export default function BlogPostPage() {
         {post.embedHtml ? (
           <iframe
             title={postTitle}
-            srcDoc={`<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>${embeddedArticleCss}</style></head><body>${postContent}</body></html>`}
+            srcDoc={postContent}
             className="h-[3600px] w-full border-0"
           />
         ) : (
