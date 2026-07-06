@@ -39,6 +39,7 @@ type GuideCopy = {
   ctaDescription: string;
   ctaTags: string[];
   ctaButton: string;
+  ctaHref: string;
   ctaNote: string;
 };
 
@@ -135,7 +136,7 @@ function renderGuide(copy: GuideCopy): string {
       <div class="cta-features">
         ${copy.ctaTags.map((tag) => `<span class="cta-tag">${tag}</span>`).join("\n        ")}
       </div>
-      <a class="cta-btn" href="https://clickcar.jp/contact">${copy.ctaButton}</a>
+      <a class="cta-btn" href="${copy.ctaHref}">${copy.ctaButton}</a>
       <p class="cta-note">${copy.ctaNote}</p>
     </div>
   </div>
@@ -264,6 +265,7 @@ const zh: GuideCopy = {
     "ClickCar 可在日本当地协助核对车检证、保养记录、拍卖信息与车辆细节，让你不用亲自跑日本，也能更安心地判断车况。",
   ctaTags: ["车检证核对", "拍卖信息确认", "现场照片与视频", "透明报价", "支持代拍服务"],
   ctaButton: "立即咨询 ClickCar →",
+  ctaHref: "/zh/contact",
   ctaNote: "中文、英文、日文均可沟通 · 通常 24 小时内回复",
 };
 
@@ -389,6 +391,7 @@ const en: GuideCopy = {
     "ClickCar can help verify inspection certificates, service records, auction information, and vehicle details locally in Japan before you proceed.",
   ctaTags: ["Inspection certificate check", "Auction data review", "Photos and video", "Transparent pricing", "Bidding support"],
   ctaButton: "Contact ClickCar →",
+  ctaHref: "/en/contact",
   ctaNote: "Chinese, English, and Japanese support · Usually replies within 24 hours",
 };
 
@@ -514,6 +517,7 @@ const ja: GuideCopy = {
     "ClickCarは車検証、整備記録、オークション情報、車両状態を日本現地で確認し、安心して検討できる材料を提供します。",
   ctaTags: ["車検証確認", "オークション情報確認", "現地写真・動画", "明朗な見積もり", "代行入札対応"],
   ctaButton: "ClickCarに相談する →",
+  ctaHref: "/ja/contact",
   ctaNote: "中国語・英語・日本語に対応 · 通常24時間以内に返信",
 };
 
