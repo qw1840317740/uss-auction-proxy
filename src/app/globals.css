@@ -271,6 +271,22 @@ html {
   padding: 2rem 0;
 }
 
+.article-body h2 {
+  color: #111827;
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  margin: 0.5rem 0 1rem;
+}
+
+.article-body h3 {
+  color: #111827;
+  font-size: 1.05rem;
+  font-weight: 650;
+  margin: 0.5rem 0 0.75rem;
+}
+
 .article-body .section-label,
 .article-body .step-badge {
   color: var(--color-primary);
@@ -293,6 +309,33 @@ html {
   font-size: 2.5rem;
   font-weight: 800;
   line-height: 1;
+}
+
+.article-body .stat-row {
+  align-items: center;
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: minmax(6rem, 9rem) 1fr 4rem;
+  margin: 0.7rem 0;
+}
+
+.article-body .stat-label,
+.article-body .stat-val {
+  color: #6b7280;
+  font-size: 0.8rem;
+}
+
+.article-body .stat-bar-wrap {
+  background: #f3f4f6;
+  border-radius: 999px;
+  height: 0.45rem;
+  overflow: hidden;
+}
+
+.article-body .stat-bar {
+  background: linear-gradient(90deg, #dc2626, #f97316);
+  border-radius: 999px;
+  height: 100%;
 }
 
 .article-body .callout-green,
@@ -322,6 +365,54 @@ html {
   padding: 0.75rem;
   text-align: left;
   white-space: nowrap;
+}
+
+.article-body .cta-section {
+  background: linear-gradient(135deg, #111827, #2b0505);
+  border-radius: 1rem;
+  color: white;
+  padding: 2rem;
+}
+
+.article-body .cta-eyebrow,
+.article-body .cta-note {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.8rem;
+}
+
+.article-body .cta-title {
+  color: white;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.article-body .cta-desc {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.article-body .cta-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.25rem 0;
+}
+
+.article-body .cta-tag {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.8rem;
+  padding: 0.35rem 0.7rem;
+}
+
+.article-body .cta-btn {
+  background: white;
+  border-radius: 0.75rem;
+  color: #991b1b;
+  display: inline-flex;
+  font-weight: 700;
+  margin: 0.5rem 0 1rem;
+  padding: 0.75rem 1.1rem;
+  text-decoration: none;
 }
 
 @media (prefers-reduced-motion: reduce) {

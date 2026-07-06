@@ -1,6 +1,10 @@
 // Blog posts data — updated 2026-06-12
 // Get a localized string from either a plain string or a {zh,en,ja} map
-import { odometerFraudGuideHtml } from "./odometer-fraud-guide";
+import {
+  odometerFraudGuideEn,
+  odometerFraudGuideJa,
+  odometerFraudGuideZh,
+} from "./odometer-fraud-guide";
 
 export type LocalizedText = string | Record<string, string>;
 
@@ -40,9 +44,9 @@ export const demoPosts: BlogPostData[] = [
     color: "bg-red-600",
     image: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=1280&q=80",
     content: {
-      zh: odometerFraudGuideHtml,
-      en: odometerFraudGuideHtml,
-      ja: odometerFraudGuideHtml,
+      zh: odometerFraudGuideZh,
+      en: odometerFraudGuideEn,
+      ja: odometerFraudGuideJa,
     },
   },
   {
