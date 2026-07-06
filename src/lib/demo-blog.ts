@@ -23,6 +23,7 @@ export interface BlogPostData {
   color: string;
   image: string;
   content?: LocalizedText;
+  embedHtml?: boolean;
 }
 
 export const demoPosts: BlogPostData[] = [
@@ -43,6 +44,7 @@ export const demoPosts: BlogPostData[] = [
     readTime: { zh: "8分钟阅读", en: "8 min read", ja: "8分で読める" },
     color: "bg-red-600",
     image: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=1280&q=80",
+    embedHtml: true,
     content: {
       zh: odometerFraudGuideZh,
       en: odometerFraudGuideEn,
