@@ -39,13 +39,9 @@ export const demoPosts: BlogPostData[] = [
     date: "2026-07-06",
     readTime: { zh: "8分钟阅读", en: "8 min read", ja: "8分で読める" },
     color: "bg-red-600",
-    image: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=1280&q=80",
+    image: "/images/services/car-inspection.jpg",
     embedHtml: true,
-    content: {
-      zh: odometerFraudGuideHtml,
-      en: odometerFraudGuideHtml,
-      ja: odometerFraudGuideHtml,
-    },
+    content: odometerFraudGuideHtml,
   },
   {
     slug: "japan-used-car-pitfall-guide-2026",

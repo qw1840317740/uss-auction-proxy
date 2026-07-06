@@ -462,6 +462,29 @@ html {
   padding: 0;
 }
 
+.embedded-html-article .article-cover-image {
+  background: var(--gray-100);
+  border-radius: 1rem;
+  margin: 2rem auto 0;
+  max-width: var(--max);
+  overflow: hidden;
+}
+
+.embedded-html-article .article-cover-image img {
+  aspect-ratio: 16 / 9;
+  display: block;
+  height: auto;
+  object-fit: cover;
+  width: 100%;
+}
+
+.embedded-html-article .article-cover-image figcaption {
+  color: var(--gray-500);
+  font-size: 0.82rem;
+  line-height: 1.6;
+  padding: 0.8rem 1rem;
+}
+
 .embedded-html-article .eyebrow {
   align-items: center;
   color: var(--red);
