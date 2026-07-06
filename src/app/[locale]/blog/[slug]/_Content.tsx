@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { usePathname } from "@/i18n/routing";
 import { Link } from "@/i18n/routing";
@@ -75,6 +75,18 @@ function renderItalic(text: string, baseKey: number): React.ReactNode {
   return parts.length === 1 ? parts[0] : <>{parts}</>;
 }
 
+function extractEmbeddedArticleBody(html: string): string {
+  const bodyMatch = html.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+  const body = bodyMatch?.[1] ?? html;
+
+  return body
+    .replace(/<script\b[\s\S]*?<\/script>/gi, "")
+    .replace(/<style\b[\s\S]*?<\/style>/gi, "")
+    .replace(/<link\b[^>]*>/gi, "")
+    .replace(/<meta\b[^>]*>/gi, "")
+    .replace(/<title\b[\s\S]*?<\/title>/gi, "");
+}
+
 export default function BlogPostPage() {
   const t = useTranslations("blog");
   const tc = useTranslations("common");
@@ -92,6 +104,10 @@ export default function BlogPostPage() {
   const postCategory = getLocalized(post.category, locale);
   const postReadTime = getLocalized(post.readTime, locale);
   const postContent = post.content ? getLocalized(post.content, locale) : postExcerpt;
+  const embeddedArticleBody = useMemo(
+    () => (post.embedHtml ? extractEmbeddedArticleBody(postContent) : ""),
+    [post.embedHtml, postContent]
+  );
 
   // Related posts: other posts (not current), take up to 3
   const relatedPosts = demoPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
@@ -117,62 +133,68 @@ export default function BlogPostPage() {
         <GlassBreadcrumb backHref="/blog" backLabel={tc("back")} current={t("title")} />
       </div>
 
-      {/* Article Header */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-8">
-        <div className="flex items-center gap-3 mb-4">
-          <span className={cn(
-            "inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium",
-            categoryColors[postCategory] || "bg-gray-100 text-gray-600"
-          )}>
-            <Tag className="w-3 h-3" />
-            {postCategory}
-          </span>
-          <span className="text-sm text-gray-400 flex items-center gap-1">
-            <Calendar className="w-3.5 h-3.5" />
-            {t("publishedOn")} {formatDate(post.date)}
-          </span>
-          <span className="text-sm text-gray-400 flex items-center gap-1">
-            <Clock className="w-3.5 h-3.5" />
-            {postReadTime}
-          </span>
-        </div>
+      {!post.embedHtml && (
+        <>
+          {/* Article Header */}
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-8">
+            <div className="flex items-center gap-3 mb-4">
+              <span className={cn(
+                "inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium",
+                categoryColors[postCategory] || "bg-gray-100 text-gray-600"
+              )}>
+                <Tag className="w-3 h-3" />
+                {postCategory}
+              </span>
+              <span className="text-sm text-gray-400 flex items-center gap-1">
+                <Calendar className="w-3.5 h-3.5" />
+                {t("publishedOn")} {formatDate(post.date)}
+              </span>
+              <span className="text-sm text-gray-400 flex items-center gap-1">
+                <Clock className="w-3.5 h-3.5" />
+                {postReadTime}
+              </span>
+            </div>
 
-        <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight">
-          {postTitle}
-        </h1>
+            <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight">
+              {postTitle}
+            </h1>
 
-        {/* Share */}
-        <div className="mt-4 flex items-center gap-2">
-          <button
-            onClick={handleShare}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm text-gray-500 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors"
-          >
-            <Share2 className="w-4 h-4" />
-            {shareLabel}
-          </button>
-        </div>
-      </div>
+            {/* Share */}
+            <div className="mt-4 flex items-center gap-2">
+              <button
+                onClick={handleShare}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm text-gray-500 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors"
+              >
+                <Share2 className="w-4 h-4" />
+                {shareLabel}
+              </button>
+            </div>
+          </div>
 
-      {/* Cover Image */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative w-full h-64 sm:h-80 rounded-xl overflow-hidden bg-gray-100">
-          <Image
-            src={post.image}
-            alt={postTitle}
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
-      </div>
+          {/* Cover Image */}
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="relative w-full h-64 sm:h-80 rounded-xl overflow-hidden bg-gray-100">
+              <Image
+                src={post.image}
+                alt={postTitle}
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+          </div>
+        </>
+      )}
 
       {/* Article Body */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div className={cn(
+        "max-w-4xl mx-auto px-4 sm:px-6 lg:px-8",
+        post.embedHtml ? "pt-6 pb-10" : "py-10"
+      )}>
         {post.embedHtml ? (
-          <iframe
-            title={postTitle}
-            srcDoc={postContent}
-            className="h-[3600px] w-full border-0"
+          <article
+            className="embedded-html-article"
+            dangerouslySetInnerHTML={{ __html: embeddedArticleBody }}
           />
         ) : (
         <article className="prose prose-gray max-w-none prose-headings:font-semibold prose-h2:text-xl prose-h3:text-lg prose-a:text-primary">
