@@ -20,7 +20,7 @@ const jsonLd = {
   name: BRAND_NAME,
   description:
     "Premium Japanese used vehicle sales and global export service from Saitama, Japan.",
-  url: BASE_URL,
+  url: `${BASE_URL}/en`,
   logo: `${BASE_URL}/images/clickcar-logo.png`,
   telephone: "+81-49-257-4332",
   address: {
@@ -52,17 +52,28 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
+  const isDefaultLocale = locale === routing.defaultLocale;
+  const canonicalUrl = isDefaultLocale ? `${BASE_URL}/${locale}` : `${BASE_URL}/${routing.defaultLocale}`;
+
   return {
     title: t("title"),
     description: t("description"),
-    openGraph: { title: t("title"), description: t("description"), url: `${BASE_URL}/${locale}`, type: "website" },
+    openGraph: {
+      title: t("title"),
+      description: t("description"),
+      url: canonicalUrl,
+      type: "website",
+    },
     alternates: {
-      canonical: `${BASE_URL}/${locale}`,
+      canonical: canonicalUrl,
       languages: {
         ...Object.fromEntries(routing.locales.map((l) => [l, `${BASE_URL}/${l}`])),
         "x-default": `${BASE_URL}/${routing.defaultLocale}`,
       },
     },
+    robots: isDefaultLocale
+      ? { index: true, follow: true }
+      : { index: false, follow: true },
   };
 }
 

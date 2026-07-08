@@ -25,6 +25,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   for (const locale of routing.locales) {
     for (const page of staticPages) {
+      if (page.path === "" && locale !== routing.defaultLocale) {
+        continue;
+      }
+
       entries.push({
         url: `${BASE_URL}/${locale}${page.path}`,
         lastModified: now,
