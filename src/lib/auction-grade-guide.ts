@@ -81,7 +81,7 @@ function renderAuctionGuide(copy: AuctionGuideCopy): string {
 </div>
 
 <figure class="article-cover-image">
-  <img src="/images/services/car-inspection.jpg" alt="${copy.imageAlt}" loading="lazy">
+  <img src="/images/blog/auction-grade-guide.svg" alt="${copy.imageAlt}" loading="lazy">
   <figcaption>${copy.imageCaption}</figcaption>
 </figure>
 
