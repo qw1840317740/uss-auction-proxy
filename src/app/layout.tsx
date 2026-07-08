@@ -23,21 +23,22 @@ export const metadata: Metadata = {
     apple: [{ url: "/apple-icon.png", type: "image/png" }],
   },
   alternates: {
-    canonical: BASE_URL,
+    canonical: `${BASE_URL}/en`,
     languages: {
-      zh: `${BASE_URL}/zh`,
       en: `${BASE_URL}/en`,
+      zh: `${BASE_URL}/zh`,
       ja: `${BASE_URL}/ja`,
+      "x-default": `${BASE_URL}/en`,
     },
   },
   openGraph: {
     title: SITE_NAME,
     description: SITE_DESCRIPTION,
     siteName: SITE_NAME,
-    url: BASE_URL,
+    url: `${BASE_URL}/en`,
     type: "website",
-    locale: "ja_JP",
-    alternateLocale: ["en_US", "zh_CN"],
+    locale: "en_US",
+    alternateLocale: ["zh_CN", "ja_JP"],
     images: [
       {
         url: "/images/clickcar-logo.png",

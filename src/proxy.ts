@@ -6,6 +6,22 @@ const intlMiddleware = createMiddleware(routing);
 
 export async function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
+  const isWwwHost = req.nextUrl.hostname === "www.clickcar.jp";
+
+  if (isWwwHost || pathname === "/") {
+    const url = req.nextUrl.clone();
+
+    if (isWwwHost) {
+      url.hostname = "clickcar.jp";
+      url.protocol = "https";
+    }
+
+    if (pathname === "/") {
+      url.pathname = `/${routing.defaultLocale}`;
+    }
+
+    return NextResponse.redirect(url, 308);
+  }
 
   // Let next-auth handle its own routes untouched
   if (pathname.startsWith("/api/auth")) {
