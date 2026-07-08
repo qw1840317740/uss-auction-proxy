@@ -643,6 +643,275 @@ html {
   color: #7f1d1d;
 }
 
+.embedded-html-article .callout-blue {
+  background: #eff6ff;
+  border-left: 3px solid #2563eb;
+  border-radius: 0 0.65rem 0.65rem 0;
+  margin: 1.35rem 0;
+  padding: 0.95rem 1.15rem;
+}
+
+.embedded-html-article .callout-blue p {
+  color: #1e3a8a;
+}
+
+.embedded-html-article .grade-stack {
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  margin: 1.45rem 0;
+}
+
+.embedded-html-article .grade-row {
+  align-items: center;
+  background: white;
+  display: grid;
+  gap: 0 1.1rem;
+  grid-template-columns: 4.5rem 1fr auto;
+  padding: 0.95rem 1.05rem;
+}
+
+.embedded-html-article .grade-badge {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 1.45rem;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+}
+
+.embedded-html-article .grade-name {
+  color: var(--black);
+  font-size: 0.92rem;
+  font-weight: 650;
+  margin-bottom: 0.2rem;
+}
+
+.embedded-html-article .grade-desc {
+  color: var(--gray-500);
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
+.embedded-html-article .grade-pill {
+  border-radius: 0.25rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  padding: 0.22rem 0.6rem;
+  white-space: nowrap;
+}
+
+.embedded-html-article .g-s,
+.embedded-html-article .g-6 {
+  color: #15803d;
+}
+
+.embedded-html-article .g-5 {
+  color: #65a30d;
+}
+
+.embedded-html-article .g-45 {
+  color: #ca8a04;
+}
+
+.embedded-html-article .g-4 {
+  color: var(--amber);
+}
+
+.embedded-html-article .g-35 {
+  color: #ea580c;
+}
+
+.embedded-html-article .g-3,
+.embedded-html-article .g-r,
+.embedded-html-article .g-ra {
+  color: var(--red);
+}
+
+.embedded-html-article .g-x {
+  color: var(--gray-500);
+}
+
+.embedded-html-article .pill-s,
+.embedded-html-article .pill-6 {
+  background: #f0fdf4;
+  color: #15803d;
+}
+
+.embedded-html-article .pill-5 {
+  background: #f7fee7;
+  color: #4d7c0f;
+}
+
+.embedded-html-article .pill-45,
+.embedded-html-article .pill-4 {
+  background: #fffbeb;
+  color: #92400e;
+}
+
+.embedded-html-article .pill-35 {
+  background: #fff7ed;
+  color: #9a3412;
+}
+
+.embedded-html-article .pill-3,
+.embedded-html-article .pill-r {
+  background: #fef2f2;
+  color: #7f1d1d;
+}
+
+.embedded-html-article .pill-ra {
+  background: #fce7f3;
+  color: #831843;
+}
+
+.embedded-html-article .pill-x {
+  background: var(--gray-100);
+  color: var(--gray-500);
+}
+
+.embedded-html-article .two-col {
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  display: grid;
+  gap: 1px;
+  grid-template-columns: 1fr 1fr;
+  margin: 1.45rem 0;
+}
+
+.embedded-html-article .col-block {
+  background: white;
+}
+
+.embedded-html-article .col-header {
+  background: var(--black);
+  color: white;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  padding: 0.65rem 1rem;
+  text-transform: uppercase;
+}
+
+.embedded-html-article .ie-row {
+  align-items: flex-start;
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  gap: 0.7rem;
+  padding: 0.72rem 1rem;
+}
+
+.embedded-html-article .ie-row:last-child {
+  border-bottom: 0;
+}
+
+.embedded-html-article .ie-letter {
+  color: var(--black);
+  flex: 0 0 1.4rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 1rem;
+  font-weight: 650;
+}
+
+.embedded-html-article .ie-desc {
+  color: var(--gray-700);
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+.embedded-html-article .defect-grid {
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr));
+  margin: 1.45rem 0;
+}
+
+.embedded-html-article .defect-cell {
+  background: white;
+  padding: 0.8rem 0.95rem;
+}
+
+.embedded-html-article .defect-code {
+  color: var(--red);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.84rem;
+  margin-bottom: 0.25rem;
+}
+
+.embedded-html-article .defect-meaning {
+  color: var(--gray-700);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.embedded-html-article .matrix {
+  border-collapse: collapse;
+  font-size: 0.84rem;
+  margin: 1.45rem 0;
+  width: 100%;
+}
+
+.embedded-html-article .matrix th {
+  border-bottom: 2px solid var(--black);
+  color: var(--gray-500);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  padding: 0.6rem 0.65rem;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.embedded-html-article .matrix td {
+  border-bottom: 1px solid var(--rule);
+  color: var(--gray-700);
+  padding: 0.7rem 0.65rem;
+  vertical-align: middle;
+}
+
+.embedded-html-article .matrix td:first-child {
+  color: var(--black);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-weight: 600;
+}
+
+.embedded-html-article .mc-best,
+.embedded-html-article .mc-good,
+.embedded-html-article .mc-ok,
+.embedded-html-article .mc-pass {
+  border-radius: 0.25rem;
+  display: inline-block;
+  font-size: 0.76rem;
+  font-weight: 650;
+  padding: 0.18rem 0.5rem;
+  white-space: nowrap;
+}
+
+.embedded-html-article .mc-best {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.embedded-html-article .mc-good {
+  background: #fef9c3;
+  color: #854d0e;
+}
+
+.embedded-html-article .mc-ok {
+  background: #fef2f2;
+  color: #991b1b;
+}
+
+.embedded-html-article .mc-pass {
+  background: var(--gray-100);
+  color: var(--gray-500);
+}
+
 .embedded-html-article .step-list {
   margin: 1rem 0 0;
 }
@@ -864,6 +1133,24 @@ html {
   }
 
   .embedded-html-article .summary-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .embedded-html-article .grade-row {
+    grid-template-columns: 3.25rem 1fr;
+  }
+
+  .embedded-html-article .grade-pill {
+    display: none;
+  }
+
+  .embedded-html-article .two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .embedded-html-article .matrix {
     display: block;
     overflow-x: auto;
     white-space: nowrap;

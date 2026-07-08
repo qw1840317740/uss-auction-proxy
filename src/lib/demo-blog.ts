@@ -1,6 +1,7 @@
 // Blog posts data — updated 2026-06-12
 // Get a localized string from either a plain string or a {zh,en,ja} map
 import { odometerFraudGuideHtml } from "./odometer-fraud-guide";
+import { auctionGradeGuideHtml } from "./auction-grade-guide";
 
 export type LocalizedText = string | Record<string, string>;
 
@@ -23,6 +24,26 @@ export interface BlogPostData {
 }
 
 export const demoPosts: BlogPostData[] = [
+  {
+    slug: "japan-auction-grade-guide",
+    title: {
+      zh: "日本中古车拍卖评级完整解说",
+      en: "Japanese Used Car Auction Grades Explained",
+      ja: "日本中古車オークション評価の完全ガイド",
+    },
+    excerpt: {
+      zh: "一次看懂日本拍卖表中的 S、6、5、4.5、R、RA、外观A-E、内装A-E和瑕疵符号，判断车况是否值得竞标。",
+      en: "A practical guide to S, 6, 5, 4.5, R, RA, exterior A-E, interior A-E, and defect symbols on Japanese auction sheets.",
+      ja: "S、6、5、4.5、R、RA、外装A-E、内装A-E、瑕疵記号まで、日本のオークション評価を実用的に解説します。",
+    },
+    category: { zh: "购车指南", en: "Guide", ja: "購入ガイド" },
+    date: "2026-07-08",
+    readTime: { zh: "7分钟阅读", en: "7 min read", ja: "7分で読める" },
+    color: "bg-red-600",
+    image: "/images/services/car-inspection.jpg",
+    embedHtml: true,
+    content: auctionGradeGuideHtml,
+  },
   {
     slug: "odometer-fraud-guide",
     title: {
