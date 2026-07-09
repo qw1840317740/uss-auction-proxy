@@ -13,6 +13,9 @@ import {
   Share2,
   Clock,
   ArrowRight,
+  Copy,
+  MessageCircle,
+  Send,
 } from "lucide-react";
 import Image from "next/image";
 
@@ -32,6 +35,45 @@ const categoryColors: Record<string, string> = {
   "JDM Culture": "bg-red-100 text-red-700",
   "JDM文化": "bg-red-100 text-red-700",
 };
+
+const shareCopyByLocale = {
+  en: {
+    share: "Share article",
+    native: "Share",
+    facebook: "Facebook",
+    x: "X",
+    instagram: "Instagram",
+    whatsapp: "WhatsApp",
+    line: "LINE",
+    copy: "Copy link",
+    copied: "Link copied",
+    instagramCopied: "Link copied for Instagram",
+  },
+  zh: {
+    share: "分享文章",
+    native: "分享",
+    facebook: "Facebook",
+    x: "X",
+    instagram: "Instagram",
+    whatsapp: "WhatsApp",
+    line: "LINE",
+    copy: "复制链接",
+    copied: "链接已复制",
+    instagramCopied: "已复制，可粘贴到 Instagram",
+  },
+  ja: {
+    share: "記事を共有",
+    native: "共有",
+    facebook: "Facebook",
+    x: "X",
+    instagram: "Instagram",
+    whatsapp: "WhatsApp",
+    line: "LINE",
+    copy: "リンクをコピー",
+    copied: "リンクをコピーしました",
+    instagramCopied: "Instagram用にリンクをコピーしました",
+  },
+} as const;
 
 // Inline markdown renderer: **bold** and *italic*
 function renderInline(text: string): React.ReactNode {
@@ -111,20 +153,143 @@ export default function BlogPostPage() {
 
   // Related posts: other posts (not current), take up to 3
   const relatedPosts = demoPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
+  const shareCopy =
+    shareCopyByLocale[locale as keyof typeof shareCopyByLocale] ?? shareCopyByLocale.en;
+  const localizedPathname =
+    pathname === `/${locale}` || pathname.startsWith(`/${locale}/`)
+      ? pathname
+      : `/${locale}${pathname.startsWith("/") ? pathname : `/${pathname}`}`;
+  const shareUrl = `https://clickcar.jp${localizedPathname}`;
+  const encodedShareUrl = encodeURIComponent(shareUrl);
+  const encodedShareText = encodeURIComponent(postTitle);
+  const encodedMessage = encodeURIComponent(`${postTitle} ${shareUrl}`);
+  const shareIconClass =
+    "inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-700 shadow-sm transition hover:-translate-y-0.5 hover:border-red-200 hover:bg-red-50 hover:text-red-600 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-red-500/30";
 
-  const handleShare = async () => {
-    const url = `${window.location.origin}${pathname}`;
+  const updateShareLabel = (label: string) => {
+    setShareLabel(label);
+    window.setTimeout(() => setShareLabel(t("share")), 2000);
+  };
+
+  const copyShareUrl = async (label: string = shareCopy.copied) => {
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+    } catch {
+      // Some in-app browsers block clipboard access; keep the UI response calm.
+    }
+    updateShareLabel(label);
+  };
+
+  const handleNativeShare = async () => {
     if (navigator.share) {
       try {
-        await navigator.share({ title: postTitle, url });
-      } catch {
+        await navigator.share({ title: postTitle, text: postExcerpt, url: shareUrl });
+        return;
+      } catch (error) {
+        if ((error as Error).name === "AbortError") return;
         // user cancelled
       }
-    } else {
-      await navigator.clipboard.writeText(url);
-      setShareLabel(t("linkCopied"));
-      setTimeout(() => setShareLabel(t("share")), 2000);
     }
+    await copyShareUrl();
+  };
+
+  const handleInstagramShare = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: postTitle, text: postExcerpt, url: shareUrl });
+        return;
+      } catch (error) {
+        if ((error as Error).name === "AbortError") return;
+      }
+    }
+    await copyShareUrl(shareCopy.instagramCopied);
+  };
+
+  const renderSharePanel = () => {
+    return (
+      <div className="mt-5 rounded-2xl border border-gray-200/80 bg-white/90 p-3 shadow-[0_18px_45px_rgba(17,24,39,0.08)] backdrop-blur">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex min-w-0 items-center gap-3">
+            <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gray-950 text-white shadow-sm">
+              <Share2 className="h-4 w-4" />
+            </span>
+            <div className="min-w-0">
+              <p className="text-sm font-semibold text-gray-950">{shareCopy.share}</p>
+              <p className="truncate text-xs text-gray-500">{shareLabel}</p>
+            </div>
+          </div>
+          <div className="flex flex-wrap items-center gap-2">
+            <button
+              type="button"
+              onClick={handleNativeShare}
+              className={shareIconClass}
+              aria-label={shareCopy.native}
+              title={shareCopy.native}
+            >
+              <Send className="h-4 w-4" />
+            </button>
+            <a
+              href={`https://www.facebook.com/sharer/sharer.php?u=${encodedShareUrl}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={shareIconClass}
+              aria-label={shareCopy.facebook}
+              title={shareCopy.facebook}
+            >
+              <span className="text-base font-bold leading-none">f</span>
+            </a>
+            <a
+              href={`https://twitter.com/intent/tweet?url=${encodedShareUrl}&text=${encodedShareText}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={shareIconClass}
+              aria-label={shareCopy.x}
+              title={shareCopy.x}
+            >
+              <span className="text-sm font-semibold leading-none">X</span>
+            </a>
+            <button
+              type="button"
+              onClick={handleInstagramShare}
+              className={shareIconClass}
+              aria-label={shareCopy.instagram}
+              title={shareCopy.instagram}
+            >
+              <span className="text-[11px] font-black uppercase leading-none tracking-tight">IG</span>
+            </button>
+            <a
+              href={`https://api.whatsapp.com/send?text=${encodedMessage}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={shareIconClass}
+              aria-label={shareCopy.whatsapp}
+              title={shareCopy.whatsapp}
+            >
+              <MessageCircle className="h-4 w-4" />
+            </a>
+            <a
+              href={`https://social-plugins.line.me/lineit/share?url=${encodedShareUrl}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={shareIconClass}
+              aria-label={shareCopy.line}
+              title={shareCopy.line}
+            >
+              <span className="text-[10px] font-black uppercase leading-none tracking-tight">LINE</span>
+            </a>
+            <button
+              type="button"
+              onClick={() => copyShareUrl()}
+              className={shareIconClass}
+              aria-label={shareCopy.copy}
+              title={shareCopy.copy}
+            >
+              <Copy className="h-4 w-4" />
+            </button>
+          </div>
+        </div>
+      </div>
+    );
   };
 
   return (
@@ -159,16 +324,7 @@ export default function BlogPostPage() {
               {postTitle}
             </h1>
 
-            {/* Share */}
-            <div className="mt-4 flex items-center gap-2">
-              <button
-                onClick={handleShare}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm text-gray-500 hover:text-primary hover:bg-primary/5 rounded-lg transition-colors"
-              >
-                <Share2 className="w-4 h-4" />
-                {shareLabel}
-              </button>
-            </div>
+            {renderSharePanel()}
           </div>
 
           {/* Cover Image */}
@@ -184,6 +340,12 @@ export default function BlogPostPage() {
             </div>
           </div>
         </>
+      )}
+
+      {post.embedHtml && (
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-5">
+          {renderSharePanel()}
+        </div>
       )}
 
       {/* Article Body */}
