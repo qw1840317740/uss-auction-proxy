@@ -26,6 +26,8 @@ import {
   Users,
   Zap,
   Droplet,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import Image from "next/image";
 import { demoVehicles, getVehicleText, getVehicleList } from "@/lib/demo-vehicles";
@@ -79,6 +81,13 @@ export default function VehicleDetailPage({
   const highlights = getVehicleList(vehicle.highlights, locale);
   const description = getVehicleText(vehicle.description, locale);
 
+  const goPrev = () => setActiveImg((i) => (i - 1 + images.length) % images.length);
+  const goNext = () => setActiveImg((i) => (i + 1) % images.length);
+  const onGalleryKey = (e: React.KeyboardEvent) => {
+    if (e.key === "ArrowLeft") { e.preventDefault(); goPrev(); }
+    else if (e.key === "ArrowRight") { e.preventDefault(); goNext(); }
+  };
+
   // Estimated total price (body + ~10% fees)
   const totalPrice = vehicle.price + Math.round(vehicle.price * 0.1);
 
@@ -104,8 +113,13 @@ export default function VehicleDetailPage({
           {/* ============================================================ */}
           <div className="lg:col-span-2 space-y-6">
             {/* ---------- Image gallery ---------- */}
-            <div className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
-              <div className="relative aspect-[16/9] overflow-hidden bg-gray-100">
+            <div
+              className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden"
+              tabIndex={0}
+              onKeyDown={onGalleryKey}
+              aria-roledescription="image-carousel"
+            >
+              <div className="relative aspect-[16/9] overflow-hidden bg-gray-100 group">
                 <Image
                   src={images[activeImg]}
                   alt={`${vehicle.year} ${vehicle.make} ${vehicle.model}`}
@@ -114,9 +128,30 @@ export default function VehicleDetailPage({
                   priority
                 />
                 {/* Photo counter */}
-                <div className="absolute bottom-3 right-3 bg-black/60 text-white text-xs px-2.5 py-1 rounded-full font-mono">
+                <div className="absolute bottom-3 right-3 bg-black/60 text-white text-xs px-2.5 py-1 rounded-full font-mono pointer-events-none">
                   {activeImg + 1} / {images.length}
                 </div>
+                {/* Prev / Next buttons */}
+                {images.length > 1 && (
+                  <>
+                    <button
+                      type="button"
+                      onClick={goPrev}
+                      aria-label="Previous image"
+                      className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 bg-white/85 hover:bg-white text-gray-700 hover:text-primary rounded-full flex items-center justify-center shadow-md backdrop-blur-sm transition-all opacity-80 group-hover:opacity-100 focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-primary"
+                    >
+                      <ChevronLeft className="h-5 w-5" />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={goNext}
+                      aria-label="Next image"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 bg-white/85 hover:bg-white text-gray-700 hover:text-primary rounded-full flex items-center justify-center shadow-md backdrop-blur-sm transition-all opacity-80 group-hover:opacity-100 focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-primary"
+                    >
+                      <ChevronRight className="h-5 w-5" />
+                    </button>
+                  </>
+                )}
                 {/* Action buttons */}
                 <div className="absolute top-4 right-4 flex gap-2">
                   <button
