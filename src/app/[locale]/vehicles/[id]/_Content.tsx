@@ -88,6 +88,46 @@ export default function VehicleDetailPage({
     else if (e.key === "ArrowRight") { e.preventDefault(); goNext(); }
   };
 
+  const handleShare = async () => {
+    const url = typeof window !== "undefined" ? window.location.href : "";
+    const title = `${vehicle.year} ${vehicle.make} ${vehicle.model}`;
+    try {
+      if (typeof navigator !== "undefined" && typeof navigator.share === "function") {
+        await navigator.share({ title, url });
+        return;
+      }
+    } catch {
+      // user cancelled or share failed → fall through to clipboard
+    }
+    try {
+      if (typeof navigator !== "undefined" && navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(url);
+        setToast({ msg: vt("linkCopied"), saved: true });
+        if (toastTimeoutRef.current) window.clearTimeout(toastTimeoutRef.current);
+        toastTimeoutRef.current = window.setTimeout(() => setToast(null), 2500);
+        return;
+      }
+    } catch {
+      // clipboard blocked (insecure context / permissions) → last-resort fallback below
+    }
+    // Last-resort fallback: temporary textarea + execCommand for older / insecure contexts
+    try {
+      const ta = document.createElement("textarea");
+      ta.value = url;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      document.body.removeChild(ta);
+      setToast({ msg: vt("linkCopied"), saved: true });
+      if (toastTimeoutRef.current) window.clearTimeout(toastTimeoutRef.current);
+      toastTimeoutRef.current = window.setTimeout(() => setToast(null), 2500);
+    } catch {
+      // give up silently
+    }
+  };
+
   // Estimated total price (body + ~10% fees)
   const totalPrice = vehicle.price + Math.round(vehicle.price * 0.1);
 
@@ -160,7 +200,12 @@ export default function VehicleDetailPage({
                   >
                     <Heart className="h-5 w-5" fill={isFavorite(vehicle.id) ? "currentColor" : "none"} />
                   </button>
-                  <button className="w-10 h-10 bg-white/90 rounded-full flex items-center justify-center text-gray-600 hover:text-primary shadow-sm">
+                  <button
+                    type="button"
+                    onClick={handleShare}
+                    aria-label={vt("share")}
+                    className="w-10 h-10 bg-white/90 rounded-full flex items-center justify-center text-gray-600 hover:text-primary shadow-sm"
+                  >
                     <Share2 className="h-5 w-5" />
                   </button>
                 </div>
