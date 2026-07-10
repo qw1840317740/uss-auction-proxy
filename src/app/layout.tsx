@@ -1,4 +1,5 @@
 ﻿import { Analytics } from "@vercel/analytics/next";
+import Script from "next/script";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -6,6 +7,7 @@ const BASE_URL = "https://clickcar.jp";
 const SITE_NAME = "ClickCar";
 const SITE_DESCRIPTION =
   "ClickCar provides premium Japanese used vehicle sales and global export support from Saitama, Japan.";
+const GA_MEASUREMENT_ID = "G-0V53BE2HH9";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
@@ -68,6 +70,19 @@ export default function RootLayout({
   return (
     <>
       {children}
+      {/* Google Analytics 4 — gtag.js. Loads after hydration so it doesn't block FCP. */}
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+        strategy="afterInteractive"
+      />
+      <Script id="ga4-init" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${GA_MEASUREMENT_ID}');
+        `}
+      </Script>
       <Analytics />
     </>
   );
