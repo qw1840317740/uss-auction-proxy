@@ -36,7 +36,80 @@ export interface Vehicle {
   description: Record<string, string>;
 }
 
-export const demoVehicles: Vehicle[] = [];
+export const demoVehicles: Vehicle[] = [
+  {
+    id: "alphard-40-2025-09",
+    make: "Toyota",
+    model: "Alphard",
+    year: 2025,
+    mileage: 4012,
+    displacement: "2,487cc",
+    fuel: "Gasoline",
+    transmission: "AT",
+    drive: "2WD",
+    exteriorColor: "Pearl White (089)",
+    bodyType: "Minivan",
+    price: 7980000,
+    status: "available",
+    images: [
+      "/images/cars/alphard-1-front-left.jpg",
+      "/images/cars/alphard-2-front-right.jpg",
+      "/images/cars/alphard-3-rear.jpg",
+      "/images/cars/alphard-4-cabin-dashboard.jpg",
+      "/images/cars/alphard-5-rear-side.jpg",
+      "/images/cars/alphard-6-meter-4015km.jpg",
+    ],
+    features: [
+      "14-inch Alpine Navi with GT",
+      "Panoramic View Monitor",
+      "Power Back Door",
+      "Digital Inner Mirror",
+      "Leather Seats",
+      "Advanced Park (Advanced Parking Assist)",
+      "Flip-down Monitor (Rear Seat Entertainment)",
+      "ETC",
+      "Drive Recorder",
+      "One Owner",
+    ],
+    inspection: "2028/09",
+    repairHistory: "none",
+    region: "高知県",
+    doors: 5,
+    seats: 7,
+    dimensions: "4,990×1,850×1,935mm",
+    weight: "2,090kg",
+    maxPower: "190ps / 6,000rpm",
+    fuelEconomy: "10.6km/L",
+    highlights: {
+      zh: [
+        "令和7年(2025年)9月初度登録，准新 Alphard 40系",
+        "珍珠白外 / 黑色真皮内饰，仅行驶 4,012 km",
+        "14寸 Alpine GT 导航 + 全景影像 + 数字内后视镜",
+        "Advanced Park 自动泊车 + 电动后门 + 后排吸顶屏",
+        "ワンオーナー（单一前任车主），新车保证书可继承",
+      ],
+      en: [
+        "First registered Sep 2025 (Reiwa 7), near-new 40-series Alphard",
+        "Pearl White over Black leather, only 4,012 km",
+        "14-inch Alpine GT navi + Panoramic View + Digital Inner Mirror",
+        "Advanced Park + Power Back Door + Rear-seat Flip-down Monitor",
+        "Single previous owner, factory warranty book transferable",
+      ],
+      ja: [
+        "令和7年9月初度登録、走行4,012kmの準新车アルファード40系",
+        "パールホワイト×ブラック本革シート",
+        "14インチ Alpine GT ナビ＋パノラミックビュー＋デジタルインナーミラー",
+        "アドバンストパーク＋パワーバックドア＋フリップダウンモニター",
+        "ワンオーナー、新車保証書継承可能",
+      ],
+    },
+    description: {
+      zh: "令和7年(2025年)9月初度登錄的 Toyota Alphard 40系（3BA-AGH40W），高知県出品。珍珠白外觀搭配黑色真皮內裝，行駛僅 4,012 km，幾乎是準新車狀態。配置涵蓋 14 寸 Alpine GT 導航、全景影像、數位內後視鏡、Advanced Park 自動泊車、電動後門、後排吸頂螢幕、行車記錄器與 ETC。单一前任車主，新車保証書可繼承，是市場上極少數低里程、高規格的 40 系 Alphard 庫存。",
+      en: "Toyota Alphard 40-series (3BA-AGH40W), first registered September 2025 (Reiwa 7), listed from Kochi Prefecture. Pearl White over Black leather with just 4,012 km on the odometer — essentially a near-new unit. Equipment includes a 14-inch Alpine GT navigation system, Panoramic View Monitor, Digital Inner Mirror, Advanced Park (auto-parking), Power Back Door, rear-seat flip-down monitor, drive recorder and ETC. Single previous owner with transferable factory warranty book — one of the rare low-mileage, high-spec 40-series Alphards currently on the market.",
+      ja: "令和7年（2025年）9月初度登録、トヨタ アルファード40系（3BA-AGH40W）、高知県出品車。パールホワイトにブラック本革シート、走行距離はわずか4,012kmの準新车。14インチ Alpine GTナビ、パノラミックビューモニター、デジタルインナーミラー、アドバンストパーク、パワーバックドア、フリップダウンモニター、ドラレコ、ETCを装備。ワンオーナー、新車保証書も継承可能という、市場でも希少な低走行・高仕様の一台です。",
+    },
+  },
+];
 
 export const archivedDemoVehicles: Vehicle[] = [
   {
