@@ -1,5 +1,5 @@
-﻿import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
+import { getTranslations, getLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { HeroSection } from "@/components/home/HeroSection";
 import { HomeSearchBar } from "@/components/home/HomeSearchBar";
@@ -10,40 +10,10 @@ import { VehicleShowcase } from "@/components/home/VehicleShowcase";
 import { BlogSection } from "@/components/home/BlogSection";
 import { FAQSection } from "@/components/home/FAQSection";
 import { CTASection } from "@/components/home/CTASection";
-
-const BASE_URL = "https://clickcar.jp";
-const BRAND_NAME = "ClickCar";
-
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "AutoDealer",
-  name: BRAND_NAME,
-  description:
-    "Premium Japanese used vehicle sales and global export service from Saitama, Japan.",
-  url: `${BASE_URL}/en`,
-  logo: `${BASE_URL}/images/clickcar-logo.png`,
-  telephone: "+81-49-257-4332",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "200-2 Kitanagaido",
-    addressLocality: "Miyoshi-machi",
-    addressRegion: "Saitama",
-    postalCode: "354-0045",
-    addressCountry: "JP",
-  },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: 35.8326,
-    longitude: 139.5197,
-  },
-  openingHoursSpecification: {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-    opens: "09:00",
-    closes: "18:00",
-  },
-  priceRange: "$$",
-};
+import { JsonLdOrganization } from "@/components/seo/JsonLdOrganization";
+import { JsonLdWebSite } from "@/components/seo/JsonLdWebSite";
+import { JsonLdAutoDealer } from "@/components/seo/JsonLdAutoDealer";
+import { siteConfig, localizedHreflangLanguages } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -53,11 +23,14 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
   const isDefaultLocale = locale === routing.defaultLocale;
-  const canonicalUrl = isDefaultLocale ? `${BASE_URL}/${locale}` : `${BASE_URL}/${routing.defaultLocale}`;
+  const canonicalUrl = isDefaultLocale
+    ? `${siteConfig.baseUrl}/${locale}`
+    : `${siteConfig.baseUrl}/${routing.defaultLocale}`;
 
   return {
     title: t("title"),
     description: t("description"),
+    keywords: t.has("keywords") ? (t.raw("keywords") as string[]) : undefined,
     openGraph: {
       title: t("title"),
       description: t("description"),
@@ -66,10 +39,7 @@ export async function generateMetadata({
     },
     alternates: {
       canonical: canonicalUrl,
-      languages: {
-        ...Object.fromEntries(routing.locales.map((l) => [l, `${BASE_URL}/${l}`])),
-        "x-default": `${BASE_URL}/${routing.defaultLocale}`,
-      },
+      languages: localizedHreflangLanguages(locale, ""),
     },
     robots: isDefaultLocale
       ? { index: true, follow: true }
@@ -78,12 +48,19 @@ export async function generateMetadata({
 }
 
 export default function HomePage() {
+  // We need locale here, but HomePage is a server component receiving no props.
+  // Use `headers()` to read x-locale? Simpler: rely on the parent [locale] layout,
+  // and call the locale-aware JsonLd components by reading headers() — but that
+  // adds complexity. Instead, render the locale-agnostic JSON-LD here and let
+  // the locale-specific JSON-LD (Organization is locale-agnostic; WebSite uses locale
+  // for SearchAction; AutoDealer uses locale for url) be inserted by a wrapper.
+  //
+  // To keep this file simple, we render a locale-agnostic Organization plus a
+  // locale-aware WebSite+AutoDealer pair via a server-side wrapper.
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLdOrganization />
+      <HomePageStructuredData />
       <HeroSection />
       <HomeSearchBar />
       <BrandShowcase />
@@ -102,6 +79,18 @@ export default function HomePage() {
         <FAQSection />
       </div>
       <CTASection />
+    </>
+  );
+}
+
+// Server component wrapper that reads the active locale from next-intl and
+// emits locale-aware structured data (WebSite + AutoDealer).
+async function HomePageStructuredData() {
+  const locale = await getLocale();
+  return (
+    <>
+      <JsonLdWebSite locale={locale} />
+      <JsonLdAutoDealer locale={locale} />
     </>
   );
 }

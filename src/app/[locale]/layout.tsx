@@ -7,6 +7,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Providers } from "@/components/providers/Providers";
 import { Geist, Geist_Mono } from "next/font/google";
 import type { Metadata } from "next";
+import { buildCanonical, getOgLocale, localizedHreflangLanguages } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -15,23 +16,20 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
-  const baseUrl = "https://clickcar.jp";
 
   return {
     title: t("title"),
     description: t("description"),
+    keywords: t.has("keywords") ? (t.raw("keywords") as string[]) : undefined,
     alternates: {
-      canonical: `${baseUrl}/${locale}`,
-      languages: {
-        ...Object.fromEntries(routing.locales.map((item) => [item, `${baseUrl}/${item}`])),
-        "x-default": `${baseUrl}/${routing.defaultLocale}`,
-      },
+      canonical: buildCanonical(locale, ""),
+      languages: localizedHreflangLanguages(locale, ""),
     },
     openGraph: {
       title: t("title"),
       description: t("description"),
-      url: `${baseUrl}/${locale}`,
-      locale: locale === "zh" ? "zh_CN" : locale === "ja" ? "ja_JP" : "en_US",
+      url: buildCanonical(locale, ""),
+      locale: getOgLocale(locale),
     },
   };
 }

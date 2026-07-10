@@ -1,9 +1,25 @@
 {
   "metadata": {
     "title": "ClickCar（クリックカー） — Premium Japanese Used Cars & Global Export",
-    "description": "Quality Japanese used vehicles exported worldwide from Saitama, Japan. Full-service support from purchase to delivery, inspection, and after-sales care."
+    "description": "Quality Japanese used vehicles exported worldwide from Saitama, Japan. Full-service support from purchase to delivery, inspection, and after-sales care.",
+    "keywords": [
+      "Japanese used cars",
+      "Japan used car export",
+      "Toyota used car",
+      "Honda used car",
+      "Nissan used car",
+      "Japanese vehicle export",
+      "Saitama car dealer",
+      "USS auction proxy",
+      "import car from Japan",
+      "export car from Japan"
+    ]
   },
   "seo": {
+    "home": {
+      "title": "Premium Japanese Used Cars & Global Export | ClickCar",
+      "description": "Curated Japanese used vehicles — Toyota, Honda, Nissan and more — exported worldwide from Saitama, Japan. Inspection, documentation and shipping all handled."
+    },
     "about": {
       "title": "About Us",
       "description": "Learn about ClickCar（クリックカー）. Based in Saitama, we specialize in premium Japanese used vehicle global export."

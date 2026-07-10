@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import { routing } from "@/i18n/routing";
 import { JsonLdBreadcrumb } from "@/components/seo/JsonLdBreadcrumb";
+import { buildCanonical, localizedHreflangLanguages } from "@/lib/seo";
 import Page from "./_Content";
-
-const BASE_URL = "https://clickcar.jp";
 
 export async function generateMetadata({
   params,
@@ -16,8 +14,11 @@ export async function generateMetadata({
   return {
     title: t("title"),
     description: t("description"),
-    openGraph: { title: t("title"), description: t("description"), url: `${BASE_URL}/${locale}/blog`, type: "website" },
-    alternates: { canonical: `${BASE_URL}/${locale}/blog`, languages: Object.fromEntries(routing.locales.map((l) => [l, `${BASE_URL}/${l}/blog`])) },
+    openGraph: { title: t("title"), description: t("description"), url: buildCanonical(locale, "/blog"), type: "website" },
+    alternates: {
+      canonical: buildCanonical(locale, "/blog"),
+      languages: localizedHreflangLanguages(locale, "/blog"),
+    },
   };
 }
 

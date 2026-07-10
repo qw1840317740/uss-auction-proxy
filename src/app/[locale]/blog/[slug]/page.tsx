@@ -1,12 +1,10 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import { routing } from "@/i18n/routing";
 import { JsonLdBreadcrumb } from "@/components/seo/JsonLdBreadcrumb";
+import { JsonLdScript } from "@/components/seo/JsonLdScript";
 import { demoPosts, getLocalized } from "@/lib/demo-blog";
+import { siteConfig, buildCanonical, localizedHreflangLanguages } from "@/lib/seo";
 import Page from "./_Content";
-
-const BASE_URL = "https://clickcar.jp";
-const BRAND_NAME = "ClickCar";
 
 export async function generateMetadata({
   params,
@@ -16,7 +14,7 @@ export async function generateMetadata({
   const { locale, slug } = await params;
   const post = demoPosts.find((p) => p.slug === slug);
 
-  const title = post ? getLocalized(post.title, locale) : `${BRAND_NAME} Blog`;
+  const title = post ? getLocalized(post.title, locale) : `${siteConfig.name} Blog`;
   const description = post
     ? getLocalized(post.excerpt, locale)
     : "Latest news and insights about Japanese used car exports.";
@@ -28,15 +26,13 @@ export async function generateMetadata({
       title,
       description,
       type: "article",
-      url: `${BASE_URL}/${locale}/blog/${slug}`,
+      url: buildCanonical(locale, `/blog/${slug}`),
       ...(post?.image ? { images: [{ url: post.image, width: 1200, height: 630 }] } : {}),
       publishedTime: post?.date,
     },
     alternates: {
-      canonical: `${BASE_URL}/${locale}/blog/${slug}`,
-      languages: Object.fromEntries(
-        routing.locales.map((l) => [l, `${BASE_URL}/${l}/blog/${slug}`])
-      ),
+      canonical: buildCanonical(locale, `/blog/${slug}`),
+      languages: localizedHreflangLanguages(locale, `/blog/${slug}`),
     },
   };
 }
@@ -51,32 +47,40 @@ export default async function BlogPostPage({
   const post = demoPosts.find((p) => p.slug === slug);
 
   const articleTitle = post ? getLocalized(post.title, locale) : tBlog("title");
+  const articleExcerpt = post ? getLocalized(post.excerpt, locale) : "";
+  const articleSection = post ? getLocalized(post.category, locale) : tBlog("title");
+  const postUrl = buildCanonical(locale, `/blog/${slug}`);
+  const postDate = post?.date ?? "2026-01-01";
 
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
+    "@id": `${postUrl}#article`,
     headline: articleTitle,
-    description: post ? getLocalized(post.excerpt, locale) : "",
-    image: post?.image ?? "",
-    datePublished: post?.date ?? "2026-01-01",
-    dateModified: post?.date ?? "2026-01-01",
+    description: articleExcerpt,
+    image: post?.image ?? `${siteConfig.baseUrl}${siteConfig.logo}`,
+    articleSection,
+    inLanguage: locale,
+    datePublished: postDate,
+    dateModified: postDate,
     author: {
       "@type": "Organization",
-      name: BRAND_NAME,
-      url: BASE_URL,
+      name: siteConfig.name,
+      url: siteConfig.baseUrl,
     },
     publisher: {
       "@type": "Organization",
-      name: BRAND_NAME,
-      url: BASE_URL,
+      "@id": `${siteConfig.baseUrl}#organization`,
+      name: siteConfig.legalName,
+      url: siteConfig.baseUrl,
       logo: {
         "@type": "ImageObject",
-        url: `${BASE_URL}/images/clickcar-logo.png`,
+        url: `${siteConfig.baseUrl}${siteConfig.logo}`,
       },
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `${BASE_URL}/${locale}/blog/${slug}`,
+      "@id": postUrl,
     },
   };
 
@@ -89,10 +93,7 @@ export default async function BlogPostPage({
         ]}
         locale={locale}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLdScript data={jsonLd} />
       <Page />
     </>
   );
