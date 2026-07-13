@@ -4,6 +4,7 @@ import { JsonLdBreadcrumb } from "@/components/seo/JsonLdBreadcrumb";
 import { JsonLdScript } from "@/components/seo/JsonLdScript";
 import { demoPosts, getLocalized } from "@/lib/demo-blog";
 import { siteConfig, buildCanonical, localizedHreflangLanguages } from "@/lib/seo";
+import { notFound } from "next/navigation";
 import Page from "./_Content";
 
 export async function generateMetadata({
@@ -14,10 +15,15 @@ export async function generateMetadata({
   const { locale, slug } = await params;
   const post = demoPosts.find((p) => p.slug === slug);
 
-  const title = post ? getLocalized(post.title, locale) : `${siteConfig.name} Blog`;
-  const description = post
-    ? getLocalized(post.excerpt, locale)
-    : "Latest news and insights about Japanese used car exports.";
+  if (!post) {
+    return {
+      title: `${siteConfig.name} Blog`,
+      robots: { index: false, follow: false },
+    };
+  }
+
+  const title = getLocalized(post.title, locale);
+  const description = getLocalized(post.excerpt, locale);
 
   return {
     title,
@@ -46,11 +52,15 @@ export default async function BlogPostPage({
   const tBlog = await getTranslations({ locale, namespace: "blog" });
   const post = demoPosts.find((p) => p.slug === slug);
 
-  const articleTitle = post ? getLocalized(post.title, locale) : tBlog("title");
-  const articleExcerpt = post ? getLocalized(post.excerpt, locale) : "";
-  const articleSection = post ? getLocalized(post.category, locale) : tBlog("title");
+  if (!post) {
+    notFound();
+  }
+
+  const articleTitle = getLocalized(post.title, locale);
+  const articleExcerpt = getLocalized(post.excerpt, locale);
+  const articleSection = getLocalized(post.category, locale);
   const postUrl = buildCanonical(locale, `/blog/${slug}`);
-  const postDate = post?.date ?? "2026-01-01";
+  const postDate = post.date;
 
   const jsonLd = {
     "@context": "https://schema.org",
