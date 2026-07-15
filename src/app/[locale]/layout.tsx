@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { Providers } from "@/components/providers/Providers";
 import { Geist, Geist_Mono } from "next/font/google";
 import type { Metadata } from "next";
 import { buildCanonical, getOgLocale, localizedHreflangLanguages } from "@/lib/seo";
@@ -67,16 +66,14 @@ export default async function LocaleLayout({
     <html lang={locale} className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-white text-gray-900">
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <Providers>
-            <a href="#main-content" className="skip-link">
-              Skip to main content
-            </a>
-            <Header locale={locale} />
-            <main id="main-content" className="flex-1" tabIndex={-1}>
-              {children}
-            </main>
-            <Footer />
-          </Providers>
+          <a href="#main-content" className="skip-link">
+            Skip to main content
+          </a>
+          <Header locale={locale} />
+          <main id="main-content" className="flex-1" tabIndex={-1}>
+            {children}
+          </main>
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>

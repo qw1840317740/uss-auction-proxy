@@ -28,6 +28,7 @@ export function Logo({
         width={s.width}
         height={s.height}
         className={s.image}
+        style={{ width: "auto" }}
         priority
       />
     </span>

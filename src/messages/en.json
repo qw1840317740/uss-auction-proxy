@@ -40,6 +40,18 @@
       "title": "Japanese Used Car Export FAQ",
       "description": "Answers to common questions about buying Japanese used cars, auction sourcing, export documents, shipping, payment and delivery timelines."
     },
+    "auction": {
+      "title": "Japan Car Auction Proxy & Bidding Service",
+      "description": "Source vehicles from Japanese dealer auctions with ClickCar. We support vehicle search, auction sheet review, controlled bidding, inspection and export coordination."
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "description": "Read how ClickCar collects, uses and protects personal information submitted through our Japanese used vehicle and export services."
+    },
+    "terms": {
+      "title": "Terms of Service",
+      "description": "Review the terms that apply when using the ClickCar website, vehicle sourcing, auction support, sales and export services."
+    },
     "export": {
       "title": "Japan Used Car Export Service",
       "description": "Export Japanese used cars worldwide with ClickCar. We support sourcing, inspection, deregistration, export documents and ocean freight."
@@ -83,6 +95,7 @@
     "home": "Home",
     "vehicles": "Vehicles",
     "services": "Services",
+    "auction": "Auction Proxy",
     "export": "Export Service",
     "maintenance": "Maintenance",
     "exportGuide": "Export Guide",
@@ -115,6 +128,10 @@
     "services": {
       "title": "Our Services",
       "subtitle": "Comprehensive Japanese used car sales and export services",
+      "auctionProxy": {
+        "title": "Auction Proxy",
+        "desc": "Vehicle search, auction sheet review and buyer-controlled bidding through our Japan-based team"
+      },
       "vehicleSales": {
         "title": "Vehicle Sales",
         "desc": "Carefully selected premium Japanese used vehicles, strict inspection, transparent pricing"
@@ -245,6 +262,117 @@
     "noResults": "No vehicles found matching your criteria. Please adjust your filters."
   },
   "services": {
+    "auction": {
+      "eyebrow": "Japan Car Auction Proxy",
+      "title": "Bid at Japanese car auctions with clarity",
+      "subtitle": "Tell us the vehicle, budget and destination. We help shortlist candidates, explain the auction sheet, confirm your maximum bid and coordinate the next steps after a successful purchase.",
+      "imageAlt": "Premium vehicles available through Japanese car auction sourcing",
+      "primaryCta": "Start an Auction Request",
+      "secondaryCta": "Read the Auction Grade Guide",
+      "principles": {
+        "p1": {
+          "title": "Your maximum bid stays in your control",
+          "desc": "We only bid after the vehicle and written limit have been confirmed with you."
+        },
+        "p2": {
+          "title": "Condition is reviewed before bidding",
+          "desc": "Auction grades, repair history, defects and notes are explained before you decide."
+        },
+        "p3": {
+          "title": "Costs are separated clearly",
+          "desc": "Vehicle price, auction-related fees, inland transport and export costs are shown by item."
+        }
+      },
+      "scope": {
+        "eyebrow": "What we handle",
+        "title": "Support before, during and after the bid",
+        "subtitle": "The service is designed for buyers who want access to Japanese auction supply without making decisions from a sheet they cannot confidently interpret.",
+        "s1": {
+          "title": "Vehicle search",
+          "desc": "We search by make, model, chassis code, year, mileage, grade, equipment and budget to identify relevant auction candidates."
+        },
+        "s2": {
+          "title": "Auction sheet review",
+          "desc": "We explain the overall grade, interior and exterior ratings, repair history, inspector comments and visible defect codes."
+        },
+        "s3": {
+          "title": "Bid authorization",
+          "desc": "You approve a maximum JPY bid for a specific vehicle. We do not treat an estimate or general budget as bidding permission."
+        },
+        "s4": {
+          "title": "Post-purchase coordination",
+          "desc": "After a successful bid, we coordinate payment timing, inland transport, inspection, export documents and shipping arrangements."
+        }
+      },
+      "process": {
+        "eyebrow": "The process",
+        "title": "Six clear checkpoints from request to export",
+        "subtitle": "Each stage requires a clear decision or confirmation, so you always know what has been approved and what happens next.",
+        "step1": {
+          "title": "Share your requirements",
+          "desc": "Send the model, year range, budget, preferred condition and destination country or port."
+        },
+        "step2": {
+          "title": "Review candidates",
+          "desc": "We identify relevant vehicles and help compare specifications, condition and realistic price range."
+        },
+        "step3": {
+          "title": "Check the auction sheet",
+          "desc": "We review grades, damage marks, repair history and inspector notes before asking for a decision."
+        },
+        "step4": {
+          "title": "Confirm the bid limit",
+          "desc": "You authorize a maximum bid in writing for the exact vehicle you want us to pursue."
+        },
+        "step5": {
+          "title": "Receive the result",
+          "desc": "We report whether the vehicle was won, lost or left unsold and explain the available next step."
+        },
+        "step6": {
+          "title": "Prepare and export",
+          "desc": "For a successful purchase, we coordinate collection, inspection, documents and international shipping."
+        }
+      },
+      "costs": {
+        "eyebrow": "Cost transparency",
+        "title": "Know what the total is built from",
+        "desc": "Auction purchases involve more than the winning bid. We provide an itemized estimate before you authorize a purchase.",
+        "note": "Exact charges depend on the auction venue, vehicle location, dimensions, destination and shipping schedule. Final amounts are confirmed per vehicle.",
+        "i1": "Winning vehicle price or negotiated purchase price",
+        "i2": "Auction and proxy service fees",
+        "i3": "Inland transport from the auction venue",
+        "i4": "Inspection or preparation requested by the buyer",
+        "i5": "Export deregistration and documentation",
+        "i6": "Ocean freight, insurance and destination-specific charges"
+      },
+      "faq": {
+        "eyebrow": "Before you bid",
+        "title": "Common auction questions",
+        "q1": {
+          "q": "Can an overseas buyer bid directly at Japanese auctions?",
+          "a": "Most Japanese dealer auctions are restricted to approved members. ClickCar acts as the Japan-based intermediary and only places a bid after receiving your vehicle-specific authorization."
+        },
+        "q2": {
+          "q": "Does setting a maximum bid guarantee a purchase?",
+          "a": "No. Another bidder may exceed your limit, or the seller may set a reserve that is not reached. We will not exceed the maximum you approved."
+        },
+        "q3": {
+          "q": "Can you guarantee the condition from an auction sheet?",
+          "a": "An auction sheet is an important condition reference, not a full mechanical warranty. We explain its contents and can discuss additional inspection options when available."
+        },
+        "q4": {
+          "q": "What happens after a successful bid?",
+          "a": "We confirm the purchase result and payment schedule, then coordinate vehicle collection, any requested preparation, export documents and shipping."
+        }
+      },
+      "cta": {
+        "eyebrow": "Start with a clear brief",
+        "title": "Tell us which vehicle you are looking for",
+        "desc": "Share your model, year range, budget and destination. We will confirm what can be searched and what information is needed before bidding.",
+        "primary": "Send Vehicle Requirements",
+        "secondary": "View Current Vehicles"
+      }
+    },
     "export": {
       "title": "Export Service",
       "subtitle": "Professional global vehicle export from Japan",

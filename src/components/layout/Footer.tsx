@@ -37,6 +37,7 @@ export function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-4">{t("services")}</h3>
             <ul className="space-y-2 text-sm">
+              <li><Link href="/services/auction" className="hover:text-white transition-colors">{nav("auction")}</Link></li>
               <li><Link href="/services/export" className="hover:text-white transition-colors">{nav("export")}</Link></li>
               <li><Link href="/services/maintenance" className="hover:text-white transition-colors">{nav("maintenance")}</Link></li>
               <li><Link href="/faq" className="hover:text-white transition-colors">{nav("faq")}</Link></li>

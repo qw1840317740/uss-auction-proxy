@@ -5,17 +5,14 @@ import { Link } from "@/i18n/routing";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { MobileNav } from "./MobileNav";
 import { useState } from "react";
-import { Menu, X, Heart, LogOut } from "lucide-react";
+import { Menu, X, Heart } from "lucide-react";
 import { Logo, LogoMark } from "./Logo";
-import { useSession, signOut } from "next-auth/react";
 import { useFavorites } from "@/lib/useFavorites";
 
 export function Header({ locale }: { locale: string }) {
   const t = useTranslations("nav");
-  const { status } = useSession();
   const { favorites } = useFavorites();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const isAuthenticated = status === "authenticated";
 
   const navItems = [
     { href: "/", label: t("home") },
@@ -23,6 +20,7 @@ export function Header({ locale }: { locale: string }) {
     {
       label: t("services"),
       children: [
+        { href: "/services/auction", label: t("auction") },
         { href: "/services/export", label: t("export") },
         { href: "/services/maintenance", label: t("maintenance") },
       ],
@@ -103,25 +101,6 @@ export function Header({ locale }: { locale: string }) {
               )}
             </Link>
 
-            <div className="hidden sm:flex items-center gap-2">
-              {isAuthenticated ? (
-                <>
-                  <Link
-                    href="/dashboard"
-                    className="px-3 py-1.5 text-sm font-medium text-gray-300 transition-colors hover:text-white"
-                  >
-                    {t("dashboard")}
-                  </Link>
-                  <button
-                    onClick={() => signOut({ callbackUrl: `/${locale}` })}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-gray-300 transition-colors hover:text-red-400"
-                  >
-                    <LogOut className="w-4 h-4" />
-                    {t("logout")}
-                  </button>
-                </>
-              ) : null}
-            </div>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
               className="p-2 text-gray-300 transition-colors hover:text-white lg:hidden"

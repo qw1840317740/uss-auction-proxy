@@ -2,10 +2,11 @@
 
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
-import { Car, Ship, Wrench, ArrowRight } from "lucide-react";
+import { Car, Gavel, Ship, Wrench, ArrowRight } from "lucide-react";
 import { useScrollReveal, useStaggerReveal } from "@/lib/useScrollReveal";
 
 const services = [
+  { key: "auctionProxy", icon: Gavel, href: "/services/auction", color: "bg-red-50 text-red-600" },
   { key: "vehicleSales", icon: Car, href: "/vehicles", color: "bg-neutral-100 text-neutral-700" },
   { key: "exportService", icon: Ship, href: "/services/export", color: "bg-amber-50 text-amber-600" },
   { key: "maintenancePrep", icon: Wrench, href: "/services/maintenance", color: "bg-emerald-50 text-emerald-600" },
@@ -28,15 +29,15 @@ export function ServiceCards() {
           <p className="text-gray-500 text-lg max-w-2xl mx-auto">{t("subtitle")}</p>
         </div>
 
-        <div ref={containerRef} className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div ref={containerRef} className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
           {services.map((service, i) => (
             <Link
               key={service.key}
               href={service.href}
-              className={`reveal-stagger group bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-500 hover:-translate-y-2 ${isChildVisible(i) ? "revealed" : ""}`}
+              className={`reveal-stagger group bg-white rounded-lg p-7 shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-500 hover:-translate-y-2 ${isChildVisible(i) ? "revealed" : ""}`}
               style={{ transitionDelay: `${i * 80}ms` }}
             >
-              <div className={`w-16 h-16 rounded-2xl ${service.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+              <div className={`w-16 h-16 rounded-lg ${service.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
                 <service.icon className="w-8 h-8" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-primary transition-colors">

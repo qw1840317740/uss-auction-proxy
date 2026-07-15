@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { getTranslations, getLocale } from "next-intl/server";
-import { routing } from "@/i18n/routing";
 import { HeroSection } from "@/components/home/HeroSection";
 import { HomeSearchBar } from "@/components/home/HomeSearchBar";
 import { BrandShowcase } from "@/components/home/BrandShowcase";
@@ -22,10 +21,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "metadata" });
-  const isDefaultLocale = locale === routing.defaultLocale;
-  const canonicalUrl = isDefaultLocale
-    ? `${siteConfig.baseUrl}/${locale}`
-    : `${siteConfig.baseUrl}/${routing.defaultLocale}`;
+  const canonicalUrl = `${siteConfig.baseUrl}/${locale}`;
 
   return {
     title: t("title"),
@@ -41,9 +37,7 @@ export async function generateMetadata({
       canonical: canonicalUrl,
       languages: localizedHreflangLanguages(locale, ""),
     },
-    robots: isDefaultLocale
-      ? { index: true, follow: true }
-      : { index: false, follow: true },
+    robots: { index: true, follow: true },
   };
 }
 
