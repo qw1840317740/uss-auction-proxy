@@ -4,6 +4,7 @@ import { demoPosts } from "@/lib/demo-blog";
 import { demoVehicles } from "@/lib/demo-vehicles";
 
 const BASE_URL = "https://clickcar.jp";
+const SITE_LAST_UPDATED = new Date("2026-07-15T00:00:00.000Z");
 
 const staticPages = [
   { path: "", priority: 1.0, changeFrequency: "daily" as const },
@@ -20,7 +21,6 @@ const staticPages = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
   const entries: MetadataRoute.Sitemap = [];
 
   for (const locale of routing.locales) {
@@ -31,7 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
       entries.push({
         url: `${BASE_URL}/${locale}${page.path}`,
-        lastModified: now,
+        lastModified: SITE_LAST_UPDATED,
         changeFrequency: page.changeFrequency,
         priority: page.priority,
       });
@@ -40,7 +40,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const vehicle of demoVehicles) {
       entries.push({
         url: `${BASE_URL}/${locale}/vehicles/${vehicle.id}`,
-        lastModified: now,
+        lastModified: SITE_LAST_UPDATED,
         changeFrequency: "weekly",
         priority: 0.8,
       });

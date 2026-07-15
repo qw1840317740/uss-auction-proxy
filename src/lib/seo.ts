@@ -46,6 +46,15 @@ export function getAbsoluteUrl(path = ""): string {
   return `${siteConfig.baseUrl}${path.startsWith("/") ? path : `/${path}`}`;
 }
 
+/** Build a crawlable media URL while preserving already-absolute image URLs. */
+export function getAbsoluteMediaUrl(url: string): string {
+  if (/^https?:\/\//i.test(url)) {
+    return url;
+  }
+
+  return getAbsoluteUrl(url);
+}
+
 /** Map app locale → OpenGraph locale string. */
 export function getOgLocale(locale: string): string {
   switch (locale) {

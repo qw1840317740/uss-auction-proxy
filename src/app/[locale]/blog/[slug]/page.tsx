@@ -3,7 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { JsonLdBreadcrumb } from "@/components/seo/JsonLdBreadcrumb";
 import { JsonLdScript } from "@/components/seo/JsonLdScript";
 import { demoPosts, getLocalized } from "@/lib/demo-blog";
-import { siteConfig, buildCanonical, localizedHreflangLanguages } from "@/lib/seo";
+import { siteConfig, buildCanonical, getAbsoluteMediaUrl, localizedHreflangLanguages } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import Page from "./_Content";
 
@@ -24,6 +24,7 @@ export async function generateMetadata({
 
   const title = getLocalized(post.title, locale);
   const description = getLocalized(post.excerpt, locale);
+  const image = post.image ? getAbsoluteMediaUrl(post.image) : getAbsoluteMediaUrl(siteConfig.logo);
 
   return {
     title,
@@ -33,8 +34,16 @@ export async function generateMetadata({
       description,
       type: "article",
       url: buildCanonical(locale, `/blog/${slug}`),
-      ...(post?.image ? { images: [{ url: post.image, width: 1200, height: 630 }] } : {}),
-      publishedTime: post?.date,
+      images: [{ url: image, width: 1200, height: 630, alt: title }],
+      publishedTime: post.date,
+      modifiedTime: post.date,
+      authors: [siteConfig.name],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [image],
     },
     alternates: {
       canonical: buildCanonical(locale, `/blog/${slug}`),
@@ -61,6 +70,7 @@ export default async function BlogPostPage({
   const articleSection = getLocalized(post.category, locale);
   const postUrl = buildCanonical(locale, `/blog/${slug}`);
   const postDate = post.date;
+  const postImage = post.image ? getAbsoluteMediaUrl(post.image) : getAbsoluteMediaUrl(siteConfig.logo);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -68,7 +78,7 @@ export default async function BlogPostPage({
     "@id": `${postUrl}#article`,
     headline: articleTitle,
     description: articleExcerpt,
-    image: post?.image ?? `${siteConfig.baseUrl}${siteConfig.logo}`,
+    image: [postImage],
     articleSection,
     inLanguage: locale,
     datePublished: postDate,

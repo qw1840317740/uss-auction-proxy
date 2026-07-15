@@ -4,6 +4,15 @@ import { routing } from "./i18n/routing";
 
 const intlMiddleware = createMiddleware(routing);
 
+const legacyBlogRedirects: Record<string, string> = {
+  "top-japanese-used-cars-2025": "/blog/25-best-jdm-cars-all-time",
+  "buying-guide-2025": "/blog/japan-used-car-pitfall-guide-2026",
+  "understanding-vehicle-inspection": "/blog/japan-auction-grade-guide",
+  "shipping-to-africa-guide": "/services/export",
+  "toyota-hiace-buying-guide": "/vehicles",
+  "market-trends-may-2025": "/blog/japan-used-car-market-news-2025-2026",
+};
+
 export async function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
   const isWwwHost = req.nextUrl.hostname === "www.clickcar.jp";
@@ -20,6 +29,16 @@ export async function proxy(req: NextRequest) {
       url.pathname = `/${routing.defaultLocale}`;
     }
 
+    return NextResponse.redirect(url, 308);
+  }
+
+  const legacyBlogMatch = pathname.match(/^\/(zh|en|ja)\/blog\/([^/]+)\/?$/);
+  const legacyBlogTarget = legacyBlogMatch ? legacyBlogRedirects[legacyBlogMatch[2]] : undefined;
+
+  if (legacyBlogMatch && legacyBlogTarget) {
+    const url = req.nextUrl.clone();
+    url.pathname = `/${legacyBlogMatch[1]}${legacyBlogTarget}`;
+    url.search = "";
     return NextResponse.redirect(url, 308);
   }
 

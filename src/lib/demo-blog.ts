@@ -40,7 +40,7 @@ export const demoPosts: BlogPostData[] = [
     date: "2026-07-08",
     readTime: { zh: "7分钟阅读", en: "7 min read", ja: "7分で読める" },
     color: "bg-red-600",
-    image: "/images/blog/auction-grade-guide.svg",
+    image: "/images/services/car-inspection.jpg",
     embedHtml: true,
     content: auctionGradeGuideHtml,
   },
