@@ -24,7 +24,7 @@ import { vehicleMakes } from "@/lib/brands";
 
 const bodyTypes = ["Sedan", "SUV", "Hatchback", "Wagon", "Coupe", "Pickup", "Minivan", "Van"];
 const fuelTypes = ["Gasoline", "Diesel", "Hybrid", "EV"];
-const transmissionTypes = ["AT", "MT", "CVT"];
+const transmissionTypes = ["AT", "MT", "CVT", "PDK"];
 const driveTypes = ["FWD", "RWD", "AWD", "4WD"];
 
 type SortKey = "newest" | "priceLow" | "priceHigh" | "yearNew" | "mileageLow";
@@ -78,6 +78,7 @@ export default function VehiclesPage() {
       if (selectedDrive && v.drive !== selectedDrive) return false;
       if (yearFrom && v.year < Number(yearFrom)) return false;
       if (yearTo && v.year > Number(yearTo)) return false;
+      if ((priceFrom || priceTo) && v.price <= 0) return false;
       if (priceFrom && v.price < Number(priceFrom)) return false;
       if (priceTo && v.price > Number(priceTo)) return false;
       if (mileageFrom && v.mileage < Number(mileageFrom)) return false;
@@ -87,10 +88,18 @@ export default function VehiclesPage() {
 
     switch (sortBy) {
       case "priceLow":
-        result.sort((a, b) => a.price - b.price);
+        result.sort((a, b) => {
+          if (a.price <= 0) return b.price <= 0 ? 0 : 1;
+          if (b.price <= 0) return -1;
+          return a.price - b.price;
+        });
         break;
       case "priceHigh":
-        result.sort((a, b) => b.price - a.price);
+        result.sort((a, b) => {
+          if (a.price <= 0) return b.price <= 0 ? 0 : 1;
+          if (b.price <= 0) return -1;
+          return b.price - a.price;
+        });
         break;
       case "yearNew":
         result.sort((a, b) => b.year - a.year);
@@ -522,7 +531,7 @@ export default function VehiclesPage() {
                             {vt("price")}
                           </span>
                           <p className="text-lg font-bold text-primary">
-                            {formatPrice(v.price)}
+                            {v.price > 0 ? formatPrice(v.price) : vt("priceOnRequest")}
                           </p>
                         </div>
                         <span

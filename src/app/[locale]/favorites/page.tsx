@@ -62,7 +62,9 @@ export default function FavoritesPage() {
                   <div className="mt-3 flex items-center justify-between">
                     <div>
                       <p className="text-sm text-gray-400">{tVehicles("vehicle.price")}</p>
-                      <p className="text-base font-bold text-gray-900">{formatPrice(fav.price)}</p>
+                      <p className="text-base font-bold text-gray-900">
+                        {fav.price > 0 ? formatPrice(fav.price) : tVehicles("vehicle.priceOnRequest")}
+                      </p>
                     </div>
                     <div className="flex items-center gap-1">
                       <Link href={`/vehicles/${fav.id}`} className="p-2 text-gray-400 hover:text-primary transition-colors"><Eye className="w-4 h-4" /></Link>

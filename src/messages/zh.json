@@ -223,6 +223,8 @@
       "transmission": "变速箱",
       "fuel": "燃料",
       "price": "价格",
+      "priceOnRequest": "价格请询价",
+      "priceOnRequestNote": "请联系我们获取当前车辆价格及出口报价。",
       "inquire": "立即询价",
       "requestQuote": "获取出口报价",
       "addToFavorites": "加入收藏",

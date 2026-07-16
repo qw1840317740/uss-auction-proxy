@@ -128,8 +128,9 @@ export default function VehicleDetailPage({
     }
   };
 
-  // Estimated total price (body + ~10% fees)
-  const totalPrice = vehicle.price + Math.round(vehicle.price * 0.1);
+  const hasPrice = vehicle.price > 0;
+  // Estimated total price (body + ~10% fees) when a public body price exists.
+  const totalPrice = hasPrice ? vehicle.price + Math.round(vehicle.price * 0.1) : 0;
 
   // Similar vehicles: same make or body type, excluding current
   const similarVehicles = demoVehicles
@@ -389,7 +390,9 @@ export default function VehicleDetailPage({
                         </h3>
                         <div className="flex items-center justify-between mt-1.5">
                           <span className="text-xs text-gray-400">{sv.year} · {formatMileage(sv.mileage)}</span>
-                          <span className="text-sm font-bold text-primary">{formatPrice(sv.price)}</span>
+                          <span className="text-sm font-bold text-primary">
+                            {sv.price > 0 ? formatPrice(sv.price) : vt("priceOnRequest")}
+                          </span>
                         </div>
                       </div>
                     </Link>
@@ -406,15 +409,22 @@ export default function VehicleDetailPage({
             <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-6 lg:sticky lg:top-6">
               {/* Total price */}
               <div className="mb-1">
-                <span className="text-sm text-gray-500">{vt("totalPrice")}</span>
-                <p className="text-3xl font-bold text-primary mt-0.5">{formatPrice(totalPrice)}</p>
+                <span className="text-sm text-gray-500">{hasPrice ? vt("totalPrice") : vt("price")}</span>
+                <p className="text-3xl font-bold text-primary mt-0.5">
+                  {hasPrice ? formatPrice(totalPrice) : vt("priceOnRequest")}
+                </p>
               </div>
-              {/* Body price */}
-              <div className="flex items-baseline gap-2 mb-2">
-                <span className="text-xs text-gray-400">{vt("bodyPrice")}</span>
-                <span className="text-sm font-medium text-gray-700 line-through-0">{formatPrice(vehicle.price)}</span>
-              </div>
-              <p className="text-xs text-gray-400 mb-6">{vt("feeNote")}</p>
+              {hasPrice ? (
+                <>
+                  <div className="flex items-baseline gap-2 mb-2">
+                    <span className="text-xs text-gray-400">{vt("bodyPrice")}</span>
+                    <span className="text-sm font-medium text-gray-700 line-through-0">{formatPrice(vehicle.price)}</span>
+                  </div>
+                  <p className="text-xs text-gray-400 mb-6">{vt("feeNote")}</p>
+                </>
+              ) : (
+                <p className="text-sm leading-6 text-gray-500 mb-6">{vt("priceOnRequestNote")}</p>
+              )}
 
               {/* Action buttons */}
               <div className="space-y-3">

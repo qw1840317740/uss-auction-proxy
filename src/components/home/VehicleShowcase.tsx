@@ -73,7 +73,7 @@ export function VehicleShowcase() {
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-xl font-bold text-primary">
-                    {formatPrice(v.price)}
+                    {v.price > 0 ? formatPrice(v.price) : vt("priceOnRequest")}
                   </span>
                   <span
                     className="text-sm font-medium text-white bg-primary hover:bg-primary-dark px-4 py-2.5 rounded-xl transition-all duration-300 shadow-sm hover:shadow-md hover:shadow-primary/20"

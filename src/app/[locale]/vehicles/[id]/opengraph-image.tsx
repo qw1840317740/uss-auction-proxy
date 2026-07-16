@@ -19,7 +19,7 @@ export default async function Image({
 }: {
   params: Promise<{ locale: string; id: string }>;
 }) {
-  const { id } = await params;
+  const { locale, id } = await params;
   const vehicle = demoVehicles.find((v) => v.id === id);
 
   // Optional Geist font for cleaner text rendering.
@@ -79,6 +79,8 @@ export default async function Image({
   }
 
   const priceJpy = new Intl.NumberFormat("ja-JP").format(vehicle.price);
+  const priceOnRequest =
+    locale === "zh" ? "价格请询价" : locale === "ja" ? "価格はお問い合わせ" : "Price on request";
 
   return new ImageResponse(
     (
@@ -192,10 +194,18 @@ export default async function Image({
               alignSelf: "flex-start",
             }}
           >
-            <div style={{ display: "flex", fontSize: 26, color: "#fef2f2" }}>JPY</div>
-            <div style={{ display: "flex", fontSize: 56, fontWeight: 700, color: "#ffffff" }}>
-              ¥{priceJpy}
-            </div>
+            {vehicle.price > 0 ? (
+              <>
+                <div style={{ display: "flex", fontSize: 26, color: "#fef2f2" }}>JPY</div>
+                <div style={{ display: "flex", fontSize: 56, fontWeight: 700, color: "#ffffff" }}>
+                  ¥{priceJpy}
+                </div>
+              </>
+            ) : (
+              <div style={{ display: "flex", fontSize: 38, fontWeight: 700, color: "#ffffff" }}>
+                {priceOnRequest}
+              </div>
+            )}
           </div>
 
           {/* Footer URL */}

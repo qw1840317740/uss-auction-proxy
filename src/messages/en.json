@@ -223,6 +223,8 @@
       "transmission": "Transmission",
       "fuel": "Fuel",
       "price": "Price",
+      "priceOnRequest": "Price on request",
+      "priceOnRequestNote": "Contact us for the current vehicle price and export estimate.",
       "inquire": "Inquire Now",
       "requestQuote": "Request Export Quote",
       "addToFavorites": "Add to Favorites",

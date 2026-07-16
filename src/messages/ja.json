@@ -223,6 +223,8 @@
       "transmission": "ミッション",
       "fuel": "燃料",
       "price": "価格",
+      "priceOnRequest": "価格はお問い合わせ",
+      "priceOnRequestNote": "現在の車両価格と輸出見積もりはお問い合わせください。",
       "inquire": "お問い合わせ",
       "requestQuote": "輸出見積り",
       "addToFavorites": "お気に入りに追加",

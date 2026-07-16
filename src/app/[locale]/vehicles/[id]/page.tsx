@@ -158,24 +158,27 @@ function buildVehicleProductJsonLd({ vehicle, vehicleName, locale, id }: BuildAr
       value: vehicle.mileage,
       unitCode: "KMT",
     },
-    offers: {
-      "@type": "Offer",
-      "@id": `${url}#offer`,
-      url,
-      price: vehicle.price,
-      priceCurrency: "JPY",
-      priceValidUntil: priceValidUntilISO(),
-      availability:
-        vehicle.status === "available"
-          ? "https://schema.org/InStock"
-          : "https://schema.org/OutOfStock",
-      itemCondition: "https://schema.org/UsedCondition",
-      seller: {
-        "@type": "AutoDealer",
-        "@id": `${siteConfig.baseUrl}#autodealer`,
-        name: siteConfig.name,
-        url: siteConfig.baseUrl,
-      },
-    },
+    offers:
+      vehicle.price > 0
+        ? {
+            "@type": "Offer",
+            "@id": `${url}#offer`,
+            url,
+            price: vehicle.price,
+            priceCurrency: "JPY",
+            priceValidUntil: priceValidUntilISO(),
+            availability:
+              vehicle.status === "available"
+                ? "https://schema.org/InStock"
+                : "https://schema.org/OutOfStock",
+            itemCondition: "https://schema.org/UsedCondition",
+            seller: {
+              "@type": "AutoDealer",
+              "@id": `${siteConfig.baseUrl}#autodealer`,
+              name: siteConfig.name,
+              url: siteConfig.baseUrl,
+            },
+          }
+        : undefined,
   };
 }
