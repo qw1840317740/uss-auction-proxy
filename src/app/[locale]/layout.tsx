@@ -19,7 +19,6 @@ export async function generateMetadata({
   return {
     title: t("title"),
     description: t("description"),
-    keywords: t.has("keywords") ? (t.raw("keywords") as string[]) : undefined,
     alternates: {
       canonical: buildCanonical(locale, ""),
       languages: localizedHreflangLanguages(locale, ""),

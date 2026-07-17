@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, getLocale } from "next-intl/server";
 import { HeroSection } from "@/components/home/HeroSection";
 import { HomeSearchBar } from "@/components/home/HomeSearchBar";
+import { HomeIntro } from "@/components/home/HomeIntro";
 import { BrandShowcase } from "@/components/home/BrandShowcase";
 import { ServiceCards } from "@/components/home/ServiceCards";
 import { HowItWorks } from "@/components/home/HowItWorks";
@@ -26,9 +27,8 @@ export async function generateMetadata({
   return {
     title: t("title"),
     description: t("description"),
-    keywords: t.has("keywords") ? (t.raw("keywords") as string[]) : undefined,
     openGraph: {
-      title: t("title"),
+      title: `${t("title")} | ClickCar`,
       description: t("description"),
       url: canonicalUrl,
       type: "website",
@@ -57,6 +57,7 @@ export default function HomePage() {
       <HomePageStructuredData />
       <HeroSection />
       <HomeSearchBar />
+      <HomeIntro />
       <BrandShowcase />
       <div className="bg-gray-50">
         <ServiceCards />

@@ -6,9 +6,9 @@ import { Award, SearchCheck, ShieldCheck } from "lucide-react";
 import Image from "next/image";
 
 const stats = [
-  { key: "sourcing", icon: SearchCheck, value: "Tailored" },
-  { key: "brands", icon: Award, value: "60+" },
-  { key: "support", icon: ShieldCheck, value: "End-to-End" },
+  { key: "sourcing", icon: SearchCheck },
+  { key: "brands", icon: Award },
+  { key: "support", icon: ShieldCheck },
 ];
 
 export function HeroSection() {
@@ -19,8 +19,8 @@ export function HeroSection() {
       {/* Background image with gradient overlay */}
       <div className="absolute inset-0">
         <Image
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Nissan_Nismo_GTR.jpg/1280px-Nissan_Nismo_GTR.jpg"
-          alt="ClickCar（クリックカー） — Nissan GT-R Nismo"
+          src="/images/cars/porsche-911-gt3-rs-2025-front-left.png"
+          alt={t("imageAlt")}
           fill
           className="object-cover"
           priority
@@ -59,19 +59,19 @@ export function HeroSection() {
           </div>
 
           {/* Stats Row */}
-          <div className="grid grid-cols-3 gap-4 md:gap-8 hero-title-animate-delay-3">
+          <div className="grid grid-cols-3 gap-2 md:gap-8 hero-title-animate-delay-3">
             {stats.map((stat, i) => (
               <div
                 key={stat.key}
-                className="flex flex-col items-center bg-white/10 backdrop-blur-md rounded-2xl py-6 px-4 border border-white/10 hover:border-white/20 transition-all duration-300 hover:bg-white/15"
+                className="flex flex-col items-center bg-white/10 backdrop-blur-md rounded-lg py-4 px-2 md:rounded-2xl md:py-6 md:px-4 border border-white/10 hover:border-white/20 transition-all duration-300 hover:bg-white/15"
               >
-                <div className="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center mb-3">
-                  <stat.icon className="w-6 h-6 text-secondary" />
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-secondary/20 flex items-center justify-center mb-3">
+                  <stat.icon className="w-5 h-5 md:w-6 md:h-6 text-secondary" />
                 </div>
-                <div className="text-2xl md:text-3xl font-bold tracking-tight stat-animate" style={{ animationDelay: `${0.3 + i * 0.06}s` }}>
-                  {stat.value}
+                <div className="text-xl md:text-3xl font-bold tracking-tight stat-animate" style={{ animationDelay: `${0.3 + i * 0.06}s` }}>
+                  {t(`stats.${stat.key}Value`)}
                 </div>
-                <div className="text-sm text-neutral-300 mt-1 stat-animate" style={{ animationDelay: `${0.36 + i * 0.06}s` }}>
+                <div className="text-xs md:text-sm text-neutral-300 mt-1 stat-animate" style={{ animationDelay: `${0.36 + i * 0.06}s` }}>
                   {t(`stats.${stat.key}`)}
                 </div>
               </div>

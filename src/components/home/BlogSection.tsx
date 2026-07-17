@@ -29,7 +29,8 @@ const categoryColors: Record<string, string> = {
 };
 
 export function BlogSection() {
-  const t = useTranslations("blog");
+  const t = useTranslations("home.blog");
+  const blogT = useTranslations("blog");
   const locale = useLocale();
   const { ref: titleRef, isVisible: titleVisible } = useScrollReveal();
   const { containerRef, isChildVisible } = useStaggerReveal(blogPosts.length, 30);
@@ -92,7 +93,7 @@ export function BlogSection() {
                 </h3>
                 <p className="text-sm text-gray-500 line-clamp-2">{postExcerpt}</p>
                 <div className="mt-3 flex items-center gap-1 text-sm font-medium text-primary group-hover:gap-2 transition-all">
-                  {t("readMore")}
+                  {blogT("readMore")}
                   <ArrowRight className="w-4 h-4" />
                 </div>
               </div>

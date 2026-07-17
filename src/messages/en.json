@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "Japanese Used Car Export & Auction Proxy from Japan",
-    "description": "Import quality Japanese used cars with ClickCar in Saitama, Japan. We support auction sourcing, inspection, export paperwork and global shipping.",
+    "title": "Japanese Used Car Exporter in Japan",
+    "description": "Browse verified Japanese used cars or request auction sourcing. ClickCar handles inspection, export documents and worldwide shipping from Saitama, Japan.",
     "keywords": [
       "Japanese used cars",
       "Japan used car export",
@@ -17,8 +17,8 @@
   },
   "seo": {
     "home": {
-      "title": "Japanese Used Car Export & Auction Proxy from Japan",
-      "description": "Source quality Japanese used cars from Saitama with auction support, vehicle inspection, export paperwork and global shipping arranged by ClickCar."
+      "title": "Japanese Used Car Exporter in Japan",
+      "description": "Browse verified Japanese used cars or request auction sourcing. ClickCar handles inspection, export documents and worldwide shipping from Saitama, Japan."
     },
     "about": {
       "title": "About ClickCar Japan",
@@ -111,22 +111,38 @@
   },
   "home": {
     "hero": {
-      "title": "<span class=\"whitespace-nowrap\">Premium Japanese Vehicles,</span><br/><span class=\"whitespace-nowrap\">Delivered Worldwide</span>",
-      "subtitle": "Trusted quality, delivering the perfect car for you",
+      "title": "Japanese Used Cars,<br/>Sourced & Exported Worldwide",
+      "subtitle": "Browse verified stock or request Japan auction sourcing, inspection, export paperwork and worldwide shipping from Saitama.",
+      "imageAlt": "2025 Porsche 911 GT3 RS available from ClickCar Japan",
       "exploreVehicles": "Explore Vehicles",
       "contactUs": "Contact Us",
       "stats": {
+        "sourcingValue": "Tailored",
         "sourcing": "Sourcing by Request",
-        "brands": "Brands Available",
+        "brandsValue": "60+",
+        "brands": "Brands We Can Source",
+        "supportValue": "Complete",
         "support": "Full Process Support"
       }
     },
+    "intro": {
+      "eyebrow": "Based in Saitama, Japan",
+      "title": "A Japanese used car exporter for stock vehicles and custom sourcing",
+      "body1": "ClickCar helps overseas buyers purchase Japanese used cars with clear vehicle information and practical support from inquiry to shipment. Browse our current inventory or tell us the model, budget and destination you need, and our Japan-based team can source suitable vehicles through established dealer and auction channels.",
+      "body2": "Before you commit, we help review condition details, auction sheets and available inspection information. We also coordinate export documentation, inland transport and worldwide ocean freight. Whether you are importing one vehicle or sourcing for your business, each purchase is handled vehicle by vehicle with transparent confirmation before bidding or payment.",
+      "navLabel": "Japanese vehicle sourcing services",
+      "links": {
+        "inventory": { "title": "Browse verified inventory", "desc": "See Japanese used cars currently listed for export." },
+        "auction": { "title": "Request auction sourcing", "desc": "Search dealer auctions with buyer-approved bidding limits." },
+        "export": { "title": "Plan worldwide shipping", "desc": "Arrange export documents and ocean freight from Japan." }
+      }
+    },
     "brands": {
-      "title": "Brand Showcase",
-      "subtitle": "Explore Japan's leading automotive brands"
+      "title": "Japanese & Global Car Brands We Source",
+      "subtitle": "Request popular Japanese makes and selected international brands available in Japan"
     },
     "services": {
-      "title": "Our Services",
+      "title": "Japanese Used Car Export Services",
       "subtitle": "Comprehensive Japanese used car sales and export services",
       "auctionProxy": {
         "title": "Auction Proxy",
@@ -146,8 +162,8 @@
       }
     },
     "howItWorks": {
-      "title": "Our Process",
-      "subtitle": "From consultation to delivery, fully managed",
+      "title": "How to Buy and Export a Car from Japan",
+      "subtitle": "A clear process from vehicle request to overseas shipment",
       "step1": {
         "title": "Requirements",
         "desc": "Understanding your budget, brand preference, usage and timeline"
@@ -166,16 +182,20 @@
       }
     },
     "showcase": {
-      "title": "Featured Vehicles",
-      "subtitle": "Premium selection of quality used cars"
+      "title": "Japanese Used Cars Available Now",
+      "subtitle": "View current ClickCar inventory with vehicle-specific details"
+    },
+    "blog": {
+      "title": "Japanese Car Auction & Export Guides",
+      "subtitle": "Practical guidance on auction grades, vehicle checks and importing from Japan"
     },
     "faq": {
-      "title": "FAQ",
+      "title": "Japanese Used Car Export FAQ",
       "viewAll": "View all FAQs"
     },
     "cta": {
-      "title": "Find Your Ideal Vehicle",
-      "subtitle": "Browse our premium inventory or contact us for personalized recommendations",
+      "title": "Find a Japanese Car to Import",
+      "subtitle": "Browse current inventory or send your model, budget and destination for a tailored sourcing request",
       "browseVehicles": "Browse Vehicles",
       "contact": "Contact Us"
     },
@@ -662,12 +682,12 @@
     },
     "items": {
       "q1": {
-        "q": "How do I purchase a vehicle?",
-        "a": "You can browse our online inventory and select a vehicle, or contact us with your requirements for personalized recommendations. After confirmation, sign the agreement and make payment."
+        "q": "Can overseas buyers buy from Japanese dealer auctions?",
+        "a": "Most Japanese dealer auctions are limited to registered members. ClickCar can search eligible auction listings and place a bid only after you approve the specific vehicle and maximum bid amount."
       },
       "q2": {
-        "q": "Can I inspect the vehicle in person?",
-        "a": "Yes. Our Saitama showroom welcomes scheduled visits. For overseas customers, we can provide detailed vehicle videos and photos."
+        "q": "How do I import a used car from Japan?",
+        "a": "Share your preferred model, budget and destination country. We then confirm a stock or auction vehicle, review available condition information, prepare a quote, receive payment, and coordinate export documents and shipping."
       },
       "q3": {
         "q": "How long does shipping take?",
