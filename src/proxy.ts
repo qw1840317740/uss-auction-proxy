@@ -4,13 +4,17 @@ import { routing } from "./i18n/routing";
 
 const intlMiddleware = createMiddleware(routing);
 
+const retiredBlogSlugs = new Set([
+  "japan-used-car-market-news-2025-2026",
+  "market-trends-may-2025",
+]);
+
 const legacyBlogRedirects: Record<string, string> = {
   "top-japanese-used-cars-2025": "/blog/25-best-jdm-cars-all-time",
   "buying-guide-2025": "/blog/japan-used-car-pitfall-guide-2026",
   "understanding-vehicle-inspection": "/blog/japan-auction-grade-guide",
   "shipping-to-africa-guide": "/services/export",
   "toyota-hiace-buying-guide": "/vehicles",
-  "market-trends-may-2025": "/blog/japan-used-car-market-news-2025-2026",
 };
 
 export async function proxy(req: NextRequest) {
@@ -33,6 +37,14 @@ export async function proxy(req: NextRequest) {
   }
 
   const legacyBlogMatch = pathname.match(/^\/(zh|en|ja)\/blog\/([^/]+)\/?$/);
+
+  if (legacyBlogMatch && retiredBlogSlugs.has(legacyBlogMatch[2])) {
+    return new NextResponse(null, {
+      status: 410,
+      headers: { "X-Robots-Tag": "noindex, nofollow" },
+    });
+  }
+
   const legacyBlogTarget = legacyBlogMatch ? legacyBlogRedirects[legacyBlogMatch[2]] : undefined;
 
   if (legacyBlogMatch && legacyBlogTarget) {

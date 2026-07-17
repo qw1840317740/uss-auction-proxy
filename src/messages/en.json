@@ -150,7 +150,7 @@
       },
       "vehicleSales": {
         "title": "Vehicle Sales",
-        "desc": "Carefully selected premium Japanese used vehicles, strict inspection, transparent pricing"
+        "desc": "Current Japanese used vehicle listings with vehicle-specific condition details and clear pricing information"
       },
       "exportService": {
         "title": "Export Service",
@@ -401,7 +401,7 @@
       "desc": "We provide end-to-end service from vehicle procurement to export shipping, handling all documentation to ensure safe and efficient delivery to your designated port.",
       "features": {
         "title": "Service Features",
-        "f1": "Export experience to 50+ countries",
+        "f1": "Destination eligibility reviewed before shipment",
         "f2": "Complete export documentation handled",
         "f3": "Multiple shipping partners for optimal rates",
         "f4": "Real-time logistics tracking",
@@ -550,14 +550,14 @@
   },
   "about": {
     "title": "About Us",
-    "subtitle": "ClickCar（クリックカー） — Premium Japanese Used Vehicle Global Export",
+    "subtitle": "Japanese used vehicle sourcing and export support from Saitama",
     "companyProfile": {
       "title": "Company Profile",
-      "desc": "Headquartered in Saitama, Japan, ClickCar（クリックカー） is a company specializing in the global export of premium used vehicles. Through our integrated online and offline operations, we connect Japan's quality vehicle resources with buyers worldwide, providing end-to-end solutions from procurement and inspection to export and shipping."
+      "desc": "Based in Saitama, Japan, ClickCar supports overseas buyers with Japanese used vehicle inventory, sourcing requests and export coordination. We help review available vehicle information, confirm purchase conditions, and arrange export documents, inland transport and ocean freight according to the destination and available shipping options."
     },
     "globalNetwork": {
-      "title": "Global Service Network",
-      "subtitle": "A global service network covering multiple regions",
+      "title": "International Export Inquiries",
+      "subtitle": "Common destination regions we can review, subject to local regulations and shipping availability",
       "regions": {
         "asia": {
           "name": "Asia",
@@ -582,49 +582,55 @@
       }
     },
     "pitFlow": {
-      "title": "Our Process",
-      "subtitle": "From consultation to delivery",
+      "title": "How We Support Your Purchase",
+      "subtitle": "Each vehicle and destination is confirmed step by step",
       "step1": {
-        "title": "Requirements",
-        "desc": "Comprehensive review of budget, brand preferences, usage scenarios and timeline"
+        "title": "Vehicle Request",
+        "desc": "Share the model, year range, budget, destination and preferred timeline"
       },
       "step2": {
-        "title": "Proposal Matching",
-        "desc": "Presenting viable options from inventory and network capabilities"
+        "title": "Vehicle Options",
+        "desc": "Review current inventory or suitable auction and sourcing candidates"
       },
       "step3": {
-        "title": "Confirmation",
-        "desc": "In-person verification of key conditions, clarifying scope and responsibilities"
+        "title": "Condition & Quote",
+        "desc": "Confirm available condition information, purchase terms and estimated service costs"
       },
       "step4": {
-        "title": "Delivery & Review",
-        "desc": "Post-delivery feedback collection for continuous service improvement"
+        "title": "Export & Shipping",
+        "desc": "Coordinate available export documents, inland transport and ocean freight after confirmation"
       }
     },
     "whyUs": {
       "title": "Why Choose Us",
       "reason1": {
-        "title": "Quality Assurance",
-        "desc": "Every vehicle undergoes rigorous inspection for transparent condition reporting"
+        "title": "Condition Review",
+        "desc": "We review available auction sheets, inspection records, photos and vehicle details before confirmation"
       },
       "reason2": {
-        "title": "Transparent Pricing",
-        "desc": "All fees clearly stated, no hidden charges"
+        "title": "Clear Quotations",
+        "desc": "Vehicle price and available service costs are confirmed before payment or bidding"
       },
       "reason3": {
-        "title": "Global Network",
-        "desc": "Export service covering 50+ countries worldwide"
+        "title": "Export Coordination",
+        "desc": "Destination requirements and shipping availability are reviewed before export arrangements begin"
       },
       "reason4": {
-        "title": "Expert Team",
-        "desc": "Experienced inspectors and export consultants"
+        "title": "Japan-Based Support",
+        "desc": "Direct assistance with vehicle sourcing, purchase confirmation and export coordination from Japan"
       }
     },
     "stats": {
       "sourcing": "Local Sourcing",
-      "brands": "Brands Available",
-      "support": "Export Support",
-      "contact": "Direct Contact"
+      "brands": "Brands We Can Source",
+      "support": "Documents & Shipping",
+      "contact": "Direct Contact",
+      "values": {
+        "sourcing": "Japan",
+        "brands": "60+",
+        "support": "Export",
+        "contact": "Direct"
+      }
     }
   },
   "contact": {

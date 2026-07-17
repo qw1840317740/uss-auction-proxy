@@ -46,10 +46,10 @@ export default function AboutPage() {
   ] as const;
 
   const statsData = [
-    { icon: Building2, value: "Japan", label: t("stats.sourcing") },
-    { icon: Award, value: "60+", label: t("stats.brands") },
-    { icon: Globe, value: "Export", label: t("stats.support") },
-    { icon: Users, value: "Direct", label: t("stats.contact") },
+    { icon: Building2, value: t("stats.values.sourcing"), label: t("stats.sourcing") },
+    { icon: Award, value: t("stats.values.brands"), label: t("stats.brands") },
+    { icon: Globe, value: t("stats.values.support"), label: t("stats.support") },
+    { icon: Users, value: t("stats.values.contact"), label: t("stats.contact") },
   ];
 
   return (

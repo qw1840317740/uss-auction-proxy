@@ -23,7 +23,9 @@ export interface BlogPostData {
   embedHtml?: boolean;
 }
 
-export const demoPosts: BlogPostData[] = [
+const retiredBlogSlugs = new Set(["japan-used-car-market-news-2025-2026"]);
+
+const allDemoPosts: BlogPostData[] = [
   {
     slug: "japan-auction-grade-guide",
     title: {
@@ -3195,3 +3197,5 @@ Japan used car market news in 2025–2026 tells a story of extraordinary demand,
     },
   },
 ];
+
+export const demoPosts = allDemoPosts.filter((post) => !retiredBlogSlugs.has(post.slug));
