@@ -13,6 +13,7 @@ import {
   parseDisplacementCc,
   priceValidUntilISO,
 } from "@/lib/seo";
+import { formatMileage } from "@/lib/utils";
 import Page from "./_Content";
 
 function getVehicle(id: string) {
@@ -45,8 +46,49 @@ export async function generateMetadata({
   }
 
   const vehicleName = `${vehicle.year} ${vehicle.make} ${vehicle.model}`;
-  const description =
-    getVehicleText(vehicle.description, locale) || `${vehicleName} available from ${siteConfig.name}.`;
+  const currentYear = new Date().getFullYear();
+  const vehicleAge = currentYear - vehicle.year;
+  const isClassic = vehicleAge >= 30;
+  const isVintage = vehicleAge >= 50;
+
+  // Title: prefix classic/vintage labels for long-tail collector keywords
+  const prefix = isVintage
+    ? "Vintage"
+    : isClassic
+      ? "Classic"
+      : "";
+  const title = prefix
+    ? `${prefix} ${vehicleName} (${vehicle.transmission}, ${vehicle.bodyType}) for Export — ${siteConfig.name}`
+    : `${vehicleName} (${vehicle.transmission}, ${vehicle.bodyType}) for Export from Japan`;
+
+  // Description: auto-build a rich snippet when no hand-written description exists,
+  // or use the first 155–160 chars of the hand-written one (meta-description sweet spot).
+  const handWritten = getVehicleText(vehicle.description, locale)
+    || `${vehicleName} available from ${siteConfig.name}.`;
+  const autoDescription =
+    `${vehicleName} — ${formatMileage(vehicle.mileage)}, ${vehicle.displacement} ${vehicle.fuel}, ` +
+    `${vehicle.transmission}, ${vehicle.drive}, ${vehicle.exteriorColor}, ${vehicle.bodyType}. ` +
+    (vehicle.price > 0
+      ? `Listed at ¥${vehicle.price.toLocaleString()} JPY. `
+      : "Contact ClickCar for pricing. ") +
+    `Exported worldwide from Saitama, Japan by ${siteConfig.name}.`;
+
+  // Use the hand-written description if it's substantive (>120 chars), otherwise auto-generate
+  const description = handWritten.length > 120 ? handWritten : autoDescription;
+
+  // Keywords: per-vehicle long-tail keywords appended to site-wide seed
+  const keywordParts = [
+    vehicleName,
+    `${vehicle.year} ${vehicle.make}`,
+    `${vehicle.make} ${vehicle.model}`,
+    `${vehicle.displacement} ${vehicle.bodyType}`,
+    `${vehicle.transmission} ${vehicle.drive}`,
+    "Japanese used cars export",
+  ];
+  if (isClassic) keywordParts.push("classic car Japan", "collector car export");
+  if (vehicle.chassisCode) keywordParts.push(`${vehicle.make} ${vehicle.chassisCode}`);
+  if (vehicle.engineCode) keywordParts.push(`${vehicle.engineCode} engine`);
+
   const url = buildCanonical(locale, `/vehicles/${id}`);
 
   // NOTE: openGraph.images and twitter.images are intentionally NOT set here.
@@ -54,21 +96,22 @@ export async function generateMetadata({
   // route emit 1200×630 dynamic cards, which Next.js auto-injects (and which
   // override anything in `generateMetadata`).
   return {
-    title: `${vehicleName} for Export from Japan`,
+    title,
     description,
+    keywords: keywordParts.join(", "),
     alternates: {
       canonical: url,
       languages: localizedHreflangLanguages(locale, `/vehicles/${id}`),
     },
     openGraph: {
-      title: `${vehicleName} | ${siteConfig.name}`,
+      title,
       description,
       url,
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
-      title: `${vehicleName} | ${siteConfig.name}`,
+      title,
       description,
     },
   };
@@ -124,10 +167,31 @@ function buildVehicleProductJsonLd({ vehicle, vehicleName, locale, id }: BuildAr
   const cc = parseDisplacementCc(vehicle.displacement);
   const brandUrl = `${siteConfig.baseUrl}/${locale}/vehicles?make=${encodeURIComponent(vehicle.make)}`;
 
+  // Parse forward-gear count from transmission string (e.g. "5MT" → 5, "7-Speed PDK" → 7)
+  let numberOfForwardGears: number | undefined;
+  const gearMatch = vehicle.transmission.match(/(\d+)/);
+  if (gearMatch) numberOfForwardGears = Number(gearMatch[1]);
+
+  const vehicleEngine = cc || vehicle.engineCode
+    ? {
+        "@type": "EngineSpecification" as const,
+        ...(cc ? { engineDisplacement: { "@type": "QuantitativeValue" as const, value: cc, unitCode: "CMQ" } } : {}),
+        ...(vehicle.engineCode ? { name: vehicle.engineCode } : {}),
+        fuelType: mapFuel(vehicle.fuel),
+      }
+    : undefined;
+
+  const steeringPosition =
+    vehicle.steering === "LHD"
+      ? "https://schema.org/LeftHandDriving"
+      : vehicle.steering === "RHD"
+        ? "https://schema.org/RightHandDriving"
+        : undefined;
+
   return {
     "@context": "https://schema.org",
-    "@type": "Product",
-    "@id": `${url}#product`,
+    "@type": ["Product", "Vehicle"],
+    "@id": `${url}#vehicle`,
     name: vehicleName,
     sku: vehicle.id,
     mpn: vehicle.id,
@@ -141,18 +205,25 @@ function buildVehicleProductJsonLd({ vehicle, vehicleName, locale, id }: BuildAr
     description: getVehicleText(vehicle.description, locale),
     itemCondition: "https://schema.org/UsedCondition",
     modelDate: String(vehicle.year),
-    vehicleModelDate: String(vehicle.year),
+    productionDate: String(vehicle.year),
     bodyType: vehicle.bodyType,
     fuelType: vehicle.fuel,
+    ...(vehicleEngine ? { vehicleEngine } : {}),
     vehicleEngineDisplacement: cc
       ? { "@type": "QuantitativeValue", value: cc, unitCode: "CMQ" }
       : undefined,
     vehicleFuelType: mapFuel(vehicle.fuel),
     vehicleTransmission: mapTransmission(vehicle.transmission),
+    ...(numberOfForwardGears ? { numberOfForwardGears } : {}),
     vehicleDrivenWheels: mapDrive(vehicle.drive),
     vehicleSeatingCapacity: { "@type": "QuantitativeValue", value: vehicle.seats },
     vehicleNumberOfDoors: vehicle.doors,
     vehicleExteriorColor: vehicle.exteriorColor,
+    vehicleInteriorColor: vehicle.interiorColor,
+    ...(vehicle.chassisCode ? { vehicleIdentificationNumber: vehicle.chassisCode } : {}),
+    ...(steeringPosition ? { steeringPosition } : {}),
+    ...(vehicle.previousOwners != null ? { numberOfPreviousOwners: vehicle.previousOwners } : {}),
+    ...(vehicle.firstRegistered ? { dateVehicleFirstRegistered: vehicle.firstRegistered } : {}),
     mileageFromOdometer: {
       "@type": "QuantitativeValue",
       value: vehicle.mileage,

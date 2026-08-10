@@ -31,6 +31,16 @@ export interface Vehicle {
   maxPower: string; // 最高出力
   fuelEconomy: string; // 燃費
 
+  // Vehicle JSON-LD structured-data fields (optional — classic cars especially benefit)
+  chassisCode?: string; // 車台番号・型式 (e.g. "91166")
+  interiorColor?: string; // 内装色 (e.g. "Black")
+  steering?: "LHD" | "RHD"; // ハンドル位置
+  engineCode?: string; // エンジン型式 (e.g. "911/92")
+  firstRegistered?: string; // 初度登録年月 ISO (e.g. "1974-07")
+  previousOwners?: number; // 前オーナー数
+  auctionGrade?: string; // 評価点 (e.g. "4")
+  auctionInteriorGrade?: string; // 内装評価 (e.g. "C")
+
   // Localized content
   highlights: Record<string, string[]>;
   description: Record<string, string>;
@@ -83,6 +93,14 @@ export const demoVehicles: Vehicle[] = [
     weight: "1,075kg",
     maxPower: "150ps / 5,700rpm",
     fuelEconomy: "--",
+    chassisCode: "91166",
+    interiorColor: "Black",
+    steering: "LHD",
+    engineCode: "911/92",
+    firstRegistered: "1974-07",
+    previousOwners: 2,
+    auctionGrade: "4",
+    auctionInteriorGrade: "C",
     highlights: {
       zh: [
         "1974年 Porsche 911 2.7 (G系列)，经典的冲击保险杠设计",
