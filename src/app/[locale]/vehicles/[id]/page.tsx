@@ -57,9 +57,13 @@ export async function generateMetadata({
     : isClassic
       ? "Classic"
       : "";
+  const suffix =
+    locale === "zh" ? " — 日本出口"
+    : locale === "ja" ? " — 日本から輸出"
+    : " for Export from Japan";
   const title = prefix
-    ? `${prefix} ${vehicleName} (${vehicle.transmission}, ${vehicle.bodyType}) for Export — ${siteConfig.name}`
-    : `${vehicleName} (${vehicle.transmission}, ${vehicle.bodyType}) for Export from Japan`;
+    ? `${prefix} ${vehicleName} (${vehicle.transmission}, ${vehicle.bodyType}) — ${siteConfig.name}`
+    : `${vehicleName} (${vehicle.transmission}, ${vehicle.bodyType})${suffix}`;
 
   // Description: auto-build a rich snippet when no hand-written description exists,
   // or use the first 155–160 chars of the hand-written one (meta-description sweet spot).

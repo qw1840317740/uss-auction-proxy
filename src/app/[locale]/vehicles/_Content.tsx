@@ -229,10 +229,10 @@ export default function VehiclesPage() {
             {/* Filter card */}
             <div className="rounded-xl bg-white border border-gray-100 p-4 shadow-sm space-y-4">
               <div className="flex items-center justify-between">
-                <h3 className="font-semibold text-gray-900 flex items-center gap-2">
+                <h2 className="font-semibold text-gray-900 flex items-center gap-2">
                   <SlidersHorizontal className="h-4 w-4" />
                   {ct("filter")}
-                </h3>
+                </h2>
                 {hasActiveFilters && (
                   <button
                     onClick={resetFilters}

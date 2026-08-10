@@ -493,9 +493,9 @@ export default function ContactPage() {
 
               {/* Messenger Links */}
               <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-                <h3 className="text-sm font-semibold text-gray-900 mb-4">
+                <h2 className="text-sm font-semibold text-gray-900 mb-4">
                   {t("messenger.title")}
-                </h3>
+                </h2>
                 <div className="space-y-3">
                   {/* WhatsApp */}
                   <a
