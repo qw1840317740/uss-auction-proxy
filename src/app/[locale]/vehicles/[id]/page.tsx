@@ -70,12 +70,24 @@ export async function generateMetadata({
   const handWritten = getVehicleText(vehicle.description, locale)
     || `${vehicleName} available from ${siteConfig.name}.`;
   const autoDescription =
-    `${vehicleName} — ${formatMileage(vehicle.mileage)}, ${vehicle.displacement} ${vehicle.fuel}, ` +
-    `${vehicle.transmission}, ${vehicle.drive}, ${vehicle.exteriorColor}, ${vehicle.bodyType}. ` +
-    (vehicle.price > 0
-      ? `Listed at ¥${vehicle.price.toLocaleString()} JPY. `
-      : "Contact ClickCar for pricing. ") +
-    `Exported worldwide from Saitama, Japan by ${siteConfig.name}.`;
+    locale === "zh"
+      ? `${vehicleName} — ${formatMileage(vehicle.mileage)}, ${vehicle.displacement}, ${vehicle.fuel}, ${vehicle.transmission}, ${vehicle.drive}, ${vehicle.exteriorColor}, ${vehicle.bodyType}。` +
+        (vehicle.price > 0
+          ? `售价 ¥${vehicle.price.toLocaleString()} JPY。`
+          : "价格请联系 ClickCar。") +
+        `ClickCar 从日本埼玉出口全球。`
+      : locale === "ja"
+        ? `${vehicleName} — ${formatMileage(vehicle.mileage)}, ${vehicle.displacement}, ${vehicle.fuel}, ${vehicle.transmission}, ${vehicle.drive}, ${vehicle.exteriorColor}, ${vehicle.bodyType}。` +
+          (vehicle.price > 0
+            ? `価格 ¥${vehicle.price.toLocaleString()} JPY。`
+            : "価格はお問い合わせください。") +
+          `埼玉の ClickCar が世界中へ輸出します。`
+        : `${vehicleName} — ${formatMileage(vehicle.mileage)}, ${vehicle.displacement} ${vehicle.fuel}, ` +
+          `${vehicle.transmission}, ${vehicle.drive}, ${vehicle.exteriorColor}, ${vehicle.bodyType}. ` +
+          (vehicle.price > 0
+            ? `Listed at ¥${vehicle.price.toLocaleString()} JPY. `
+            : "Contact ClickCar for pricing. ") +
+          `Exported worldwide from Saitama, Japan by ${siteConfig.name}.`;
 
   // Use the hand-written description if it's substantive (>120 chars), otherwise auto-generate
   const description = handWritten.length > 120 ? handWritten : autoDescription;
