@@ -2,7 +2,8 @@
 // Source: ClickCar editorial team, v2026-06.
 // Single-language master content (EN); other locales reuse it until per-locale
 // translations are produced. The renderer's extractEmbeddedArticleBody helper
-// strips <script>, <style>, <link>, <meta>, <title> tags before injecting.
+// strips <script>, <style>, <link>, <meta>, <title>, <header> and <footer>
+// tags before injecting.
 //
 // SEO notes:
 // - Document starts at H2 — the surrounding blog template renders the H1.
@@ -12,24 +13,7 @@
 export const japanExportGuideHtml: Record<string, string> = {
   zh: `
 
-<header class="site-header">
-  <a class="site-logo" href="https://clickcar.jp">Click<span>Car</span></a>
-  <a class="header-cta" href="#cta">Get a Free Quote →</a>
-</header>
 
-<div class="hero">
-  <div class="eyebrow">Export & Import Guide · Updated June 2026</div>
-  <h1 class="hero-title">How to Import a Used Car<br>from Japan: <em>Complete Guide</em></h1>
-  <p class="hero-desc">
-    Documents, shipping methods, customs duties, and the exact timeline — everything a buyer needs to understand before purchasing a Japanese used car. Plus: which parts you have to handle yourself, and which you don't.
-  </p>
-  <div class="hero-meta">
-    <div class="meta-item"><strong>June 2026</strong>Last updated</div>
-    <div class="meta-item"><strong>9 min read</strong>Reading time</div>
-    <div class="meta-item"><strong>Saitama, Japan</strong>Written by exporters</div>
-    <div class="meta-item"><strong>1.4M+ cars</strong>Exported yearly from Japan</div>
-  </div>
-</div>
 
 <div class="article-body">
 
@@ -367,34 +351,7 @@ export const japanExportGuideHtml: Record<string, string> = {
 
   <!-- CTA -->
   <div class="section" style="border-bottom:none;padding-bottom:0">
-    <div class="cta-section" id="cta">
-      <div class="cta-eyebrow">ClickCar — Saitama, Japan</div>
-      <h2 class="cta-title">We handle every step<br>described above</h2>
-      <p class="cta-desc">
-        From auction bidding to export clearance and ocean freight booking — ClickCar manages the entire Japan-side process on your behalf. You send us your target car and budget. We do the rest.
-      </p>
-      <div class="cta-steps">
-        <div class="cta-step">
-          <div class="cta-step-num">STEP 01</div>
-          <div class="cta-step-text">You tell us what you want — make, model, grade, budget</div>
-        </div>
-        <div class="cta-step">
-          <div class="cta-step-num">STEP 02</div>
-          <div class="cta-step-text">We source from USS, TAA, HAA auctions and bid on your behalf</div>
-        </div>
-        <div class="cta-step">
-          <div class="cta-step-num">STEP 03</div>
-          <div class="cta-step-text">We handle all Japan-side documents, export clearance, and freight booking</div>
-        </div>
-        <div class="cta-step">
-          <div class="cta-step-num">STEP 04</div>
-          <div class="cta-step-text">Car ships to your port with all documents ready for customs clearance</div>
-        </div>
-      </div>
-      <a class="cta-btn" href="https://clickcar.jp/en/contact">Get a Free Quote →</a>
-      <p class="cta-note">English, Chinese & Japanese · Typically reply within 24 hours · No obligation</p>
     </div>
-  </div>
 
 </div>
 
@@ -403,24 +360,7 @@ export const japanExportGuideHtml: Record<string, string> = {
 `,
   en: `
 
-<header class="site-header">
-  <a class="site-logo" href="https://clickcar.jp">Click<span>Car</span></a>
-  <a class="header-cta" href="#cta">Get a Free Quote →</a>
-</header>
 
-<div class="hero">
-  <div class="eyebrow">Export & Import Guide · Updated June 2026</div>
-  <h1 class="hero-title">How to Import a Used Car<br>from Japan: <em>Complete Guide</em></h1>
-  <p class="hero-desc">
-    Documents, shipping methods, customs duties, and the exact timeline — everything a buyer needs to understand before purchasing a Japanese used car. Plus: which parts you have to handle yourself, and which you don't.
-  </p>
-  <div class="hero-meta">
-    <div class="meta-item"><strong>June 2026</strong>Last updated</div>
-    <div class="meta-item"><strong>9 min read</strong>Reading time</div>
-    <div class="meta-item"><strong>Saitama, Japan</strong>Written by exporters</div>
-    <div class="meta-item"><strong>1.4M+ cars</strong>Exported yearly from Japan</div>
-  </div>
-</div>
 
 <div class="article-body">
 
@@ -758,34 +698,7 @@ export const japanExportGuideHtml: Record<string, string> = {
 
   <!-- CTA -->
   <div class="section" style="border-bottom:none;padding-bottom:0">
-    <div class="cta-section" id="cta">
-      <div class="cta-eyebrow">ClickCar — Saitama, Japan</div>
-      <h2 class="cta-title">We handle every step<br>described above</h2>
-      <p class="cta-desc">
-        From auction bidding to export clearance and ocean freight booking — ClickCar manages the entire Japan-side process on your behalf. You send us your target car and budget. We do the rest.
-      </p>
-      <div class="cta-steps">
-        <div class="cta-step">
-          <div class="cta-step-num">STEP 01</div>
-          <div class="cta-step-text">You tell us what you want — make, model, grade, budget</div>
-        </div>
-        <div class="cta-step">
-          <div class="cta-step-num">STEP 02</div>
-          <div class="cta-step-text">We source from USS, TAA, HAA auctions and bid on your behalf</div>
-        </div>
-        <div class="cta-step">
-          <div class="cta-step-num">STEP 03</div>
-          <div class="cta-step-text">We handle all Japan-side documents, export clearance, and freight booking</div>
-        </div>
-        <div class="cta-step">
-          <div class="cta-step-num">STEP 04</div>
-          <div class="cta-step-text">Car ships to your port with all documents ready for customs clearance</div>
-        </div>
-      </div>
-      <a class="cta-btn" href="https://clickcar.jp/en/contact">Get a Free Quote →</a>
-      <p class="cta-note">English, Chinese & Japanese · Typically reply within 24 hours · No obligation</p>
     </div>
-  </div>
 
 </div>
 
@@ -794,24 +707,7 @@ export const japanExportGuideHtml: Record<string, string> = {
 `,
   ja: `
 
-<header class="site-header">
-  <a class="site-logo" href="https://clickcar.jp">Click<span>Car</span></a>
-  <a class="header-cta" href="#cta">Get a Free Quote →</a>
-</header>
 
-<div class="hero">
-  <div class="eyebrow">Export & Import Guide · Updated June 2026</div>
-  <h1 class="hero-title">How to Import a Used Car<br>from Japan: <em>Complete Guide</em></h1>
-  <p class="hero-desc">
-    Documents, shipping methods, customs duties, and the exact timeline — everything a buyer needs to understand before purchasing a Japanese used car. Plus: which parts you have to handle yourself, and which you don't.
-  </p>
-  <div class="hero-meta">
-    <div class="meta-item"><strong>June 2026</strong>Last updated</div>
-    <div class="meta-item"><strong>9 min read</strong>Reading time</div>
-    <div class="meta-item"><strong>Saitama, Japan</strong>Written by exporters</div>
-    <div class="meta-item"><strong>1.4M+ cars</strong>Exported yearly from Japan</div>
-  </div>
-</div>
 
 <div class="article-body">
 
@@ -1149,34 +1045,7 @@ export const japanExportGuideHtml: Record<string, string> = {
 
   <!-- CTA -->
   <div class="section" style="border-bottom:none;padding-bottom:0">
-    <div class="cta-section" id="cta">
-      <div class="cta-eyebrow">ClickCar — Saitama, Japan</div>
-      <h2 class="cta-title">We handle every step<br>described above</h2>
-      <p class="cta-desc">
-        From auction bidding to export clearance and ocean freight booking — ClickCar manages the entire Japan-side process on your behalf. You send us your target car and budget. We do the rest.
-      </p>
-      <div class="cta-steps">
-        <div class="cta-step">
-          <div class="cta-step-num">STEP 01</div>
-          <div class="cta-step-text">You tell us what you want — make, model, grade, budget</div>
-        </div>
-        <div class="cta-step">
-          <div class="cta-step-num">STEP 02</div>
-          <div class="cta-step-text">We source from USS, TAA, HAA auctions and bid on your behalf</div>
-        </div>
-        <div class="cta-step">
-          <div class="cta-step-num">STEP 03</div>
-          <div class="cta-step-text">We handle all Japan-side documents, export clearance, and freight booking</div>
-        </div>
-        <div class="cta-step">
-          <div class="cta-step-num">STEP 04</div>
-          <div class="cta-step-text">Car ships to your port with all documents ready for customs clearance</div>
-        </div>
-      </div>
-      <a class="cta-btn" href="https://clickcar.jp/en/contact">Get a Free Quote →</a>
-      <p class="cta-note">English, Chinese & Japanese · Typically reply within 24 hours · No obligation</p>
     </div>
-  </div>
 
 </div>
 

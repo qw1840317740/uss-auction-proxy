@@ -121,7 +121,7 @@ function extractEmbeddedArticleBody(html: string): string {
   const bodyMatch = html.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
   const body = bodyMatch?.[1] ?? html;
 
-  return body
+  let cleaned = body
     .replace(/<script\b[\s\S]*?<\/script>/gi, "")
     .replace(/<style\b[\s\S]*?<\/style>/gi, "")
     .replace(/<link\b[^>]*>/gi, "")
@@ -130,6 +130,55 @@ function extractEmbeddedArticleBody(html: string): string {
     // Strip <header> and <footer> — the blog template already renders site chrome.
     .replace(/<header\b[\s\S]*?<\/header>/gi, "")
     .replace(/<footer\b[\s\S]*?<\/footer>/gi, "");
+
+  // Strip the hero block — blog template renders its own H1, byline, share panel.
+  cleaned = stripBalancedBlock(cleaned, /<div\b[^>]*class="hero"[^>]*>/);
+  // Strip the final CTA section — blog template renders a CTA / Related Posts block.
+  cleaned = stripBalancedBlock(cleaned, /<div\b[^>]*class="cta-section"[^>]*>/);
+
+  return cleaned;
+}
+
+/**
+ * Find `startRegex` inside `html` and remove the entire matched block (including
+ * properly-balanced nested <div> and <section> tags) by counting opens/closes.
+ * Leaves the surrounding markup intact.
+ */
+function stripBalancedBlock(html: string, startRegex: RegExp): string {
+  const openMatch = startRegex.exec(html);
+  if (!openMatch) return html;
+  const start = openMatch.index;
+  // `startRegex` matches up to and including the open tag (e.g. "<div ...>"). Skip
+  // past it so the open regex below does not immediately match it again.
+  const skipTo = html.indexOf(">", start) + 1;
+  // Count subsequent open/close pairs of div|section (avoid `<divider>` false
+  // positives).
+  const openRe = /<(div|section)(?:\s|>)/g;
+  const closeRe = /<\/(div|section)>/g;
+  let depth = 1;
+  let pos = skipTo;
+  while (pos < html.length && depth > 0) {
+    openRe.lastIndex = pos;
+    closeRe.lastIndex = pos;
+    const open = openRe.exec(html);
+    const close = closeRe.exec(html);
+    if (!open && !close) break;
+    if (open && (!close || open.index < close.index)) {
+      depth++;
+      pos = open.index + open[0].length;
+    } else if (close) {
+      depth--;
+      pos = close.index + close[0].length;
+      if (depth === 0) {
+        let end = pos;
+        while (end < html.length && /\s/.test(html[end])) end++;
+        return html.slice(0, start) + html.slice(end);
+      }
+    } else {
+      break;
+    }
+  }
+  return html;
 }
 
 export default function BlogPostPage() {
@@ -301,53 +350,45 @@ export default function BlogPostPage() {
         <GlassBreadcrumb backHref="/blog" backLabel={tc("back")} current={t("title")} />
       </div>
 
+      {/* Article Header — always rendered so embedHtml posts still get H1, share panel */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-8">
+        <div className="flex items-center gap-3 mb-4">
+          <span className={cn(
+            "inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium",
+            categoryColors[postCategory] || "bg-gray-100 text-gray-600"
+          )}>
+            <Tag className="w-3 h-3" />
+            {postCategory}
+          </span>
+          <span className="text-sm text-gray-400 flex items-center gap-1">
+            <Calendar className="w-3.5 h-3.5" />
+            {t("publishedOn")} {formatDate(post.date)}
+          </span>
+          <span className="text-sm text-gray-400 flex items-center gap-1">
+            <Clock className="w-3.5 h-3.5" />
+            {postReadTime}
+          </span>
+        </div>
+
+        <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight">
+          {postTitle}
+        </h1>
+
+        {renderSharePanel()}
+      </div>
+
+      {/* Cover Image — only on non-embedHtml posts (embedHtml posts carry their own imagery) */}
       {!post.embedHtml && (
-        <>
-          {/* Article Header */}
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-8">
-            <div className="flex items-center gap-3 mb-4">
-              <span className={cn(
-                "inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium",
-                categoryColors[postCategory] || "bg-gray-100 text-gray-600"
-              )}>
-                <Tag className="w-3 h-3" />
-                {postCategory}
-              </span>
-              <span className="text-sm text-gray-400 flex items-center gap-1">
-                <Calendar className="w-3.5 h-3.5" />
-                {t("publishedOn")} {formatDate(post.date)}
-              </span>
-              <span className="text-sm text-gray-400 flex items-center gap-1">
-                <Clock className="w-3.5 h-3.5" />
-                {postReadTime}
-              </span>
-            </div>
-
-            <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight">
-              {postTitle}
-            </h1>
-
-            {renderSharePanel()}
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative w-full h-64 sm:h-80 rounded-xl overflow-hidden bg-gray-100">
+            <Image
+              src={post.image}
+              alt={postTitle}
+              fill
+              className="object-cover"
+              priority
+            />
           </div>
-
-          {/* Cover Image */}
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="relative w-full h-64 sm:h-80 rounded-xl overflow-hidden bg-gray-100">
-              <Image
-                src={post.image}
-                alt={postTitle}
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
-          </div>
-        </>
-      )}
-
-      {post.embedHtml && (
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-5">
-          {renderSharePanel()}
         </div>
       )}
 
