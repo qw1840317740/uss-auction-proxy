@@ -2,6 +2,7 @@ import { MetadataRoute } from "next";
 import { routing } from "@/i18n/routing";
 import { demoPosts } from "@/lib/demo-blog";
 import { demoVehicles } from "@/lib/demo-vehicles";
+import { exportCountries } from "@/lib/export-countries";
 
 const BASE_URL = "https://clickcar.jp";
 const SITE_LAST_UPDATED = new Date("2026-07-15T00:00:00.000Z");
@@ -49,6 +50,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
         lastModified: new Date(post.date),
         changeFrequency: "monthly",
         priority: 0.6,
+      });
+    }
+
+    // Per-country export landing pages — 16 countries × 3 locales = 48 URLs
+    for (const country of exportCountries) {
+      entries.push({
+        url: `${BASE_URL}/${locale}/export-to/${country.slug}`,
+        lastModified: SITE_LAST_UPDATED,
+        changeFrequency: "monthly" as const,
+        priority: 0.75,
       });
     }
   }

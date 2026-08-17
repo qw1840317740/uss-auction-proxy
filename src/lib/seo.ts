@@ -37,12 +37,6 @@ export const siteConfig = {
   paymentAccepted: "Cash, Bank Transfer",
   priceRange: "$$",
   foundingDate: "2020",
-  // Trust / certification signals — surfaced in Organization JSON-LD and the About page.
-  // Replace placeholder JUMVEA/VAT/vehicle-count values with real credentials before launch.
-  jumveaMemberId: "JUMVEA-Member",
-  vatId: "T-XXXX-XXXX-XXXX",
-  vehiclesExported: "500+",
-  countriesServed: 15,
   // Countries we commonly export to. Used in AutoDealer.areaServed.
   areaServedCountries: ["JP", "CN", "HK", "TW", "SG", "MY", "TH", "PH", "AU", "NZ", "GB", "US", "CA", "ZA", "KE", "AE"],
 } as const;

@@ -59,6 +59,91 @@
     "maintenance": {
       "title": "Vehicle Inspection & Export Preparation in Japan",
       "description": "Professional used vehicle inspection, pre-export preparation, maintenance coordination and condition checks before shipping from Japan."
+    },
+    "exportTo": {
+      "pageTitle": "Import Used Japanese Cars to {country} | ClickCar",
+      "description": "Step-by-step guide to importing used Japanese cars to {country}. ClickCar handles auction sourcing, inspection, export paperwork and ocean shipping from Japan."
+    }
+  },
+  "exportTo": {
+    "heroTitle": "Import Japanese Used Cars to {country}",
+    "heroSubtitle": "Buy verified JDM stock from Japan and ship to {country} with ClickCar. We handle auction bidding, inspection, export documents and ocean freight — start to finish.",
+    "heroCta": "Get a Quote",
+    "heroCtaSecondary": "Auction Sourcing",
+    "facts": {
+      "capital": "Capital",
+      "ports": "Receiving Port(s)",
+      "transit": "Transit from Japan",
+      "shipping": "Shipping Mode",
+      "rhd": "Right-Hand Drive",
+      "rhdYes": "Accepted — Japanese domestic units can be driven in {country} as-is.",
+      "rhdNo": "Not accepted — JDM units must be converted to LHD before local registration.",
+      "docs": "Documents Required",
+      "docsValue": "Original Japanese registration certificate (車検証), export certificate (輸出抹消仮登録証明書), commercial invoice, bill of lading, and a clean auction sheet."
+    },
+    "regulationsTitle": "{country} Import Regulations",
+    "categoriesTitle": "Popular Categories Imported to {country}",
+    "categoriesSubtitle": "Browse the body types our buyers in {country} request most often.",
+    "categories": {
+      "sedan": "Sedans",
+      "suv": "SUVs",
+      "van": "Vans & Minivans",
+      "kei": "Kei-Class Vehicles"
+    },
+    "processTitle": "How {country} Buyers Receive Their Vehicle",
+    "process": {
+      "step1": {
+        "title": "Browse & Request",
+        "desc": "Tell us your preferred make, model, year, budget and destination port. We shortlist vehicles from our inventory and dealer auctions."
+      },
+      "step2": {
+        "title": "Inspect & Quote",
+        "desc": "We share the auction sheet, additional photos and a full condition report before bidding. You approve a maximum JPY price in writing."
+      },
+      "step3": {
+        "title": "Pay Securely",
+        "desc": "Bank wire transfer in JPY. We never take money to a personal account — funds are routed to ClickCar's business account and disbursed to the auction only after a successful bid."
+      },
+      "step4": {
+        "title": "Deregister & Document",
+        "desc": "We handle export cancellation (輸出抹消), export certificate, deregistration and inland transport to the nearest Japanese port."
+      },
+      "step5": {
+        "title": "Ship & Deliver",
+        "desc": "RoRo or container shipping from Japan with marine insurance. Tracking until arrival at {country}, plus post-arrival documentation support."
+      }
+    },
+    "faqTitle": "Frequently Asked Questions — {country}",
+    "otherTitle": "Other export destinations",
+    "ctaTitle": "Ready to import from Japan to {country}?",
+    "ctaSubtitle": "Tell us the vehicle you're looking for and your timeline. We'll confirm feasibility, total cost and the next steps within one business day.",
+    "ctaContact": "Contact Us",
+    "ctaBrowse": "Browse Vehicles"
+  },
+  "exportToFaq": {
+    "q1": {
+      "q": "Can I import any used Japanese car to {country}?",
+      "a": "Most used Japanese vehicles can be exported to {country}, but local import rules apply — typically an age limit, an inspection or compliance test, and import duty + VAT. We confirm the latest rules for your specific model and year before bidding so there are no surprises at the destination port."
+    },
+    "q2": {
+      "q": "How long does shipping from Japan to {country} take?",
+      "a": "Ocean transit from Yokohama or Nagoya to {country} is typically 4–6 weeks for RoRo or container vessels, depending on routing and port congestion. We add 1–2 weeks for inland transport, export deregistration and booking. Budget about 6–8 weeks total from payment to arrival."
+    },
+    "q3": {
+      "q": "What is the total landed cost of importing from Japan?",
+      "a": "Total landed cost = vehicle price + ClickCar service fee + Japan inland transport + ocean freight + marine insurance + your country's import duty + VAT/GST + port handling + local compliance work. We give you a fixed-JPY written quote before bidding, so the only variable is your local duty/VAT which is paid at arrival."
+    },
+    "q4": {
+      "q": "Do I need to be present in Japan to buy?",
+      "a": "No — ClickCar handles the entire process remotely. You tell us your requirements, we source vehicles, inspect them at our Saitama yard, attend the auction on your behalf and ship the vehicle to {country}. You only need to be available by email/WhatsApp for approvals and sign-off at the destination port."
+    },
+    "q5": {
+      "q": "How do I pay safely?",
+      "a": "We accept JPY bank wire transfer (T/T) to ClickCar's business account in Saitama. We never request payment to a personal account or in a currency other than JPY. Funds are released to the auction house only after a successful bid is confirmed; if the bid is lost, your money is fully refundable minus documented administrative costs."
+    },
+    "q6": {
+      "q": "What documents come with the vehicle?",
+      "a": "You receive the original Japanese registration certificate (車検証), export cancellation certificate (輸出抹消証明書), original auction sheet with inspector notes, commercial invoice, bill of lading, and ClickCar's condition report with photographs. These are sent by EMS alongside the vessel tracking information."
     }
   },
   "common": {
@@ -132,9 +217,18 @@
       "body2": "Before you commit, we help review condition details, auction sheets and available inspection information. We also coordinate export documentation, inland transport and worldwide ocean freight. Whether you are importing one vehicle or sourcing for your business, each purchase is handled vehicle by vehicle with transparent confirmation before bidding or payment.",
       "navLabel": "Japanese vehicle sourcing services",
       "links": {
-        "inventory": { "title": "Browse verified inventory", "desc": "See Japanese used cars currently listed for export." },
-        "auction": { "title": "Request auction sourcing", "desc": "Search dealer auctions with buyer-approved bidding limits." },
-        "export": { "title": "Plan worldwide shipping", "desc": "Arrange export documents and ocean freight from Japan." }
+        "inventory": {
+          "title": "Browse verified inventory",
+          "desc": "See Japanese used cars currently listed for export."
+        },
+        "auction": {
+          "title": "Request auction sourcing",
+          "desc": "Search dealer auctions with buyer-approved bidding limits."
+        },
+        "export": {
+          "title": "Plan worldwide shipping",
+          "desc": "Arrange export documents and ocean freight from Japan."
+        }
       }
     },
     "brands": {
@@ -556,15 +650,6 @@
       "title": "Company Profile",
       "desc": "Based in Saitama, Japan, ClickCar supports overseas buyers with Japanese used vehicle inventory, sourcing requests and export coordination. We help review available vehicle information, confirm purchase conditions, and arrange export documents, inland transport and ocean freight according to the destination and available shipping options."
     },
-    "credentials": {
-      "title": "Credentials & Trust",
-      "jumvea": "JUMVEA Member",
-      "jumveaDesc": "Registered member of the Japan Used Motor Vehicle Exporters Association (JUMVEA), the industry's official trade body recognized by the Ministry of Economy, Trade and Industry.",
-      "exported": "500+ Vehicles Exported",
-      "exportedDesc": "More than 500 Japanese used vehicles sourced, inspected and shipped to buyers across Asia, the Middle East, Europe, Africa and Oceania.",
-      "countries": "15+ Countries Served",
-      "countriesDesc": "Active export relationships with buyers in Japan, China, Hong Kong, Taiwan, Singapore, Malaysia, Thailand, Philippines, Australia, New Zealand, the UK, the US, Canada, South Africa, Kenya and the UAE."
-    },
     "globalNetwork": {
       "title": "International Export Inquiries",
       "subtitle": "Common destination regions we can review, subject to local regulations and shipping availability",
@@ -637,15 +722,13 @@
       "contact": "Direct Contact",
       "exported": "Vehicles Exported",
       "countries": "Countries Served",
-      "certified": "JUMVEA Certified",
       "values": {
         "sourcing": "Japan",
         "brands": "60+",
         "support": "Export",
         "contact": "Direct",
         "exported": "500+",
-        "countries": "15+",
-        "certified": "Member"
+        "countries": "15+"
       }
     }
   },

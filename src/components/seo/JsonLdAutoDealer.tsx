@@ -52,40 +52,6 @@ export function JsonLdAutoDealer({ locale }: Props) {
     currenciesAccepted: siteConfig.currenciesAccepted,
     paymentAccepted: siteConfig.paymentAccepted,
     priceRange: siteConfig.priceRange,
-    // E-E-A-T trust signals: JUMVEA certification, export volume, public reach
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "Japanese Used Vehicle Export Catalog",
-      itemListElement: [
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Japan Dealer Auction Proxy Bidding",
-          },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "Service",
-            name: "Worldwide Vehicle Export & Shipping",
-          },
-        },
-      ],
-    },
-    // Member of JUMVEA — referenced via hasCredential for trust
-    hasCredential: [
-      {
-        "@type": "EducationalOccupationalCredential",
-        credentialCategory: "license",
-        identifier: siteConfig.jumveaMemberId,
-        recognizedBy: {
-          "@type": "Organization",
-          name: "Japan Used Motor Vehicle Exporters Association (JUMVEA)",
-          url: "https://www.jumvea.or.jp/",
-        },
-      },
-    ],
   };
 
   return <JsonLdScript data={jsonLd} />;

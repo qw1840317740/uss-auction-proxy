@@ -21,22 +21,6 @@ export function JsonLdOrganization() {
       height: 145,
     },
     foundingDate: siteConfig.foundingDate,
-    taxID: siteConfig.vatId,
-    // JUMVEA = Japan Used Motor Vehicle Exporters Association.
-    // Certification builds E-E-A-T signals Google uses for YMYL export sites.
-    member: {
-      "@type": "Organization",
-      name: "Japan Used Motor Vehicle Exporters Association (JUMVEA)",
-      identifier: siteConfig.jumveaMemberId,
-      url: "https://www.jumvea.or.jp/",
-    },
-    knowsAbout: [
-      "Japanese used vehicle export",
-      "USS auction proxy bidding",
-      "Vehicle inspection",
-      "Export documentation",
-      "RoRo and container shipping",
-    ],
     contactPoint: [
       {
         "@type": "ContactPoint",
