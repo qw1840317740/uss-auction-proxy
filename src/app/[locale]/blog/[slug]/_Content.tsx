@@ -126,7 +126,10 @@ function extractEmbeddedArticleBody(html: string): string {
     .replace(/<style\b[\s\S]*?<\/style>/gi, "")
     .replace(/<link\b[^>]*>/gi, "")
     .replace(/<meta\b[^>]*>/gi, "")
-    .replace(/<title\b[\s\S]*?<\/title>/gi, "");
+    .replace(/<title\b[\s\S]*?<\/title>/gi, "")
+    // Strip <header> and <footer> — the blog template already renders site chrome.
+    .replace(/<header\b[\s\S]*?<\/header>/gi, "")
+    .replace(/<footer\b[\s\S]*?<\/footer>/gi, "");
 }
 
 export default function BlogPostPage() {

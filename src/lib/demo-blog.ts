@@ -2,6 +2,7 @@
 // Get a localized string from either a plain string or a {zh,en,ja} map
 import { odometerFraudGuideHtml } from "./odometer-fraud-guide";
 import { auctionGradeGuideHtml } from "./auction-grade-guide";
+import { japanExportGuideHtml } from "./japan-export-guide";
 
 export type LocalizedText = string | Record<string, string>;
 
@@ -3195,6 +3196,26 @@ Japan used car market news in 2025–2026 tells a story of extraordinary demand,
 
 購入前に必ず完全な検査レポートを請求しましょう。価格が安い場合、レポートに隠れた問題が記載されている可能性があります。`,
     },
+  },
+  {
+    slug: "how-to-import-a-used-car-from-japan-2026",
+    title: {
+      zh: "如何从日本进口二手车 2026 完整指南：文件、海运、关税",
+      en: "How to Import a Used Car from Japan: Documents, Shipping & Duties (2026 Complete Guide)",
+      ja: "日本から中古車を輸入する方法 2026 完全ガイド：書類・海運・関税",
+    },
+    excerpt: {
+      zh: "2026 年从日本进口二手车的完整指南：拍卖投标、出口文件、RoRo 与集装箱海运对比、按国家的关税细则，并附实际运费成本与文件清单。",
+      en: "Complete 2026 guide to importing a used car from Japan: auction bidding, export documents, RoRo vs container shipping, customs duties by country, and how long the process takes. Updated with real freight costs and document checklists.",
+      ja: "2026年版・日本から中古車を輸入する完全ガイド。オークション入札、輸出書類、RoRoとコンテナ輸送の比較、国別の関税、手続き期間を実勢の運賃と書類チェックリストとともに解説。",
+    },
+    category: { zh: "出口指南", en: "Shipping", ja: "輸出ガイド" },
+    date: "2026-06-15",
+    readTime: { zh: "9 分钟阅读", en: "9 min read", ja: "9分で読める" },
+    color: "bg-purple-600",
+    image: "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=1200&q=80",
+    embedHtml: true,
+    content: japanExportGuideHtml,
   },
 ];
 
