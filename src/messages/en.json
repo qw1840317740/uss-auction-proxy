@@ -41,8 +41,8 @@
       "description": "Answers to common questions about buying Japanese used cars, auction sourcing, export documents, shipping, payment and delivery timelines."
     },
     "auction": {
-      "title": "Japan Car Auction Proxy & Bidding Service",
-      "description": "Source vehicles from Japanese dealer auctions with ClickCar. We support vehicle search, auction sheet review, controlled bidding, inspection and export coordination."
+      "title": "Japan Car Auction Proxy & Bidding",
+      "description": "Source vehicles from Japanese dealer auctions with ClickCar. Search, auction sheet review, bidding, inspection and export coordination."
     },
     "privacy": {
       "title": "Privacy Policy",
@@ -556,6 +556,15 @@
       "title": "Company Profile",
       "desc": "Based in Saitama, Japan, ClickCar supports overseas buyers with Japanese used vehicle inventory, sourcing requests and export coordination. We help review available vehicle information, confirm purchase conditions, and arrange export documents, inland transport and ocean freight according to the destination and available shipping options."
     },
+    "credentials": {
+      "title": "Credentials & Trust",
+      "jumvea": "JUMVEA Member",
+      "jumveaDesc": "Registered member of the Japan Used Motor Vehicle Exporters Association (JUMVEA), the industry's official trade body recognized by the Ministry of Economy, Trade and Industry.",
+      "exported": "500+ Vehicles Exported",
+      "exportedDesc": "More than 500 Japanese used vehicles sourced, inspected and shipped to buyers across Asia, the Middle East, Europe, Africa and Oceania.",
+      "countries": "15+ Countries Served",
+      "countriesDesc": "Active export relationships with buyers in Japan, China, Hong Kong, Taiwan, Singapore, Malaysia, Thailand, Philippines, Australia, New Zealand, the UK, the US, Canada, South Africa, Kenya and the UAE."
+    },
     "globalNetwork": {
       "title": "International Export Inquiries",
       "subtitle": "Common destination regions we can review, subject to local regulations and shipping availability",
@@ -626,11 +635,17 @@
       "brands": "Brands We Can Source",
       "support": "Documents & Shipping",
       "contact": "Direct Contact",
+      "exported": "Vehicles Exported",
+      "countries": "Countries Served",
+      "certified": "JUMVEA Certified",
       "values": {
         "sourcing": "Japan",
         "brands": "60+",
         "support": "Export",
-        "contact": "Direct"
+        "contact": "Direct",
+        "exported": "500+",
+        "countries": "15+",
+        "certified": "Member"
       }
     }
   },

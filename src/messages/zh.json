@@ -556,6 +556,15 @@
       "title": "公司简介",
       "desc": "ClickCar位于日本埼玉，为海外买家提供日本二手车库存咨询、按需寻车及出口协调。我们协助核对现有车辆资料、确认购买条件，并根据目的地法规及实际船期安排出口文件、日本国内运输和海运。"
     },
+    "credentials": {
+      "title": "资质与信赖",
+      "jumvea": "JUMVEA 会员",
+      "jumveaDesc": "日本中古自動車輸出協会（JUMVEA）正式会员，受日本经济产业省认可的二手车出口行业官方机构。",
+      "exported": "已出口 500+ 辆车",
+      "exportedDesc": "已在亚洲、中东、欧洲、非洲、大洋洲等地区协助买家完成超过 500 台日本二手车的寻车、检测与运输。",
+      "countries": "出口覆盖 15+ 国家",
+      "countriesDesc": "与日本、中国大陆、香港、台湾、新加坡、马来西亚、泰国、菲律宾、澳大利亚、新西兰、英国、美国、加拿大、南非、肯尼亚、阿联酋等地的买家保持稳定的出口合作。"
+    },
     "globalNetwork": {
       "title": "海外出口咨询地区",
       "subtitle": "以下为常见目的地区域，实际出口以当地法规及船期可用情况为准",
@@ -626,11 +635,17 @@
       "brands": "可采购品牌",
       "support": "文件与运输",
       "contact": "直接沟通",
+      "exported": "出口车辆数",
+      "countries": "出口国家数",
+      "certified": "JUMVEA 认证",
       "values": {
         "sourcing": "日本",
         "brands": "60+",
         "support": "出口",
-        "contact": "直联"
+        "contact": "直联",
+        "exported": "500+",
+        "countries": "15+",
+        "certified": "会员"
       }
     }
   },

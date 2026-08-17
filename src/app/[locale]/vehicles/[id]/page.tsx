@@ -89,8 +89,12 @@ export async function generateMetadata({
             : "Contact ClickCar for pricing. ") +
           `Exported worldwide from Saitama, Japan by ${siteConfig.name}.`;
 
-  // Use the hand-written description if it's substantive (>120 chars), otherwise auto-generate
-  const description = handWritten.length > 120 ? handWritten : autoDescription;
+  // Use the hand-written description if it's substantive (>120 chars), otherwise auto-generate.
+  // Cap at 155 chars (Google SERP sweet spot) — append ellipsis when truncated.
+  const META_DESC_MAX = 155;
+  const truncate = (s: string) =>
+    s.length > META_DESC_MAX ? `${s.slice(0, META_DESC_MAX - 1).trimEnd()}…` : s;
+  const description = truncate(handWritten.length > 120 ? handWritten : autoDescription);
 
   // Keywords: per-vehicle long-tail keywords appended to site-wide seed
   const keywordParts = [

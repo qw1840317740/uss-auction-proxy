@@ -23,12 +23,18 @@ export async function generateMetadata({
   }
 
   const title = getLocalized(post.title, locale);
+  // Cap meta title at 60 chars to fit SERP without truncation
+  const META_TITLE_MAX = 60;
+  const metaTitle = title.length > META_TITLE_MAX ? `${title.slice(0, META_TITLE_MAX - 3).trimEnd()}...` : title;
   const description = getLocalized(post.excerpt, locale);
+  // Cap meta description at 155 chars
+  const META_DESC_MAX = 155;
+  const metaDescription = description.length > META_DESC_MAX ? `${description.slice(0, META_DESC_MAX - 1).trimEnd()}…` : description;
   const image = post.image ? getAbsoluteMediaUrl(post.image) : getAbsoluteMediaUrl(siteConfig.logo);
 
   return {
-    title,
-    description,
+    title: metaTitle,
+    description: metaDescription,
     openGraph: {
       title,
       description,
