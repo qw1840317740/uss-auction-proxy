@@ -9,7 +9,10 @@ import { Calendar, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { useScrollReveal, useStaggerReveal } from "@/lib/useScrollReveal";
 
-const blogPosts = demoPosts.slice(0, 3);
+// Sort newest-first by publish date, then take the first 3.
+const blogPosts = [...demoPosts]
+  .sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0))
+  .slice(0, 3);
 
 const categoryColors: Record<string, string> = {
   Guide: "bg-red-50 text-red-700",
