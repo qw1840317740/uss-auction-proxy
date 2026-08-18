@@ -39,10 +39,12 @@ export default function BlogPage() {
         </div>
       </div>
 
-      {/* Posts Grid */}
+      {/* Posts Grid — sorted newest-first by publish date */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {demoPosts.map((post) => {
+          {[...demoPosts]
+            .sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0))
+            .map((post) => {
             const postTitle = getLocalized(post.title, locale);
             const postExcerpt = getLocalized(post.excerpt, locale);
             const postCategory = getLocalized(post.category, locale);
