@@ -19,9 +19,8 @@ export const japanExportGuideHtml: Record<string, string> = {
 
   <!-- HERO IMAGE -->
   <figure class="article-img" style="margin-top:2rem">
-    <img src="https://www.ussnet.co.jp/auction/site-guide/images/site_nagoya_01.jpg"
-         onerror="this.src='https://japanesecartrade.com/wp-content/uploads/2023/07/japan-car-auction.jpg'"
-         alt="USS Nagoya auction hall — one of Japan's largest used car auction facilities"
+    <img src="https://images.unsplash.com/photo-1740744362373-bbd648d38dac?w=1200&auto=format&fit=crop&q=80"
+         alt="A row of Japanese used vehicles awaiting inspection at auction — equivalent to USS Nagoya, one of Japan's largest used car auction halls processing thousands of vehicles weekly"
          loading="lazy">
     <figcaption>USS Nagoya — one of Japan's largest used car auction halls, processing thousands of vehicles weekly</figcaption>
   </figure>
@@ -366,9 +365,8 @@ export const japanExportGuideHtml: Record<string, string> = {
 
   <!-- HERO IMAGE -->
   <figure class="article-img" style="margin-top:2rem">
-    <img src="https://www.ussnet.co.jp/auction/site-guide/images/site_nagoya_01.jpg"
-         onerror="this.src='https://japanesecartrade.com/wp-content/uploads/2023/07/japan-car-auction.jpg'"
-         alt="USS Nagoya auction hall — one of Japan's largest used car auction facilities"
+    <img src="https://images.unsplash.com/photo-1740744362373-bbd648d38dac?w=1200&auto=format&fit=crop&q=80"
+         alt="A row of Japanese used vehicles awaiting inspection at auction — equivalent to USS Nagoya, one of Japan's largest used car auction halls processing thousands of vehicles weekly"
          loading="lazy">
     <figcaption>USS Nagoya — one of Japan's largest used car auction halls, processing thousands of vehicles weekly</figcaption>
   </figure>
@@ -713,9 +711,8 @@ export const japanExportGuideHtml: Record<string, string> = {
 
   <!-- HERO IMAGE -->
   <figure class="article-img" style="margin-top:2rem">
-    <img src="https://www.ussnet.co.jp/auction/site-guide/images/site_nagoya_01.jpg"
-         onerror="this.src='https://japanesecartrade.com/wp-content/uploads/2023/07/japan-car-auction.jpg'"
-         alt="USS Nagoya auction hall — one of Japan's largest used car auction facilities"
+    <img src="https://images.unsplash.com/photo-1740744362373-bbd648d38dac?w=1200&auto=format&fit=crop&q=80"
+         alt="A row of Japanese used vehicles awaiting inspection at auction — equivalent to USS Nagoya, one of Japan's largest used car auction halls processing thousands of vehicles weekly"
          loading="lazy">
     <figcaption>USS Nagoya — one of Japan's largest used car auction halls, processing thousands of vehicles weekly</figcaption>
   </figure>
