@@ -117,6 +117,130 @@ function renderItalic(text: string, baseKey: number): React.ReactNode {
   return parts.length === 1 ? parts[0] : <>{parts}</>;
 }
 
+/**
+ * Layout CSS for embedded articles. The original <style> tag is stripped by
+ * extractEmbeddedArticleBody, so we re-inject a scoped copy here. All selectors
+ * are namespaced under `.embedded-html-article` to avoid clashing with Tailwind
+ * classes elsewhere on the page. CSS variables are scoped to the article root
+ * so they don't leak globally.
+ */
+const EMBEDDED_HTML_CSS = `
+.embedded-html-article {
+  --red: #CC0000; --red-light: #fff0f0;
+  --amber: #D97706; --amber-light: #FFFBEB;
+  --green: #15803D; --green-light: #F0FDF4;
+  --blue: #1D4ED8; --blue-light: #EFF6FF;
+  --black: #111111; --ink: #1c1c1c;
+  --gray-700: #444; --gray-500: #888; --gray-100: #f5f5f5;
+  --white: #ffffff; --rule: #e0e0e0;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Inter', system-ui, sans-serif;
+  --mono: 'DM Mono', monospace;
+  --max: 780px;
+  color: var(--gray-700);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.7;
+}
+.embedded-html-article .section { padding: 2.75rem 0; border-bottom: 1px solid var(--rule); }
+.embedded-html-article .section:last-of-type { border-bottom: none; }
+.embedded-html-article .section-label { font-family: var(--mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--gray-500); margin-bottom: 1rem; }
+.embedded-html-article .section-label::before { content: '— '; color: var(--red); }
+.embedded-html-article h2 { font-family: var(--serif); font-size: 1.6rem; font-weight: 400; color: var(--black); margin: 1.6rem 0 1.1rem; line-height: 1.3; }
+.embedded-html-article h3 { font-size: 15px; font-weight: 500; color: var(--black); margin-bottom: .45rem; margin-top: 1.4rem; }
+.embedded-html-article h3:first-child { margin-top: 0; }
+.embedded-html-article p { font-size: 15px; line-height: 1.8; color: var(--gray-700); margin-bottom: .9rem; font-weight: 300; }
+.embedded-html-article p:last-child { margin-bottom: 0; }
+.embedded-html-article strong.key { color: var(--black); font-weight: 500; }
+.embedded-html-article .article-body { max-width: var(--max); margin: 0 auto; padding: 0; }
+
+/* TIMELINE */
+.embedded-html-article .timeline { position: relative; margin: 1.5rem 0; padding-left: 1.75rem; }
+.embedded-html-article .timeline::before { content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 1px; background: var(--rule); }
+.embedded-html-article .tl-item { position: relative; margin-bottom: 1.5rem; }
+.embedded-html-article .tl-item:last-child { margin-bottom: 0; }
+.embedded-html-article .tl-dot { position: absolute; left: -1.75rem; top: 4px; width: 15px; height: 15px; border-radius: 50%; background: var(--white); border: 2px solid var(--red); display: flex; align-items: center; justify-content: center; }
+.embedded-html-article .tl-dot-inner { width: 5px; height: 5px; border-radius: 50%; background: var(--red); }
+.embedded-html-article .tl-week { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; color: var(--red); text-transform: uppercase; margin-bottom: 3px; }
+.embedded-html-article .tl-title { font-size: 14px; font-weight: 500; color: var(--black); margin-bottom: 3px; }
+.embedded-html-article .tl-desc { font-size: 13px; color: var(--gray-500); line-height: 1.55; font-weight: 300; }
+
+/* DOC CHECKLIST */
+.embedded-html-article .doc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin: 1.5rem 0; }
+.embedded-html-article .doc-col { background: var(--white); }
+.embedded-html-article .doc-header { background: var(--black); color: var(--white); font-family: var(--mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; padding: .65rem 1rem; }
+.embedded-html-article .doc-item { display: flex; gap: 10px; align-items: flex-start; padding: .65rem 1rem; border-bottom: 1px solid var(--rule); font-size: 13px; }
+.embedded-html-article .doc-item:last-child { border-bottom: none; }
+.embedded-html-article .doc-icon { flex-shrink: 0; width: 16px; height: 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+.embedded-html-article .doc-icon-red { background: var(--red); }
+.embedded-html-article .doc-icon-blue { background: #2563EB; }
+.embedded-html-article .doc-icon svg { width: 8px; height: 8px; }
+.embedded-html-article .doc-name { color: var(--black); font-weight: 400; line-height: 1.4; }
+.embedded-html-article .doc-note { font-size: 11.5px; color: var(--gray-500); display: block; margin-top: 1px; font-weight: 300; }
+
+/* SHIPPING COMPARE */
+.embedded-html-article .ship-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin: 1.5rem 0; }
+.embedded-html-article .ship-col { background: var(--white); padding: 1.25rem; }
+.embedded-html-article .ship-header { font-size: 13px; font-weight: 500; color: var(--black); margin-bottom: .75rem; padding-bottom: .65rem; border-bottom: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: center; }
+.embedded-html-article .ship-tag { font-family: var(--mono); font-size: 10px; padding: 2px 8px; border-radius: 2px; }
+.embedded-html-article .t-cheap { background: var(--green-light); color: var(--green); }
+.embedded-html-article .t-safe { background: var(--blue-light); color: var(--blue); }
+.embedded-html-article .ship-row { display: flex; justify-content: space-between; padding: .4rem 0; border-bottom: .5px solid var(--rule); font-size: 13px; }
+.embedded-html-article .ship-row:last-child { border-bottom: none; }
+.embedded-html-article .ship-label { color: var(--gray-500); font-weight: 300; }
+.embedded-html-article .ship-val { color: var(--black); font-weight: 400; text-align: right; }
+
+/* DUTY TABLE */
+.embedded-html-article .duty-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 1.5rem 0; }
+.embedded-html-article .duty-table thead tr { border-bottom: 2px solid var(--black); }
+.embedded-html-article .duty-table th { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; padding: 8px 10px; color: var(--gray-500); font-weight: 400; text-align: left; }
+.embedded-html-article .duty-table tbody tr { border-bottom: 1px solid var(--rule); }
+.embedded-html-article .duty-table tbody tr:last-child { border-bottom: none; }
+.embedded-html-article .duty-table td { padding: 10px 10px; color: var(--gray-700); vertical-align: top; }
+.embedded-html-article .duty-table td:first-child { font-weight: 500; color: var(--black); }
+.embedded-html-article .duty-table td:nth-child(2) { font-family: var(--mono); font-size: 12px; color: var(--red); }
+.embedded-html-article .age-badge { display: inline-block; font-family: var(--mono); font-size: 10px; padding: 2px 6px; border-radius: 2px; background: var(--gray-100); color: var(--gray-500); }
+
+/* CALLOUTS */
+.embedded-html-article .callout { border-left: 2px solid var(--green); padding: .85rem 1.1rem; margin: 1.5rem 0; background: var(--green-light); border-radius: 0; }
+.embedded-html-article .callout p { font-size: 14px; color: #166534; margin: 0; }
+.embedded-html-article .callout strong { font-weight: 500; }
+.embedded-html-article .callout-amber { border-left-color: var(--amber); background: var(--amber-light); }
+.embedded-html-article .callout-amber p { color: #92400E; }
+.embedded-html-article .callout-red { border-left-color: var(--red); background: var(--red-light); }
+.embedded-html-article .callout-red p { color: #7F1D1D; }
+.embedded-html-article .callout-blue { border-left-color: var(--blue); background: var(--blue-light); }
+.embedded-html-article .callout-blue p { color: #1E3A8A; }
+
+/* COST BREAKDOWN */
+.embedded-html-article .cost-list { margin: 1rem 0; }
+.embedded-html-article .cost-row { display: flex; align-items: center; justify-content: space-between; padding: .65rem 0; border-bottom: 1px solid var(--rule); font-size: 14px; }
+.embedded-html-article .cost-row:last-child { border-bottom: none; font-weight: 500; color: var(--black); border-top: 2px solid var(--black); padding-top: .85rem; margin-top: .25rem; }
+.embedded-html-article .cost-label { color: var(--gray-700); }
+.embedded-html-article .cost-val { font-family: var(--mono); color: var(--black); }
+.embedded-html-article .cost-note { font-size: 11px; color: var(--gray-500); margin-left: 8px; font-weight: 300; }
+
+/* CTA section is stripped before injection, no styles needed */
+
+/* IMAGES */
+.embedded-html-article .article-img { width: 100%; display: block; margin: 1.75rem 0; }
+.embedded-html-article .article-img img { width: 100%; height: 320px; object-fit: cover; display: block; }
+.embedded-html-article .article-img figcaption { font-family: var(--mono); font-size: 11px; color: var(--gray-500); letter-spacing: .05em; padding: .55rem 0 0; border-top: 1px solid var(--rule); margin-top: 0; }
+.embedded-html-article .img-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); margin: 1.75rem 0; }
+.embedded-html-article .img-2col figure { margin: 0; background: var(--white); }
+.embedded-html-article .img-2col img { width: 100%; height: 220px; object-fit: cover; display: block; }
+.embedded-html-article .img-2col figcaption { font-family: var(--mono); font-size: 11px; color: var(--gray-500); letter-spacing: .04em; padding: .45rem .65rem; }
+
+@media (max-width: 500px) {
+  .embedded-html-article .img-2col { grid-template-columns: 1fr; }
+  .embedded-html-article .article-img img { height: 220px; }
+}
+@media (max-width: 600px) {
+  .embedded-html-article .doc-grid,
+  .embedded-html-article .ship-grid { grid-template-columns: 1fr; }
+}
+`;
+
 function extractEmbeddedArticleBody(html: string): string {
   const bodyMatch = html.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
   const body = bodyMatch?.[1] ?? html;
@@ -398,10 +522,17 @@ export default function BlogPostPage() {
         post.embedHtml ? "pt-6 pb-10" : "py-10"
       )}>
         {post.embedHtml ? (
-          <article
-            className="embedded-html-article"
-            dangerouslySetInnerHTML={{ __html: embeddedArticleBody }}
-          />
+          <>
+            {/* Scoped CSS for embedded articles (e.g. japan-export-guide).
+                Original <style> tags are stripped by extractEmbeddedArticleBody, so we
+                re-inject the layout classes here, scoped under .embedded-html-article
+                to avoid clashing with Tailwind on the rest of the page. */}
+            <style dangerouslySetInnerHTML={{ __html: EMBEDDED_HTML_CSS }} />
+            <article
+              className="embedded-html-article"
+              dangerouslySetInnerHTML={{ __html: embeddedArticleBody }}
+            />
+          </>
         ) : (
         <article className="prose prose-gray max-w-none prose-headings:font-semibold prose-h2:text-xl prose-h3:text-lg prose-a:text-primary">
           {postContent.split("\n\n").map((block, idx) => {
