@@ -1,26 +1,434 @@
-// HTML body content for the "How to Import a Used Car from Japan" guide.
-// Source: ClickCar editorial team, v2026-06.
-// Single-language master content (EN); other locales reuse it until per-locale
-// translations are produced. The renderer's extractEmbeddedArticleBody helper
-// strips <script>, <style>, <link>, <meta>, <title>, <header> and <footer>
-// tags before injecting.
-//
-// SEO notes:
-// - Document starts at H2 — the surrounding blog template renders the H1.
-// - Each H2 becomes a TOC anchor.
-// - Internal links to /services/auction and /export-guide are already in source.
+// CSS + HTML for the Japan Export Guide guide.
+// Source: ClickCar editorial team.
+// The styles below are scoped to `.guide-japan-export` so they only apply inside the
+// article container rendered by the blog template. The renderer strips <script>,
+// <style>, <link>, <meta>, <title>, <header> and <footer> tags from the body
+// before injecting. We re-inject the styles here so tables, callouts, and FAQ
+// blocks render correctly.
 
-export const japanExportGuideHtml: Record<string, string> = {
-  zh: `
+export const JapanExportGuideStyles: Record<string, string> = {
+  zh: `.guide-japan-export *::before, .guide-japan-export *::after { box-sizing: border-box; margin: 0; padding: 0; }
+.guide-japan-export html { font-size: 16px; scroll-behavior: smooth; }
+.guide-japan-export .site-header { border-bottom: 1px solid var(--rule); padding: 18px 2rem; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; background: rgba(255,255,255,0.97); backdrop-filter: blur(6px); z-index: 100; }
+.guide-japan-export .site-logo { font-family: var(--mono); font-size: 13px; letter-spacing: .12em; color: var(--black); text-decoration: none; text-transform: uppercase; }
+.guide-japan-export .site-logo span { color: var(--red); }
+.guide-japan-export .header-cta { font-size: 12px; font-weight: 500; color: var(--red); text-decoration: none; letter-spacing: .04em; border-bottom: 1px solid var(--red); padding-bottom: 1px; }
+.guide-japan-export .hero { border-bottom: 1px solid var(--rule); padding: 4rem 2rem 3rem; max-width: var(--max); margin: 0 auto; }
+.guide-japan-export .eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--red); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 10px; }
+.guide-japan-export .eyebrow::after { content: ''; flex: 1; height: 1px; background: var(--red); opacity: .3; max-width: 80px; }
+.guide-japan-export .hero-title { font-family: var(--serif); font-size: clamp(1.85rem, 5vw, 2.75rem); font-weight: 400; line-height: 1.2; color: var(--black); margin-bottom: 1.25rem; letter-spacing: -.01em; }
+.guide-japan-export .hero-title em { font-style: italic; color: var(--red); }
+.guide-japan-export .hero-desc { font-size: 15.5px; color: var(--gray-500); max-width: 580px; margin-bottom: 2rem; font-weight: 300; line-height: 1.75; }
+.guide-japan-export .hero-meta { display: flex; gap: 2rem; flex-wrap: wrap; border-top: 1px solid var(--rule); padding-top: 1.25rem; }
+.guide-japan-export .meta-item { font-family: var(--mono); font-size: 11px; color: var(--gray-500); letter-spacing: .06em; }
+.guide-japan-export .meta-item strong { color: var(--ink); font-weight: 400; display: block; font-size: 13px; }
+.guide-japan-export .article-body { max-width: var(--max); margin: 0 auto; padding: 0 2rem; }
+.guide-japan-export .section { padding: 2.75rem 0; border-bottom: 1px solid var(--rule); }
+.guide-japan-export .section:last-of-type { border-bottom: none; }
+.guide-japan-export .section-label { font-family: var(--mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--gray-500); margin-bottom: 1rem; }
+.guide-japan-export .section-label::before { content: '— '; color: var(--red); }
+.guide-japan-export h2 { font-family: var(--serif); font-size: 1.6rem; font-weight: 400; color: var(--black); margin-bottom: 1.1rem; line-height: 1.3; }
+.guide-japan-export h3 { font-size: 15px; font-weight: 500; color: var(--black); margin-bottom: .45rem; margin-top: 1.4rem; }
+.guide-japan-export h3:first-child { margin-top: 0; }
+.guide-japan-export p { font-size: 15px; line-height: 1.8; color: var(--gray-700); margin-bottom: .9rem; font-weight: 300; }
+.guide-japan-export p:last-child { margin-bottom: 0; }
+.guide-japan-export strong.key { color: var(--black); font-weight: 500; }
+.guide-japan-export /* TIMELINE */
+  .timeline { position: relative; margin: 1.5rem 0; padding-left: 1.75rem; }
+.guide-japan-export .timeline::before { content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 1px; background: var(--rule); }
+.guide-japan-export .tl-item { position: relative; margin-bottom: 1.5rem; }
+.guide-japan-export .tl-item:last-child { margin-bottom: 0; }
+.guide-japan-export .tl-dot { position: absolute; left: -1.75rem; top: 4px; width: 15px; height: 15px; border-radius: 50%; background: var(--white); border: 2px solid var(--red); display: flex; align-items: center; justify-content: center; }
+.guide-japan-export .tl-dot-inner { width: 5px; height: 5px; border-radius: 50%; background: var(--red); }
+.guide-japan-export .tl-week { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; color: var(--red); text-transform: uppercase; margin-bottom: 3px; }
+.guide-japan-export .tl-title { font-size: 14px; font-weight: 500; color: var(--black); margin-bottom: 3px; }
+.guide-japan-export .tl-desc { font-size: 13px; color: var(--gray-500); line-height: 1.55; font-weight: 300; }
+.guide-japan-export /* DOC CHECKLIST */
+  .doc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin: 1.5rem 0; }
+.guide-japan-export .doc-col { background: var(--white); }
+.guide-japan-export .doc-header { background: var(--black); color: var(--white); font-family: var(--mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; padding: .65rem 1rem; }
+.guide-japan-export .doc-item { display: flex; gap: 10px; align-items: flex-start; padding: .65rem 1rem; border-bottom: 1px solid var(--rule); font-size: 13px; }
+.guide-japan-export .doc-item:last-child { border-bottom: none; }
+.guide-japan-export .doc-icon { flex-shrink: 0; width: 16px; height: 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+.guide-japan-export .doc-icon-red { background: var(--red); }
+.guide-japan-export .doc-icon-blue { background: #2563EB; }
+.guide-japan-export .doc-icon svg { width: 8px; height: 8px; }
+.guide-japan-export .doc-name { color: var(--black); font-weight: 400; line-height: 1.4; }
+.guide-japan-export .doc-note { font-size: 11.5px; color: var(--gray-500); display: block; margin-top: 1px; font-weight: 300; }
+.guide-japan-export /* SHIPPING COMPARE */
+  .ship-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin: 1.5rem 0; }
+.guide-japan-export .ship-col { background: var(--white); padding: 1.25rem; }
+.guide-japan-export .ship-header { font-size: 13px; font-weight: 500; color: var(--black); margin-bottom: .75rem; padding-bottom: .65rem; border-bottom: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: center; }
+.guide-japan-export .ship-tag { font-family: var(--mono); font-size: 10px; padding: 2px 8px; border-radius: 2px; }
+.guide-japan-export .t-cheap { background: var(--green-light); color: var(--green); }
+.guide-japan-export .t-safe { background: var(--blue-light); color: var(--blue); }
+.guide-japan-export .ship-row { display: flex; justify-content: space-between; padding: .4rem 0; border-bottom: .5px solid var(--rule); font-size: 13px; }
+.guide-japan-export .ship-row:last-child { border-bottom: none; }
+.guide-japan-export .ship-label { color: var(--gray-500); font-weight: 300; }
+.guide-japan-export .ship-val { color: var(--black); font-weight: 400; text-align: right; }
+.guide-japan-export /* DUTY TABLE */
+  .duty-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 1.5rem 0; }
+.guide-japan-export .duty-table thead tr { border-bottom: 2px solid var(--black); }
+.guide-japan-export .duty-table th { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; padding: 8px 10px; color: var(--gray-500); font-weight: 400; text-align: left; }
+.guide-japan-export .duty-table tbody tr { border-bottom: 1px solid var(--rule); }
+.guide-japan-export .duty-table tbody tr:last-child { border-bottom: none; }
+.guide-japan-export .duty-table td { padding: 10px 10px; color: var(--gray-700); vertical-align: top; }
+.guide-japan-export .duty-table td:first-child { font-weight: 500; color: var(--black); }
+.guide-japan-export .duty-table td:nth-child(2) { font-family: var(--mono); font-size: 12px; color: var(--red); }
+.guide-japan-export .age-badge { display: inline-block; font-family: var(--mono); font-size: 10px; padding: 2px 6px; border-radius: 2px; background: var(--gray-100); color: var(--gray-500); }
+.guide-japan-export /* CALLOUTS */
+  .callout { border-left: 2px solid var(--green); padding: .85rem 1.1rem; margin: 1.5rem 0; background: var(--green-light); border-radius: 0; }
+.guide-japan-export .callout p { font-size: 14px; color: #166534; margin: 0; }
+.guide-japan-export .callout strong { font-weight: 500; }
+.guide-japan-export .callout-amber { border-left: 2px solid var(--amber); padding: .85rem 1.1rem; margin: 1.5rem 0; background: var(--amber-light); }
+.guide-japan-export .callout-amber p { font-size: 14px; color: #92400E; margin: 0; }
+.guide-japan-export .callout-amber strong { font-weight: 500; }
+.guide-japan-export .callout-red { border-left: 2px solid var(--red); padding: .85rem 1.1rem; margin: 1.5rem 0; background: var(--red-light); }
+.guide-japan-export .callout-red p { font-size: 14px; color: #7F1D1D; margin: 0; }
+.guide-japan-export .callout-red strong { font-weight: 500; }
+.guide-japan-export .callout-blue { border-left: 2px solid var(--blue); padding: .85rem 1.1rem; margin: 1.5rem 0; background: var(--blue-light); }
+.guide-japan-export .callout-blue p { font-size: 14px; color: #1E3A8A; margin: 0; }
+.guide-japan-export .callout-blue strong { font-weight: 500; }
+.guide-japan-export /* COST BREAKDOWN */
+  .cost-list { margin: 1rem 0; }
+.guide-japan-export .cost-row { display: flex; align-items: center; justify-content: space-between; padding: .65rem 0; border-bottom: 1px solid var(--rule); font-size: 14px; }
+.guide-japan-export .cost-row:last-child { border-bottom: none; font-weight: 500; color: var(--black); border-top: 2px solid var(--black); padding-top: .85rem; margin-top: .25rem; }
+.guide-japan-export .cost-label { color: var(--gray-700); }
+.guide-japan-export .cost-val { font-family: var(--mono); color: var(--black); }
+.guide-japan-export .cost-note { font-size: 11px; color: var(--gray-500); margin-left: 8px; font-weight: 300; }
+.guide-japan-export /* RELATED POSTS */
+  .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin: 1.5rem 0; }
+.guide-japan-export .related-card { background: var(--white); padding: 1rem 1.1rem; cursor: pointer; transition: background .15s; text-decoration: none; display: block; }
+.guide-japan-export .related-card:hover { background: var(--gray-100); }
+.guide-japan-export .related-label { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; color: var(--red); text-transform: uppercase; margin-bottom: .35rem; }
+.guide-japan-export .related-title { font-size: 13px; font-weight: 500; color: var(--black); line-height: 1.4; }
+.guide-japan-export /* CTA */
+  .cta-section { background: var(--black); margin: 3rem -2rem -3rem; padding: 3rem 2rem 3.5rem; }
+.guide-japan-export .cta-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--red); margin-bottom: 1rem; }
+.guide-japan-export .cta-title { font-family: var(--serif); font-size: 1.75rem; font-weight: 400; color: var(--white); margin-bottom: .75rem; line-height: 1.3; }
+.guide-japan-export .cta-desc { font-size: 14px; color: rgba(255,255,255,.5); max-width: 500px; margin-bottom: 2rem; font-weight: 300; line-height: 1.75; }
+.guide-japan-export .cta-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+.guide-japan-export .cta-step { border: 1px solid rgba(255,255,255,.1); padding: .9rem 1rem; }
+.guide-japan-export .cta-step-num { font-family: var(--mono); font-size: 11px; color: var(--red); margin-bottom: .35rem; letter-spacing: .08em; }
+.guide-japan-export .cta-step-text { font-size: 13px; color: rgba(255,255,255,.7); line-height: 1.5; }
+.guide-japan-export .cta-btn { display: inline-block; background: var(--red); color: var(--white); font-size: 13px; font-weight: 500; letter-spacing: .06em; padding: 12px 28px; text-decoration: none; transition: opacity .2s; font-family: var(--sans); border: none; cursor: pointer; }
+.guide-japan-export .cta-btn:hover { opacity: .85; }
+.guide-japan-export .cta-note { margin-top: 1rem; font-size: 12px; color: rgba(255,255,255,.3); font-family: var(--mono); letter-spacing: .04em; }
+.guide-japan-export .site-footer { background: var(--gray-100); border-top: 1px solid var(--rule); padding: 1.5rem 2rem; text-align: center; font-family: var(--mono); font-size: 11px; color: var(--gray-500); letter-spacing: .06em; }
+.guide-japan-export /* IMAGES */
+  .article-img { width: 100%; display: block; margin: 1.75rem 0; }
+.guide-japan-export .article-img img { width: 100%; height: 320px; object-fit: cover; display: block; filter: grayscale(8%); }
+.guide-japan-export .article-img figcaption { font-family: var(--mono); font-size: 11px; color: var(--gray-500); letter-spacing: .05em; padding: .55rem 0 0; border-top: 1px solid var(--rule); margin-top: 0; }
+.guide-japan-export .img-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); margin: 1.75rem 0; }
+.guide-japan-export .img-2col figure { margin: 0; background: var(--white); }
+.guide-japan-export .img-2col img { width: 100%; height: 220px; object-fit: cover; display: block; filter: grayscale(8%); }
+.guide-japan-export .img-2col figcaption { font-family: var(--mono); font-size: 11px; color: var(--gray-500); letter-spacing: .04em; padding: .45rem .65rem; }
+.guide-japan-export @media (max-width: 500px) { .img-2col { grid-template-columns: 1fr; }
+.guide-japan-export .article-img img { height: 220px; }
+.guide-japan-export }
+
+  @media (max-width: 600px) {
+    .site-header { padding: 14px 1.25rem; }
+.guide-japan-export .hero { padding: 2.5rem 1.25rem 2rem; }
+.guide-japan-export .article-body { padding: 0 1.25rem; }
+.guide-japan-export .hero-meta { gap: 1.25rem; }
+.guide-japan-export .doc-grid, .guide-japan-export .ship-grid { grid-template-columns: 1fr; }
+.guide-japan-export .duty-table th:last-child, .guide-japan-export .duty-table td:last-child { display: none; }
+.guide-japan-export .cta-section { margin: 3rem -1.25rem -3rem; padding: 2.5rem 1.25rem 3rem; }
+.guide-japan-export .cta-steps { grid-template-columns: 1fr 1fr; }
+.guide-japan-export }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; }`,
+  en: `.guide-japan-export *::before, .guide-japan-export *::after { box-sizing: border-box; margin: 0; padding: 0; }
+.guide-japan-export html { font-size: 16px; scroll-behavior: smooth; }
+.guide-japan-export .site-header { border-bottom: 1px solid var(--rule); padding: 18px 2rem; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; background: rgba(255,255,255,0.97); backdrop-filter: blur(6px); z-index: 100; }
+.guide-japan-export .site-logo { font-family: var(--mono); font-size: 13px; letter-spacing: .12em; color: var(--black); text-decoration: none; text-transform: uppercase; }
+.guide-japan-export .site-logo span { color: var(--red); }
+.guide-japan-export .header-cta { font-size: 12px; font-weight: 500; color: var(--red); text-decoration: none; letter-spacing: .04em; border-bottom: 1px solid var(--red); padding-bottom: 1px; }
+.guide-japan-export .hero { border-bottom: 1px solid var(--rule); padding: 4rem 2rem 3rem; max-width: var(--max); margin: 0 auto; }
+.guide-japan-export .eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--red); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 10px; }
+.guide-japan-export .eyebrow::after { content: ''; flex: 1; height: 1px; background: var(--red); opacity: .3; max-width: 80px; }
+.guide-japan-export .hero-title { font-family: var(--serif); font-size: clamp(1.85rem, 5vw, 2.75rem); font-weight: 400; line-height: 1.2; color: var(--black); margin-bottom: 1.25rem; letter-spacing: -.01em; }
+.guide-japan-export .hero-title em { font-style: italic; color: var(--red); }
+.guide-japan-export .hero-desc { font-size: 15.5px; color: var(--gray-500); max-width: 580px; margin-bottom: 2rem; font-weight: 300; line-height: 1.75; }
+.guide-japan-export .hero-meta { display: flex; gap: 2rem; flex-wrap: wrap; border-top: 1px solid var(--rule); padding-top: 1.25rem; }
+.guide-japan-export .meta-item { font-family: var(--mono); font-size: 11px; color: var(--gray-500); letter-spacing: .06em; }
+.guide-japan-export .meta-item strong { color: var(--ink); font-weight: 400; display: block; font-size: 13px; }
+.guide-japan-export .article-body { max-width: var(--max); margin: 0 auto; padding: 0 2rem; }
+.guide-japan-export .section { padding: 2.75rem 0; border-bottom: 1px solid var(--rule); }
+.guide-japan-export .section:last-of-type { border-bottom: none; }
+.guide-japan-export .section-label { font-family: var(--mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--gray-500); margin-bottom: 1rem; }
+.guide-japan-export .section-label::before { content: '— '; color: var(--red); }
+.guide-japan-export h2 { font-family: var(--serif); font-size: 1.6rem; font-weight: 400; color: var(--black); margin-bottom: 1.1rem; line-height: 1.3; }
+.guide-japan-export h3 { font-size: 15px; font-weight: 500; color: var(--black); margin-bottom: .45rem; margin-top: 1.4rem; }
+.guide-japan-export h3:first-child { margin-top: 0; }
+.guide-japan-export p { font-size: 15px; line-height: 1.8; color: var(--gray-700); margin-bottom: .9rem; font-weight: 300; }
+.guide-japan-export p:last-child { margin-bottom: 0; }
+.guide-japan-export strong.key { color: var(--black); font-weight: 500; }
+.guide-japan-export /* TIMELINE */
+  .timeline { position: relative; margin: 1.5rem 0; padding-left: 1.75rem; }
+.guide-japan-export .timeline::before { content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 1px; background: var(--rule); }
+.guide-japan-export .tl-item { position: relative; margin-bottom: 1.5rem; }
+.guide-japan-export .tl-item:last-child { margin-bottom: 0; }
+.guide-japan-export .tl-dot { position: absolute; left: -1.75rem; top: 4px; width: 15px; height: 15px; border-radius: 50%; background: var(--white); border: 2px solid var(--red); display: flex; align-items: center; justify-content: center; }
+.guide-japan-export .tl-dot-inner { width: 5px; height: 5px; border-radius: 50%; background: var(--red); }
+.guide-japan-export .tl-week { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; color: var(--red); text-transform: uppercase; margin-bottom: 3px; }
+.guide-japan-export .tl-title { font-size: 14px; font-weight: 500; color: var(--black); margin-bottom: 3px; }
+.guide-japan-export .tl-desc { font-size: 13px; color: var(--gray-500); line-height: 1.55; font-weight: 300; }
+.guide-japan-export /* DOC CHECKLIST */
+  .doc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin: 1.5rem 0; }
+.guide-japan-export .doc-col { background: var(--white); }
+.guide-japan-export .doc-header { background: var(--black); color: var(--white); font-family: var(--mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; padding: .65rem 1rem; }
+.guide-japan-export .doc-item { display: flex; gap: 10px; align-items: flex-start; padding: .65rem 1rem; border-bottom: 1px solid var(--rule); font-size: 13px; }
+.guide-japan-export .doc-item:last-child { border-bottom: none; }
+.guide-japan-export .doc-icon { flex-shrink: 0; width: 16px; height: 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+.guide-japan-export .doc-icon-red { background: var(--red); }
+.guide-japan-export .doc-icon-blue { background: #2563EB; }
+.guide-japan-export .doc-icon svg { width: 8px; height: 8px; }
+.guide-japan-export .doc-name { color: var(--black); font-weight: 400; line-height: 1.4; }
+.guide-japan-export .doc-note { font-size: 11.5px; color: var(--gray-500); display: block; margin-top: 1px; font-weight: 300; }
+.guide-japan-export /* SHIPPING COMPARE */
+  .ship-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin: 1.5rem 0; }
+.guide-japan-export .ship-col { background: var(--white); padding: 1.25rem; }
+.guide-japan-export .ship-header { font-size: 13px; font-weight: 500; color: var(--black); margin-bottom: .75rem; padding-bottom: .65rem; border-bottom: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: center; }
+.guide-japan-export .ship-tag { font-family: var(--mono); font-size: 10px; padding: 2px 8px; border-radius: 2px; }
+.guide-japan-export .t-cheap { background: var(--green-light); color: var(--green); }
+.guide-japan-export .t-safe { background: var(--blue-light); color: var(--blue); }
+.guide-japan-export .ship-row { display: flex; justify-content: space-between; padding: .4rem 0; border-bottom: .5px solid var(--rule); font-size: 13px; }
+.guide-japan-export .ship-row:last-child { border-bottom: none; }
+.guide-japan-export .ship-label { color: var(--gray-500); font-weight: 300; }
+.guide-japan-export .ship-val { color: var(--black); font-weight: 400; text-align: right; }
+.guide-japan-export /* DUTY TABLE */
+  .duty-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 1.5rem 0; }
+.guide-japan-export .duty-table thead tr { border-bottom: 2px solid var(--black); }
+.guide-japan-export .duty-table th { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; padding: 8px 10px; color: var(--gray-500); font-weight: 400; text-align: left; }
+.guide-japan-export .duty-table tbody tr { border-bottom: 1px solid var(--rule); }
+.guide-japan-export .duty-table tbody tr:last-child { border-bottom: none; }
+.guide-japan-export .duty-table td { padding: 10px 10px; color: var(--gray-700); vertical-align: top; }
+.guide-japan-export .duty-table td:first-child { font-weight: 500; color: var(--black); }
+.guide-japan-export .duty-table td:nth-child(2) { font-family: var(--mono); font-size: 12px; color: var(--red); }
+.guide-japan-export .age-badge { display: inline-block; font-family: var(--mono); font-size: 10px; padding: 2px 6px; border-radius: 2px; background: var(--gray-100); color: var(--gray-500); }
+.guide-japan-export /* CALLOUTS */
+  .callout { border-left: 2px solid var(--green); padding: .85rem 1.1rem; margin: 1.5rem 0; background: var(--green-light); border-radius: 0; }
+.guide-japan-export .callout p { font-size: 14px; color: #166534; margin: 0; }
+.guide-japan-export .callout strong { font-weight: 500; }
+.guide-japan-export .callout-amber { border-left: 2px solid var(--amber); padding: .85rem 1.1rem; margin: 1.5rem 0; background: var(--amber-light); }
+.guide-japan-export .callout-amber p { font-size: 14px; color: #92400E; margin: 0; }
+.guide-japan-export .callout-amber strong { font-weight: 500; }
+.guide-japan-export .callout-red { border-left: 2px solid var(--red); padding: .85rem 1.1rem; margin: 1.5rem 0; background: var(--red-light); }
+.guide-japan-export .callout-red p { font-size: 14px; color: #7F1D1D; margin: 0; }
+.guide-japan-export .callout-red strong { font-weight: 500; }
+.guide-japan-export .callout-blue { border-left: 2px solid var(--blue); padding: .85rem 1.1rem; margin: 1.5rem 0; background: var(--blue-light); }
+.guide-japan-export .callout-blue p { font-size: 14px; color: #1E3A8A; margin: 0; }
+.guide-japan-export .callout-blue strong { font-weight: 500; }
+.guide-japan-export /* COST BREAKDOWN */
+  .cost-list { margin: 1rem 0; }
+.guide-japan-export .cost-row { display: flex; align-items: center; justify-content: space-between; padding: .65rem 0; border-bottom: 1px solid var(--rule); font-size: 14px; }
+.guide-japan-export .cost-row:last-child { border-bottom: none; font-weight: 500; color: var(--black); border-top: 2px solid var(--black); padding-top: .85rem; margin-top: .25rem; }
+.guide-japan-export .cost-label { color: var(--gray-700); }
+.guide-japan-export .cost-val { font-family: var(--mono); color: var(--black); }
+.guide-japan-export .cost-note { font-size: 11px; color: var(--gray-500); margin-left: 8px; font-weight: 300; }
+.guide-japan-export /* RELATED POSTS */
+  .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin: 1.5rem 0; }
+.guide-japan-export .related-card { background: var(--white); padding: 1rem 1.1rem; cursor: pointer; transition: background .15s; text-decoration: none; display: block; }
+.guide-japan-export .related-card:hover { background: var(--gray-100); }
+.guide-japan-export .related-label { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; color: var(--red); text-transform: uppercase; margin-bottom: .35rem; }
+.guide-japan-export .related-title { font-size: 13px; font-weight: 500; color: var(--black); line-height: 1.4; }
+.guide-japan-export /* CTA */
+  .cta-section { background: var(--black); margin: 3rem -2rem -3rem; padding: 3rem 2rem 3.5rem; }
+.guide-japan-export .cta-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--red); margin-bottom: 1rem; }
+.guide-japan-export .cta-title { font-family: var(--serif); font-size: 1.75rem; font-weight: 400; color: var(--white); margin-bottom: .75rem; line-height: 1.3; }
+.guide-japan-export .cta-desc { font-size: 14px; color: rgba(255,255,255,.5); max-width: 500px; margin-bottom: 2rem; font-weight: 300; line-height: 1.75; }
+.guide-japan-export .cta-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+.guide-japan-export .cta-step { border: 1px solid rgba(255,255,255,.1); padding: .9rem 1rem; }
+.guide-japan-export .cta-step-num { font-family: var(--mono); font-size: 11px; color: var(--red); margin-bottom: .35rem; letter-spacing: .08em; }
+.guide-japan-export .cta-step-text { font-size: 13px; color: rgba(255,255,255,.7); line-height: 1.5; }
+.guide-japan-export .cta-btn { display: inline-block; background: var(--red); color: var(--white); font-size: 13px; font-weight: 500; letter-spacing: .06em; padding: 12px 28px; text-decoration: none; transition: opacity .2s; font-family: var(--sans); border: none; cursor: pointer; }
+.guide-japan-export .cta-btn:hover { opacity: .85; }
+.guide-japan-export .cta-note { margin-top: 1rem; font-size: 12px; color: rgba(255,255,255,.3); font-family: var(--mono); letter-spacing: .04em; }
+.guide-japan-export .site-footer { background: var(--gray-100); border-top: 1px solid var(--rule); padding: 1.5rem 2rem; text-align: center; font-family: var(--mono); font-size: 11px; color: var(--gray-500); letter-spacing: .06em; }
+.guide-japan-export /* IMAGES */
+  .article-img { width: 100%; display: block; margin: 1.75rem 0; }
+.guide-japan-export .article-img img { width: 100%; height: 320px; object-fit: cover; display: block; filter: grayscale(8%); }
+.guide-japan-export .article-img figcaption { font-family: var(--mono); font-size: 11px; color: var(--gray-500); letter-spacing: .05em; padding: .55rem 0 0; border-top: 1px solid var(--rule); margin-top: 0; }
+.guide-japan-export .img-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); margin: 1.75rem 0; }
+.guide-japan-export .img-2col figure { margin: 0; background: var(--white); }
+.guide-japan-export .img-2col img { width: 100%; height: 220px; object-fit: cover; display: block; filter: grayscale(8%); }
+.guide-japan-export .img-2col figcaption { font-family: var(--mono); font-size: 11px; color: var(--gray-500); letter-spacing: .04em; padding: .45rem .65rem; }
+.guide-japan-export @media (max-width: 500px) { .img-2col { grid-template-columns: 1fr; }
+.guide-japan-export .article-img img { height: 220px; }
+.guide-japan-export }
+
+  @media (max-width: 600px) {
+    .site-header { padding: 14px 1.25rem; }
+.guide-japan-export .hero { padding: 2.5rem 1.25rem 2rem; }
+.guide-japan-export .article-body { padding: 0 1.25rem; }
+.guide-japan-export .hero-meta { gap: 1.25rem; }
+.guide-japan-export .doc-grid, .guide-japan-export .ship-grid { grid-template-columns: 1fr; }
+.guide-japan-export .duty-table th:last-child, .guide-japan-export .duty-table td:last-child { display: none; }
+.guide-japan-export .cta-section { margin: 3rem -1.25rem -3rem; padding: 2.5rem 1.25rem 3rem; }
+.guide-japan-export .cta-steps { grid-template-columns: 1fr 1fr; }
+.guide-japan-export }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; }`,
+  ja: `.guide-japan-export *::before, .guide-japan-export *::after { box-sizing: border-box; margin: 0; padding: 0; }
+.guide-japan-export html { font-size: 16px; scroll-behavior: smooth; }
+.guide-japan-export .site-header { border-bottom: 1px solid var(--rule); padding: 18px 2rem; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; background: rgba(255,255,255,0.97); backdrop-filter: blur(6px); z-index: 100; }
+.guide-japan-export .site-logo { font-family: var(--mono); font-size: 13px; letter-spacing: .12em; color: var(--black); text-decoration: none; text-transform: uppercase; }
+.guide-japan-export .site-logo span { color: var(--red); }
+.guide-japan-export .header-cta { font-size: 12px; font-weight: 500; color: var(--red); text-decoration: none; letter-spacing: .04em; border-bottom: 1px solid var(--red); padding-bottom: 1px; }
+.guide-japan-export .hero { border-bottom: 1px solid var(--rule); padding: 4rem 2rem 3rem; max-width: var(--max); margin: 0 auto; }
+.guide-japan-export .eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--red); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 10px; }
+.guide-japan-export .eyebrow::after { content: ''; flex: 1; height: 1px; background: var(--red); opacity: .3; max-width: 80px; }
+.guide-japan-export .hero-title { font-family: var(--serif); font-size: clamp(1.85rem, 5vw, 2.75rem); font-weight: 400; line-height: 1.2; color: var(--black); margin-bottom: 1.25rem; letter-spacing: -.01em; }
+.guide-japan-export .hero-title em { font-style: italic; color: var(--red); }
+.guide-japan-export .hero-desc { font-size: 15.5px; color: var(--gray-500); max-width: 580px; margin-bottom: 2rem; font-weight: 300; line-height: 1.75; }
+.guide-japan-export .hero-meta { display: flex; gap: 2rem; flex-wrap: wrap; border-top: 1px solid var(--rule); padding-top: 1.25rem; }
+.guide-japan-export .meta-item { font-family: var(--mono); font-size: 11px; color: var(--gray-500); letter-spacing: .06em; }
+.guide-japan-export .meta-item strong { color: var(--ink); font-weight: 400; display: block; font-size: 13px; }
+.guide-japan-export .article-body { max-width: var(--max); margin: 0 auto; padding: 0 2rem; }
+.guide-japan-export .section { padding: 2.75rem 0; border-bottom: 1px solid var(--rule); }
+.guide-japan-export .section:last-of-type { border-bottom: none; }
+.guide-japan-export .section-label { font-family: var(--mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--gray-500); margin-bottom: 1rem; }
+.guide-japan-export .section-label::before { content: '— '; color: var(--red); }
+.guide-japan-export h2 { font-family: var(--serif); font-size: 1.6rem; font-weight: 400; color: var(--black); margin-bottom: 1.1rem; line-height: 1.3; }
+.guide-japan-export h3 { font-size: 15px; font-weight: 500; color: var(--black); margin-bottom: .45rem; margin-top: 1.4rem; }
+.guide-japan-export h3:first-child { margin-top: 0; }
+.guide-japan-export p { font-size: 15px; line-height: 1.8; color: var(--gray-700); margin-bottom: .9rem; font-weight: 300; }
+.guide-japan-export p:last-child { margin-bottom: 0; }
+.guide-japan-export strong.key { color: var(--black); font-weight: 500; }
+.guide-japan-export /* TIMELINE */
+  .timeline { position: relative; margin: 1.5rem 0; padding-left: 1.75rem; }
+.guide-japan-export .timeline::before { content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 1px; background: var(--rule); }
+.guide-japan-export .tl-item { position: relative; margin-bottom: 1.5rem; }
+.guide-japan-export .tl-item:last-child { margin-bottom: 0; }
+.guide-japan-export .tl-dot { position: absolute; left: -1.75rem; top: 4px; width: 15px; height: 15px; border-radius: 50%; background: var(--white); border: 2px solid var(--red); display: flex; align-items: center; justify-content: center; }
+.guide-japan-export .tl-dot-inner { width: 5px; height: 5px; border-radius: 50%; background: var(--red); }
+.guide-japan-export .tl-week { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; color: var(--red); text-transform: uppercase; margin-bottom: 3px; }
+.guide-japan-export .tl-title { font-size: 14px; font-weight: 500; color: var(--black); margin-bottom: 3px; }
+.guide-japan-export .tl-desc { font-size: 13px; color: var(--gray-500); line-height: 1.55; font-weight: 300; }
+.guide-japan-export /* DOC CHECKLIST */
+  .doc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin: 1.5rem 0; }
+.guide-japan-export .doc-col { background: var(--white); }
+.guide-japan-export .doc-header { background: var(--black); color: var(--white); font-family: var(--mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; padding: .65rem 1rem; }
+.guide-japan-export .doc-item { display: flex; gap: 10px; align-items: flex-start; padding: .65rem 1rem; border-bottom: 1px solid var(--rule); font-size: 13px; }
+.guide-japan-export .doc-item:last-child { border-bottom: none; }
+.guide-japan-export .doc-icon { flex-shrink: 0; width: 16px; height: 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+.guide-japan-export .doc-icon-red { background: var(--red); }
+.guide-japan-export .doc-icon-blue { background: #2563EB; }
+.guide-japan-export .doc-icon svg { width: 8px; height: 8px; }
+.guide-japan-export .doc-name { color: var(--black); font-weight: 400; line-height: 1.4; }
+.guide-japan-export .doc-note { font-size: 11.5px; color: var(--gray-500); display: block; margin-top: 1px; font-weight: 300; }
+.guide-japan-export /* SHIPPING COMPARE */
+  .ship-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin: 1.5rem 0; }
+.guide-japan-export .ship-col { background: var(--white); padding: 1.25rem; }
+.guide-japan-export .ship-header { font-size: 13px; font-weight: 500; color: var(--black); margin-bottom: .75rem; padding-bottom: .65rem; border-bottom: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: center; }
+.guide-japan-export .ship-tag { font-family: var(--mono); font-size: 10px; padding: 2px 8px; border-radius: 2px; }
+.guide-japan-export .t-cheap { background: var(--green-light); color: var(--green); }
+.guide-japan-export .t-safe { background: var(--blue-light); color: var(--blue); }
+.guide-japan-export .ship-row { display: flex; justify-content: space-between; padding: .4rem 0; border-bottom: .5px solid var(--rule); font-size: 13px; }
+.guide-japan-export .ship-row:last-child { border-bottom: none; }
+.guide-japan-export .ship-label { color: var(--gray-500); font-weight: 300; }
+.guide-japan-export .ship-val { color: var(--black); font-weight: 400; text-align: right; }
+.guide-japan-export /* DUTY TABLE */
+  .duty-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 1.5rem 0; }
+.guide-japan-export .duty-table thead tr { border-bottom: 2px solid var(--black); }
+.guide-japan-export .duty-table th { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; padding: 8px 10px; color: var(--gray-500); font-weight: 400; text-align: left; }
+.guide-japan-export .duty-table tbody tr { border-bottom: 1px solid var(--rule); }
+.guide-japan-export .duty-table tbody tr:last-child { border-bottom: none; }
+.guide-japan-export .duty-table td { padding: 10px 10px; color: var(--gray-700); vertical-align: top; }
+.guide-japan-export .duty-table td:first-child { font-weight: 500; color: var(--black); }
+.guide-japan-export .duty-table td:nth-child(2) { font-family: var(--mono); font-size: 12px; color: var(--red); }
+.guide-japan-export .age-badge { display: inline-block; font-family: var(--mono); font-size: 10px; padding: 2px 6px; border-radius: 2px; background: var(--gray-100); color: var(--gray-500); }
+.guide-japan-export /* CALLOUTS */
+  .callout { border-left: 2px solid var(--green); padding: .85rem 1.1rem; margin: 1.5rem 0; background: var(--green-light); border-radius: 0; }
+.guide-japan-export .callout p { font-size: 14px; color: #166534; margin: 0; }
+.guide-japan-export .callout strong { font-weight: 500; }
+.guide-japan-export .callout-amber { border-left: 2px solid var(--amber); padding: .85rem 1.1rem; margin: 1.5rem 0; background: var(--amber-light); }
+.guide-japan-export .callout-amber p { font-size: 14px; color: #92400E; margin: 0; }
+.guide-japan-export .callout-amber strong { font-weight: 500; }
+.guide-japan-export .callout-red { border-left: 2px solid var(--red); padding: .85rem 1.1rem; margin: 1.5rem 0; background: var(--red-light); }
+.guide-japan-export .callout-red p { font-size: 14px; color: #7F1D1D; margin: 0; }
+.guide-japan-export .callout-red strong { font-weight: 500; }
+.guide-japan-export .callout-blue { border-left: 2px solid var(--blue); padding: .85rem 1.1rem; margin: 1.5rem 0; background: var(--blue-light); }
+.guide-japan-export .callout-blue p { font-size: 14px; color: #1E3A8A; margin: 0; }
+.guide-japan-export .callout-blue strong { font-weight: 500; }
+.guide-japan-export /* COST BREAKDOWN */
+  .cost-list { margin: 1rem 0; }
+.guide-japan-export .cost-row { display: flex; align-items: center; justify-content: space-between; padding: .65rem 0; border-bottom: 1px solid var(--rule); font-size: 14px; }
+.guide-japan-export .cost-row:last-child { border-bottom: none; font-weight: 500; color: var(--black); border-top: 2px solid var(--black); padding-top: .85rem; margin-top: .25rem; }
+.guide-japan-export .cost-label { color: var(--gray-700); }
+.guide-japan-export .cost-val { font-family: var(--mono); color: var(--black); }
+.guide-japan-export .cost-note { font-size: 11px; color: var(--gray-500); margin-left: 8px; font-weight: 300; }
+.guide-japan-export /* RELATED POSTS */
+  .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin: 1.5rem 0; }
+.guide-japan-export .related-card { background: var(--white); padding: 1rem 1.1rem; cursor: pointer; transition: background .15s; text-decoration: none; display: block; }
+.guide-japan-export .related-card:hover { background: var(--gray-100); }
+.guide-japan-export .related-label { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; color: var(--red); text-transform: uppercase; margin-bottom: .35rem; }
+.guide-japan-export .related-title { font-size: 13px; font-weight: 500; color: var(--black); line-height: 1.4; }
+.guide-japan-export /* CTA */
+  .cta-section { background: var(--black); margin: 3rem -2rem -3rem; padding: 3rem 2rem 3.5rem; }
+.guide-japan-export .cta-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--red); margin-bottom: 1rem; }
+.guide-japan-export .cta-title { font-family: var(--serif); font-size: 1.75rem; font-weight: 400; color: var(--white); margin-bottom: .75rem; line-height: 1.3; }
+.guide-japan-export .cta-desc { font-size: 14px; color: rgba(255,255,255,.5); max-width: 500px; margin-bottom: 2rem; font-weight: 300; line-height: 1.75; }
+.guide-japan-export .cta-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+.guide-japan-export .cta-step { border: 1px solid rgba(255,255,255,.1); padding: .9rem 1rem; }
+.guide-japan-export .cta-step-num { font-family: var(--mono); font-size: 11px; color: var(--red); margin-bottom: .35rem; letter-spacing: .08em; }
+.guide-japan-export .cta-step-text { font-size: 13px; color: rgba(255,255,255,.7); line-height: 1.5; }
+.guide-japan-export .cta-btn { display: inline-block; background: var(--red); color: var(--white); font-size: 13px; font-weight: 500; letter-spacing: .06em; padding: 12px 28px; text-decoration: none; transition: opacity .2s; font-family: var(--sans); border: none; cursor: pointer; }
+.guide-japan-export .cta-btn:hover { opacity: .85; }
+.guide-japan-export .cta-note { margin-top: 1rem; font-size: 12px; color: rgba(255,255,255,.3); font-family: var(--mono); letter-spacing: .04em; }
+.guide-japan-export .site-footer { background: var(--gray-100); border-top: 1px solid var(--rule); padding: 1.5rem 2rem; text-align: center; font-family: var(--mono); font-size: 11px; color: var(--gray-500); letter-spacing: .06em; }
+.guide-japan-export /* IMAGES */
+  .article-img { width: 100%; display: block; margin: 1.75rem 0; }
+.guide-japan-export .article-img img { width: 100%; height: 320px; object-fit: cover; display: block; filter: grayscale(8%); }
+.guide-japan-export .article-img figcaption { font-family: var(--mono); font-size: 11px; color: var(--gray-500); letter-spacing: .05em; padding: .55rem 0 0; border-top: 1px solid var(--rule); margin-top: 0; }
+.guide-japan-export .img-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); margin: 1.75rem 0; }
+.guide-japan-export .img-2col figure { margin: 0; background: var(--white); }
+.guide-japan-export .img-2col img { width: 100%; height: 220px; object-fit: cover; display: block; filter: grayscale(8%); }
+.guide-japan-export .img-2col figcaption { font-family: var(--mono); font-size: 11px; color: var(--gray-500); letter-spacing: .04em; padding: .45rem .65rem; }
+.guide-japan-export @media (max-width: 500px) { .img-2col { grid-template-columns: 1fr; }
+.guide-japan-export .article-img img { height: 220px; }
+.guide-japan-export }
+
+  @media (max-width: 600px) {
+    .site-header { padding: 14px 1.25rem; }
+.guide-japan-export .hero { padding: 2.5rem 1.25rem 2rem; }
+.guide-japan-export .article-body { padding: 0 1.25rem; }
+.guide-japan-export .hero-meta { gap: 1.25rem; }
+.guide-japan-export .doc-grid, .guide-japan-export .ship-grid { grid-template-columns: 1fr; }
+.guide-japan-export .duty-table th:last-child, .guide-japan-export .duty-table td:last-child { display: none; }
+.guide-japan-export .cta-section { margin: 3rem -1.25rem -3rem; padding: 2.5rem 1.25rem 3rem; }
+.guide-japan-export .cta-steps { grid-template-columns: 1fr 1fr; }
+.guide-japan-export }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; }`,
+};
+
+export const JapanExportGuideHtml: Record<string, string> = {
+  zh: `<div class="guide-japan-export">
 
 
+
+
+<div class="hero">
+  <div class="eyebrow">Export & Import Guide · Updated June 2026</div>
+  <h1 class="hero-title">How to Import a Used Car<br>from Japan: <em>Complete Guide</em></h1>
+  <p class="hero-desc">
+    Documents, shipping methods, customs duties, and the exact timeline — everything a buyer needs to understand before purchasing a Japanese used car. Plus: which parts you have to handle yourself, and which you don't.
+  </p>
+  <div class="hero-meta">
+    <div class="meta-item"><strong>June 2026</strong>Last updated</div>
+    <div class="meta-item"><strong>9 min read</strong>Reading time</div>
+    <div class="meta-item"><strong>Saitama, Japan</strong>Written by exporters</div>
+    <div class="meta-item"><strong>1.4M+ cars</strong>Exported yearly from Japan</div>
+  </div>
+</div>
 
 <div class="article-body">
 
   <!-- HERO IMAGE -->
   <figure class="article-img" style="margin-top:2rem">
-    <img src="https://images.unsplash.com/photo-1740744362373-bbd648d38dac?w=1200&auto=format&fit=crop&q=80"
-         alt="A row of Japanese used vehicles awaiting inspection at auction — equivalent to USS Nagoya, one of Japan's largest used car auction halls processing thousands of vehicles weekly"
+    <img src="https://www.ussnet.co.jp/auction/site-guide/images/site_nagoya_01.jpg"
+         onerror="this.src='https://japanesecartrade.com/wp-content/uploads/2023/07/japan-car-auction.jpg'"
+         alt="USS Nagoya auction hall — one of Japan's largest used car auction facilities"
          loading="lazy">
     <figcaption>USS Nagoya — one of Japan's largest used car auction halls, processing thousands of vehicles weekly</figcaption>
   </figure>
@@ -350,23 +758,67 @@ export const japanExportGuideHtml: Record<string, string> = {
 
   <!-- CTA -->
   <div class="section" style="border-bottom:none;padding-bottom:0">
+    <div class="cta-section" id="cta">
+      <div class="cta-eyebrow">ClickCar — Saitama, Japan</div>
+      <h2 class="cta-title">We handle every step<br>described above</h2>
+      <p class="cta-desc">
+        From auction bidding to export clearance and ocean freight booking — ClickCar manages the entire Japan-side process on your behalf. You send us your target car and budget. We do the rest.
+      </p>
+      <div class="cta-steps">
+        <div class="cta-step">
+          <div class="cta-step-num">STEP 01</div>
+          <div class="cta-step-text">You tell us what you want — make, model, grade, budget</div>
+        </div>
+        <div class="cta-step">
+          <div class="cta-step-num">STEP 02</div>
+          <div class="cta-step-text">We source from USS, TAA, HAA auctions and bid on your behalf</div>
+        </div>
+        <div class="cta-step">
+          <div class="cta-step-num">STEP 03</div>
+          <div class="cta-step-text">We handle all Japan-side documents, export clearance, and freight booking</div>
+        </div>
+        <div class="cta-step">
+          <div class="cta-step-num">STEP 04</div>
+          <div class="cta-step-text">Car ships to your port with all documents ready for customs clearance</div>
+        </div>
+      </div>
+      <a class="cta-btn" href="https://clickcar.jp/en/contact">Get a Free Quote →</a>
+      <p class="cta-note">English, Chinese & Japanese · Typically reply within 24 hours · No obligation</p>
     </div>
+  </div>
 
 </div>
 
 
 
-`,
-  en: `
+
+</div>`,
+  en: `<div class="guide-japan-export">
 
 
+
+
+<div class="hero">
+  <div class="eyebrow">Export & Import Guide · Updated June 2026</div>
+  <h1 class="hero-title">How to Import a Used Car<br>from Japan: <em>Complete Guide</em></h1>
+  <p class="hero-desc">
+    Documents, shipping methods, customs duties, and the exact timeline — everything a buyer needs to understand before purchasing a Japanese used car. Plus: which parts you have to handle yourself, and which you don't.
+  </p>
+  <div class="hero-meta">
+    <div class="meta-item"><strong>June 2026</strong>Last updated</div>
+    <div class="meta-item"><strong>9 min read</strong>Reading time</div>
+    <div class="meta-item"><strong>Saitama, Japan</strong>Written by exporters</div>
+    <div class="meta-item"><strong>1.4M+ cars</strong>Exported yearly from Japan</div>
+  </div>
+</div>
 
 <div class="article-body">
 
   <!-- HERO IMAGE -->
   <figure class="article-img" style="margin-top:2rem">
-    <img src="https://images.unsplash.com/photo-1740744362373-bbd648d38dac?w=1200&auto=format&fit=crop&q=80"
-         alt="A row of Japanese used vehicles awaiting inspection at auction — equivalent to USS Nagoya, one of Japan's largest used car auction halls processing thousands of vehicles weekly"
+    <img src="https://www.ussnet.co.jp/auction/site-guide/images/site_nagoya_01.jpg"
+         onerror="this.src='https://japanesecartrade.com/wp-content/uploads/2023/07/japan-car-auction.jpg'"
+         alt="USS Nagoya auction hall — one of Japan's largest used car auction facilities"
          loading="lazy">
     <figcaption>USS Nagoya — one of Japan's largest used car auction halls, processing thousands of vehicles weekly</figcaption>
   </figure>
@@ -696,23 +1148,67 @@ export const japanExportGuideHtml: Record<string, string> = {
 
   <!-- CTA -->
   <div class="section" style="border-bottom:none;padding-bottom:0">
+    <div class="cta-section" id="cta">
+      <div class="cta-eyebrow">ClickCar — Saitama, Japan</div>
+      <h2 class="cta-title">We handle every step<br>described above</h2>
+      <p class="cta-desc">
+        From auction bidding to export clearance and ocean freight booking — ClickCar manages the entire Japan-side process on your behalf. You send us your target car and budget. We do the rest.
+      </p>
+      <div class="cta-steps">
+        <div class="cta-step">
+          <div class="cta-step-num">STEP 01</div>
+          <div class="cta-step-text">You tell us what you want — make, model, grade, budget</div>
+        </div>
+        <div class="cta-step">
+          <div class="cta-step-num">STEP 02</div>
+          <div class="cta-step-text">We source from USS, TAA, HAA auctions and bid on your behalf</div>
+        </div>
+        <div class="cta-step">
+          <div class="cta-step-num">STEP 03</div>
+          <div class="cta-step-text">We handle all Japan-side documents, export clearance, and freight booking</div>
+        </div>
+        <div class="cta-step">
+          <div class="cta-step-num">STEP 04</div>
+          <div class="cta-step-text">Car ships to your port with all documents ready for customs clearance</div>
+        </div>
+      </div>
+      <a class="cta-btn" href="https://clickcar.jp/en/contact">Get a Free Quote →</a>
+      <p class="cta-note">English, Chinese & Japanese · Typically reply within 24 hours · No obligation</p>
     </div>
+  </div>
 
 </div>
 
 
 
-`,
-  ja: `
+
+</div>`,
+  ja: `<div class="guide-japan-export">
 
 
+
+
+<div class="hero">
+  <div class="eyebrow">Export & Import Guide · Updated June 2026</div>
+  <h1 class="hero-title">How to Import a Used Car<br>from Japan: <em>Complete Guide</em></h1>
+  <p class="hero-desc">
+    Documents, shipping methods, customs duties, and the exact timeline — everything a buyer needs to understand before purchasing a Japanese used car. Plus: which parts you have to handle yourself, and which you don't.
+  </p>
+  <div class="hero-meta">
+    <div class="meta-item"><strong>June 2026</strong>Last updated</div>
+    <div class="meta-item"><strong>9 min read</strong>Reading time</div>
+    <div class="meta-item"><strong>Saitama, Japan</strong>Written by exporters</div>
+    <div class="meta-item"><strong>1.4M+ cars</strong>Exported yearly from Japan</div>
+  </div>
+</div>
 
 <div class="article-body">
 
   <!-- HERO IMAGE -->
   <figure class="article-img" style="margin-top:2rem">
-    <img src="https://images.unsplash.com/photo-1740744362373-bbd648d38dac?w=1200&auto=format&fit=crop&q=80"
-         alt="A row of Japanese used vehicles awaiting inspection at auction — equivalent to USS Nagoya, one of Japan's largest used car auction halls processing thousands of vehicles weekly"
+    <img src="https://www.ussnet.co.jp/auction/site-guide/images/site_nagoya_01.jpg"
+         onerror="this.src='https://japanesecartrade.com/wp-content/uploads/2023/07/japan-car-auction.jpg'"
+         alt="USS Nagoya auction hall — one of Japan's largest used car auction facilities"
          loading="lazy">
     <figcaption>USS Nagoya — one of Japan's largest used car auction halls, processing thousands of vehicles weekly</figcaption>
   </figure>
@@ -1042,11 +1538,39 @@ export const japanExportGuideHtml: Record<string, string> = {
 
   <!-- CTA -->
   <div class="section" style="border-bottom:none;padding-bottom:0">
+    <div class="cta-section" id="cta">
+      <div class="cta-eyebrow">ClickCar — Saitama, Japan</div>
+      <h2 class="cta-title">We handle every step<br>described above</h2>
+      <p class="cta-desc">
+        From auction bidding to export clearance and ocean freight booking — ClickCar manages the entire Japan-side process on your behalf. You send us your target car and budget. We do the rest.
+      </p>
+      <div class="cta-steps">
+        <div class="cta-step">
+          <div class="cta-step-num">STEP 01</div>
+          <div class="cta-step-text">You tell us what you want — make, model, grade, budget</div>
+        </div>
+        <div class="cta-step">
+          <div class="cta-step-num">STEP 02</div>
+          <div class="cta-step-text">We source from USS, TAA, HAA auctions and bid on your behalf</div>
+        </div>
+        <div class="cta-step">
+          <div class="cta-step-num">STEP 03</div>
+          <div class="cta-step-text">We handle all Japan-side documents, export clearance, and freight booking</div>
+        </div>
+        <div class="cta-step">
+          <div class="cta-step-num">STEP 04</div>
+          <div class="cta-step-text">Car ships to your port with all documents ready for customs clearance</div>
+        </div>
+      </div>
+      <a class="cta-btn" href="https://clickcar.jp/en/contact">Get a Free Quote →</a>
+      <p class="cta-note">English, Chinese & Japanese · Typically reply within 24 hours · No obligation</p>
     </div>
+  </div>
 
 </div>
 
 
 
-`,
+
+</div>`,
 };

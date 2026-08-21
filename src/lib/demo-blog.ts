@@ -2,8 +2,8 @@
 // Get a localized string from either a plain string or a {zh,en,ja} map
 import { odometerFraudGuideHtml } from "./odometer-fraud-guide";
 import { auctionGradeGuideHtml } from "./auction-grade-guide";
-import { japanExportGuideHtml } from "./japan-export-guide";
-import { porsche911JapanGuideHtml } from "./porsche-911-japan-guide";
+import { JapanExportGuideHtml, JapanExportGuideStyles } from "./japan-export-guide";
+import { ClassicPorsche911JapanGuideHtml, ClassicPorsche911JapanGuideStyles } from "./porsche-911-japan-guide";
 
 export type LocalizedText = string | Record<string, string>;
 
@@ -23,6 +23,12 @@ export interface BlogPostData {
   image: string;
   content?: LocalizedText;
   embedHtml?: boolean;
+  /**
+   * CSS string already scoped to the guide's wrapper class. Rendered as a
+   * scoped `<style>` tag before the embedded article body so tables, callouts,
+   * FAQs and other styled elements display correctly.
+   */
+  guideStyles?: LocalizedText;
 }
 
 const retiredBlogSlugs = new Set(["japan-used-car-market-news-2025-2026"]);
@@ -3216,7 +3222,8 @@ Japan used car market news in 2025–2026 tells a story of extraordinary demand,
     color: "bg-purple-600",
     image: "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=1200&q=80",
     embedHtml: true,
-    content: japanExportGuideHtml,
+    content: JapanExportGuideHtml,
+    guideStyles: JapanExportGuideStyles,
   },
   {
     slug: "classic-porsche-911-japan-guide",
@@ -3236,7 +3243,8 @@ Japan used car market news in 2025–2026 tells a story of extraordinary demand,
     color: "bg-red-700",
     image: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=1200&q=80&auto=format&fit=crop",
     embedHtml: true,
-    content: porsche911JapanGuideHtml,
+    content: ClassicPorsche911JapanGuideHtml,
+    guideStyles: ClassicPorsche911JapanGuideStyles,
   },
 ];
 

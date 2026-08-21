@@ -1,18 +1,275 @@
-// HTML body content for "The Complete Guide to Buying a Classic Porsche 911
-// from Japan" — single-language (EN) master content. Other locales reuse this
-// until per-locale translations are produced. The renderer's
-// extractEmbeddedArticleBody helper strips <script>, <style>, <link>, <meta>,
-// <title>, <header> and <footer>. The leading <p class="eyebrow">, <h1> and
-// <p class="dek"> are also stripped at build time so the blog template's own
-// H1 + byline + share panel is not duplicated.
-//
-// SEO notes:
-// - Document starts at H2 — the surrounding blog template renders the H1.
-// - Each H2 becomes a TOC anchor.
-// - Internal links to /services/auction and /export-guide boost cross-page authority.
+// CSS + HTML for the Classic Porsche 911 Japan Guide guide.
+// Source: ClickCar editorial team.
+// The styles below are scoped to `.guide-porsche911` so they only apply inside the
+// article container rendered by the blog template. The renderer strips <script>,
+// <style>, <link>, <meta>, <title>, <header> and <footer> tags from the body
+// before injecting. We re-inject the styles here so tables, callouts, and FAQ
+// blocks render correctly.
 
-export const porsche911JapanGuideHtml: Record<string, string> = {
-  zh: `
+export const ClassicPorsche911JapanGuideStyles: Record<string, string> = {
+  zh: `.guide-porsche911 article {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 6rem;
+  }
+.guide-porsche911 .eyebrow {
+    font-family: var(--sans);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.75rem;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+.guide-porsche911 h1 {
+    font-family: var(--serif);
+    font-size: 2.6rem;
+    line-height: 1.15;
+    margin: 0 0 1rem;
+    font-weight: 400;
+  }
+.guide-porsche911 .dek {
+    font-size: 1.15rem;
+    color: var(--muted);
+    max-width: 60ch;
+    margin: 0 0 2.5rem;
+  }
+.guide-porsche911 h2 {
+    font-family: var(--serif);
+    font-size: 1.7rem;
+    font-weight: 400;
+    margin: 3.2rem 0 1rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--line);
+  }
+.guide-porsche911 h3 {
+    font-family: var(--sans);
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 1.8rem 0 0.6rem;
+  }
+.guide-porsche911 p { margin: 0 0 1.1rem; font-size: 1.02rem; }
+.guide-porsche911 ul, .guide-porsche911 ol { margin: 0 0 1.1rem; padding-left: 1.3rem; }
+.guide-porsche911 li { margin-bottom: 0.5rem; }
+.guide-porsche911 strong { font-weight: 700; }
+.guide-porsche911 a { color: var(--accent); text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 2px; }
+.guide-porsche911 a:hover { text-decoration-color: var(--accent); }
+.guide-porsche911 .callout {
+    background: var(--accent-soft);
+    border-left: 3px solid var(--accent);
+    padding: 1rem 1.3rem;
+    margin: 1.5rem 0;
+    font-size: 0.97rem;
+  }
+.guide-porsche911 .callout strong { display: block; margin-bottom: 0.3rem; font-family: var(--sans); }
+.guide-porsche911 table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+  }
+.guide-porsche911 th, .guide-porsche911 td {
+    text-align: left;
+    padding: 0.6rem 0.8rem;
+    border-bottom: 1px solid var(--line);
+  }
+.guide-porsche911 th { font-family: var(--sans); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+.guide-porsche911 .faq dt { font-weight: 700; margin-top: 1.4rem; }
+.guide-porsche911 .faq dd { margin: 0.4rem 0 0; color: #2f2f2c; }
+.guide-porsche911 .cta {
+    margin-top: 3.5rem;
+    padding: 2rem;
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 2px;
+  }
+.guide-porsche911 .cta h2 { color: var(--paper); border-top: none; margin-top: 0; font-family: var(--serif); }
+.guide-porsche911 .cta a { color: #f0c9b8; }
+.guide-porsche911 .cta p { color: #d8d6cd; }
+.guide-porsche911 footer.byline {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.85rem;
+    color: var(--muted);
+  }`,
+  en: `.guide-porsche911 article {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 6rem;
+  }
+.guide-porsche911 .eyebrow {
+    font-family: var(--sans);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.75rem;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+.guide-porsche911 h1 {
+    font-family: var(--serif);
+    font-size: 2.6rem;
+    line-height: 1.15;
+    margin: 0 0 1rem;
+    font-weight: 400;
+  }
+.guide-porsche911 .dek {
+    font-size: 1.15rem;
+    color: var(--muted);
+    max-width: 60ch;
+    margin: 0 0 2.5rem;
+  }
+.guide-porsche911 h2 {
+    font-family: var(--serif);
+    font-size: 1.7rem;
+    font-weight: 400;
+    margin: 3.2rem 0 1rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--line);
+  }
+.guide-porsche911 h3 {
+    font-family: var(--sans);
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 1.8rem 0 0.6rem;
+  }
+.guide-porsche911 p { margin: 0 0 1.1rem; font-size: 1.02rem; }
+.guide-porsche911 ul, .guide-porsche911 ol { margin: 0 0 1.1rem; padding-left: 1.3rem; }
+.guide-porsche911 li { margin-bottom: 0.5rem; }
+.guide-porsche911 strong { font-weight: 700; }
+.guide-porsche911 a { color: var(--accent); text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 2px; }
+.guide-porsche911 a:hover { text-decoration-color: var(--accent); }
+.guide-porsche911 .callout {
+    background: var(--accent-soft);
+    border-left: 3px solid var(--accent);
+    padding: 1rem 1.3rem;
+    margin: 1.5rem 0;
+    font-size: 0.97rem;
+  }
+.guide-porsche911 .callout strong { display: block; margin-bottom: 0.3rem; font-family: var(--sans); }
+.guide-porsche911 table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+  }
+.guide-porsche911 th, .guide-porsche911 td {
+    text-align: left;
+    padding: 0.6rem 0.8rem;
+    border-bottom: 1px solid var(--line);
+  }
+.guide-porsche911 th { font-family: var(--sans); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+.guide-porsche911 .faq dt { font-weight: 700; margin-top: 1.4rem; }
+.guide-porsche911 .faq dd { margin: 0.4rem 0 0; color: #2f2f2c; }
+.guide-porsche911 .cta {
+    margin-top: 3.5rem;
+    padding: 2rem;
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 2px;
+  }
+.guide-porsche911 .cta h2 { color: var(--paper); border-top: none; margin-top: 0; font-family: var(--serif); }
+.guide-porsche911 .cta a { color: #f0c9b8; }
+.guide-porsche911 .cta p { color: #d8d6cd; }
+.guide-porsche911 footer.byline {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.85rem;
+    color: var(--muted);
+  }`,
+  ja: `.guide-porsche911 article {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 6rem;
+  }
+.guide-porsche911 .eyebrow {
+    font-family: var(--sans);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.75rem;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+.guide-porsche911 h1 {
+    font-family: var(--serif);
+    font-size: 2.6rem;
+    line-height: 1.15;
+    margin: 0 0 1rem;
+    font-weight: 400;
+  }
+.guide-porsche911 .dek {
+    font-size: 1.15rem;
+    color: var(--muted);
+    max-width: 60ch;
+    margin: 0 0 2.5rem;
+  }
+.guide-porsche911 h2 {
+    font-family: var(--serif);
+    font-size: 1.7rem;
+    font-weight: 400;
+    margin: 3.2rem 0 1rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--line);
+  }
+.guide-porsche911 h3 {
+    font-family: var(--sans);
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 1.8rem 0 0.6rem;
+  }
+.guide-porsche911 p { margin: 0 0 1.1rem; font-size: 1.02rem; }
+.guide-porsche911 ul, .guide-porsche911 ol { margin: 0 0 1.1rem; padding-left: 1.3rem; }
+.guide-porsche911 li { margin-bottom: 0.5rem; }
+.guide-porsche911 strong { font-weight: 700; }
+.guide-porsche911 a { color: var(--accent); text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 2px; }
+.guide-porsche911 a:hover { text-decoration-color: var(--accent); }
+.guide-porsche911 .callout {
+    background: var(--accent-soft);
+    border-left: 3px solid var(--accent);
+    padding: 1rem 1.3rem;
+    margin: 1.5rem 0;
+    font-size: 0.97rem;
+  }
+.guide-porsche911 .callout strong { display: block; margin-bottom: 0.3rem; font-family: var(--sans); }
+.guide-porsche911 table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+  }
+.guide-porsche911 th, .guide-porsche911 td {
+    text-align: left;
+    padding: 0.6rem 0.8rem;
+    border-bottom: 1px solid var(--line);
+  }
+.guide-porsche911 th { font-family: var(--sans); font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+.guide-porsche911 .faq dt { font-weight: 700; margin-top: 1.4rem; }
+.guide-porsche911 .faq dd { margin: 0.4rem 0 0; color: #2f2f2c; }
+.guide-porsche911 .cta {
+    margin-top: 3.5rem;
+    padding: 2rem;
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 2px;
+  }
+.guide-porsche911 .cta h2 { color: var(--paper); border-top: none; margin-top: 0; font-family: var(--serif); }
+.guide-porsche911 .cta a { color: #f0c9b8; }
+.guide-porsche911 .cta p { color: #d8d6cd; }
+.guide-porsche911 footer.byline {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.85rem;
+    color: var(--muted);
+  }`,
+};
+
+export const ClassicPorsche911JapanGuideHtml: Record<string, string> = {
+  zh: `<div class="guide-porsche911">
+
 <article>
 
   <p class="eyebrow">Buyer's Guides — Porsche</p>
@@ -151,8 +408,10 @@ export const porsche911JapanGuideHtml: Record<string, string> = {
   
 
 </article>
-`,
-  en: `
+
+</div>`,
+  en: `<div class="guide-porsche911">
+
 <article>
 
   <p class="eyebrow">Buyer's Guides — Porsche</p>
@@ -291,8 +550,10 @@ export const porsche911JapanGuideHtml: Record<string, string> = {
   
 
 </article>
-`,
-  ja: `
+
+</div>`,
+  ja: `<div class="guide-porsche911">
+
 <article>
 
   <p class="eyebrow">Buyer's Guides — Porsche</p>
@@ -431,5 +692,6 @@ export const porsche911JapanGuideHtml: Record<string, string> = {
   
 
 </article>
-`,
+
+</div>`,
 };

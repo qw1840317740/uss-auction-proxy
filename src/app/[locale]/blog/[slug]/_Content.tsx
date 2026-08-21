@@ -326,6 +326,13 @@ export default function BlogPostPage() {
     () => (post.embedHtml ? extractEmbeddedArticleBody(postContent) : ""),
     [post.embedHtml, postContent]
   );
+  // Scoped CSS from the source HTML (tables, callouts, FAQ blocks etc.). The base
+  // EMBEDDED_HTML_CSS handles shared layout; guideStyles adds the post-specific
+  // styling already scoped to the guide's wrapper class by the generator.
+  const postGuideStyles = useMemo(
+    () => (post.guideStyles ? getLocalized(post.guideStyles, locale) : ""),
+    [post.guideStyles, locale]
+  );
 
   // Related posts: other posts (not current), take up to 3
   const relatedPosts = demoPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
@@ -528,6 +535,9 @@ export default function BlogPostPage() {
                 re-inject the layout classes here, scoped under .embedded-html-article
                 to avoid clashing with Tailwind on the rest of the page. */}
             <style dangerouslySetInnerHTML={{ __html: EMBEDDED_HTML_CSS }} />
+            {postGuideStyles && (
+              <style dangerouslySetInnerHTML={{ __html: postGuideStyles }} />
+            )}
             <article
               className="embedded-html-article"
               dangerouslySetInnerHTML={{ __html: embeddedArticleBody }}
