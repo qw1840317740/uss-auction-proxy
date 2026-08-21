@@ -3,6 +3,7 @@
 import { odometerFraudGuideHtml } from "./odometer-fraud-guide";
 import { auctionGradeGuideHtml } from "./auction-grade-guide";
 import { japanExportGuideHtml } from "./japan-export-guide";
+import { porsche911JapanGuideHtml } from "./porsche-911-japan-guide";
 
 export type LocalizedText = string | Record<string, string>;
 
@@ -3216,6 +3217,26 @@ Japan used car market news in 2025–2026 tells a story of extraordinary demand,
     image: "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=1200&q=80",
     embedHtml: true,
     content: japanExportGuideHtml,
+  },
+  {
+    slug: "classic-porsche-911-japan-guide",
+    title: {
+      zh: "从日本购买经典保时捷 911 完整指南",
+      en: "The Complete Guide to Buying a Classic Porsche 911 from Japan",
+      ja: "日本からクラシック・ポルシェ 911 を購入するための完全ガイド",
+    },
+    excerpt: {
+      zh: "如何从日本进口风冷经典保时捷 911：拍卖与经销商库存对比、G 系列世代详解、如何解读日本拍卖单，以及出口运输要点。",
+      en: "How to buy a classic air-cooled Porsche 911 from Japan: auctions vs. dealer stock, G-series generations explained, reading a Japanese auction sheet, and shipping.",
+      ja: "空冷クラシック・ポルシェ 911 を日本から購入する方法：オークション vs. ディーラー在庫、G シリーズ世代解説、日本の出品票の読み方、海上輸送まで。",
+    },
+    category: { zh: "购车指南", en: "Buying Tips", ja: "購入ガイド" },
+    date: "2026-08-15",
+    readTime: { zh: "12 分钟阅读", en: "12 min read", ja: "12分で読める" },
+    color: "bg-red-700",
+    image: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=1200&q=80&auto=format&fit=crop",
+    embedHtml: true,
+    content: porsche911JapanGuideHtml,
   },
 ];
 
