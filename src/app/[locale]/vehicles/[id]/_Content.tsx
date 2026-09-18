@@ -137,7 +137,12 @@ export default function VehicleDetailPage({
     .filter((v) => v.id !== vehicle.id && (v.make === vehicle.make || v.bodyType === vehicle.bodyType))
     .slice(0, 3);
 
-  const repairLabel = vehicle.repairHistory === "none" ? vt("repairNone") : vt("repairYes");
+  const repairLabel =
+    vehicle.repairHistory === "none"
+      ? vt("repairNone")
+      : vehicle.repairHistory === "yes"
+        ? vt("repairYes")
+        : vt("repairUnknown");
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -253,7 +258,7 @@ export default function VehicleDetailPage({
                   icon={<ShieldCheck className="h-4 w-4" />}
                   label={vt("repairHistory")}
                   value={repairLabel}
-                  accent={vehicle.repairHistory === "none" ? "green" : "red"}
+                  accent={vehicle.repairHistory === "unknown" ? undefined : vehicle.repairHistory === "none" ? "green" : "red"}
                 />
                 <QuickBadge icon={<MapPin className="h-4 w-4" />} label={vt("region")} value={vehicle.region} />
               </div>
@@ -314,7 +319,7 @@ export default function VehicleDetailPage({
                       icon={<ShieldCheck className="h-4 w-4" />}
                       label={vt("repairHistory")}
                       value={repairLabel}
-                      valueClass={vehicle.repairHistory === "none" ? "text-green-600" : "text-red-600"}
+                      valueClass={vehicle.repairHistory === "unknown" ? "text-gray-600" : vehicle.repairHistory === "none" ? "text-green-600" : "text-red-600"}
                     />
                     <SpecItem icon={<Cog className="h-4 w-4" />} label={vt("transmission")} value={vehicle.transmission} />
                     <SpecItem icon={<CircleDot className="h-4 w-4" />} label={t("filters.drive")} value={vehicle.drive} />

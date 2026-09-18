@@ -282,6 +282,7 @@
       "region": "出品地区",
       "repairNone": "无",
       "repairYes": "有",
+      "repairUnknown": "未确认",
       "doors": "车门数",
       "seats": "定员",
       "dimensions": "车身尺寸",

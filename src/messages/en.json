@@ -375,6 +375,7 @@
       "region": "Region",
       "repairNone": "None",
       "repairYes": "Yes",
+      "repairUnknown": "Not confirmed",
       "doors": "Doors",
       "seats": "Seats",
       "dimensions": "Dimensions",

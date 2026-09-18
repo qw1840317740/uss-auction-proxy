@@ -20,7 +20,7 @@ export interface Vehicle {
 
   // Quick-spec fields
   inspection: string; // 車検有効期限 e.g. "2026/03"
-  repairHistory: "none" | "yes"; // 修復歴
+  repairHistory: "none" | "yes" | "unknown"; // 修復歴
   region: string; // 出品地域
 
   // Catalog specs
@@ -131,6 +131,77 @@ export const demoVehicles: Vehicle[] = [
       zh: "1974年式 Porsche 911 2.7（G系列），底盘代号91166。作为保时捷首款搭载冲击保险杠的911，G系列开启了911家族的全新篇章。本车搭载911/92型2,687cc水平对置六缸发动机与915/06型5速手动变速箱，输出150匹马力。外观为经典的 Grand Prix White（色号908），内装黑色真皮。仅两任车主——第一位车主自1974年购入后持有长达49年至2023年，历史清晰透明。实表81,121km，拍卖评级4分、内饰C级。原厂15寸铝合金轮毂、电动车窗、真皮座椅及安全气囊齐全。左舵并行进口车，名車コーナー出品、首次上拍。座椅有年代裂纹、顶棚泛黄等岁月痕迹如实记录，正是老车的真实魅力所在。当前售价请联系 ClickCar 确认。",
       en: "1974 Porsche 911 2.7 (G-Series), chassis code 91166. As the first impact-bumper 911, the G-Series defined a new era for Porsche's icon. This example carries the 911/92 2,687cc flat-six and 915/06 5-speed manual — 150ps through a timeless driver's package. Finished in Grand Prix White (908) over Black leather, it has known history with just two owners: the first steward kept it from 1974 to 2023 — 49 years. The 5-digit mechanical odometer reads 81,121 km. Auction grade 4 with interior grade C. Factory 15-inch alloys, power windows, leather seats, and airbag. Left-hand drive, parallel-import example, offered in the Classic Car Section at its first-ever auction appearance. Honest patina — seat wear, headliner yellowing — is documented and adds to its authenticity. Contact ClickCar for current pricing.",
       ja: "1974年式 ポルシェ 911 2.7（Gシリーズ）、型式91166。ビッグバンパーを初採用したGシリーズは911の新時代を切り拓きました。本個体は911/92型 2,687cc 水平対向6気筒と915/06型 5速MTを搭載、150psを発揮。グランプリホワイト (908) にブラックレザーの内装。僅か2オーナー——1stオーナーは1974年から2023年まで実に49年間保有。5桁機械式メーター表示 81,121km。評価点4、内装C。純正15インチアルミ、パワーウィンドウ、本革シート、エアバッグ装備。左ハンドル並行輸入車。名車コーナー初出品。シートの経年キズ、天張りの黄ばみ等、正直なヤレも含めてこの時代の911の魅力です。価格は ClickCar までお問い合わせください。",
+    },
+  },
+  {
+    id: "porsche-911-carrera-2-1992",
+    make: "Porsche",
+    model: "911 Carrera 2 (964)",
+    year: 1992,
+    mileage: 81148,
+    displacement: "3,600cc",
+    fuel: "Gasoline",
+    transmission: "5MT",
+    drive: "RWD",
+    exteriorColor: "Silver",
+    bodyType: "Coupe",
+    price: 0,
+    status: "available",
+    images: [
+      "/images/cars/porsche-911-carrera-2-1992-front-left.jpg",
+      "/images/cars/porsche-911-carrera-2-1992-front-right.jpg",
+      "/images/cars/porsche-911-carrera-2-1992-rear-left.jpg",
+      "/images/cars/porsche-911-carrera-2-1992-rear-right.jpg",
+      "/images/cars/porsche-911-carrera-2-1992-interior.jpg",
+      "/images/cars/porsche-911-carrera-2-1992-odometer.jpg",
+    ],
+    features: [
+      "3.6L air-cooled flat-six",
+      "5-speed manual transmission",
+      "Left-hand drive",
+      "Black leather seats",
+      "Factory 17-inch alloy wheels",
+      "Factory audio",
+      "Driver and passenger airbags",
+    ],
+    inspection: "2028/03",
+    repairHistory: "unknown",
+    region: "Japan",
+    doors: 2,
+    seats: 4,
+    dimensions: "--",
+    weight: "--",
+    maxPower: "250 PS (model specification)",
+    fuelEconomy: "--",
+    interiorColor: "Black",
+    steering: "LHD",
+    firstRegistered: "1992-05",
+    auctionGrade: "4.5",
+    auctionInteriorGrade: "B",
+    highlights: {
+      zh: [
+        "1992 年 Porsche 911 Carrera 2（964），银色双门车身",
+        "3.6L 风冷水平对置六缸，左舵 5 速手动",
+        "表显 81,148 km，拍卖评级 4.5、内饰 B",
+        "黑色真皮座椅、原厂 17 英寸轮毂",
+      ],
+      en: [
+        "1992 Porsche 911 Carrera 2 (964) in silver",
+        "3.6L air-cooled flat-six, left-hand drive and 5-speed manual",
+        "81,148 km indicated; auction grade 4.5, interior B",
+        "Black leather seats and factory 17-inch wheels",
+      ],
+      ja: [
+        "1992年式 ポルシェ 911 カレラ2（964）、シルバー",
+        "3.6L 空冷水平対向6気筒、左ハンドル・5速MT",
+        "メーター表示81,148km、評価点4.5・内装B",
+        "ブラックレザーシート、純正17インチホイール",
+      ],
+    },
+    description: {
+      zh: "1992 年式 Porsche 911 Carrera 2（964），1992 年 5 月首次登记。银色外观、黑色真皮座椅，3.6L 风冷水平对置六缸搭配左舵 5 速手动变速箱。拍卖资料记录表显 81,148 km、综合评级 4.5、内饰 B，车检有效期至 2028 年 3 月 23 日。已知车况备注包括空调故障、前部地板划伤或凹陷、座椅及方向盘磨损、前盖与行李厢盖支撑杆故障，以及多处划痕/凹陷修补。结构性修复历史尚未独立确认；请以实车检查和最终文件为准。车辆价格请向 ClickCar 询价。",
+      en: "1992 Porsche 911 Carrera 2 (964), first registered in May 1992. Silver over black leather, with a 3.6L air-cooled flat-six, left-hand drive and a 5-speed manual. The auction record shows 81,148 km on the odometer, grade 4.5, interior grade B and inspection through 23 March 2028. Disclosed notes include an A/C fault, a scratch or dent on the front floor, seat and steering-wheel wear, defective hood and luggage-lid dampers, and repaired scratches or dents. Structural repair history has not been independently confirmed; assess the car against an inspection and final documents. Contact ClickCar for the current price.",
+      ja: "1992年式 ポルシェ 911 カレラ2（964）。初度登録は1992年5月。シルバーの外装にブラックレザー、3.6L空冷水平対向6気筒、左ハンドル・5速MTです。オークション資料ではメーター表示81,148km、評価点4.5、内装B、車検は2028年3月23日まで。注意事項として、エアコン不良、フロントフロアのキズ・凹み、シートとハンドルの擦れ、ボンネット・トランクリッドのダンパー不良、各部キズ・凹み補修が記載されています。骨格部の修復歴は独立確認できていないため、現車確認と最終書類でご判断ください。価格はお問い合わせください。",
     },
   },
   {
