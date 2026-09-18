@@ -1,11 +1,9 @@
 "use client";
 
-import { useTranslations, useLocale } from "next-intl";
+import { useTranslations } from "next-intl";
 import {
   Ship,
   FileCheck,
-  MapPin,
-  Clock,
   Car,
   Phone,
   Search,
@@ -13,12 +11,12 @@ import {
   Banknote,
   ArrowRight,
   CheckCircle2,
-  Calendar,
   Globe,
-  Truck,
 } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import { getCountryBySlug, exportCountries } from "@/lib/export-countries";
+
+import { countryGuidance } from "@/lib/country-guidance";
 
 interface Props {
   locale: string;
@@ -27,6 +25,7 @@ interface Props {
 
 export default function ExportToContent({ locale, countrySlug }: Props) {
   const t = useTranslations("exportTo");
+  const tFaq = useTranslations("exportToFaq");
   const tc = useTranslations("common");
   const tNav = useTranslations("nav");
   const country = getCountryBySlug(countrySlug);
@@ -37,9 +36,8 @@ export default function ExportToContent({ locale, countrySlug }: Props) {
     country.name[locale as "en" | "zh" | "ja"] ?? country.name.en;
   const region =
     country.region[locale as "en" | "zh" | "ja"] ?? country.region.en;
-  const ageNote =
-    country.vehicleAgeNote[locale as "en" | "zh" | "ja"] ??
-    country.vehicleAgeNote.en;
+  const language = (["en", "zh", "ja"].includes(locale) ? locale : "en") as "en" | "zh" | "ja";
+  const guidance = countryGuidance[countrySlug];
 
   // Other countries in the same region — for internal cross-linking
   const otherCountries = exportCountries.filter(
@@ -75,57 +73,30 @@ export default function ExportToContent({ locale, countrySlug }: Props) {
               {region}
             </div>
             <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-4">
-              {t("heroTitle", { country: countryName })}
+              {t(guidance.restricted ? "restrictedHeroTitle" : "heroTitle", { country: countryName })}
             </h1>
             <p className="text-lg md:text-xl text-neutral-100 mb-6">
-              {t("heroSubtitle", { country: countryName })}
+              {t(guidance.restricted ? "restrictedHeroSubtitle" : "heroSubtitle", { country: countryName })}
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 bg-white text-primary px-5 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors"
               >
-                {t("heroCta")}
+                {t(guidance.restricted ? "restrictedHeroCta" : "heroCta")}
                 <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link
+              {!guidance.restricted && <Link
                 href="/services/auction"
                 className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/30 px-5 py-3 rounded-lg font-bold transition-colors"
               >
                 {t("heroCtaSecondary")}
-              </Link>
+              </Link>}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Quick-facts bar (Country-specific) */}
-      <section className="py-10 bg-white border-b border-gray-100">
-        <div className="container-main">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <FactCard
-              icon={<MapPin className="w-5 h-5" />}
-              label={t("facts.capital")}
-              value={country.capital}
-            />
-            <FactCard
-              icon={<Ship className="w-5 h-5" />}
-              label={t("facts.ports")}
-              value={country.ports.join(", ")}
-            />
-            <FactCard
-              icon={<Clock className="w-5 h-5" />}
-              label={t("facts.transit")}
-              value={country.transitWeeks}
-            />
-            <FactCard
-              icon={<Truck className="w-5 h-5" />}
-              label={t("facts.shipping")}
-              value={country.shipping}
-            />
-          </div>
-        </div>
-      </section>
 
       {/* Country-specific guidance */}
       <section className="py-12 bg-white">
@@ -134,31 +105,39 @@ export default function ExportToContent({ locale, countrySlug }: Props) {
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
               {t("regulationsTitle", { country: countryName })}
             </h2>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              {ageNote}
-            </p>
-            <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-              <InfoTile
-                icon={<Calendar className="w-5 h-5 text-primary" />}
-                label={t("facts.rhd")}
-                value={
-                  country.rhdAccepted
-                    ? t("facts.rhdYes")
-                    : t("facts.rhdNo")
-                }
-              />
+            {guidance.restricted && (
+              <p className="border-l-4 border-red-600 bg-red-50 p-4 mb-5 text-sm font-semibold text-red-900">
+                {t("restrictedNotice")}
+              </p>
+            )}
+            <p className="text-lg text-gray-700 leading-relaxed">{guidance.rule[language]}</p>
+            <h3 className="text-base font-semibold text-gray-900 mt-5 mb-2">{t("beforeBid")}</h3>
+            <p className="text-gray-700 leading-relaxed">{guidance.check[language]}</p>
+            <a href={guidance.source} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 mt-4 text-sm font-medium text-primary underline underline-offset-2">
+              {t("officialSource")} <ArrowRight className="w-4 h-4" />
+            </a>
+            {guidance.secondarySource && (
+              <a href={guidance.secondarySource.url} target="_blank" rel="noopener noreferrer" className="ml-5 inline-flex items-center gap-1 mt-4 text-sm font-medium text-primary underline underline-offset-2">
+                {guidance.secondarySource.name} <ArrowRight className="w-4 h-4" />
+              </a>
+            )}
+            <Link href="/buying/japan-export-costs" className="ml-5 inline-flex items-center gap-1 mt-4 text-sm font-medium text-primary underline underline-offset-2">
+              {t("costGuide")} <ArrowRight className="w-4 h-4" />
+            </Link>
+            <div className="mt-6 grid grid-cols-1 gap-4">
               <InfoTile
                 icon={<FileCheck className="w-5 h-5 text-primary" />}
                 label={t("facts.docs")}
                 value={t("facts.docsValue")}
               />
             </div>
+            <p className="mt-4 text-sm text-gray-500">{t("regulationsDisclaimer")}</p>
           </div>
         </div>
       </section>
 
       {/* Popular categories */}
-      <section className="py-12 bg-gray-50">
+      {!guidance.restricted && <section className="py-12 bg-gray-50">
         <div className="container-main">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
@@ -184,10 +163,10 @@ export default function ExportToContent({ locale, countrySlug }: Props) {
             </div>
           </div>
         </div>
-      </section>
+      </section>}
 
       {/* Process — 5 steps shared with export-guide */}
-      <section className="py-12 bg-white">
+      {!guidance.restricted && <section className="py-12 bg-white">
         <div className="container-main">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8">
@@ -220,7 +199,7 @@ export default function ExportToContent({ locale, countrySlug }: Props) {
             </div>
           </div>
         </div>
-      </section>
+      </section>}
 
       {/* FAQ */}
       <section className="py-12 bg-gray-50">
@@ -237,12 +216,12 @@ export default function ExportToContent({ locale, countrySlug }: Props) {
                 >
                   <summary className="flex items-center justify-between p-5 cursor-pointer">
                     <span className="font-medium text-gray-900 pr-4">
-                      {t(`faq.${k}.q`, { country: countryName })}
+                      {tFaq(`${k}.q`, { country: countryName })}
                     </span>
                     <CheckCircle2 className="w-5 h-5 text-gray-300 group-open:text-primary transition-colors shrink-0" />
                   </summary>
                   <div className="px-5 pb-5 text-sm text-gray-600 leading-relaxed">
-                    {t(`faq.${k}.a`, { country: countryName })}
+                    {tFaq(`${k}.a`, { country: countryName })}
                   </div>
                 </details>
               ))}
@@ -277,10 +256,10 @@ export default function ExportToContent({ locale, countrySlug }: Props) {
       <section className="py-12 bg-primary text-white">
         <div className="container-main text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-3">
-            {t("ctaTitle", { country: countryName })}
+            {t(guidance.restricted ? "restrictedCtaTitle" : "ctaTitle", { country: countryName })}
           </h2>
           <p className="text-neutral-100 mb-6 max-w-2xl mx-auto">
-            {t("ctaSubtitle", { country: countryName })}
+            {t(guidance.restricted ? "restrictedCtaSubtitle" : "ctaSubtitle", { country: countryName })}
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <Link
@@ -290,13 +269,15 @@ export default function ExportToContent({ locale, countrySlug }: Props) {
               <Phone className="w-4 h-4" />
               {t("ctaContact")}
             </Link>
-            <Link
-              href="/vehicles"
-              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white px-6 py-3 rounded-lg font-bold transition-colors"
-            >
-              {t("ctaBrowse")}
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+            {!guidance.restricted && (
+              <Link
+                href="/vehicles"
+                className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white px-6 py-3 rounded-lg font-bold transition-colors"
+              >
+                {t("ctaBrowse")}
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            )}
           </div>
         </div>
       </section>
@@ -306,29 +287,6 @@ export default function ExportToContent({ locale, countrySlug }: Props) {
 
 // ---------- Local subcomponents ----------
 
-function FactCard({
-  icon,
-  label,
-  value,
-}: {
-  icon: React.ReactNode;
-  label: string;
-  value: string;
-}) {
-  return (
-    <div className="flex items-start gap-3">
-      <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
-        {icon}
-      </div>
-      <div>
-        <div className="text-xs text-gray-500 uppercase tracking-wide mb-0.5">
-          {label}
-        </div>
-        <div className="text-sm font-medium text-gray-900">{value}</div>
-      </div>
-    </div>
-  );
-}
 
 function InfoTile({
   icon,

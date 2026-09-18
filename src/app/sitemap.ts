@@ -3,9 +3,11 @@ import { routing } from "@/i18n/routing";
 import { demoPosts } from "@/lib/demo-blog";
 import { demoVehicles } from "@/lib/demo-vehicles";
 import { exportCountries } from "@/lib/export-countries";
+import { buyingGuideSlugs } from "@/lib/buying-guides";
 
 const BASE_URL = "https://clickcar.jp";
 const SITE_LAST_UPDATED = new Date("2026-07-15T00:00:00.000Z");
+const CONTENT_LAST_UPDATED = new Date("2026-09-18T00:00:00.000Z");
 
 const staticPages = [
   { path: "", priority: 1.0, changeFrequency: "daily" as const },
@@ -53,11 +55,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
       });
     }
 
-    // Per-country export landing pages — 16 countries × 3 locales = 48 URLs
+    for (const slug of buyingGuideSlugs) {
+      entries.push({
+        url: BASE_URL + "/" + locale + "/buying/" + slug,
+        lastModified: CONTENT_LAST_UPDATED,
+        changeFrequency: "monthly",
+        priority: 0.8,
+      });
+    }
+
+    // Per-country export landing pages in each supported locale
     for (const country of exportCountries) {
       entries.push({
         url: `${BASE_URL}/${locale}/export-to/${country.slug}`,
-        lastModified: SITE_LAST_UPDATED,
+        lastModified: CONTENT_LAST_UPDATED,
         changeFrequency: "monthly" as const,
         priority: 0.75,
       });

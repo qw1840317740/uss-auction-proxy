@@ -39,6 +39,9 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               <li><Link href="/services/auction" className="hover:text-white transition-colors">{nav("auction")}</Link></li>
               <li><Link href="/services/export" className="hover:text-white transition-colors">{nav("export")}</Link></li>
+              <li><Link href="/buying/used-cars-from-japan" className="hover:text-white transition-colors">{t("buyingUsed")}</Link></li>
+              <li><Link href="/buying/japan-car-auction" className="hover:text-white transition-colors">{t("buyingAuction")}</Link></li>
+              <li><Link href="/buying/japan-export-costs" className="hover:text-white transition-colors">{t("buyingCosts")}</Link></li>
               <li><Link href="/services/maintenance" className="hover:text-white transition-colors">{nav("maintenance")}</Link></li>
               <li><Link href="/faq" className="hover:text-white transition-colors">{nav("faq")}</Link></li>
               <li><Link href="/blog" className="hover:text-white transition-colors">{nav("blog")}</Link></li>

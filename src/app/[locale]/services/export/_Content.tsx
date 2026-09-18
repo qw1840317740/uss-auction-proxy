@@ -11,6 +11,7 @@ import {
   CreditCard,
   ArrowRight,
   Package,
+  CheckCircle2,
 } from "lucide-react";
 
 const featureIcons = [Globe, FileText, Ship, MapPin, Shield, CreditCard];
@@ -40,6 +41,9 @@ const processColors = [
   "bg-purple-600",
 ];
 
+const costKeys = ["vehicle", "service", "inland", "preparation", "freight", "destination"] as const;
+const documentKeys = ["invoice", "exportCertificate", "billOfLading", "auctionSheet"] as const;
+
 export default function ExportServicePage() {
   const t = useTranslations("services.export");
 
@@ -68,7 +72,7 @@ export default function ExportServicePage() {
           <div className="max-w-3xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-sm mb-6">
               <Ship className="w-4 h-4" />
-              Export Service
+              {t("title")}
             </div>
             <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-4">
               {t("title")}
@@ -156,6 +160,69 @@ export default function ExportServicePage() {
       </section>
 
       {/* CTA Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container-main max-w-5xl">
+          <h2 className="text-3xl font-bold text-gray-900 mb-3">{t("costs.title")}</h2>
+          <p className="text-gray-600 max-w-3xl mb-8">{t("costs.intro")}</p>
+          <div className="grid md:grid-cols-2 gap-x-10 border-t border-gray-200">
+            {costKeys.map((key) => (
+              <div key={key} className="py-4 border-b border-gray-200 flex gap-3">
+                <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="font-semibold text-gray-900">{t(`costs.${key}.title`)}</h3>
+                  <p className="text-sm text-gray-600 mt-1">{t(`costs.${key}.desc`)}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="mt-6 text-sm text-gray-600">{t("costs.note")}</p>
+        </div>
+      </section>
+
+      <section className="py-16 bg-white">
+        <div className="container-main max-w-5xl grid lg:grid-cols-2 gap-12">
+          <div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">{t("documents.title")}</h2>
+            <p className="text-gray-600 mb-6">{t("documents.intro")}</p>
+            <ul className="space-y-3">
+              {documentKeys.map((key) => (
+                <li key={key} className="flex gap-3 text-gray-700">
+                  <FileText className="w-5 h-5 text-primary shrink-0" />
+                  {t(`documents.${key}`)}
+                </li>
+              ))}
+            </ul>
+            <p className="text-sm text-gray-500 mt-5">{t("documents.note")}</p>
+          </div>
+          <div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-3">{t("responsibilities.title")}</h2>
+            <div className="border-t border-gray-200 py-5">
+              <h3 className="font-semibold text-gray-900 mb-2">{t("responsibilities.japanTitle")}</h3>
+              <p className="text-gray-600">{t("responsibilities.japanDesc")}</p>
+            </div>
+            <div className="border-t border-gray-200 py-5">
+              <h3 className="font-semibold text-gray-900 mb-2">{t("responsibilities.destinationTitle")}</h3>
+              <p className="text-gray-600">{t("responsibilities.destinationDesc")}</p>
+            </div>
+            <p className="text-sm text-gray-500">{t("responsibilities.note")}</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-12 border-t border-gray-100 bg-gray-50">
+        <div className="container-main max-w-5xl">
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">{t("destinations.title")}</h2>
+          <p className="text-gray-600 mb-5">{t("destinations.intro")}</p>
+          <div className="flex flex-wrap gap-4">
+            {(["united-kingdom", "uae", "australia"] as const).map((slug) => (
+              <Link key={slug} href={`/export-to/${slug}`} className="inline-flex items-center gap-2 text-primary font-medium hover:underline underline-offset-4">
+                {t(`destinations.${slug}`)} <ArrowRight className="w-4 h-4" />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="py-16 bg-gradient-to-br from-neutral-900 via-neutral-800 to-black text-white">
         <div className="container-main">
           <div className="max-w-3xl mx-auto text-center">

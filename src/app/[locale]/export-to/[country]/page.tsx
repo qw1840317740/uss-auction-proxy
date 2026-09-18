@@ -5,6 +5,7 @@ import { JsonLdBreadcrumb } from "@/components/seo/JsonLdBreadcrumb";
 import { JsonLdScript } from "@/components/seo/JsonLdScript";
 import { buildCanonical, localizedHreflangLanguages, siteConfig } from "@/lib/seo";
 import { exportCountries, getCountryBySlug } from "@/lib/export-countries";
+import { countryGuidance } from "@/lib/country-guidance";
 import ExportToContent from "./_Content";
 
 /**
@@ -35,8 +36,9 @@ export async function generateMetadata({
 
   const tSeo = await getTranslations({ locale, namespace: "seo.exportTo" });
   const countryName = country.name[locale as "en" | "zh" | "ja"] ?? country.name.en;
-  const title = tSeo("pageTitle", { country: countryName });
-  const description = tSeo("description", { country: countryName });
+  const restricted = countryGuidance[slug].restricted;
+  const title = tSeo(restricted ? "restrictedTitle" : "pageTitle", { country: countryName });
+  const description = tSeo(restricted ? "restrictedDescription" : "description", { country: countryName });
 
   const url = buildCanonical(locale, `/export-to/${slug}`);
   return {
@@ -46,7 +48,7 @@ export async function generateMetadata({
       canonical: url,
       languages: localizedHreflangLanguages(locale, `/export-to/${slug}`),
     },
-    keywords: [
+    keywords: restricted ? undefined : [
       ...country.keywords,
       `import cars from Japan to ${countryName}`,
       `buy used Japanese car ${countryName}`,
@@ -70,10 +72,8 @@ export default async function ExportToCountryPage({
   const country = getCountryBySlug(slug);
   if (!country) notFound();
 
-  const tSeo = await getTranslations({ locale, namespace: "seo.exportTo" });
   const tCta = await getTranslations({ locale, namespace: "common" });
   const countryName = country.name[locale as "en" | "zh" | "ja"] ?? country.name.en;
-  const canonical = buildCanonical(locale, `/export-to/${slug}`);
 
   // FAQ schema for the page — generic cross-locale Q&A, with country name injected
   const faqKeys = ["q1", "q2", "q3", "q4", "q5", "q6"] as const;
