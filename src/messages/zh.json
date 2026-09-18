@@ -119,7 +119,7 @@
     "hero": {
       "title": "日本二手车采购<br/>与全球出口",
       "subtitle": "浏览真实库存，或委托日本拍卖寻车；从车况确认、出口文件到全球海运，由埼玉本地团队协助完成。",
-      "imageAlt": "ClickCar日本在售的2025款Porsche 911 GT3 RS",
+      "imageAlt": "在日本拍摄的2025款Porsche 911 GT3 RS",
       "exploreVehicles": "浏览车辆",
       "contactUs": "联系我们",
       "stats": {
@@ -259,6 +259,9 @@
       "fuel": "燃料",
       "price": "价格",
       "priceOnRequest": "价格请询价",
+      "sold": "已售出",
+      "soldNote": "这辆车已售出。您可以查看目前在售的其他车辆。",
+      "browseAvailable": "查看在售车辆",
       "priceOnRequestNote": "请联系我们获取当前车辆价格及出口报价。",
       "inquire": "立即询价",
       "requestQuote": "获取出口报价",

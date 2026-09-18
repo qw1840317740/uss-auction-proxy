@@ -111,7 +111,7 @@ export default function VehiclesPage() {
         break; // "newest" = demo order
     }
 
-    return result;
+    return result.sort((a, b) => Number(a.status === "sold") - Number(b.status === "sold"));
   }, [
     searchText,
     selectedMake,
@@ -508,6 +508,11 @@ export default function VehiclesPage() {
                         className="object-cover group-hover:scale-105 transition-transform duration-300"
                         sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
                       />
+                      {v.status === "sold" && (
+                        <span className="absolute top-3 left-3 rounded bg-gray-900/90 px-3 py-1.5 text-xs font-semibold text-white">
+                          {vt("sold")}
+                        </span>
+                      )}
                       {/* Favorite action */}
                       <div className="absolute top-3 right-3 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
                         <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggle(v.id); }} className={`w-8 h-8 bg-white/90 rounded-full flex items-center justify-center ${isFavorite(v.id) ? "text-red-500" : "text-gray-600"} hover:text-red-500`}>
@@ -531,7 +536,7 @@ export default function VehiclesPage() {
                             {vt("price")}
                           </span>
                           <p className="text-lg font-bold text-primary">
-                            {v.price > 0 ? formatPrice(v.price) : vt("priceOnRequest")}
+                            {v.status === "sold" ? vt("sold") : v.price > 0 ? formatPrice(v.price) : vt("priceOnRequest")}
                           </p>
                         </div>
                         <span

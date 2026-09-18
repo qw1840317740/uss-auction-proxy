@@ -135,7 +135,7 @@ export default function VehicleDetailPage({
 
   // Similar vehicles: same make or body type, excluding current
   const similarVehicles = demoVehicles
-    .filter((v) => v.id !== vehicle.id && (v.make === vehicle.make || v.bodyType === vehicle.bodyType))
+    .filter((v) => v.id !== vehicle.id && v.status === "available" && (v.make === vehicle.make || v.bodyType === vehicle.bodyType))
     .slice(0, 3);
 
   const repairLabel =
@@ -241,6 +241,9 @@ export default function VehicleDetailPage({
               <div className="flex flex-wrap items-start justify-between gap-4">
                 <div className="min-w-0">
                   <p className="text-sm text-gray-400 font-mono">{vehicle.make}</p>
+                  {vehicle.status === "sold" && (
+                    <span className="mt-2 inline-block rounded bg-gray-900 px-3 py-1 text-xs font-semibold text-white">{vt("sold")}</span>
+                  )}
                   <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mt-0.5">
                     {vehicle.model}
                   </h1>
@@ -421,12 +424,14 @@ export default function VehicleDetailPage({
             <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-6 lg:sticky lg:top-6">
               {/* Total price */}
               <div className="mb-1">
-                <span className="text-sm text-gray-500">{hasPrice ? vt("totalPrice") : vt("price")}</span>
+                {vehicle.status !== "sold" && <span className="text-sm text-gray-500">{hasPrice ? vt("totalPrice") : vt("price")}</span>}
                 <p className="text-3xl font-bold text-primary mt-0.5">
-                  {hasPrice ? formatPrice(totalPrice) : vt("priceOnRequest")}
+                  {vehicle.status === "sold" ? vt("sold") : hasPrice ? formatPrice(totalPrice) : vt("priceOnRequest")}
                 </p>
               </div>
-              {hasPrice ? (
+              {vehicle.status === "sold" ? (
+                <p className="text-sm leading-6 text-gray-500 mb-6">{vt("soldNote")}</p>
+              ) : hasPrice ? (
                 <>
                   <div className="flex items-baseline gap-2 mb-2">
                     <span className="text-xs text-gray-400">{vt("bodyPrice")}</span>
@@ -440,18 +445,20 @@ export default function VehicleDetailPage({
 
               {/* Action buttons */}
               <div className="space-y-3">
-                <Link
-                  href="/contact"
-                  className="block w-full text-center rounded-lg bg-primary text-white px-4 py-3 text-sm font-bold hover:bg-primary-dark transition-colors"
-                >
-                  {vt("requestQuote")}
-                </Link>
-                <Link
-                  href="/contact"
-                  className="block w-full text-center rounded-lg border-2 border-primary text-primary px-4 py-3 text-sm font-bold hover:bg-primary/5 transition-colors"
-                >
-                  {vt("inquire")}
-                </Link>
+                {vehicle.status === "sold" ? (
+                  <Link href="/vehicles" className="block w-full text-center rounded-lg bg-primary text-white px-4 py-3 text-sm font-bold hover:bg-primary-dark transition-colors">
+                    {vt("browseAvailable")}
+                  </Link>
+                ) : (
+                  <>
+                    <Link href="/contact" className="block w-full text-center rounded-lg bg-primary text-white px-4 py-3 text-sm font-bold hover:bg-primary-dark transition-colors">
+                      {vt("requestQuote")}
+                    </Link>
+                    <Link href="/contact" className="block w-full text-center rounded-lg border-2 border-primary text-primary px-4 py-3 text-sm font-bold hover:bg-primary/5 transition-colors">
+                      {vt("inquire")}
+                    </Link>
+                  </>
+                )}
               </div>
 
               {/* Quick contact info */}

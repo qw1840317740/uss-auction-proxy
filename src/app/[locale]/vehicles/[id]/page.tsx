@@ -64,6 +64,8 @@ export async function generateMetadata({
   const title = prefix
     ? `${prefix} ${vehicleName} (${vehicle.transmission}, ${vehicle.bodyType}) — ${siteConfig.name}`
     : `${vehicleName} (${vehicle.transmission}, ${vehicle.bodyType})${suffix}`;
+  const soldLabel = locale === "zh" ? "已售出" : locale === "ja" ? "売約済み" : "Sold";
+  const metadataTitle = vehicle.status === "sold" ? `${vehicleName} — ${soldLabel} | ${siteConfig.name}` : title;
 
   // Description: auto-build a rich snippet when no hand-written description exists,
   // or use the first 155–160 chars of the hand-written one (meta-description sweet spot).
@@ -94,7 +96,9 @@ export async function generateMetadata({
   const META_DESC_MAX = 155;
   const truncate = (s: string) =>
     s.length > META_DESC_MAX ? `${s.slice(0, META_DESC_MAX - 1).trimEnd()}…` : s;
-  const description = truncate(handWritten.length > 120 ? handWritten : autoDescription);
+  const description = vehicle.status === "sold"
+    ? truncate(`${vehicleName} — ${soldLabel}. ${handWritten}`)
+    : truncate(handWritten.length > 120 ? handWritten : autoDescription);
 
   // Keywords: per-vehicle long-tail keywords appended to site-wide seed
   const keywordParts = [
@@ -116,7 +120,7 @@ export async function generateMetadata({
   // route emit 1200×630 dynamic cards, which Next.js auto-injects (and which
   // override anything in `generateMetadata`).
   return {
-    title,
+    title: metadataTitle,
     description,
     keywords: keywordParts.join(", "),
     alternates: {
@@ -124,14 +128,14 @@ export async function generateMetadata({
       languages: localizedHreflangLanguages(locale, `/vehicles/${id}`),
     },
     openGraph: {
-      title,
+      title: metadataTitle,
       description,
       url,
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
-      title,
+      title: metadataTitle,
       description,
     },
   };

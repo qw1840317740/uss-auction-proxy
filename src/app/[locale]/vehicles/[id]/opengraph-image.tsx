@@ -81,6 +81,7 @@ export default async function Image({
   const priceJpy = new Intl.NumberFormat("ja-JP").format(vehicle.price);
   const priceOnRequest =
     locale === "zh" ? "价格请询价" : locale === "ja" ? "価格はお問い合わせ" : "Price on request";
+  const soldLabel = locale === "zh" ? "已售出" : locale === "ja" ? "売約済み" : "Sold";
 
   return new ImageResponse(
     (
@@ -194,7 +195,11 @@ export default async function Image({
               alignSelf: "flex-start",
             }}
           >
-            {vehicle.price > 0 ? (
+            {vehicle.status === "sold" ? (
+              <div style={{ display: "flex", fontSize: 56, fontWeight: 700, color: "#ffffff" }}>
+                {soldLabel}
+              </div>
+            ) : vehicle.price > 0 ? (
               <>
                 <div style={{ display: "flex", fontSize: 26, color: "#fef2f2" }}>JPY</div>
                 <div style={{ display: "flex", fontSize: 56, fontWeight: 700, color: "#ffffff" }}>

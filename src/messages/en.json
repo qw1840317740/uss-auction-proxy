@@ -212,7 +212,7 @@
     "hero": {
       "title": "Japanese Used Cars,<br/>Sourced & Exported Worldwide",
       "subtitle": "Browse verified stock or request Japan auction sourcing, inspection, export paperwork and worldwide shipping from Saitama.",
-      "imageAlt": "2025 Porsche 911 GT3 RS available from ClickCar Japan",
+      "imageAlt": "2025 Porsche 911 GT3 RS photographed in Japan",
       "exploreVehicles": "Explore Vehicles",
       "contactUs": "Contact Us",
       "stats": {
@@ -352,6 +352,9 @@
       "fuel": "Fuel",
       "price": "Price",
       "priceOnRequest": "Price on request",
+      "sold": "Sold",
+      "soldNote": "This vehicle has been sold. Browse our currently available vehicles for another option.",
+      "browseAvailable": "Browse available vehicles",
       "priceOnRequestNote": "Contact us for the current vehicle price and export estimate.",
       "inquire": "Inquire Now",
       "requestQuote": "Request Export Quote",

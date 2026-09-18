@@ -13,7 +13,7 @@ export function VehicleShowcase() {
   const t = useTranslations("home.showcase");
   const vt = useTranslations("vehicles.vehicle");
   const { ref: titleRef, isVisible: titleVisible } = useScrollReveal();
-  const showcaseVehicles = demoVehicles;
+  const showcaseVehicles = demoVehicles.filter((vehicle) => vehicle.status === "available");
   const { toggle, isFavorite } = useFavorites();
   const { containerRef, isChildVisible } = useStaggerReveal(showcaseVehicles.length, 60);
 

@@ -44,6 +44,11 @@ export default function FavoritesPage() {
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
+                  {fav.status === "sold" && (
+                    <span className="absolute top-3 left-3 rounded bg-gray-900/90 px-3 py-1.5 text-xs font-semibold text-white">
+                      {tVehicles("vehicle.sold")}
+                    </span>
+                  )}
                   <button
                     onClick={() => toggle(fav.id)}
                     className="absolute top-3 right-3 p-2 bg-white/90 rounded-full text-red-500 hover:bg-red-50 transition-colors shadow-sm"
@@ -61,9 +66,9 @@ export default function FavoritesPage() {
                   </div>
                   <div className="mt-3 flex items-center justify-between">
                     <div>
-                      <p className="text-sm text-gray-400">{tVehicles("vehicle.price")}</p>
+                      {fav.status !== "sold" && <p className="text-sm text-gray-400">{tVehicles("vehicle.price")}</p>}
                       <p className="text-base font-bold text-gray-900">
-                        {fav.price > 0 ? formatPrice(fav.price) : tVehicles("vehicle.priceOnRequest")}
+                        {fav.status === "sold" ? tVehicles("vehicle.sold") : fav.price > 0 ? formatPrice(fav.price) : tVehicles("vehicle.priceOnRequest")}
                       </p>
                     </div>
                     <div className="flex items-center gap-1">

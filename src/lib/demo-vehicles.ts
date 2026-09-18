@@ -16,7 +16,7 @@ export interface Vehicle {
   price: number;
   images: string[];
   features: string[];
-  status: string;
+  status: "available" | "sold";
 
   // Quick-spec fields
   inspection: string; // 車検有効期限 e.g. "2026/03"
@@ -223,7 +223,7 @@ export const demoVehicles: Vehicle[] = [
     exteriorColor: "White",
     bodyType: "Coupe",
     price: 0,
-    status: "available",
+    status: "sold",
     images: [
       "/images/cars/porsche-911-gt3-rs-2025-front-left.png",
       "/images/cars/porsche-911-gt3-rs-2025-front-right.png",
@@ -295,7 +295,7 @@ export const demoVehicles: Vehicle[] = [
     exteriorColor: "Pearl White (089)",
     bodyType: "Minivan",
     price: 7980000,
-    status: "available",
+    status: "sold",
     images: [
       "/images/cars/alphard-1-front-left.jpg",
       "/images/cars/alphard-2-front-right.jpg",

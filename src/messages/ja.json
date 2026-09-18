@@ -119,7 +119,7 @@
     "hero": {
       "title": "日本の中古車を仕入れ、<br/>世界へ輸出",
       "subtitle": "実在庫のご案内から日本のオークション仕入れ、車両確認、輸出書類、海外輸送まで埼玉のチームがサポートします。",
-      "imageAlt": "ClickCar Japanで販売中の2025年Porsche 911 GT3 RS",
+      "imageAlt": "日本で撮影された2025年式Porsche 911 GT3 RS",
       "exploreVehicles": "車両を探す",
       "contactUs": "お問い合わせ",
       "stats": {
@@ -259,6 +259,9 @@
       "fuel": "燃料",
       "price": "価格",
       "priceOnRequest": "価格はお問い合わせ",
+      "sold": "売約済み",
+      "soldNote": "この車両は売約済みです。現在販売中の車両をご覧ください。",
+      "browseAvailable": "販売中の車両を見る",
       "priceOnRequestNote": "現在の車両価格と輸出見積もりはお問い合わせください。",
       "inquire": "お問い合わせ",
       "requestQuote": "輸出見積り",
