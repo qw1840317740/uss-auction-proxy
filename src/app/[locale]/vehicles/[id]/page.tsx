@@ -222,7 +222,7 @@ function buildVehicleProductJsonLd({ vehicle, vehicleName, locale, id }: BuildAr
       url: brandUrl,
     },
     image: vehicle.images.map(absoluteImage),
-    description: getVehicleText(vehicle.description, locale),
+    description: [getVehicleText(vehicle.description, locale), vehicle.conditionNotes && getVehicleText(vehicle.conditionNotes, locale)].filter(Boolean).join(" "),
     itemCondition: "https://schema.org/UsedCondition",
     modelDate: String(vehicle.year),
     productionDate: String(vehicle.year),

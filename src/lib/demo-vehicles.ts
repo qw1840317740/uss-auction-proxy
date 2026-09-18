@@ -44,6 +44,7 @@ export interface Vehicle {
   // Localized content
   highlights: Record<string, string[]>;
   description: Record<string, string>;
+  conditionNotes?: Record<string, string>;
 }
 
 export const demoVehicles: Vehicle[] = [
@@ -199,9 +200,14 @@ export const demoVehicles: Vehicle[] = [
       ],
     },
     description: {
-      zh: "1992 年式 Porsche 911 Carrera 2（964），1992 年 5 月首次登记。银色外观、黑色真皮座椅，3.6L 风冷水平对置六缸搭配左舵 5 速手动变速箱。拍卖资料记录表显 81,148 km、综合评级 4.5、内饰 B，车检有效期至 2028 年 3 月 23 日。已知车况备注包括空调故障、前部地板划伤或凹陷、座椅及方向盘磨损、前盖与行李厢盖支撑杆故障，以及多处划痕/凹陷修补。结构性修复历史尚未独立确认；请以实车检查和最终文件为准。车辆价格请向 ClickCar 询价。",
-      en: "1992 Porsche 911 Carrera 2 (964), first registered in May 1992. Silver over black leather, with a 3.6L air-cooled flat-six, left-hand drive and a 5-speed manual. The auction record shows 81,148 km on the odometer, grade 4.5, interior grade B and inspection through 23 March 2028. Disclosed notes include an A/C fault, a scratch or dent on the front floor, seat and steering-wheel wear, defective hood and luggage-lid dampers, and repaired scratches or dents. Structural repair history has not been independently confirmed; assess the car against an inspection and final documents. Contact ClickCar for the current price.",
-      ja: "1992年式 ポルシェ 911 カレラ2（964）。初度登録は1992年5月。シルバーの外装にブラックレザー、3.6L空冷水平対向6気筒、左ハンドル・5速MTです。オークション資料ではメーター表示81,148km、評価点4.5、内装B、車検は2028年3月23日まで。注意事項として、エアコン不良、フロントフロアのキズ・凹み、シートとハンドルの擦れ、ボンネット・トランクリッドのダンパー不良、各部キズ・凹み補修が記載されています。骨格部の修復歴は独立確認できていないため、現車確認と最終書類でご判断ください。価格はお問い合わせください。",
+      zh: "一台能让人重新理解驾驶乐趣的 964：银色车身配黑色真皮，3.6L 风冷水平对置六缸与 5 速手动变速箱，把经典 911 的机械感留在每一次换挡之间。这辆 1992 年 5 月首次登记的 Carrera 2 采用左舵布局，拍卖资料记录表显 81,148 km、综合评级 4.5、内饰 B；车检有效期至 2028 年 3 月 23 日。欢迎联系 ClickCar 了解车辆详情与报价，下方亦如实列出拍卖资料中的车况备注。",
+      en: "An air-cooled 911 made for drivers who want to feel every shift. This 1992 Carrera 2 pairs a silver body and black leather cabin with a 3.6L flat-six, left-hand drive and a 5-speed manual: the unmistakable character of the 964 generation. First registered in May 1992, it shows 81,148 km in the auction record, with an overall grade of 4.5 and interior grade B. Inspection is valid through 23 March 2028. Ask ClickCar for details and a quote; the auction's condition notes are disclosed below.",
+      ja: "空冷911ならではのフィーリングを、5速MTで楽しむ一台。シルバーのボディにブラックレザーを合わせた1992年式カレラ2（964）は、3.6L水平対向6気筒と左ハンドルの組み合わせが魅力です。1992年5月初度登録。オークション資料のメーター表示は81,148km、評価点4.5・内装B、車検は2028年3月23日まで有効です。詳細と価格はClickCarまでお問い合わせください。資料に記載された車両状態は下記に明示しています。",
+    },
+    conditionNotes: {
+      zh: "拍卖资料注明：空调故障、前部地板划伤或凹陷、座椅及方向盘磨损、前盖与行李厢盖支撑杆故障，以及多处划痕或凹陷修补。结构性修复历史尚未独立确认；请以实车检查和最终文件为准。",
+      en: "Auction record: A/C fault; scratch or dent on the front floor; seat and steering-wheel wear; defective hood and luggage-lid dampers; and repaired scratches or dents. Structural repair history has not been independently confirmed. Please assess the car against an inspection and final documents.",
+      ja: "オークション資料記載：エアコン不良、フロントフロアのキズ・凹み、シートとハンドルの擦れ、ボンネット・トランクリッドのダンパー不良、各部キズ・凹み補修。骨格部の修復歴は独立確認できていません。現車確認と最終書類を踏まえてご判断ください。",
     },
   },
   {

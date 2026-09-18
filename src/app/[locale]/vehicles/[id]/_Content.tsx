@@ -80,6 +80,7 @@ export default function VehicleDetailPage({
   const images = vehicle.images?.length ? vehicle.images : ["/images/cars/car-side-1.jpg"];
   const highlights = getVehicleList(vehicle.highlights, locale);
   const description = getVehicleText(vehicle.description, locale);
+  const conditionNotes = vehicle.conditionNotes ? getVehicleText(vehicle.conditionNotes, locale) : "";
 
   const goPrev = () => setActiveImg((i) => (i - 1 + images.length) % images.length);
   const goNext = () => setActiveImg((i) => (i + 1) % images.length);
@@ -366,6 +367,12 @@ export default function VehicleDetailPage({
               <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-6">
                 <h2 className="text-lg font-bold text-gray-900 mb-3">{vt("overview")}</h2>
                 <p className="text-sm text-gray-600 leading-relaxed">{description}</p>
+                {conditionNotes && (
+                  <div className="mt-5 border-t border-gray-200 pt-5">
+                    <h3 className="text-sm font-semibold text-gray-900 mb-2">{vt("conditionNotes")}</h3>
+                    <p className="text-sm text-gray-600 leading-relaxed">{conditionNotes}</p>
+                  </div>
+                )}
               </div>
             )}
 
