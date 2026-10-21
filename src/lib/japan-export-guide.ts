@@ -741,15 +741,15 @@ export const JapanExportGuideHtml: Record<string, string> = {
     <div class="section-label">Related Guides</div>
     <h2>Read these before you buy</h2>
     <div class="related-grid">
-      <a class="related-card" href="/en/blog/auction-grade-guide">
+      <a class="related-card" href="/zh/blog/japan-auction-grade-guide">
         <div class="related-label">Auction Knowledge</div>
         <div class="related-title">Japan Auction Grade System Explained: S, 4.5, R, RA — What They Mean</div>
       </a>
-      <a class="related-card" href="/en/blog/odometer-fraud">
+      <a class="related-card" href="/zh/blog/odometer-fraud-guide">
         <div class="related-label">Buying Safety</div>
         <div class="related-title">How to Spot Odometer Fraud on Japanese Used Cars: 5 Methods</div>
       </a>
-      <a class="related-card" href="/en/blog/ferrari-guide">
+      <a class="related-card" href="/zh/blog/ferrari-used-car-buying-guide-2026">
         <div class="related-label">Luxury & Supercar</div>
         <div class="related-title">2026 Ferrari Used Car Buyer's Guide: Prices, Models & What to Avoid</div>
       </a>
@@ -1131,15 +1131,15 @@ export const JapanExportGuideHtml: Record<string, string> = {
     <div class="section-label">Related Guides</div>
     <h2>Read these before you buy</h2>
     <div class="related-grid">
-      <a class="related-card" href="/en/blog/auction-grade-guide">
+      <a class="related-card" href="/en/blog/japan-auction-grade-guide">
         <div class="related-label">Auction Knowledge</div>
         <div class="related-title">Japan Auction Grade System Explained: S, 4.5, R, RA — What They Mean</div>
       </a>
-      <a class="related-card" href="/en/blog/odometer-fraud">
+      <a class="related-card" href="/en/blog/odometer-fraud-guide">
         <div class="related-label">Buying Safety</div>
         <div class="related-title">How to Spot Odometer Fraud on Japanese Used Cars: 5 Methods</div>
       </a>
-      <a class="related-card" href="/en/blog/ferrari-guide">
+      <a class="related-card" href="/en/blog/ferrari-used-car-buying-guide-2026">
         <div class="related-label">Luxury & Supercar</div>
         <div class="related-title">2026 Ferrari Used Car Buyer's Guide: Prices, Models & What to Avoid</div>
       </a>
@@ -1521,15 +1521,15 @@ export const JapanExportGuideHtml: Record<string, string> = {
     <div class="section-label">Related Guides</div>
     <h2>Read these before you buy</h2>
     <div class="related-grid">
-      <a class="related-card" href="/en/blog/auction-grade-guide">
+      <a class="related-card" href="/ja/blog/japan-auction-grade-guide">
         <div class="related-label">Auction Knowledge</div>
         <div class="related-title">Japan Auction Grade System Explained: S, 4.5, R, RA — What They Mean</div>
       </a>
-      <a class="related-card" href="/en/blog/odometer-fraud">
+      <a class="related-card" href="/ja/blog/odometer-fraud-guide">
         <div class="related-label">Buying Safety</div>
         <div class="related-title">How to Spot Odometer Fraud on Japanese Used Cars: 5 Methods</div>
       </a>
-      <a class="related-card" href="/en/blog/ferrari-guide">
+      <a class="related-card" href="/ja/blog/ferrari-used-car-buying-guide-2026">
         <div class="related-label">Luxury & Supercar</div>
         <div class="related-title">2026 Ferrari Used Car Buyer's Guide: Prices, Models & What to Avoid</div>
       </a>

@@ -62,7 +62,7 @@
     },
     "exportTo": {
       "pageTitle": "Import Used Japanese Cars to {country} | ClickCar",
-      "description": "Plan a used Japanese car import to {country}. Review vehicle eligibility, Japan-side documents, shipping options and costs before bidding with ClickCar.",
+      "description": "Plan a used Japanese car import to {country}: vehicle eligibility, Japan-side documents, shipping options and costs before you bid.",
       "restrictedTitle": "Used Car Import Rules for {country} | ClickCar",
       "restrictedDescription": "Check official used-car import restrictions for {country} and confirm a lawful permit or exception before sourcing a vehicle in Japan."
     }
@@ -321,6 +321,11 @@
   "vehicles": {
     "title": "Vehicle Inventory",
     "subtitle": "Browse our selection of premium Japanese used vehicles",
+    "h1": "Japanese Used Cars for Export",
+    "introTitle": "Buy and export directly from Japan",
+    "introP1": "ClickCar is based in Saitama, Japan, and every car in our inventory is physically in Japan, with additional photos available on request. We handle the pre-export inspection, export de-registration, export certificate and shipping, and we export both left-hand-drive classics and right-hand-drive Japanese-market cars worldwide.",
+    "introP2": "If the car you want is not in stock, we can bid for you at USS, Japan's largest used car auction group. You get a translated auction sheet, a condition check and a transparent commission on the hammer price.",
+    "introP3": "Listed prices are vehicle prices in Japan and exclude ocean freight and destination duties and taxes. Contact us for a landed quote to your port.",
     "search": "Search vehicles",
     "filters": {
       "make": "Make",
@@ -386,7 +391,7 @@
       "weight": "Weight",
       "maxPower": "Max Power",
       "fuelEconomy": "Fuel Economy",
-      "feeNote": "Incl. fees (~10% of body price)",
+      "feeNote": "Vehicle price in Japan. Shipping, import duties and taxes are not included.",
       "photos": "photos",
       "savedToFavorites": "Saved",
       "savedCountLabel": "saved",
@@ -906,6 +911,7 @@
     }
   },
   "dashboard": {
+    "logout": "Logout",
     "title": "Dashboard",
     "overview": "Overview",
     "orders": "Orders",
@@ -970,6 +976,7 @@
   "blog": {
     "title": "News & Updates",
     "subtitle": "Japanese used car market trends and buying guides",
+    "h1": "Japanese Used Car Export Guides & Auction Tips",
     "readMore": "Read More",
     "categories": "Categories",
     "recentPosts": "Recent Posts",

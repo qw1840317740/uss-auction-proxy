@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { JsonLdBreadcrumb } from "@/components/seo/JsonLdBreadcrumb";
 import { JsonLdScript } from "@/components/seo/JsonLdScript";
 import { buildCanonical, getAbsoluteMediaUrl, localizedHreflangLanguages, siteConfig } from "@/lib/seo";
@@ -28,6 +28,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default async function AuctionPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "services.auction" });
   const serviceUrl = buildCanonical(locale, "/services/auction");
   const serviceJsonLd = {

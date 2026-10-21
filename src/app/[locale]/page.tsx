@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getTranslations, getLocale } from "next-intl/server";
+import { getTranslations, getLocale, setRequestLocale } from "next-intl/server";
 import { HeroSection } from "@/components/home/HeroSection";
 import { HomeSearchBar } from "@/components/home/HomeSearchBar";
 import { HomeIntro } from "@/components/home/HomeIntro";
@@ -41,7 +41,10 @@ export async function generateMetadata({
   };
 }
 
-export default function HomePage() {
+export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   // We need locale here, but HomePage is a server component receiving no props.
   // Use `headers()` to read x-locale? Simpler: rely on the parent [locale] layout,
   // and call the locale-aware JsonLd components by reading headers() — but that

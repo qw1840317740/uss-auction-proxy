@@ -1,5 +1,5 @@
 import { NextIntlClientProvider } from "next-intl";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { Header } from "@/components/layout/Header";
@@ -58,6 +58,8 @@ export default async function LocaleLayout({
   if (!routing.locales.includes(locale as "zh" | "en" | "ja")) {
     notFound();
   }
+  // Enables static rendering for every page under this layout (next-intl).
+  setRequestLocale(locale);
 
   const messages = (await import(`../../messages/${locale}.json`)).default;
 

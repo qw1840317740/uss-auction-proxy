@@ -1,12 +1,10 @@
 // CSS + HTML for the Classic Porsche 911 Japan Guide guide.
 // Source: ClickCar editorial team.
-// The styles below are scoped to `.guide-porsche911` so they only apply inside the
-// article container rendered by the blog template. The renderer strips <script>,
-// <style>, <link>, <meta>, <title>, <header> and <footer> tags from the body
-// before injecting. We re-inject the styles here so tables, callouts, and FAQ
-// blocks render correctly.
+// Styles are scoped to `.guide-porsche911`. The renderer removes executable and
+// document-level tags, while this guide keeps its editorial heading and byline.
+// We re-inject scoped styles so the source layout remains intact.
 
-export const ClassicPorsche911JapanGuideStyles: Record<string, string> = {
+const ClassicPorsche911JapanGuideBaseStyles: Record<string, string> = {
   zh: `.guide-porsche911 article {
     max-width: 760px;
     margin: 0 auto;
@@ -267,6 +265,66 @@ export const ClassicPorsche911JapanGuideStyles: Record<string, string> = {
   }`,
 };
 
+
+const classicPorsche911LayoutFixes = `
+.embedded-html-article.preserved-source-layout {
+  --ink: #1c1d1a;
+  --paper: #f7f6f2;
+  --line: #d8d5cb;
+  --accent: #8a2b1d;
+  --accent-soft: #f0e6de;
+  --muted: #6b6a63;
+  --serif: Georgia, 'Iowan Old Style', 'Times New Roman', serif;
+  --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 400;
+  line-height: 1.7;
+}
+.embedded-html-article.preserved-source-layout .guide-porsche911 {
+  background: var(--paper);
+  color: var(--ink);
+}
+.embedded-html-article.preserved-source-layout .guide-porsche911 h1,
+.embedded-html-article.preserved-source-layout .guide-porsche911 h2,
+.embedded-html-article.preserved-source-layout .guide-porsche911 h3,
+.embedded-html-article.preserved-source-layout .guide-porsche911 p {
+  color: inherit;
+  font-weight: 400;
+}
+.embedded-html-article.preserved-source-layout .guide-porsche911 h3,
+.embedded-html-article.preserved-source-layout .guide-porsche911 strong {
+  font-weight: 700;
+}
+.embedded-html-article.preserved-source-layout .guide-porsche911 .eyebrow,
+.embedded-html-article.preserved-source-layout .guide-porsche911 th {
+  letter-spacing: 0;
+}
+.embedded-html-article.preserved-source-layout .guide-porsche911 table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+}
+@media (max-width: 640px) {
+  .embedded-html-article.preserved-source-layout .guide-porsche911 article {
+    padding: 2.75rem 1rem 4rem;
+  }
+  .embedded-html-article.preserved-source-layout .guide-porsche911 h1 { font-size: 2rem; }
+  .embedded-html-article.preserved-source-layout .guide-porsche911 h2 { font-size: 1.45rem; }
+  .embedded-html-article.preserved-source-layout .guide-porsche911 .cta { padding: 1.4rem; }
+}
+`;
+
+export const ClassicPorsche911JapanGuideStyles: Record<string, string> = {
+  zh: `${ClassicPorsche911JapanGuideBaseStyles.zh}\n${classicPorsche911LayoutFixes}`,
+  en: `${ClassicPorsche911JapanGuideBaseStyles.en}\n${classicPorsche911LayoutFixes}`,
+  ja: `${ClassicPorsche911JapanGuideBaseStyles.ja}\n${classicPorsche911LayoutFixes}`,
+};
 export const ClassicPorsche911JapanGuideHtml: Record<string, string> = {
   zh: `<div class="guide-porsche911">
 
@@ -402,10 +460,12 @@ export const ClassicPorsche911JapanGuideHtml: Record<string, string> = {
   <div class="cta">
     <h2>Buying a classic 911 out of Japan</h2>
     <p>ClickCar sources classic and modern Porsches directly from Japanese auctions on behalf of buyers worldwide, with full auction sheet translation and export handled end to end.</p>
-    <p><a href="/contact">Get in touch about a specific car or model year →</a></p>
+    <p><a href="/zh/contact">Get in touch about a specific car or model year →</a></p>
   </div>
 
-  
+  <footer class="byline">
+    <p>Related reading: <a href="/zh/blog/japan-auction-grade-guide">How Japanese auction grading works</a> · <a href="/zh/blog/odometer-fraud-guide">Spotting odometer fraud in Japanese used cars</a></p>
+  </footer>
 
 </article>
 
@@ -544,10 +604,12 @@ export const ClassicPorsche911JapanGuideHtml: Record<string, string> = {
   <div class="cta">
     <h2>Buying a classic 911 out of Japan</h2>
     <p>ClickCar sources classic and modern Porsches directly from Japanese auctions on behalf of buyers worldwide, with full auction sheet translation and export handled end to end.</p>
-    <p><a href="/contact">Get in touch about a specific car or model year →</a></p>
+    <p><a href="/en/contact">Get in touch about a specific car or model year →</a></p>
   </div>
 
-  
+  <footer class="byline">
+    <p>Related reading: <a href="/en/blog/japan-auction-grade-guide">How Japanese auction grading works</a> · <a href="/en/blog/odometer-fraud-guide">Spotting odometer fraud in Japanese used cars</a></p>
+  </footer>
 
 </article>
 
@@ -686,10 +748,12 @@ export const ClassicPorsche911JapanGuideHtml: Record<string, string> = {
   <div class="cta">
     <h2>Buying a classic 911 out of Japan</h2>
     <p>ClickCar sources classic and modern Porsches directly from Japanese auctions on behalf of buyers worldwide, with full auction sheet translation and export handled end to end.</p>
-    <p><a href="/contact">Get in touch about a specific car or model year →</a></p>
+    <p><a href="/ja/contact">Get in touch about a specific car or model year →</a></p>
   </div>
 
-  
+  <footer class="byline">
+    <p>Related reading: <a href="/ja/blog/japan-auction-grade-guide">How Japanese auction grading works</a> · <a href="/ja/blog/odometer-fraud-guide">Spotting odometer fraud in Japanese used cars</a></p>
+  </footer>
 
 </article>
 

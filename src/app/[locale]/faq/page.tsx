@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { JsonLdScript } from "@/components/seo/JsonLdScript";
 import { JsonLdBreadcrumb } from "@/components/seo/JsonLdBreadcrumb";
-import { buildCanonical, localizedHreflangLanguages } from "@/lib/seo";
+import { buildCanonical, localizedHreflangLanguages, defaultOgImages } from "@/lib/seo";
 import Page from "./_Content";
 
 export async function generateMetadata({
@@ -15,7 +15,7 @@ export async function generateMetadata({
   return {
     title: t("title"),
     description: t("description"),
-    openGraph: { title: t("title"), description: t("description"), url: buildCanonical(locale, "/faq"), type: "website" },
+    openGraph: { images: defaultOgImages(locale), title: t("title"), description: t("description"), url: buildCanonical(locale, "/faq"), type: "website" },
     alternates: {
       canonical: buildCanonical(locale, "/faq"),
       languages: localizedHreflangLanguages(locale, "/faq"),
@@ -29,6 +29,7 @@ export default async function FaqPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "faq.items" });
   const tSeo = await getTranslations({ locale, namespace: "seo.faq" });
 

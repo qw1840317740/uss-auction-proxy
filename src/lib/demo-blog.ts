@@ -29,6 +29,8 @@ export interface BlogPostData {
    * FAQs and other styled elements display correctly.
    */
   guideStyles?: LocalizedText;
+  /** Preserve the source article's own heading, footer, and editorial layout. */
+  preserveOriginalLayout?: boolean;
 }
 
 const retiredBlogSlugs = new Set(["japan-used-car-market-news-2025-2026"]);
@@ -304,7 +306,7 @@ const allDemoPosts: BlogPostData[] = [
 <div class="jdm-cta" style="background:#111;margin:2rem -1rem;padding:2.5rem 1.5rem;border-radius:0.75rem">
 <p class="font-mono text-xs tracking-widest uppercase text-amber-500 mb-3">代拍服务</p>
 <h3 style="font-family:Georgia,serif;font-size:1.5rem;font-weight:400;color:#fff;margin-bottom:0.75rem;line-height:1.3">担心自己踩坑？<br>让专业代拍帮你把关</h3>
-<p style="font-size:0.875rem;color:rgba(255,255,255,0.5);max-width:480px;margin-bottom:1.5rem;line-height:1.75">我们深耕日本中古车市场多年，熟悉拍卖评级、修复歴甄别、实车检查全流程。可协助您从 USS、TAA、HAA 等拍卖场代为竞标，全程透明报价，安全出口至您所在地区。</p>
+<p style="font-size:0.875rem;color:rgba(255,255,255,0.5);max-width:480px;margin-bottom:1.5rem;line-height:1.75">我们深耕日本中古车市场多年，熟悉拍卖评级、修复歴甄别、实车检查全流程。可在日本最大的二手车拍卖行 USS 为您代为竞标，全程透明报价，安全出口至您所在地区。</p>
 <a href="/zh/contact" style="display:inline-block;background:#d97706;color:#fff;font-size:0.8125rem;font-weight:500;letter-spacing:0.06em;padding:0.75rem 1.75rem;text-decoration:none;border-radius:0.25rem">立即咨询代拍服务</a>
 <p style="margin-top:0.75rem;font-size:0.75rem;color:rgba(255,255,255,0.3);font-family:monospace;letter-spacing:0.04em">通常于24小时内回复 · 中文、日文均可沟通</p>
 </div>`,
@@ -492,7 +494,7 @@ Before viewing cars or signing anything, make sure these are in order:
 <div class="jdm-cta" style="background:#111;margin:2rem -1rem;padding:2.5rem 1.5rem;border-radius:0.75rem">
 <p class="font-mono text-xs tracking-widest uppercase text-amber-500 mb-3">Proxy Bidding</p>
 <h3 style="font-family:Georgia,serif;font-size:1.5rem;font-weight:400;color:#fff;margin-bottom:0.75rem;line-height:1.3">Worried about pitfalls?<br>Let our experts vet your car</h3>
-<p style="font-size:0.875rem;color:rgba(255,255,255,0.5);max-width:480px;margin-bottom:1.5rem;line-height:1.75">We've worked Japan's used car market for years — fluent in auction grading, repair-history detection, and physical inspection. We can bid on your behalf at USS, TAA, and HAA auctions with transparent pricing and safe export to your location.</p>
+<p style="font-size:0.875rem;color:rgba(255,255,255,0.5);max-width:480px;margin-bottom:1.5rem;line-height:1.75">We've worked Japan's used car market for years — fluent in auction grading, repair-history detection, and physical inspection. We can bid on your behalf at USS, Japan's largest used car auction group, with transparent pricing and safe export to your location.</p>
 <a href="/en/contact" style="display:inline-block;background:#d97706;color:#fff;font-size:0.8125rem;font-weight:500;letter-spacing:0.06em;padding:0.75rem 1.75rem;text-decoration:none;border-radius:0.25rem">Contact Proxy Bidding Service</a>
 <p style="margin-top:0.75rem;font-size:0.75rem;color:rgba(255,255,255,0.3);font-family:monospace;letter-spacing:0.04em">Usually responds within 24 hours · English & Japanese available</p>
 </div>`,
@@ -680,7 +682,7 @@ Before viewing cars or signing anything, make sure these are in order:
 <div class="jdm-cta" style="background:#111;margin:2rem -1rem;padding:2.5rem 1.5rem;border-radius:0.75rem">
 <p class="font-mono text-xs tracking-widest uppercase text-amber-500 mb-3">代行入札サービス</p>
 <h3 style="font-family:Georgia,serif;font-size:1.5rem;font-weight:400;color:#fff;margin-bottom:0.75rem;line-height:1.3">落とし穴が心配？<br>プロの代行に任せましょう</h3>
-<p style="font-size:0.875rem;color:rgba(255,255,255,0.5);max-width:480px;margin-bottom:1.5rem;line-height:1.75">日本中古車市場に長年深耕し、オークション評価・修復歴甄別・実車点検の全プロセスに精通しています。USS・TAA・HAA等のオークション会場で代行入札、完全透明な価格提示、お住まいの地域への安全な輸出まで。</p>
+<p style="font-size:0.875rem;color:rgba(255,255,255,0.5);max-width:480px;margin-bottom:1.5rem;line-height:1.75">日本中古車市場に長年深耕し、オークション評価・修復歴甄別・実車点検の全プロセスに精通しています。国内最大級のオートオークション USS で代行入札、完全透明な価格提示、お住まいの地域への安全な輸出まで。</p>
 <a href="/ja/contact" style="display:inline-block;background:#d97706;color:#fff;font-size:0.8125rem;font-weight:500;letter-spacing:0.06em;padding:0.75rem 1.75rem;text-decoration:none;border-radius:0.25rem">代行入札サービスに相談する</a>
 <p style="margin-top:0.75rem;font-size:0.75rem;color:rgba(255,255,255,0.3);font-family:monospace;letter-spacing:0.04em">通常24時間以内に返信 · 日本語・英語対応可能</p>
 </div>`,
@@ -871,7 +873,7 @@ Before viewing cars or signing anything, make sure these are in order:
 <div class="jdm-cta" style="background:#111;margin:2rem -1rem;padding:2.5rem 1.5rem;border-radius:0.75rem">
 <p class="font-mono text-xs tracking-widest uppercase text-red-600 mb-3">代拍服务</p>
 <h3 style="font-family:Georgia,serif;font-size:1.5rem;font-weight:400;color:#fff;margin-bottom:0.75rem;line-height:1.3">找不到心仪的车款？<br>我们帮你从日本拍回来</h3>
-<p style="font-size:0.875rem;color:rgba(255,255,255,0.5);max-width:480px;margin-bottom:1.5rem;line-height:1.75">我们深耕日本超跑中古市场多年，可协助您从 USS、TAA、HAA 等日本主要拍卖场代为竞标。全程透明报价、提供现场照片影片，安全出口至您所在地区。</p>
+<p style="font-size:0.875rem;color:rgba(255,255,255,0.5);max-width:480px;margin-bottom:1.5rem;line-height:1.75">我们深耕日本超跑中古市场多年，可在日本最大的二手车拍卖行 USS 为您代为竞标。全程透明报价、提供现场照片影片，安全出口至您所在地区。</p>
 <a href="/zh/contact" style="display:inline-block;background:#dc2626;color:#fff;font-size:0.8125rem;font-weight:500;letter-spacing:0.06em;padding:0.75rem 1.75rem;text-decoration:none;border-radius:0.25rem">立即咨询代拍服务</a>
 <p style="margin-top:0.75rem;font-size:0.75rem;color:rgba(255,255,255,0.3);font-family:monospace;letter-spacing:0.04em">通常于24小时内回复 · 中文、日文均可沟通</p>
 </div>`,
@@ -1042,7 +1044,7 @@ Japan has one of the highest Ferrari ownership rates in Asia, with a mature supe
 <div class="jdm-cta" style="background:#111;margin:2rem -1rem;padding:2.5rem 1.5rem;border-radius:0.75rem">
 <p class="font-mono text-xs tracking-widest uppercase text-red-600 mb-3">Proxy Bidding</p>
 <h3 style="font-family:Georgia,serif;font-size:1.5rem;font-weight:400;color:#fff;margin-bottom:0.75rem;line-height:1.3">Can't find the model you want?<br>We'll bid on your behalf at Japan's auctions</h3>
-<p style="font-size:0.875rem;color:rgba(255,255,255,0.5);max-width:480px;margin-bottom:1.5rem;line-height:1.75">We can help you bid at Japan's major auction houses (USS, TAA, HAA). Fully transparent pricing, on-site photos and video, safe export to your location.</p>
+<p style="font-size:0.875rem;color:rgba(255,255,255,0.5);max-width:480px;margin-bottom:1.5rem;line-height:1.75">We can bid for you at USS, Japan's largest used car auction group. Fully transparent pricing, on-site photos and video, safe export to your location.</p>
 <a href="/en/contact" style="display:inline-block;background:#dc2626;color:#fff;font-size:0.8125rem;font-weight:500;letter-spacing:0.06em;padding:0.75rem 1.75rem;text-decoration:none;border-radius:0.25rem">Contact Proxy Bidding Service</a>
 <p style="margin-top:0.75rem;font-size:0.75rem;color:rgba(255,255,255,0.3);font-family:monospace;letter-spacing:0.04em">Usually responds within 24 hours · English & Japanese available</p>
 </div>`,
@@ -1213,7 +1215,7 @@ Japan has one of the highest Ferrari ownership rates in Asia, with a mature supe
 <div class="jdm-cta" style="background:#111;margin:2rem -1rem;padding:2.5rem 1.5rem;border-radius:0.75rem">
 <p class="font-mono text-xs tracking-widest uppercase text-red-600 mb-3">代行入札サービス</p>
 <h3 style="font-family:Georgia,serif;font-size:1.5rem;font-weight:400;color:#fff;margin-bottom:0.75rem;line-height:1.3">希望のモデルが見つからない？<br>日本のオークションで代行入札いたします</h3>
-<p style="font-size:0.875rem;color:rgba(255,255,255,0.5);max-width:480px;margin-bottom:1.5rem;line-height:1.75">日本の主要オークション会場（USS、TAA、HAA）で代行入札いたします。完全透明な価格提示、現地写真・動画提供、お住まいの地域への安全な輸出。</p>
+<p style="font-size:0.875rem;color:rgba(255,255,255,0.5);max-width:480px;margin-bottom:1.5rem;line-height:1.75">国内最大級のオートオークション USS で代行入札いたします。完全透明な価格提示、現地写真・動画提供、お住まいの地域への安全な輸出。</p>
 <a href="/ja/contact" style="display:inline-block;background:#dc2626;color:#fff;font-size:0.8125rem;font-weight:500;letter-spacing:0.06em;padding:0.75rem 1.75rem;text-decoration:none;border-radius:0.25rem">代行入札サービスに相談する</a>
 <p style="margin-top:0.75rem;font-size:0.75rem;color:rgba(255,255,255,0.3);font-family:monospace;letter-spacing:0.04em">通常24時間以内に返信 · 日本語・英語対応可能</p>
 </div>`,
@@ -3165,10 +3167,9 @@ Japan is also a significant secondary market for European luxury and exotic bran
 
 Japan's vehicle auction ecosystem is the infrastructure backbone of the premium used car boom:
 
-- **USS** (United States of Showa) is the dominant platform, processing millions of units annually with Japan's famously detailed **1–5 grade inspection reports**
-- Grades **4 and above** signal excellent condition — the benchmark for premium buyers worldwide
-- Auctions are now almost entirely **digital and globally accessible**, with international buyers able to bid in real time
-- Contract rates above **60%** for any given segment typically signal an overheated market
+- **USS** is short for **Used car System Solutions**, one of Japan's major used-vehicle auction operators.
+- Auction grades help compare vehicles, but the inspection sheet, repair history and vehicle-specific condition still need review.
+- Overseas buyers commonly work through a Japan-based auction agent because access and bidding rules vary by auction operator.
 
 ![Car auction and inspection](https://images.unsplash.com/photo-1508974239320-0a029497e820?w=800&q=80)
 
@@ -3243,6 +3244,7 @@ Japan used car market news in 2025–2026 tells a story of extraordinary demand,
     color: "bg-red-700",
     image: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=1200&q=80&auto=format&fit=crop",
     embedHtml: true,
+    preserveOriginalLayout: true,
     content: ClassicPorsche911JapanGuideHtml,
     guideStyles: ClassicPorsche911JapanGuideStyles,
   },

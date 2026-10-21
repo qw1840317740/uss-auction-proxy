@@ -88,6 +88,15 @@ export function localizedHreflangLanguages(locale: string, path = ""): Record<st
   return languages;
 }
 
+/**
+ * Default OpenGraph image (the 1200×630 card from `[locale]/opengraph-image.tsx`).
+ * A page that sets its own `openGraph` replaces the inherited one entirely, so
+ * pages without a dedicated image must pass this explicitly or lose og:image.
+ */
+export function defaultOgImages(locale: string) {
+  return [{ url: `/${locale}/opengraph-image`, width: 1200, height: 630, alt: `${siteConfig.name} — Japanese used cars exported worldwide` }];
+}
+
 /** ISO 8601 date (YYYY-MM-DD) one year from today. Used for Offer.priceValidUntil. */
 export function priceValidUntilISO(): string {
   const d = new Date(Date.now() + 365 * 24 * 60 * 60 * 1000);
@@ -113,7 +122,8 @@ export function mapFuel(raw: string): string {
 export function mapTransmission(raw: string): "Automatic" | "Manual" {
   const v = raw.toUpperCase();
   // CVT is technically automatic in Google's enum
-  if (v === "MT" || v === "MANUAL") return "Manual";
+  // "MT", "5MT", "6MT", "M/T", "Manual" → Manual (but not "AMT", an automated manual)
+  if (/^\d*\s*M\/?T$/.test(v) || v.includes("MANUAL")) return "Manual";
   return "Automatic";
 }
 

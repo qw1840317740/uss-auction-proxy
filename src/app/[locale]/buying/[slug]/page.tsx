@@ -1,3 +1,4 @@
+import { setRequestLocale } from "next-intl/server";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
@@ -5,7 +6,7 @@ import { Link } from "@/i18n/routing";
 import { JsonLdBreadcrumb } from "@/components/seo/JsonLdBreadcrumb";
 import { JsonLdScript } from "@/components/seo/JsonLdScript";
 import { buyingGuides, buyingGuideSlugs, type BuyingGuideLocale, type BuyingGuideSlug } from "@/lib/buying-guides";
-import { buildCanonical, localizedHreflangLanguages, siteConfig } from "@/lib/seo";
+import { buildCanonical, localizedHreflangLanguages, siteConfig, defaultOgImages } from "@/lib/seo";
 
 const labels = {
   en: { home: "Home", buying: "Buying from Japan", check: "Before you proceed", related: "Continue planning", quote: "Discuss your vehicle", auction: "Auction sourcing service", export: "Export service", countries: "Import rules by destination" },
@@ -43,6 +44,7 @@ export async function generateMetadata({
       languages: localizedHreflangLanguages(locale, pathname),
     },
     openGraph: {
+      images: defaultOgImages(locale),
       title: guide.content.title,
       description: guide.content.description,
       url,
@@ -58,6 +60,7 @@ export default async function BuyingGuidePage({
   params: Promise<{ locale: string; slug: string }>;
 }) {
   const { locale, slug } = await params;
+  setRequestLocale(locale);
   const guide = getGuide(locale, slug);
   if (!guide) notFound();
   const { content, language } = guide;

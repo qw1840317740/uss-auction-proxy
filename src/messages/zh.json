@@ -42,7 +42,7 @@
     },
     "auction": {
       "title": "日本二手车拍卖代拍服务",
-      "description": "ClickCar 提供日本车商拍卖寻车、拍卖表解读、最高出价确认、车辆检查及出口衔接服务。可代拍USS、TAA、JU等主流拍卖行，覆盖Toyota、Honda、Nissan等全品牌。"
+      "description": "ClickCar 提供日本车商拍卖寻车、拍卖表解读、最高出价确认、车辆检查及出口衔接服务。可代拍日本最大的二手车拍卖行 USS，覆盖Toyota、Honda、Nissan等全品牌。"
     },
     "privacy": {
       "title": "隐私政策",
@@ -228,6 +228,11 @@
   "vehicles": {
     "title": "车辆展示",
     "subtitle": "浏览我们精选的日本优质二手车",
+    "h1": "日本二手车库存 · 可出口全球",
+    "introTitle": "从日本直接采购与出口",
+    "introP1": "ClickCar 位于日本埼玉县，库存车辆均在日本国内，可应要求补拍细节照片。我们负责车辆检查、出口注销、出口证明书及海运订舱，左舵经典车与右舵日规车均可出口至世界各地。",
+    "introP2": "如果库存中没有您想要的车型，我们也可以在日本最大的二手车拍卖行 USS 为您代拍：提供拍卖评级表翻译、车况确认，并按成交价透明收取佣金。",
+    "introP3": "每辆车的价格为日本国内车辆本体价格，不含海运、目的国关税与税费。欢迎联系获取到港报价。",
     "search": "搜索车辆",
     "filters": {
       "make": "品牌",
@@ -293,7 +298,7 @@
       "weight": "车辆重量",
       "maxPower": "最大功率",
       "fuelEconomy": "油耗",
-      "feeNote": "含诸费用（约本体价10%）",
+      "feeNote": "日本国内车辆本体价格，不含海运费、进口关税及税费。",
       "photos": "张照片",
       "savedToFavorites": "已收藏",
       "savedCountLabel": "辆已收藏",
@@ -813,6 +818,7 @@
     }
   },
   "dashboard": {
+    "logout": "退出登录",
     "title": "会员中心",
     "overview": "概览",
     "orders": "订单管理",
@@ -877,6 +883,7 @@
   "blog": {
     "title": "新闻资讯",
     "subtitle": "日本二手车市场动态与购车攻略",
+    "h1": "日本二手车出口指南与拍卖攻略",
     "readMore": "阅读更多",
     "categories": "分类",
     "recentPosts": "最新文章",

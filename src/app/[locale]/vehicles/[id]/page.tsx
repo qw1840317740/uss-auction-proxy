@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { JsonLdBreadcrumb } from "@/components/seo/JsonLdBreadcrumb";
 import { JsonLdScript } from "@/components/seo/JsonLdScript";
+import { routing } from "@/i18n/routing";
 import { demoVehicles, getVehicleText } from "@/lib/demo-vehicles";
 import {
   siteConfig,
@@ -15,6 +16,11 @@ import {
 } from "@/lib/seo";
 import { formatMileage } from "@/lib/utils";
 import Page from "./_Content";
+
+// Pre-render every listed vehicle (in-stock and sold) in each locale.
+export function generateStaticParams() {
+  return routing.locales.flatMap((locale) => demoVehicles.map((vehicle) => ({ locale, id: vehicle.id })));
+}
 
 function getVehicle(id: string) {
   return demoVehicles.find((vehicle) => vehicle.id === id);
@@ -49,21 +55,15 @@ export async function generateMetadata({
   const currentYear = new Date().getFullYear();
   const vehicleAge = currentYear - vehicle.year;
   const isClassic = vehicleAge >= 30;
-  const isVintage = vehicleAge >= 50;
 
-  // Title: prefix classic/vintage labels for long-tail collector keywords
-  const prefix = isVintage
-    ? "Vintage"
-    : isClassic
-      ? "Classic"
-      : "";
-  const suffix =
-    locale === "zh" ? " — 日本出口"
-    : locale === "ja" ? " — 日本から輸出"
-    : " for Export from Japan";
-  const title = prefix
-    ? `${prefix} ${vehicleName} (${vehicle.transmission}, ${vehicle.bodyType}) — ${siteConfig.name}`
-    : `${vehicleName} (${vehicle.transmission}, ${vehicle.bodyType})${suffix}`;
+  // Title: localized "for sale" phrasing; drop the transmission if it would push
+  // the title past ~60 chars (SERP truncation).
+  const forSale =
+    locale === "zh" ? "出售 · 日本直送"
+    : locale === "ja" ? "販売・日本から輸出"
+    : "for Sale in Japan";
+  const withTrans = `${vehicleName} ${vehicle.transmission} ${forSale} | ${siteConfig.name}`;
+  const title = withTrans.length <= 60 ? withTrans : `${vehicleName} ${forSale} | ${siteConfig.name}`;
   const soldLabel = locale === "zh" ? "已售出" : locale === "ja" ? "売約済み" : "Sold";
   const metadataTitle = vehicle.status === "sold" ? `${vehicleName} — ${soldLabel} | ${siteConfig.name}` : title;
 
@@ -147,6 +147,7 @@ export default async function VehicleDetailPage({
   params: Promise<{ locale: string; id: string }>;
 }) {
   const { locale, id } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "seo.vehicles" });
   const vehicle = getVehicle(id);
   const vehicleName = vehicle ? `${vehicle.year} ${vehicle.make} ${vehicle.model}` : id;

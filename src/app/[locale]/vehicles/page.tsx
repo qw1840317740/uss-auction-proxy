@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { JsonLdBreadcrumb } from "@/components/seo/JsonLdBreadcrumb";
-import { buildCanonical, localizedHreflangLanguages } from "@/lib/seo";
+import { buildCanonical, localizedHreflangLanguages, defaultOgImages } from "@/lib/seo";
 import Page from "./_Content";
+
+// The inventory grid reads filter query params (useSearchParams), so render per
+// request to keep the full list in the server HTML instead of a Suspense fallback.
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
   params,
@@ -15,6 +19,7 @@ export async function generateMetadata({
     title: t("title"),
     description: t("description"),
     openGraph: {
+      images: defaultOgImages(locale),
       title: t("title"),
       description: t("description"),
       url: buildCanonical(locale, "/vehicles"),
@@ -29,6 +34,7 @@ export async function generateMetadata({
 
 export default async function VehiclesPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "seo.vehicles" });
   return (
     <>

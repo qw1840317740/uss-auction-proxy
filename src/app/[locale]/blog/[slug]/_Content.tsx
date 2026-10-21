@@ -241,7 +241,7 @@ const EMBEDDED_HTML_CSS = `
 }
 `;
 
-function extractEmbeddedArticleBody(html: string): string {
+function extractEmbeddedArticleBody(html: string, preserveOriginalLayout = false): string {
   const bodyMatch = html.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
   const body = bodyMatch?.[1] ?? html;
 
@@ -250,8 +250,14 @@ function extractEmbeddedArticleBody(html: string): string {
     .replace(/<style\b[\s\S]*?<\/style>/gi, "")
     .replace(/<link\b[^>]*>/gi, "")
     .replace(/<meta\b[^>]*>/gi, "")
-    .replace(/<title\b[\s\S]*?<\/title>/gi, "")
-    // Strip <header> and <footer> — the blog template already renders site chrome.
+    .replace(/<title\b[\s\S]*?<\/title>/gi, "");
+
+  if (preserveOriginalLayout) {
+    return cleaned;
+  }
+
+  // Most embedded guides use the blog template's heading, footer, and CTA.
+  cleaned = cleaned
     .replace(/<header\b[\s\S]*?<\/header>/gi, "")
     .replace(/<footer\b[\s\S]*?<\/footer>/gi, "");
 
@@ -322,9 +328,13 @@ export default function BlogPostPage() {
   const postCategory = getLocalized(post.category, locale);
   const postReadTime = getLocalized(post.readTime, locale);
   const postContent = post.content ? getLocalized(post.content, locale) : postExcerpt;
+  const preserveOriginalLayout = Boolean(post.preserveOriginalLayout);
   const embeddedArticleBody = useMemo(
-    () => (post.embedHtml ? extractEmbeddedArticleBody(postContent) : ""),
-    [post.embedHtml, postContent]
+    () =>
+      post.embedHtml
+        ? extractEmbeddedArticleBody(postContent, preserveOriginalLayout)
+        : "",
+    [post.embedHtml, postContent, preserveOriginalLayout]
   );
   // Scoped CSS from the source HTML (tables, callouts, FAQ blocks etc.). The base
   // EMBEDDED_HTML_CSS handles shared layout; guideStyles adds the post-specific
@@ -481,7 +491,8 @@ export default function BlogPostPage() {
         <GlassBreadcrumb backHref="/blog" backLabel={tc("back")} current={t("title")} />
       </div>
 
-      {/* Article Header — always rendered so embedHtml posts still get H1, share panel */}
+      {/* Source-preserved guides provide their own editorial heading and byline. */}
+      {!preserveOriginalLayout && (
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-8">
         <div className="flex items-center gap-3 mb-4">
           <span className={cn(
@@ -507,6 +518,7 @@ export default function BlogPostPage() {
 
         {renderSharePanel()}
       </div>
+      )}
 
       {/* Cover Image — only on non-embedHtml posts (embedHtml posts carry their own imagery) */}
       {!post.embedHtml && (
@@ -525,8 +537,10 @@ export default function BlogPostPage() {
 
       {/* Article Body */}
       <div className={cn(
-        "max-w-4xl mx-auto px-4 sm:px-6 lg:px-8",
-        post.embedHtml ? "pt-6 pb-10" : "py-10"
+        preserveOriginalLayout
+          ? "mt-6 bg-[#f7f6f2]"
+          : "max-w-4xl mx-auto px-4 sm:px-6 lg:px-8",
+        preserveOriginalLayout ? "" : post.embedHtml ? "pt-6 pb-10" : "py-10"
       )}>
         {post.embedHtml ? (
           <>
@@ -538,8 +552,11 @@ export default function BlogPostPage() {
             {postGuideStyles && (
               <style dangerouslySetInnerHTML={{ __html: postGuideStyles }} />
             )}
-            <article
-              className="embedded-html-article"
+            <div
+              className={cn(
+                "embedded-html-article",
+                preserveOriginalLayout && "preserved-source-layout"
+              )}
               dangerouslySetInnerHTML={{ __html: embeddedArticleBody }}
             />
           </>
@@ -678,6 +695,11 @@ export default function BlogPostPage() {
         </article>
         )}
       </div>
+      {preserveOriginalLayout && (
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-10">
+          {renderSharePanel()}
+        </div>
+      )}
 
       {/* Related Posts */}
       <div className="bg-gray-50 border-t border-gray-100">

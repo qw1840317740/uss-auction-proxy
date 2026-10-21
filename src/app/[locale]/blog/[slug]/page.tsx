@@ -1,11 +1,16 @@
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { JsonLdBreadcrumb } from "@/components/seo/JsonLdBreadcrumb";
 import { JsonLdScript } from "@/components/seo/JsonLdScript";
 import { demoPosts, getLocalized } from "@/lib/demo-blog";
 import { siteConfig, buildCanonical, getAbsoluteMediaUrl, localizedHreflangLanguages } from "@/lib/seo";
 import { notFound } from "next/navigation";
+import { routing } from "@/i18n/routing";
 import Page from "./_Content";
+
+export function generateStaticParams() {
+  return routing.locales.flatMap((locale) => demoPosts.map((post) => ({ locale, slug: post.slug })));
+}
 
 export async function generateMetadata({
   params,
@@ -64,6 +69,7 @@ export default async function BlogPostPage({
   params: Promise<{ locale: string; slug: string }>;
 }) {
   const { locale, slug } = await params;
+  setRequestLocale(locale);
   const tBlog = await getTranslations({ locale, namespace: "blog" });
   const post = demoPosts.find((p) => p.slug === slug);
 

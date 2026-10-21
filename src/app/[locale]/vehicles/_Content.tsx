@@ -169,7 +169,7 @@ export default function VehiclesPage() {
       {/* Header */}
       <div className="bg-white border-b border-gray-200">
         <div className="container-main py-8">
-          <h1 className="text-3xl font-bold text-gray-900">{t("title")}</h1>
+          <h1 className="text-3xl font-bold text-gray-900">{t("h1")}</h1>
           <p className="mt-2 text-gray-600">{t("subtitle")}</p>
         </div>
       </div>
@@ -566,6 +566,16 @@ export default function VehiclesPage() {
           </div>
         </div>
       </div>
+
+      {/* Intro copy — gives the inventory page indexable context beyond the grid */}
+      <section className="border-t border-gray-200 bg-white">
+        <div className="container-main max-w-3xl py-10 space-y-4 text-gray-600 leading-7">
+          <h2 className="text-xl font-bold text-gray-900">{t("introTitle")}</h2>
+          <p>{t("introP1")}</p>
+          <p>{t("introP2")}</p>
+          <p>{t("introP3")}</p>
+        </div>
+      </section>
     </div>
   );
 }

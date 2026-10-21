@@ -130,8 +130,6 @@ export default function VehicleDetailPage({
   };
 
   const hasPrice = vehicle.price > 0;
-  // Estimated total price (body + ~10% fees) when a public body price exists.
-  const totalPrice = hasPrice ? vehicle.price + Math.round(vehicle.price * 0.1) : 0;
 
   // Similar vehicles: same make or body type, excluding current
   const similarVehicles = demoVehicles
@@ -245,7 +243,7 @@ export default function VehicleDetailPage({
                     <span className="mt-2 inline-block rounded bg-gray-900 px-3 py-1 text-xs font-semibold text-white">{vt("sold")}</span>
                   )}
                   <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mt-0.5">
-                    {vehicle.model}
+                    {vehicle.year} {vehicle.make} {vehicle.model}
                   </h1>
                   <p className="mt-1.5 text-sm text-gray-500">
                     {vehicle.year} &middot; {vehicle.displacement} &middot; {vehicle.fuel} &middot; {vehicle.drive}
@@ -422,23 +420,17 @@ export default function VehicleDetailPage({
           {/* ============================================================ */}
           <div className="space-y-6">
             <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-6 lg:sticky lg:top-6">
-              {/* Total price */}
+              {/* Vehicle (body) price */}
               <div className="mb-1">
-                {vehicle.status !== "sold" && <span className="text-sm text-gray-500">{hasPrice ? vt("totalPrice") : vt("price")}</span>}
+                {vehicle.status !== "sold" && <span className="text-sm text-gray-500">{hasPrice ? vt("bodyPrice") : vt("price")}</span>}
                 <p className="text-3xl font-bold text-primary mt-0.5">
-                  {vehicle.status === "sold" ? vt("sold") : hasPrice ? formatPrice(totalPrice) : vt("priceOnRequest")}
+                  {vehicle.status === "sold" ? vt("sold") : hasPrice ? formatPrice(vehicle.price) : vt("priceOnRequest")}
                 </p>
               </div>
               {vehicle.status === "sold" ? (
                 <p className="text-sm leading-6 text-gray-500 mb-6">{vt("soldNote")}</p>
               ) : hasPrice ? (
-                <>
-                  <div className="flex items-baseline gap-2 mb-2">
-                    <span className="text-xs text-gray-400">{vt("bodyPrice")}</span>
-                    <span className="text-sm font-medium text-gray-700 line-through-0">{formatPrice(vehicle.price)}</span>
-                  </div>
-                  <p className="text-xs text-gray-400 mb-6">{vt("feeNote")}</p>
-                </>
+                <p className="text-xs text-gray-400 mb-6">{vt("feeNote")}</p>
               ) : (
                 <p className="text-sm leading-6 text-gray-500 mb-6">{vt("priceOnRequestNote")}</p>
               )}

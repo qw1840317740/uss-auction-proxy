@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { JsonLdBreadcrumb } from "@/components/seo/JsonLdBreadcrumb";
 import { JsonLdScript } from "@/components/seo/JsonLdScript";
-import { buildCanonical, localizedHreflangLanguages, siteConfig } from "@/lib/seo";
+import { buildCanonical, localizedHreflangLanguages, siteConfig, defaultOgImages } from "@/lib/seo";
 import { exportCountries, getCountryBySlug } from "@/lib/export-countries";
 import { countryGuidance } from "@/lib/country-guidance";
 import ExportToContent from "./_Content";
@@ -54,6 +54,7 @@ export async function generateMetadata({
       `buy used Japanese car ${countryName}`,
     ].join(", "),
     openGraph: {
+      images: defaultOgImages(locale),
       title,
       description,
       url,
@@ -69,6 +70,7 @@ export default async function ExportToCountryPage({
   params: Promise<{ locale: string; country: string }>;
 }) {
   const { locale, country: slug } = await params;
+  setRequestLocale(locale);
   const country = getCountryBySlug(slug);
   if (!country) notFound();
 
