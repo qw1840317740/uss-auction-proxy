@@ -23,7 +23,7 @@ export function BrandShowcase() {
             >
               <span className="flex h-9 w-9 shrink-0 items-center justify-center grayscale transition-[filter] duration-300 group-hover:grayscale-0">
                 {brandLogos[brand] ? (
-                  <Image src={brandLogos[brand]} alt="" width={36} height={36} className="object-contain" />
+                  <Image src={brandLogos[brand]} alt={`${brand} logo`} width={36} height={36} className="object-contain" />
                 ) : (
                   <span className="cc-data text-xs font-semibold text-ink-2">{brand.slice(0, 2).toUpperCase()}</span>
                 )}

@@ -47,7 +47,7 @@ export function BlogSection() {
                 <div className="relative aspect-[16/9] overflow-hidden bg-paper-2">
                   <Image
                     src={post.image}
-                    alt=""
+                    alt={postTitle}
                     fill
                     className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.02]"
                     sizes="(max-width: 768px) 100vw, 33vw"

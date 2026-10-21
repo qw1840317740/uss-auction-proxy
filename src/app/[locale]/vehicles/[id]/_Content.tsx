@@ -248,7 +248,7 @@ export default function VehicleDetailPage({
                         activeImg === idx ? "border-ink" : "border-rule opacity-70 hover:opacity-100",
                       )}
                     >
-                      <Image src={img} alt="" fill className="object-cover" sizes="96px" />
+                      <Image src={img} alt={`${vehicle.year} ${vehicle.make} ${vehicle.model} — ${idx + 1}`} fill className="object-cover" sizes="96px" />
                     </button>
                   ))}
                 </div>
