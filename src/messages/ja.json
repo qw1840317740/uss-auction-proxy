@@ -221,7 +221,7 @@
       "anyMake": "すべて",
       "price": "予算上限",
       "anyPrice": "指定なし",
-      "underPrice": "¥{amount} 以下",
+      "underPrice": "{amount} 以下",
       "search": "検索"
     }
   },
@@ -299,6 +299,7 @@
       "maxPower": "最高出力",
       "fuelEconomy": "燃費",
       "feeNote": "日本国内での車両本体価格です。海上運賃・輸入関税・諸税は含みません。",
+      "fxNote": "概算 — {jpy}（¥{rate}/US$、欧州中央銀行 {date}）。日本円で請求します。",
       "photos": "枚の写真",
       "savedToFavorites": "保存済み",
       "savedCountLabel": "件保存済み",

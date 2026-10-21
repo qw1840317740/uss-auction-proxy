@@ -314,7 +314,7 @@
       "anyMake": "All makes",
       "price": "Max price",
       "anyPrice": "Any price",
-      "underPrice": "Under ¥{amount}",
+      "underPrice": "Under {amount}",
       "search": "Search"
     }
   },
@@ -332,8 +332,8 @@
       "model": "Model",
       "yearFrom": "Year (from)",
       "yearTo": "Year (to)",
-      "priceFrom": "Price (from)",
-      "priceTo": "Price (to)",
+      "priceFrom": "Price from (US$)",
+      "priceTo": "Price to (US$)",
       "mileageFrom": "Mileage (from)",
       "mileageTo": "Mileage (to)",
       "bodyType": "Body Type",
@@ -392,6 +392,7 @@
       "maxPower": "Max Power",
       "fuelEconomy": "Fuel Economy",
       "feeNote": "Vehicle price in Japan. Shipping, import duties and taxes are not included.",
+      "fxNote": "Approx. — {jpy} at ¥{rate}/US$ (ECB, {date}). Invoiced in JPY.",
       "photos": "photos",
       "savedToFavorites": "Saved",
       "savedCountLabel": "saved",

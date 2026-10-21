@@ -221,7 +221,7 @@
       "anyMake": "所有品牌",
       "price": "预算上限",
       "anyPrice": "不限",
-      "underPrice": "¥{amount} 以内",
+      "underPrice": "{amount} 以内",
       "search": "搜索"
     }
   },
@@ -299,6 +299,7 @@
       "maxPower": "最大功率",
       "fuelEconomy": "油耗",
       "feeNote": "日本国内车辆本体价格，不含海运费、进口关税及税费。",
+      "fxNote": "约合 — {jpy}，按 ¥{rate}/US$（欧洲央行 {date}）换算。以日元结算。",
       "photos": "张照片",
       "savedToFavorites": "已收藏",
       "savedCountLabel": "辆已收藏",

@@ -1,10 +1,11 @@
 "use client";
 
+import { useVehiclePrice } from "@/components/providers/CurrencyProvider";
 import { useState, useMemo } from "react";
 import { useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
-import { formatPrice, formatMileage, cn } from "@/lib/utils";
+import { formatMileage, cn } from "@/lib/utils";
 import {
   Search,
   SlidersHorizontal,
@@ -37,6 +38,9 @@ export default function VehiclesPage() {
   const t = useTranslations("vehicles");
   const ct = useTranslations("common");
   const vt = useTranslations("vehicles.vehicle");
+  const { format: formatVehiclePrice, showUsd, fx } = useVehiclePrice();
+  // Price filters are entered in the display currency (US$ on the English site).
+  const priceUnitJpy = showUsd ? fx.jpyPerUsd : 1;
 
   const { toggle, isFavorite } = useFavorites();
   const searchParams = useSearchParams();
@@ -79,8 +83,8 @@ export default function VehiclesPage() {
       if (yearFrom && v.year < Number(yearFrom)) return false;
       if (yearTo && v.year > Number(yearTo)) return false;
       if ((priceFrom || priceTo) && v.price <= 0) return false;
-      if (priceFrom && v.price < Number(priceFrom)) return false;
-      if (priceTo && v.price > Number(priceTo)) return false;
+      if (priceFrom && v.price < Number(priceFrom) * priceUnitJpy) return false;
+      if (priceTo && v.price > Number(priceTo) * priceUnitJpy) return false;
       if (mileageFrom && v.mileage < Number(mileageFrom)) return false;
       if (mileageTo && v.mileage > Number(mileageTo)) return false;
       return true;
@@ -127,6 +131,7 @@ export default function VehiclesPage() {
     mileageFrom,
     mileageTo,
     sortBy,
+    priceUnitJpy,
   ]);
 
   const resetFilters = () => {
@@ -320,7 +325,7 @@ export default function VehiclesPage() {
                     value={priceTo}
                     onChange={(e) => setPriceTo(e.target.value)}
                     className={selectCls}
-                    placeholder="10,000,000"
+                    placeholder={showUsd ? "100,000" : "10,000,000"}
                     min={0}
                   />
                 </div>
@@ -536,7 +541,7 @@ export default function VehiclesPage() {
                             {vt("price")}
                           </span>
                           <p className="text-lg font-bold text-primary">
-                            {v.status === "sold" ? vt("sold") : v.price > 0 ? formatPrice(v.price) : vt("priceOnRequest")}
+                            {v.status === "sold" ? vt("sold") : v.price > 0 ? formatVehiclePrice(v.price) : vt("priceOnRequest")}
                           </p>
                         </div>
                         <span

@@ -1,10 +1,11 @@
 "use client";
 
+import { useVehiclePrice } from "@/components/providers/CurrencyProvider";
 import React, { useRef, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { GlassBreadcrumb } from "@/components/layout/GlassBreadcrumb";
-import { formatPrice, formatMileage, cn } from "@/lib/utils";
+import { formatMileage, formatPrice, cn } from "@/lib/utils";
 import {
   Heart,
   Share2,
@@ -57,6 +58,7 @@ export default function VehicleDetailPage({
 
   const t = useTranslations("vehicles");
   const vt = useTranslations("vehicles.vehicle");
+  const { format: formatVehiclePrice, showUsd, fx } = useVehiclePrice();
   const ct = useTranslations("common");
   const locale = useLocale();
 
@@ -404,7 +406,7 @@ export default function VehicleDetailPage({
                         <div className="flex items-center justify-between mt-1.5">
                           <span className="text-xs text-gray-400">{sv.year} · {formatMileage(sv.mileage)}</span>
                           <span className="text-sm font-bold text-primary">
-                            {sv.price > 0 ? formatPrice(sv.price) : vt("priceOnRequest")}
+                            {sv.price > 0 ? formatVehiclePrice(sv.price) : vt("priceOnRequest")}
                           </span>
                         </div>
                       </div>
@@ -424,13 +426,24 @@ export default function VehicleDetailPage({
               <div className="mb-1">
                 {vehicle.status !== "sold" && <span className="text-sm text-gray-500">{hasPrice ? vt("bodyPrice") : vt("price")}</span>}
                 <p className="text-3xl font-bold text-primary mt-0.5">
-                  {vehicle.status === "sold" ? vt("sold") : hasPrice ? formatPrice(vehicle.price) : vt("priceOnRequest")}
+                  {vehicle.status === "sold" ? vt("sold") : hasPrice ? formatVehiclePrice(vehicle.price) : vt("priceOnRequest")}
                 </p>
               </div>
               {vehicle.status === "sold" ? (
                 <p className="text-sm leading-6 text-gray-500 mb-6">{vt("soldNote")}</p>
               ) : hasPrice ? (
-                <p className="text-xs text-gray-400 mb-6">{vt("feeNote")}</p>
+                <>
+                  {showUsd && (
+                    <p className="text-sm text-gray-500 mb-1">
+                      {vt("fxNote", {
+                        jpy: formatPrice(vehicle.price),
+                        rate: fx.jpyPerUsd.toFixed(2),
+                        date: fx.date,
+                      })}
+                    </p>
+                  )}
+                  <p className="text-xs text-gray-400 mb-6">{vt("feeNote")}</p>
+                </>
               ) : (
                 <p className="text-sm leading-6 text-gray-500 mb-6">{vt("priceOnRequestNote")}</p>
               )}

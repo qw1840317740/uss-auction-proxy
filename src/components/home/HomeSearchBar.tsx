@@ -5,6 +5,9 @@ import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/routing";
 import { Search } from "lucide-react";
 import { vehicleMakes } from "@/lib/brands";
+import { useVehiclePrice } from "@/components/providers/CurrencyProvider";
+import { formatUsd } from "@/lib/currency";
+import { formatPrice } from "@/lib/utils";
 
 const priceBands = [
   { key: "", label: "any", to: "" },
@@ -14,12 +17,24 @@ const priceBands = [
   { key: "10m", label: "to10m", to: "10000000" },
 ];
 
+// English site: budget bands in US$ (the vehicles page reads priceTo in the display currency).
+const usdPriceBands = [
+  { key: "", label: "any", to: "" },
+  { key: "25k", label: "to25k", to: "25000" },
+  { key: "50k", label: "to50k", to: "50000" },
+  { key: "100k", label: "to100k", to: "100000" },
+  { key: "200k", label: "to200k", to: "200000" },
+];
+
 export function HomeSearchBar() {
   const t = useTranslations("home.search");
   const router = useRouter();
   const [q, setQ] = useState("");
   const [make, setMake] = useState("");
   const [priceTo, setPriceTo] = useState("");
+  const { showUsd } = useVehiclePrice();
+  const bands = showUsd ? usdPriceBands : priceBands;
+  const formatBand = (amount: string) => (showUsd ? formatUsd(Number(amount)) : formatPrice(Number(amount)));
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -83,9 +98,9 @@ export function HomeSearchBar() {
               onChange={(e) => setPriceTo(e.target.value)}
               className="w-full px-3 py-2.5 rounded-lg bg-gray-50 border border-gray-200 text-sm text-gray-900 focus:outline-none focus:border-primary focus:bg-white transition-colors"
             >
-              {priceBands.map((b) => (
+              {bands.map((b) => (
                 <option key={b.key || "any"} value={b.to}>
-                  {b.to ? t("underPrice", { amount: b.to }) : t("anyPrice")}
+                  {b.to ? t("underPrice", { amount: formatBand(b.to) }) : t("anyPrice")}
                 </option>
               ))}
             </select>

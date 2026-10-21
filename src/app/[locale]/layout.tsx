@@ -7,6 +7,8 @@ import { Footer } from "@/components/layout/Footer";
 import { Geist, Geist_Mono } from "next/font/google";
 import type { Metadata } from "next";
 import { buildCanonical, getOgLocale, localizedHreflangLanguages } from "@/lib/seo";
+import { getJpyPerUsd } from "@/lib/currency";
+import { CurrencyProvider } from "@/components/providers/CurrencyProvider";
 
 export async function generateMetadata({
   params,
@@ -62,11 +64,13 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
 
   const messages = (await import(`../../messages/${locale}.json`)).default;
+  const fx = await getJpyPerUsd();
 
   return (
     <html lang={locale} className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-white text-gray-900">
         <NextIntlClientProvider locale={locale} messages={messages}>
+          <CurrencyProvider fx={fx}>
           <a href="#main-content" className="skip-link">
             Skip to main content
           </a>
@@ -75,6 +79,7 @@ export default async function LocaleLayout({
             {children}
           </main>
           <Footer />
+          </CurrencyProvider>
         </NextIntlClientProvider>
       </body>
     </html>

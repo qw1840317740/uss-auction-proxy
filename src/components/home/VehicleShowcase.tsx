@@ -1,8 +1,9 @@
 "use client";
 
+import { useVehiclePrice } from "@/components/providers/CurrencyProvider";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
-import { formatPrice, formatMileage } from "@/lib/utils";
+import { formatMileage } from "@/lib/utils";
 import { Heart } from "lucide-react";
 import Image from "next/image";
 import { useScrollReveal, useStaggerReveal } from "@/lib/useScrollReveal";
@@ -12,6 +13,7 @@ import { useFavorites } from "@/lib/useFavorites";
 export function VehicleShowcase() {
   const t = useTranslations("home.showcase");
   const vt = useTranslations("vehicles.vehicle");
+  const { format: formatVehiclePrice } = useVehiclePrice();
   const { ref: titleRef, isVisible: titleVisible } = useScrollReveal();
   const showcaseVehicles = demoVehicles.filter((vehicle) => vehicle.status === "available");
   const { toggle, isFavorite } = useFavorites();
@@ -73,7 +75,7 @@ export function VehicleShowcase() {
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-xl font-bold text-primary">
-                    {v.price > 0 ? formatPrice(v.price) : vt("priceOnRequest")}
+                    {v.price > 0 ? formatVehiclePrice(v.price) : vt("priceOnRequest")}
                   </span>
                   <span
                     className="text-sm font-medium text-white bg-primary hover:bg-primary-dark px-4 py-2.5 rounded-xl transition-all duration-300 shadow-sm hover:shadow-md hover:shadow-primary/20"

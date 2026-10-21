@@ -1,7 +1,8 @@
 "use client";
 
+import { useVehiclePrice } from "@/components/providers/CurrencyProvider";
 import { useTranslations } from "next-intl";
-import { formatPrice, formatMileage } from "@/lib/utils";
+import { formatMileage } from "@/lib/utils";
 import { Heart, Trash2, Eye, Gauge } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import Image from "next/image";
@@ -13,6 +14,7 @@ export default function FavoritesPage() {
   const t = useTranslations("dashboard");
   const tVehicles = useTranslations("vehicles");
   const tc = useTranslations("common");
+  const { format: formatVehiclePrice } = useVehiclePrice();
   const { favorites, toggle } = useFavorites();
 
   const savedVehicles = favorites
@@ -68,7 +70,7 @@ export default function FavoritesPage() {
                     <div>
                       {fav.status !== "sold" && <p className="text-sm text-gray-400">{tVehicles("vehicle.price")}</p>}
                       <p className="text-base font-bold text-gray-900">
-                        {fav.status === "sold" ? tVehicles("vehicle.sold") : fav.price > 0 ? formatPrice(fav.price) : tVehicles("vehicle.priceOnRequest")}
+                        {fav.status === "sold" ? tVehicles("vehicle.sold") : fav.price > 0 ? formatVehiclePrice(fav.price) : tVehicles("vehicle.priceOnRequest")}
                       </p>
                     </div>
                     <div className="flex items-center gap-1">
