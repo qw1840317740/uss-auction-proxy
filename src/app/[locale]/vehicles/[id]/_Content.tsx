@@ -10,25 +10,9 @@ import {
   Heart,
   Share2,
   CheckCircle2,
-  Calendar,
-  Gauge,
-  Fuel,
-  Cog,
-  Car,
-  Palette,
-  CircleDot,
-  Phone,
-  Globe,
-  MapPin,
-  ShieldCheck,
-  Ruler,
-  Weight,
-  DoorOpen,
-  Users,
-  Zap,
-  Droplet,
   ChevronLeft,
   ChevronRight,
+  ArrowRight,
 } from "lucide-react";
 import Image from "next/image";
 import { demoVehicles, getVehicleText, getVehicleList } from "@/lib/demo-vehicles";
@@ -145,267 +129,252 @@ export default function VehicleDetailPage({
         ? vt("repairYes")
         : vt("repairUnknown");
 
+  const quickSpecs: { label: string; value: string; tone?: "good" | "warn" }[] = [
+    { label: vt("year"), value: String(vehicle.year) },
+    { label: vt("mileage"), value: formatMileage(vehicle.mileage) },
+    { label: vt("transmission"), value: [vehicle.steering, vehicle.transmission].filter(Boolean).join(" · ") },
+    { label: vt("inspection"), value: vehicle.inspection || "—" },
+    {
+      label: vt("repairHistory"),
+      value: repairLabel,
+      tone: vehicle.repairHistory === "none" ? "good" : vehicle.repairHistory === "yes" ? "warn" : undefined,
+    },
+    { label: vt("region"), value: vehicle.region },
+  ];
+
+  const conditionSpecs = [
+    { label: vt("year"), value: String(vehicle.year) },
+    { label: vt("mileage"), value: formatMileage(vehicle.mileage) },
+    { label: vt("inspection"), value: vehicle.inspection || "—" },
+    { label: vt("repairHistory"), value: repairLabel },
+    { label: vt("transmission"), value: vehicle.transmission },
+    { label: t("filters.drive"), value: vehicle.drive },
+    { label: vt("fuel"), value: vehicle.fuel },
+    { label: vt("displacement"), value: vehicle.displacement },
+    { label: t("filters.color"), value: vehicle.exteriorColor },
+    { label: t("filters.bodyType"), value: vehicle.bodyType },
+    { label: vt("seats"), value: `${vehicle.seats}` },
+    { label: vt("region"), value: vehicle.region },
+  ];
+
+  const catalogSpecs = [
+    { label: t("filters.bodyType"), value: vehicle.bodyType },
+    { label: vt("doors"), value: `${vehicle.doors}` },
+    { label: vt("seats"), value: `${vehicle.seats}` },
+    { label: vt("dimensions"), value: vehicle.dimensions },
+    { label: vt("weight"), value: vehicle.weight },
+    { label: vt("maxPower"), value: vehicle.maxPower },
+    { label: vt("displacement"), value: vehicle.displacement },
+    { label: vt("fuelEconomy"), value: vehicle.fuelEconomy },
+    { label: vt("fuel"), value: vehicle.fuel },
+  ];
+
+  const tabs = [
+    { key: "condition", label: vt("condition") },
+    { key: "equipment", label: vt("equipment") },
+    { key: "catalog", label: vt("catalog") },
+  ] as const;
+
+  const iconBtn =
+    "flex h-9 w-9 items-center justify-center rounded-md border border-rule bg-paper-raised/90 text-ink-2 transition-colors hover:border-ink-3 hover:text-ink";
+
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="border-b border-white/60 bg-gradient-to-r from-gray-50 via-white to-red-50/40">
-        <div className="container-main py-4">
+    <div className="min-h-screen bg-paper">
+      <div className="border-b border-rule bg-paper-raised">
+        <div className="container-main py-3">
           <GlassBreadcrumb backHref="/vehicles" backLabel={ct("back")} current={t("title")} />
         </div>
       </div>
 
-      <div className="container-main py-6">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* ============================================================ */}
-          {/* LEFT: Main content (2 cols on desktop) */}
-          {/* ============================================================ */}
-          <div className="lg:col-span-2 space-y-6">
-            {/* ---------- Image gallery ---------- */}
+      <div className="container-main py-8">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,380px)]">
+          {/* LEFT: main content */}
+          <div className="min-w-0 space-y-10">
+            {/* Gallery */}
             <div
-              className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden"
+              className="cc-card overflow-hidden"
               tabIndex={0}
               onKeyDown={onGalleryKey}
               aria-roledescription="image-carousel"
             >
-              <div className="relative aspect-[16/9] overflow-hidden bg-gray-100 group">
+              <div className="group relative aspect-[16/10] overflow-hidden bg-paper-2">
                 <Image
                   src={images[activeImg]}
                   alt={`${vehicle.year} ${vehicle.make} ${vehicle.model}`}
                   fill
                   className="object-contain"
                   priority
+                  sizes="(max-width: 1024px) 100vw, 66vw"
                 />
-                {/* Photo counter */}
-                <div className="absolute bottom-3 right-3 bg-black/60 text-white text-xs px-2.5 py-1 rounded-full font-mono pointer-events-none">
-                  {activeImg + 1} / {images.length}
+                <div className="cc-data pointer-events-none absolute bottom-3 left-3 rounded-md bg-graphite/85 px-2 py-1 text-[11px] text-on-dark">
+                  {String(activeImg + 1).padStart(2, "0")} / {String(images.length).padStart(2, "0")}
                 </div>
-                {/* Prev / Next buttons */}
                 {images.length > 1 && (
                   <>
-                    <button
-                      type="button"
-                      onClick={goPrev}
-                      aria-label="Previous image"
-                      className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 bg-white/85 hover:bg-white text-gray-700 hover:text-primary rounded-full flex items-center justify-center shadow-md backdrop-blur-sm transition-all opacity-80 group-hover:opacity-100 focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-primary"
-                    >
+                    <button type="button" onClick={goPrev} aria-label="Previous image" className={`${iconBtn} absolute left-3 top-1/2 -translate-y-1/2`}>
                       <ChevronLeft className="h-5 w-5" />
                     </button>
-                    <button
-                      type="button"
-                      onClick={goNext}
-                      aria-label="Next image"
-                      className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 bg-white/85 hover:bg-white text-gray-700 hover:text-primary rounded-full flex items-center justify-center shadow-md backdrop-blur-sm transition-all opacity-80 group-hover:opacity-100 focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-primary"
-                    >
+                    <button type="button" onClick={goNext} aria-label="Next image" className={`${iconBtn} absolute right-3 top-1/2 -translate-y-1/2`}>
                       <ChevronRight className="h-5 w-5" />
                     </button>
                   </>
                 )}
-                {/* Action buttons */}
-                <div className="absolute top-4 right-4 flex gap-2">
-                  <button
-                    onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleToggle(vehicle.id); }}
-                    className={`w-10 h-10 bg-white/90 rounded-full flex items-center justify-center shadow-sm ${isFavorite(vehicle.id) ? "text-red-500" : "text-gray-600"} hover:text-red-500`}
-                  >
-                    <Heart className="h-5 w-5" fill={isFavorite(vehicle.id) ? "currentColor" : "none"} />
-                  </button>
+                <div className="absolute right-3 top-3 flex gap-2">
                   <button
                     type="button"
-                    onClick={handleShare}
-                    aria-label={vt("share")}
-                    className="w-10 h-10 bg-white/90 rounded-full flex items-center justify-center text-gray-600 hover:text-primary shadow-sm"
+                    onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleToggle(vehicle.id); }}
+                    aria-label={isFavorite(vehicle.id) ? vt("savedToFavorites") : vt("addToFavorites")}
+                    aria-pressed={isFavorite(vehicle.id)}
+                    className={cn(iconBtn, isFavorite(vehicle.id) && "text-signal hover:text-signal")}
                   >
-                    <Share2 className="h-5 w-5" />
+                    <Heart className="h-4 w-4" fill={isFavorite(vehicle.id) ? "currentColor" : "none"} />
+                  </button>
+                  <button type="button" onClick={handleShare} aria-label={vt("share")} className={iconBtn}>
+                    <Share2 className="h-4 w-4" />
                   </button>
                 </div>
               </div>
-              {/* Thumbnails */}
               {images.length > 1 && (
-                <div className="flex gap-2 p-3 overflow-x-auto">
+                <div className="flex gap-2 overflow-x-auto border-t border-rule p-3">
                   {images.map((img, idx) => (
                     <button
                       key={idx}
+                      type="button"
                       onClick={() => setActiveImg(idx)}
+                      aria-label={`Image ${idx + 1}`}
+                      aria-current={activeImg === idx}
                       className={cn(
-                        "relative w-20 h-14 sm:w-24 sm:h-16 rounded-lg overflow-hidden flex-shrink-0 border-2 transition-all",
-                        activeImg === idx ? "border-primary" : "border-transparent opacity-70 hover:opacity-100"
+                        "relative h-14 w-20 shrink-0 overflow-hidden rounded-md border transition-[border-color,opacity] sm:h-16 sm:w-24",
+                        activeImg === idx ? "border-ink" : "border-rule opacity-70 hover:opacity-100",
                       )}
                     >
-                      <Image src={img} alt={`thumb ${idx + 1}`} fill className="object-cover" />
+                      <Image src={img} alt="" fill className="object-cover" sizes="96px" />
                     </button>
                   ))}
                 </div>
               )}
             </div>
 
-            {/* ---------- Title + quick spec badges ---------- */}
-            <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-6">
-              <div className="flex flex-wrap items-start justify-between gap-4">
-                <div className="min-w-0">
-                  <p className="text-sm text-gray-400 font-mono">{vehicle.make}</p>
-                  {vehicle.status === "sold" && (
-                    <span className="mt-2 inline-block rounded bg-gray-900 px-3 py-1 text-xs font-semibold text-white">{vt("sold")}</span>
-                  )}
-                  <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mt-0.5">
-                    {vehicle.year} {vehicle.make} {vehicle.model}
-                  </h1>
-                  <p className="mt-1.5 text-sm text-gray-500">
-                    {vehicle.year} &middot; {vehicle.displacement} &middot; {vehicle.fuel} &middot; {vehicle.drive}
-                  </p>
-                </div>
+            {/* Title + spec readout */}
+            <div>
+              <div className="flex flex-wrap items-center gap-3">
+                <p className="cc-label cc-tick">{vehicle.make}</p>
+                {vehicle.status === "sold" && (
+                  <span className="cc-label rounded-sm bg-ink px-2 py-0.5 !text-paper">{vt("sold")}</span>
+                )}
               </div>
+              <h1 className="mt-3 text-[2rem] font-semibold leading-[1.08] tracking-[-0.03em] text-ink [overflow-wrap:anywhere] sm:text-[2.5rem]">
+                {vehicle.year} {vehicle.make} {vehicle.model}
+              </h1>
+              <p className="cc-data mt-3 text-sm text-ink-2">
+                {[vehicle.displacement, vehicle.fuel, vehicle.drive, vehicle.exteriorColor].filter(Boolean).join("  ·  ")}
+              </p>
 
-              {/* Quick spec badges */}
-              <div className="flex flex-wrap gap-2 mt-4">
-                <QuickBadge icon={<Calendar className="h-4 w-4" />} label={vt("year")} value={String(vehicle.year)} />
-                <QuickBadge icon={<Gauge className="h-4 w-4" />} label={vt("mileage")} value={formatMileage(vehicle.mileage)} />
-                <QuickBadge icon={<ShieldCheck className="h-4 w-4" />} label={vt("inspection")} value={vehicle.inspection} />
-                <QuickBadge
-                  icon={<ShieldCheck className="h-4 w-4" />}
-                  label={vt("repairHistory")}
-                  value={repairLabel}
-                  accent={vehicle.repairHistory === "unknown" ? undefined : vehicle.repairHistory === "none" ? "green" : "red"}
-                />
-                <QuickBadge icon={<MapPin className="h-4 w-4" />} label={vt("region")} value={vehicle.region} />
-              </div>
+              <dl className="mt-7 grid grid-cols-2 border-t border-ink sm:grid-cols-3">
+                {quickSpecs.map((spec) => (
+                  <div key={spec.label} className="min-w-0 border-b border-rule py-3.5 pr-3">
+                    <dt className="cc-label">{spec.label}</dt>
+                    <dd className="cc-data mt-1.5 flex items-center gap-2 truncate text-[15px] text-ink">
+                      {spec.tone && (
+                        <span
+                          className={cn("h-1.5 w-1.5 shrink-0", spec.tone === "good" ? "bg-emerald-600" : "bg-signal")}
+                          aria-hidden="true"
+                        />
+                      )}
+                      <span className="truncate">{spec.value}</span>
+                    </dd>
+                  </div>
+                ))}
+              </dl>
             </div>
 
-            {/* ---------- Highlights ---------- */}
+            {/* Highlights */}
             {highlights.length > 0 && (
-              <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-6">
-                <h2 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <CheckCircle2 className="h-5 w-5 text-primary" />
-                  {vt("highlights")}
-                </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <section>
+                <h2 className="text-xl font-semibold tracking-[-0.02em] text-ink">{vt("highlights")}</h2>
+                <ul className="mt-4 grid border-t border-rule sm:grid-cols-2 sm:gap-x-8">
                   {highlights.map((h, idx) => (
-                    <div key={idx} className="flex items-start gap-2 py-1.5">
-                      <CheckCircle2 className="h-4 w-4 text-green-500 shrink-0 mt-0.5" />
-                      <span className="text-sm text-gray-700 leading-relaxed">{h}</span>
-                    </div>
+                    <li key={idx} className="flex items-start gap-3 border-b border-rule py-3 text-sm leading-6 text-ink-2">
+                      <span className="mt-2.5 h-1 w-3 shrink-0 bg-signal" aria-hidden="true" />
+                      <span>{h}</span>
+                    </li>
                   ))}
-                </div>
-              </div>
+                </ul>
+              </section>
             )}
 
-            {/* ---------- Tabs ---------- */}
-            <div className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
-              <div className="flex border-b border-gray-100 overflow-x-auto">
-                {(
-                  [
-                    { key: "condition", label: vt("condition"), icon: Gauge },
-                    { key: "equipment", label: vt("equipment"), icon: CheckCircle2 },
-                    { key: "catalog", label: vt("catalog"), icon: Car },
-                  ] as const
-                ).map(({ key, label, icon: Icon }) => (
+            {/* Specification tabs */}
+            <section>
+              <div role="tablist" className="flex gap-6 overflow-x-auto overflow-y-hidden border-b border-rule [scrollbar-width:none]">
+                {tabs.map(({ key, label }) => (
                   <button
                     key={key}
-                    onClick={() => setActiveTab(key as "condition" | "equipment" | "catalog")}
+                    type="button"
+                    role="tab"
+                    aria-selected={activeTab === key}
+                    onClick={() => setActiveTab(key)}
                     className={cn(
-                      "flex-1 min-w-[7rem] inline-flex items-center justify-center gap-2 px-4 py-3 text-sm font-medium border-b-2 transition-colors whitespace-nowrap",
-                      activeTab === key
-                        ? "border-primary text-primary bg-primary/5"
-                        : "border-transparent text-gray-500 hover:text-gray-700 hover:bg-gray-50"
+                      "-mb-px whitespace-nowrap border-b-2 py-3 text-sm font-medium transition-colors",
+                      activeTab === key ? "border-signal text-ink" : "border-transparent text-ink-3 hover:text-ink",
                     )}
                   >
-                    <Icon className="h-4 w-4" />
                     {label}
                   </button>
                 ))}
               </div>
 
-              <div className="p-6">
-                {/* Condition tab */}
-                {activeTab === "condition" && (
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                    <SpecItem icon={<Calendar className="h-4 w-4" />} label={vt("year")} value={String(vehicle.year)} />
-                    <SpecItem icon={<Gauge className="h-4 w-4" />} label={vt("mileage")} value={formatMileage(vehicle.mileage)} />
-                    <SpecItem icon={<ShieldCheck className="h-4 w-4" />} label={vt("inspection")} value={vehicle.inspection} />
-                    <SpecItem
-                      icon={<ShieldCheck className="h-4 w-4" />}
-                      label={vt("repairHistory")}
-                      value={repairLabel}
-                      valueClass={vehicle.repairHistory === "unknown" ? "text-gray-600" : vehicle.repairHistory === "none" ? "text-green-600" : "text-red-600"}
-                    />
-                    <SpecItem icon={<Cog className="h-4 w-4" />} label={vt("transmission")} value={vehicle.transmission} />
-                    <SpecItem icon={<CircleDot className="h-4 w-4" />} label={t("filters.drive")} value={vehicle.drive} />
-                    <SpecItem icon={<Fuel className="h-4 w-4" />} label={vt("fuel")} value={vehicle.fuel} />
-                    <SpecItem icon={<Cog className="h-4 w-4" />} label={vt("displacement")} value={vehicle.displacement} />
-                    <SpecItem icon={<Palette className="h-4 w-4" />} label={t("filters.color")} value={vehicle.exteriorColor} />
-                    <SpecItem icon={<Car className="h-4 w-4" />} label={t("filters.bodyType")} value={vehicle.bodyType} />
-                    <SpecItem icon={<Users className="h-4 w-4" />} label={vt("seats")} value={`${vehicle.seats}`} />
-                    <SpecItem icon={<MapPin className="h-4 w-4" />} label={vt("region")} value={vehicle.region} />
-                  </div>
-                )}
-
-                {/* Equipment tab */}
+              <div className="pt-2" role="tabpanel">
+                {activeTab === "condition" && <SpecTable rows={conditionSpecs} />}
+                {activeTab === "catalog" && <SpecTable rows={catalogSpecs} />}
                 {activeTab === "equipment" && (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  <ul className="grid sm:grid-cols-2 sm:gap-x-8">
                     {vehicle.features.map((feature, idx) => (
-                      <div key={idx} className="flex items-center gap-2 py-2 px-3 rounded-lg bg-gray-50">
-                        <CheckCircle2 className="h-4 w-4 text-green-500 shrink-0" />
-                        <span className="text-sm text-gray-700">{feature}</span>
-                      </div>
+                      <li key={idx} className="flex items-start gap-3 border-b border-rule py-3 text-sm text-ink-2">
+                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-ink-3" aria-hidden="true" />
+                        <span>{feature}</span>
+                      </li>
                     ))}
-                  </div>
-                )}
-
-                {/* Catalog tab */}
-                {activeTab === "catalog" && (
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                    <SpecItem icon={<Car className="h-4 w-4" />} label={t("filters.bodyType")} value={vehicle.bodyType} />
-                    <SpecItem icon={<DoorOpen className="h-4 w-4" />} label={vt("doors")} value={`${vehicle.doors}`} />
-                    <SpecItem icon={<Users className="h-4 w-4" />} label={vt("seats")} value={`${vehicle.seats}`} />
-                    <SpecItem icon={<Ruler className="h-4 w-4" />} label={vt("dimensions")} value={vehicle.dimensions} />
-                    <SpecItem icon={<Weight className="h-4 w-4" />} label={vt("weight")} value={vehicle.weight} />
-                    <SpecItem icon={<Zap className="h-4 w-4" />} label={vt("maxPower")} value={vehicle.maxPower} />
-                    <SpecItem icon={<Cog className="h-4 w-4" />} label={vt("displacement")} value={vehicle.displacement} />
-                    <SpecItem icon={<Droplet className="h-4 w-4" />} label={vt("fuelEconomy")} value={vehicle.fuelEconomy} />
-                    <SpecItem icon={<Fuel className="h-4 w-4" />} label={vt("fuel")} value={vehicle.fuel} />
-                  </div>
+                  </ul>
                 )}
               </div>
-            </div>
+            </section>
 
-            {/* ---------- Overview ---------- */}
+            {/* Overview */}
             {description && (
-              <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-6">
-                <h2 className="text-lg font-bold text-gray-900 mb-3">{vt("overview")}</h2>
-                <p className="text-sm text-gray-600 leading-relaxed">{description}</p>
+              <section>
+                <h2 className="text-xl font-semibold tracking-[-0.02em] text-ink">{vt("overview")}</h2>
+                <p className="mt-4 max-w-[70ch] text-[15px] leading-7 text-ink-2">{description}</p>
                 {conditionNotes && (
-                  <div className="mt-5 border-t border-gray-200 pt-5">
-                    <h3 className="text-sm font-semibold text-gray-900 mb-2">{vt("conditionNotes")}</h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">{conditionNotes}</p>
+                  <div className="mt-6 max-w-[70ch] rounded-[10px] border border-rule bg-paper-raised p-5">
+                    <h3 className="cc-label cc-tick !font-mono !tracking-[0.08em]">{vt("conditionNotes")}</h3>
+                    <p className="mt-3 text-sm leading-7 text-ink-2">{conditionNotes}</p>
                   </div>
                 )}
-              </div>
+              </section>
             )}
 
-            {/* ---------- Similar vehicles ---------- */}
+            {/* Similar vehicles */}
             {similarVehicles.length > 0 && (
-              <div>
-                <h2 className="text-lg font-bold text-gray-900 mb-4">{vt("similar")}</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <section>
+                <h2 className="text-xl font-semibold tracking-[-0.02em] text-ink">{vt("similar")}</h2>
+                <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
                   {similarVehicles.map((sv) => (
-                    <Link
-                      key={sv.id}
-                      href={`/vehicles/${sv.id}`}
-                      className="group bg-white rounded-xl border border-gray-100 overflow-hidden hover:shadow-md hover:border-gray-200 transition-all"
-                    >
-                      <div className="relative h-32 overflow-hidden bg-gray-100">
+                    <Link key={sv.id} href={`/vehicles/${sv.id}`} className="cc-card group min-w-0 overflow-hidden">
+                      <div className="relative aspect-[16/10] overflow-hidden bg-paper-2">
                         <Image
                           src={sv.images[0]}
                           alt={`${sv.year} ${sv.make} ${sv.model}`}
                           fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-300"
+                          sizes="(max-width: 640px) 100vw, 260px"
+                          className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
                         />
                       </div>
-                      <div className="p-3">
-                        <p className="text-xs text-gray-400 font-mono">{sv.make}</p>
-                        <h3 className="text-sm font-semibold text-gray-900 group-hover:text-primary transition-colors line-clamp-1">
-                          {sv.model}
-                        </h3>
-                        <div className="flex items-center justify-between mt-1.5">
-                          <span className="text-xs text-gray-400">{sv.year} · {formatMileage(sv.mileage)}</span>
-                          <span className="text-sm font-bold text-primary">
+                      <div className="p-3.5">
+                        <p className="cc-label">{sv.make}</p>
+                        <h3 className="mt-1 line-clamp-1 text-sm font-semibold text-ink">{sv.year} {sv.model}</h3>
+                        <div className="cc-data mt-2 flex items-center justify-between gap-2 text-xs text-ink-2">
+                          <span className="truncate">{formatMileage(sv.mileage)}</span>
+                          <span className="text-sm font-semibold text-ink">
                             {sv.price > 0 ? formatVehiclePrice(sv.price) : vt("priceOnRequest")}
                           </span>
                         </div>
@@ -413,116 +382,97 @@ export default function VehicleDetailPage({
                     </Link>
                   ))}
                 </div>
-              </div>
+              </section>
             )}
           </div>
 
-          {/* ============================================================ */}
-          {/* RIGHT: Price card & contact sidebar */}
-          {/* ============================================================ */}
-          <div className="space-y-6">
-            <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-6 lg:sticky lg:top-6">
-              {/* Vehicle (body) price */}
-              <div className="mb-1">
-                {vehicle.status !== "sold" && <span className="text-sm text-gray-500">{hasPrice ? vt("bodyPrice") : vt("price")}</span>}
-                <p className="text-3xl font-bold text-primary mt-0.5">
-                  {vehicle.status === "sold" ? vt("sold") : hasPrice ? formatVehiclePrice(vehicle.price) : vt("priceOnRequest")}
-                </p>
-              </div>
-              {vehicle.status === "sold" ? (
-                <p className="text-sm leading-6 text-gray-500 mb-6">{vt("soldNote")}</p>
-              ) : hasPrice ? (
-                <>
-                  {showUsd && (
-                    <p className="text-sm text-gray-500 mb-1">
-                      {vt("fxNote", {
-                        jpy: formatPrice(vehicle.price),
-                        rate: fx.jpyPerUsd.toFixed(2),
-                        date: fx.date,
-                      })}
-                    </p>
-                  )}
-                  <p className="text-xs text-gray-400 mb-6">{vt("feeNote")}</p>
-                </>
-              ) : (
-                <p className="text-sm leading-6 text-gray-500 mb-6">{vt("priceOnRequestNote")}</p>
-              )}
+          {/* RIGHT: price & contact */}
+          <aside className="min-w-0">
+            <div className="cc-card p-6 lg:sticky lg:top-24">
+              {vehicle.status !== "sold" && <p className="cc-label">{hasPrice ? vt("bodyPrice") : vt("price")}</p>}
+              <p className="cc-data mt-2 text-[2rem] font-semibold leading-none tracking-[-0.03em] text-ink">
+                {vehicle.status === "sold" ? vt("sold") : hasPrice ? formatVehiclePrice(vehicle.price) : vt("priceOnRequest")}
+              </p>
 
-              {/* Action buttons */}
-              <div className="space-y-3">
+              <div className="mt-4 space-y-1.5 border-b border-rule pb-5">
                 {vehicle.status === "sold" ? (
-                  <Link href="/vehicles" className="block w-full text-center rounded-lg bg-primary text-white px-4 py-3 text-sm font-bold hover:bg-primary-dark transition-colors">
+                  <p className="text-sm leading-6 text-ink-2">{vt("soldNote")}</p>
+                ) : hasPrice ? (
+                  <>
+                    {showUsd && (
+                      <p className="cc-data text-xs leading-5 text-ink-2">
+                        {vt("fxNote", { jpy: formatPrice(vehicle.price), rate: fx.jpyPerUsd.toFixed(2), date: fx.date })}
+                      </p>
+                    )}
+                    <p className="text-xs leading-5 text-ink-3">{vt("feeNote")}</p>
+                  </>
+                ) : (
+                  <p className="text-sm leading-6 text-ink-2">{vt("priceOnRequestNote")}</p>
+                )}
+              </div>
+
+              <div className="mt-5 grid gap-2.5">
+                {vehicle.status === "sold" ? (
+                  <Link href="/vehicles" className="cc-btn cc-btn--ink w-full">
                     {vt("browseAvailable")}
+                    <ArrowRight className="h-4 w-4" aria-hidden="true" />
                   </Link>
                 ) : (
                   <>
-                    <Link href="/contact" className="block w-full text-center rounded-lg bg-primary text-white px-4 py-3 text-sm font-bold hover:bg-primary-dark transition-colors">
+                    <Link href="/contact" className="cc-btn cc-btn--signal w-full">
                       {vt("requestQuote")}
+                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
                     </Link>
-                    <Link href="/contact" className="block w-full text-center rounded-lg border-2 border-primary text-primary px-4 py-3 text-sm font-bold hover:bg-primary/5 transition-colors">
+                    <Link href="/contact" className="cc-btn cc-btn--line w-full">
                       {vt("inquire")}
                     </Link>
                   </>
                 )}
+                <button
+                  type="button"
+                  onClick={() => handleToggle(vehicle.id)}
+                  aria-pressed={isFavorite(vehicle.id)}
+                  className={cn("cc-btn cc-btn--line w-full", isFavorite(vehicle.id) && "!border-signal text-signal")}
+                >
+                  <Heart className="h-4 w-4" fill={isFavorite(vehicle.id) ? "currentColor" : "none"} aria-hidden="true" />
+                  {isFavorite(vehicle.id) ? vt("savedToFavorites") : vt("addToFavorites")}
+                </button>
               </div>
 
-              {/* Quick contact info */}
-              <div className="mt-6 pt-6 border-t border-gray-100 space-y-3">
-                <h3 className="text-sm font-semibold text-gray-900">{ct("contactUs")}</h3>
-                <div className="flex items-center gap-3 text-sm text-gray-600">
-                  <Phone className="h-4 w-4 text-gray-400 shrink-0" />
-                  <span>049-257-4332</span>
+              <dl className="mt-6 grid gap-4 border-t border-rule pt-5">
+                <div>
+                  <dt className="cc-label">{ct("contactUs")}</dt>
+                  <dd className="cc-data mt-1.5 text-base text-ink">
+                    <a href="tel:+81492574332" className="cc-link">049-257-4332</a>
+                  </dd>
                 </div>
-                <div className="flex items-center gap-3 text-sm text-gray-600">
-                  <Globe className="h-4 w-4 text-gray-400 shrink-0" />
-                  <span>Mon-Fri 9:00-18:00 (JST)</span>
+                <div>
+                  <dt className="cc-label">JST</dt>
+                  <dd className="cc-data mt-1.5 text-sm text-ink-2">Mon–Fri 9:00–18:00</dd>
                 </div>
-              </div>
+              </dl>
 
-              {/* Favorite button */}
-              <button
-                onClick={() => handleToggle(vehicle.id)}
-                className={`mt-4 w-full inline-flex items-center justify-center gap-2 rounded-lg border border-gray-200 px-4 py-2.5 text-sm font-medium transition-colors ${isFavorite(vehicle.id) ? "text-red-500 border-red-200 bg-red-50" : "text-gray-700"} hover:bg-gray-50`}
-              >
-                <Heart className="h-4 w-4" fill={isFavorite(vehicle.id) ? "currentColor" : "none"} />
-                {isFavorite(vehicle.id) ? vt("savedToFavorites") : vt("addToFavorites")}
-              </button>
-
-              {/* Link to saved list */}
               {favorites.length > 0 && (
                 <Link
                   href="/favorites"
-                  className="mt-2 w-full inline-flex items-center justify-between gap-2 rounded-lg px-4 py-2 text-xs text-gray-400 hover:text-primary transition-colors"
+                  className="mt-5 flex items-center justify-between gap-2 border-t border-rule pt-4 text-xs text-ink-3 transition-colors hover:text-ink"
                 >
-                  <span>{favorites.length} {vt("savedCountLabel")}</span>
-                  <span className="inline-flex items-center gap-1">{vt("viewFavorites")} →</span>
+                  <span className="cc-data">{favorites.length} {vt("savedCountLabel")}</span>
+                  <span className="whitespace-nowrap">{vt("viewFavorites")} →</span>
                 </Link>
               )}
             </div>
-          </div>
+          </aside>
         </div>
       </div>
 
-      {/* Toast feedback for favorite toggle */}
       {toast && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[60] animate-in fade-in slide-in-from-bottom-2">
-          <div
-            className={cn(
-              "flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium shadow-lg",
-              toast.saved ? "bg-gray-900 text-white" : "bg-gray-200 text-gray-700"
-            )}
-          >
-            {toast.saved ? (
-              <CheckCircle2 className="h-4 w-4 text-green-400" />
-            ) : (
-              <Heart className="h-4 w-4" />
-            )}
+        <div className="fixed bottom-6 left-1/2 z-[60] -translate-x-1/2" role="status">
+          <div className="flex items-center gap-2 rounded-md bg-ink px-4 py-2.5 text-sm font-medium text-paper">
+            {toast.saved ? <CheckCircle2 className="h-4 w-4 text-emerald-400" /> : <Heart className="h-4 w-4" />}
             {toast.msg}
             {toast.saved && (
-              <Link
-                href="/favorites"
-                className="ml-2 underline-offset-2 hover:underline text-primary-foreground/80"
-              >
+              <Link href="/favorites" className="ml-2 text-on-dark-2 underline-offset-2 hover:underline">
                 {vt("viewFavorites")}
               </Link>
             )}
@@ -537,58 +487,15 @@ export default function VehicleDetailPage({
 // Sub-components
 // ---------------------------------------------------------------------------
 
-function QuickBadge({
-  icon,
-  label,
-  value,
-  accent,
-}: {
-  icon: React.ReactNode;
-  label: string;
-  value: string;
-  accent?: "green" | "red";
-}) {
+function SpecTable({ rows }: { rows: { label: string; value: string }[] }) {
   return (
-    <div
-      className={cn(
-        "inline-flex items-center gap-2 px-3 py-1.5 rounded-full border text-sm",
-        accent === "green" && "bg-green-50 border-green-200 text-green-700",
-        accent === "red" && "bg-red-50 border-red-200 text-red-700",
-        !accent && "bg-gray-50 border-gray-200 text-gray-700"
-      )}
-    >
-      <span className={cn(
-        "shrink-0",
-        accent === "green" && "text-green-500",
-        accent === "red" && "text-red-500",
-        !accent && "text-gray-400"
-      )}>
-        {icon}
-      </span>
-      <span className="text-gray-400 text-xs">{label}</span>
-      <span className="font-medium">{value}</span>
-    </div>
-  );
-}
-
-function SpecItem({
-  icon,
-  label,
-  value,
-  valueClass,
-}: {
-  icon: React.ReactNode;
-  label: string;
-  value: string;
-  valueClass?: string;
-}) {
-  return (
-    <div className="flex items-start gap-3 p-3 rounded-lg bg-gray-50">
-      <span className="text-gray-400 mt-0.5">{icon}</span>
-      <div className="min-w-0">
-        <p className="text-sm text-gray-500">{label}</p>
-        <p className={cn("text-sm font-medium text-gray-900 break-words", valueClass)}>{value}</p>
-      </div>
-    </div>
+    <dl className="grid sm:grid-cols-2 sm:gap-x-8">
+      {rows.map((row) => (
+        <div key={row.label} className="flex items-baseline justify-between gap-4 border-b border-rule py-3">
+          <dt className="text-sm text-ink-3">{row.label}</dt>
+          <dd className="cc-data min-w-0 break-words text-right text-sm text-ink">{row.value}</dd>
+        </div>
+      ))}
+    </dl>
   );
 }

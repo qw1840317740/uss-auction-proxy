@@ -4,84 +4,91 @@ import { useVehiclePrice } from "@/components/providers/CurrencyProvider";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { formatMileage } from "@/lib/utils";
-import { Heart } from "lucide-react";
+import { ArrowRight, Heart } from "lucide-react";
 import Image from "next/image";
-import { useScrollReveal, useStaggerReveal } from "@/lib/useScrollReveal";
 import { demoVehicles } from "@/lib/demo-vehicles";
 import { useFavorites } from "@/lib/useFavorites";
+import { SectionHead } from "./SectionHead";
 
 export function VehicleShowcase() {
   const t = useTranslations("home.showcase");
   const vt = useTranslations("vehicles.vehicle");
+  const nav = useTranslations("nav");
   const { format: formatVehiclePrice } = useVehiclePrice();
-  const { ref: titleRef, isVisible: titleVisible } = useScrollReveal();
   const showcaseVehicles = demoVehicles.filter((vehicle) => vehicle.status === "available");
   const { toggle, isFavorite } = useFavorites();
-  const { containerRef, isChildVisible } = useStaggerReveal(showcaseVehicles.length, 60);
 
   if (showcaseVehicles.length === 0) return null;
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="border-b border-rule py-16 md:py-24">
       <div className="container-main">
-        <div
-          ref={titleRef}
-          className={`flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 reveal reveal-up ${titleVisible ? "revealed" : ""}`}
-        >
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{t("title")}</h2>
-            <p className="text-gray-500 text-lg">{t("subtitle")}</p>
-          </div>
-          <Link
-            href="/vehicles"
-            className="hidden sm:inline-flex items-center px-6 py-3 mt-4 sm:mt-0 text-sm font-medium text-primary border border-primary rounded-xl hover:bg-primary hover:text-white transition-all duration-300"
-          >
-            {vt("viewDetail")} →
-          </Link>
-        </div>
+        <SectionHead
+          label={nav("vehicles")}
+          title={t("title")}
+          lede={t("subtitle")}
+          action={
+            <Link href="/vehicles" className="cc-btn cc-btn--line">
+              {vt("viewDetail")}
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          }
+        />
 
-        <div ref={containerRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {showcaseVehicles.map((v, i) => (
-            <Link
-              key={v.id}
-              href={`/vehicles/${v.id}`}
-              className={`reveal-stagger block bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl border border-gray-200 hover:border-gray-300 transition-all duration-500 group premium-card ${isChildVisible(i) ? "revealed" : ""}`}
-              style={{ transitionDelay: `${i * 60}ms` }}
-            >
-              <div className="aspect-[16/10] relative overflow-hidden bg-gray-100">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {showcaseVehicles.map((v) => (
+            <Link key={v.id} href={`/vehicles/${v.id}`} className="cc-card group flex min-w-0 flex-col overflow-hidden">
+              <div className="relative aspect-[16/10] overflow-hidden bg-paper-2">
                 <Image
                   src={v.images[0] || "/images/cars/car-side-1.jpg"}
                   alt={`${v.year} ${v.make} ${v.model}`}
                   fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                  className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.02]"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
-                {/* Body type badge */}
-                <span className="absolute top-3 left-3 bg-primary/90 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1.5 rounded-full uppercase tracking-wide">
-                  {v.bodyType}
-                </span>
-                <div className="absolute top-3 right-3 flex gap-1 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
-                  <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggle(v.id); }} className={`w-9 h-9 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-sm transition-colors ${isFavorite(v.id) ? "text-red-500" : "text-gray-600"} hover:text-red-500`}>
-                    <Heart className="w-4 h-4" fill={isFavorite(v.id) ? "currentColor" : "none"} />
-                  </button>
-                </div>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    toggle(v.id);
+                  }}
+                  aria-label={nav("favorites")}
+                  aria-pressed={isFavorite(v.id)}
+                  className={`absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-md border border-rule bg-paper-raised/90 transition-colors ${
+                    isFavorite(v.id) ? "text-signal" : "text-ink-2 hover:text-ink"
+                  }`}
+                >
+                  <Heart className="h-4 w-4" fill={isFavorite(v.id) ? "currentColor" : "none"} />
+                </button>
               </div>
-              <div className="p-6">
-                <h3 className="font-semibold text-gray-900 text-lg mb-2">
+
+              <div className="flex flex-1 flex-col p-5">
+                <p className="cc-label">{v.make}</p>
+                <h3 className="mt-1.5 text-lg font-semibold leading-snug tracking-[-0.015em] text-ink [overflow-wrap:anywhere]">
                   {v.year} {v.make} {v.model}
                 </h3>
-                <div className="flex items-center gap-3 text-sm text-gray-400 mb-4">
-                  <span>{formatMileage(v.mileage)}</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-xl font-bold text-primary">
+
+                <dl className="cc-data mt-4 grid grid-cols-3 border-y border-rule text-[13px] text-ink-2">
+                  <div className="py-2.5 pr-2">
+                    <dt className="sr-only">km</dt>
+                    <dd className="truncate">{formatMileage(v.mileage)}</dd>
+                  </div>
+                  <div className="border-l border-rule px-2 py-2.5">
+                    <dt className="sr-only">Transmission</dt>
+                    <dd className="truncate">{[v.steering, v.transmission].filter(Boolean).join(" · ")}</dd>
+                  </div>
+                  <div className="border-l border-rule py-2.5 pl-2">
+                    <dt className="sr-only">cc</dt>
+                    <dd className="truncate">{v.displacement}</dd>
+                  </div>
+                </dl>
+
+                <div className="mt-auto flex items-center justify-between gap-3 pt-4">
+                  <span className="cc-data text-xl font-semibold text-ink">
                     {v.price > 0 ? formatVehiclePrice(v.price) : vt("priceOnRequest")}
                   </span>
-                  <span
-                    className="text-sm font-medium text-white bg-primary hover:bg-primary-dark px-4 py-2.5 rounded-xl transition-all duration-300 shadow-sm hover:shadow-md hover:shadow-primary/20"
-                  >
-                    {vt("viewDetail")}
-                  </span>
+                  <ArrowRight className="h-4 w-4 text-ink-3 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:text-ink" aria-hidden="true" />
                 </div>
               </div>
             </Link>

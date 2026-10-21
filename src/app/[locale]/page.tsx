@@ -60,22 +60,13 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <HomePageStructuredData />
       <HeroSection />
       <HomeSearchBar />
-      <HomeIntro />
-      <BrandShowcase />
-      <div className="bg-gray-50">
-        <ServiceCards />
-      </div>
-      <div className="bg-gray-50">
-        <div className="h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
-      </div>
-      <div className="bg-white">
-        <HowItWorks />
-      </div>
       <VehicleShowcase />
+      <HomeIntro />
+      <ServiceCards />
+      <HowItWorks />
+      <BrandShowcase />
       <BlogSection />
-      <div className="bg-white">
-        <FAQSection />
-      </div>
+      <FAQSection />
       <CTASection />
     </>
   );

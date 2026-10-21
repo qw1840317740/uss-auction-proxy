@@ -30,16 +30,16 @@ export function LanguageSwitcher({ locale }: { locale: string }) {
     <div ref={ref} className="relative">
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-1.5 rounded-full border border-white/12 bg-white/7 px-3 py-1.5 text-sm font-medium text-white/88 shadow-[inset_0_1px_0_rgba(255,255,255,0.14)] transition-colors hover:border-white/25 hover:bg-white/12 hover:text-white"
+        className="flex h-9 items-center gap-1.5 rounded-md border border-rule-dark px-2.5 text-[13px] font-medium text-on-dark-2 transition-colors hover:border-on-dark-2 hover:text-on-dark"
         aria-expanded={open}
         aria-label="Change language"
       >
-        <Globe className="h-4 w-4" />
+        <Globe className="h-4 w-4" aria-hidden="true" />
         <span className="hidden sm:inline">{current.label}</span>
       </button>
 
       {open && (
-        <div className="absolute right-0 top-full z-50 mt-2 min-w-[148px] overflow-hidden rounded-xl border border-white/15 bg-[#080b12]/88 py-1.5 shadow-[0_18px_46px_rgba(0,0,0,0.35)] backdrop-blur-2xl">
+        <div className="absolute right-0 top-full z-50 mt-2 min-w-[148px] rounded-[10px] border border-rule-dark bg-graphite-2 p-1.5">
           {locales.map((l) => (
             <button
               key={l.code}
@@ -47,11 +47,12 @@ export function LanguageSwitcher({ locale }: { locale: string }) {
                 router.replace(pathname, { locale: l.code });
                 setOpen(false);
               }}
-              className={`flex w-full items-center px-4 py-2.5 text-left text-sm transition-colors hover:bg-white/10 hover:text-white ${
-                l.code === locale ? "bg-red-500/14 font-semibold text-white" : "text-white/74"
+              className={`flex w-full items-center justify-between rounded-md px-3 py-2 text-left text-sm transition-colors hover:bg-white/5 hover:text-on-dark ${
+                l.code === locale ? "text-on-dark" : "text-on-dark-2"
               }`}
             >
               <span>{l.label}</span>
+              {l.code === locale && <span className="h-1.5 w-1.5 bg-signal" aria-hidden="true" />}
             </button>
           ))}
         </div>

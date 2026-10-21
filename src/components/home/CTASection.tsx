@@ -2,39 +2,28 @@
 
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
-import { useScrollReveal } from "@/lib/useScrollReveal";
+import { ArrowRight } from "lucide-react";
 
 export function CTASection() {
   const t = useTranslations("home.cta");
-  const { ref: revealRef, isVisible: revealVisible } = useScrollReveal();
 
   return (
-    <section className="py-16 bg-gradient-to-br from-primary via-primary-dark to-black text-white relative overflow-hidden">
-      {/* Decorative background shapes */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-secondary rounded-full blur-3xl" />
-        <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-white rounded-full blur-3xl" />
-      </div>
-
-      <div className="container-main text-center relative">
-        <div
-          ref={revealRef}
-          className={`reveal reveal-blur ${revealVisible ? "revealed" : ""}`}
-        >
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">{t("title")}</h2>
-          <p className="text-neutral-300 mb-10 max-w-xl mx-auto text-lg">{t("subtitle")}</p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              href="/vehicles"
-              className="w-full sm:w-auto px-10 py-4 bg-secondary hover:bg-secondary-light text-white font-bold rounded-xl transition-all duration-300 shadow-xl shadow-red-500/20 hover:shadow-2xl hover:shadow-red-500/30 hover:-translate-y-0.5 btn-premium text-lg"
-            >
-              {t("browseVehicles")}
-            </Link>
-            <Link
-              href="/contact"
-              className="w-full sm:w-auto px-10 py-4 border-2 border-white/30 hover:border-white text-white font-semibold rounded-xl transition-all duration-300 hover:-translate-y-0.5 backdrop-blur-sm bg-white/5 hover:bg-white/10 text-lg"
-            >
+    <section className="py-16 md:py-20">
+      <div className="container-main">
+        <div className="flex flex-col gap-8 rounded-[10px] border border-rule bg-paper-raised p-8 md:flex-row md:items-center md:justify-between md:p-12">
+          <div className="min-w-0 max-w-2xl">
+            <h2 className="text-[1.75rem] font-semibold leading-[1.1] tracking-[-0.03em] text-ink [overflow-wrap:anywhere] md:text-[2.25rem]">
+              {t("title")}
+            </h2>
+            <p className="mt-3 text-base leading-7 text-ink-2">{t("subtitle")}</p>
+          </div>
+          <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
+            <Link href="/contact" className="cc-btn cc-btn--signal">
               {t("contact")}
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+            <Link href="/vehicles" className="cc-btn cc-btn--line">
+              {t("browseVehicles")}
             </Link>
           </div>
         </div>

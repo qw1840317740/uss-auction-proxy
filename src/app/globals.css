@@ -1,36 +1,204 @@
+/* Hallmark · genre: modern-minimal · macrostructure: Workbench (spec-sheet hero) · theme: custom
+ * vibe: "precision instrument panel for collector cars"
+ * paper oklch(98.6% 0.003 250) · accent oklch(57.7% 0.215 27.3) brand red · Space Grotesk + Inter + JetBrains Mono
+ * axes: light / grotesk-sans / warm · nav: N1b bordered bar · footer: Ft1 mast-headed
+ * design-system: design.md · designed-as-app
+ */
 @import "tailwindcss";
 
+:root {
+  /* Paper & ink: cool, engineered neutrals (never #fff / #000) */
+  --cc-paper: oklch(98.6% 0.003 250);
+  --cc-paper-2: oklch(96.4% 0.004 250);
+  --cc-paper-raised: oklch(99.7% 0.002 250);
+  --cc-ink: oklch(21% 0.014 260);
+  --cc-ink-2: oklch(42% 0.014 258);
+  --cc-ink-3: oklch(56% 0.012 258);
+  --cc-rule: oklch(90.5% 0.006 255);
+  --cc-rule-strong: oklch(84% 0.008 255);
+
+  /* Graphite band: header, hero, footer */
+  --cc-graphite: oklch(16.5% 0.012 262);
+  --cc-graphite-2: oklch(21.5% 0.014 262);
+  --cc-rule-dark: oklch(31% 0.014 262);
+  --cc-on-dark: oklch(96.5% 0.004 250);
+  --cc-on-dark-2: oklch(74% 0.01 258);
+
+  /* The one signal: ClickCar brand red, used sparingly */
+  --cc-signal: oklch(57.7% 0.215 27.3);
+  --cc-signal-hover: oklch(52% 0.2 27.3);
+  --cc-signal-ink: oklch(99% 0.003 27);
+  --cc-focus: oklch(62% 0.2 27.3);
+
+  --cc-cjk-fallback: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "PingFang SC", "Noto Sans JP", "Noto Sans SC", "Microsoft YaHei", "Meiryo", sans-serif;
+
+  --cc-radius-control: 6px;
+  --cc-radius-card: 10px;
+  --cc-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --cc-dur: 220ms;
+}
+
 @theme inline {
-  --color-primary: #1c1c1c;
-  --color-primary-light: #3d3d3d;
-  --color-primary-dark: #000000;
-  --color-secondary: #dc2626;
-  --color-secondary-light: #ef4444;
-  --color-accent: #dc2626;
-  --color-background: #ffffff;
-  --color-foreground: #171717;
-  --color-muted: #6b7280;
-  --color-muted-foreground: #9ca3af;
-  --color-border: #e5e7eb;
-  --color-card: #ffffff;
-  --color-card-foreground: #171717;
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Legacy names kept so every existing utility (bg-primary, text-secondary...)
+     picks up the new system. Values alias the tokens in :root. */
+  --color-primary: var(--cc-ink);
+  --color-primary-light: var(--cc-ink-3);
+  --color-primary-dark: var(--cc-graphite);
+  --color-secondary: var(--cc-signal);
+  --color-secondary-light: var(--cc-signal-hover);
+  --color-accent: var(--cc-signal);
+  --color-background: var(--cc-paper);
+  --color-foreground: var(--cc-ink);
+  --color-muted: var(--cc-ink-2);
+  --color-muted-foreground: var(--cc-ink-3);
+  --color-border: var(--cc-rule);
+  --color-card: var(--cc-paper-raised);
+  --color-card-foreground: var(--cc-ink);
+
+  /* New system colours as Tailwind utilities (bg-graphite, text-signal...) */
+  --color-paper: var(--cc-paper);
+  --color-paper-2: var(--cc-paper-2);
+  --color-paper-raised: var(--cc-paper-raised);
+  --color-ink: var(--cc-ink);
+  --color-ink-2: var(--cc-ink-2);
+  --color-ink-3: var(--cc-ink-3);
+  --color-rule: var(--cc-rule);
+  --color-rule-strong: var(--cc-rule-strong);
+  --color-graphite: var(--cc-graphite);
+  --color-graphite-2: var(--cc-graphite-2);
+  --color-rule-dark: var(--cc-rule-dark);
+  --color-on-dark: var(--cc-on-dark);
+  --color-on-dark-2: var(--cc-on-dark-2);
+  --color-signal: var(--cc-signal);
+
+  --font-sans: var(--font-inter), var(--cc-cjk-fallback);
+  --font-display: var(--font-space-grotesk), var(--font-inter), var(--cc-cjk-fallback);
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+}
+
+html,
+body {
+  overflow-x: clip;
 }
 
 body {
-  background: var(--color-background);
-  color: var(--color-foreground);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  background: var(--cc-paper);
+  color: var(--cc-ink);
+  font-family: var(--font-inter), var(--cc-cjk-fallback);
+  -webkit-font-smoothing: antialiased;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
+h1, h2, h3 {
+  font-family: var(--font-space-grotesk), var(--font-inter), var(--cc-cjk-fallback);
+  letter-spacing: -0.02em;
+  font-style: normal;
+}
+
+:focus-visible {
+  outline: 2px solid var(--cc-focus);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
 @layer utilities {
   .container-main {
     @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* ==========================================
+   ClickCar system components
+   ========================================== */
+@layer components {
+  /* Machine-readout label: mono, uppercase, tracked */
+  .cc-label {
+    font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cc-ink-3);
+  }
+  .cc-data {
+    font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+  }
+
+  .cc-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 2.75rem;
+    padding: 0 1.125rem;
+    border-radius: var(--cc-radius-control);
+    border: 1px solid transparent;
+    font-size: 0.875rem;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: background-color var(--cc-dur) var(--cc-ease-out), border-color var(--cc-dur) var(--cc-ease-out), color var(--cc-dur) var(--cc-ease-out);
+  }
+  .cc-btn:active { transform: translateY(1px); }
+  .cc-btn:disabled, .cc-btn[aria-disabled="true"] { opacity: 0.45; pointer-events: none; }
+  .cc-btn--signal { background: var(--cc-signal); color: var(--cc-signal-ink); }
+  .cc-btn--signal:hover { background: var(--cc-signal-hover); }
+  .cc-btn--ink { background: var(--cc-ink); color: var(--cc-paper); }
+  .cc-btn--ink:hover { background: var(--cc-graphite); }
+  .cc-btn--line { border-color: var(--cc-rule-strong); color: var(--cc-ink); background: transparent; }
+  .cc-btn--line:hover { border-color: var(--cc-ink); }
+  .cc-btn--line-dark { border-color: var(--cc-rule-dark); color: var(--cc-on-dark); background: transparent; }
+  .cc-btn--line-dark:hover { border-color: var(--cc-on-dark-2); }
+
+  .cc-card {
+    background: var(--cc-paper-raised);
+    border: 1px solid var(--cc-rule);
+    border-radius: var(--cc-radius-card);
+    transition: border-color var(--cc-dur) var(--cc-ease-out);
+  }
+  a.cc-card:hover { border-color: var(--cc-ink-3); }
+
+  .cc-field {
+    width: 100%;
+    min-height: 2.75rem;
+    padding: 0 0.875rem;
+    border: 1px solid var(--cc-rule-strong);
+    border-radius: var(--cc-radius-control);
+    background: var(--cc-paper-raised);
+    color: var(--cc-ink);
+    font-size: 0.875rem;
+    transition: border-color var(--cc-dur) var(--cc-ease-out);
+  }
+  .cc-field:hover { border-color: var(--cc-ink-3); }
+  .cc-field:focus { outline: none; border-color: var(--cc-ink); }
+  .cc-field:focus-visible { outline: 2px solid var(--cc-focus); outline-offset: 1px; }
+
+  /* Underline-grow link */
+  .cc-link {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size var(--cc-dur) var(--cc-ease-out);
+  }
+  .cc-link:hover { background-size: 100% 1px; }
+
+  /* Signal tick before a section label */
+  .cc-tick::before {
+    content: "";
+    display: inline-block;
+    width: 0.4375rem;
+    height: 0.4375rem;
+    margin-right: 0.5rem;
+    background: var(--cc-signal);
+    vertical-align: 0.05em;
   }
 }
 

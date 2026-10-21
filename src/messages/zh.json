@@ -98,6 +98,8 @@
     "language": "语言"
   },
   "nav": {
+    "guides": "指南",
+    "requestQuote": "获取报价",
     "home": "首页",
     "vehicles": "车辆展示",
     "services": "服务内容",
@@ -117,6 +119,25 @@
   },
   "home": {
     "hero": {
+      "eyebrow": "日本本土出口商 · 埼玉",
+      "featured": "现车在库",
+      "viewCar": "查看这辆车",
+      "spec": {
+        "year": "年份",
+        "mileage": "里程",
+        "grade": "拍卖评级",
+        "layout": "配置",
+        "price": "车辆本体价",
+        "location": "所在地"
+      },
+      "facts": {
+        "ussValue": "USS",
+        "uss": "在日本最大的二手车拍卖行代拍",
+        "baseValue": "埼玉",
+        "base": "出口文件与日本国内运输由我们完成",
+        "driveValue": "左舵 · 右舵",
+        "drive": "左右舵车辆均可出口至全球"
+      },
       "title": "日本二手车采购<br/>与全球出口",
       "subtitle": "浏览真实库存，或委托日本拍卖寻车；从车况确认、出口文件到全球海运，由埼玉本地团队协助完成。",
       "imageAlt": "在日本拍摄的2025款Porsche 911 GT3 RS",

@@ -1,83 +1,114 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
-import { Award, SearchCheck, ShieldCheck } from "lucide-react";
 import Image from "next/image";
+import { ArrowRight } from "lucide-react";
+import { demoVehicles } from "@/lib/demo-vehicles";
+import { formatMileage } from "@/lib/utils";
+import { useVehiclePrice } from "@/components/providers/CurrencyProvider";
 
-const stats = [
-  { key: "sourcing", icon: SearchCheck },
-  { key: "brands", icon: Award },
-  { key: "support", icon: ShieldCheck },
-];
+const factKeys = ["uss", "base", "drive"] as const;
 
 export function HeroSection() {
   const t = useTranslations("home.hero");
+  const locale = useLocale();
+  const { format: formatVehiclePrice } = useVehiclePrice();
+
+  // Feature a real in-stock car: the highest-priced available listing with photos.
+  const featured =
+    demoVehicles
+      .filter((v) => v.status === "available" && v.price > 0 && v.images.length > 0)
+      .sort((a, b) => b.price - a.price)[0] ?? demoVehicles.find((v) => v.status === "available");
+
+  const specs = featured
+    ? [
+        { label: t("spec.year"), value: String(featured.year) },
+        { label: t("spec.mileage"), value: formatMileage(featured.mileage) },
+        {
+          label: t("spec.grade"),
+          value: featured.auctionGrade
+            ? `${featured.auctionGrade}${featured.auctionInteriorGrade ? ` / ${featured.auctionInteriorGrade}` : ""}`
+            : "—",
+        },
+        { label: t("spec.layout"), value: [featured.steering, featured.transmission].filter(Boolean).join(" · ") },
+        { label: t("spec.location"), value: featured.region },
+        { label: t("spec.price"), value: featured.price > 0 ? formatVehiclePrice(featured.price) : "—", strong: true },
+      ]
+    : [];
 
   return (
-    <section className="relative text-white overflow-hidden min-h-[85vh] flex items-center">
-      {/* Background image with gradient overlay */}
-      <div className="absolute inset-0">
-        <Image
-          src="/images/cars/porsche-911-gt3-rs-2025-front-left.png"
-          alt={t("imageAlt")}
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
-        />
-        {/* Dark charcoal gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/95 via-[#161616]/85 to-[#2d2d2d]/60" />
-        <div className="absolute inset-0 hero-shimmer" />
-      </div>
+    <section className="relative border-b border-rule-dark bg-graphite text-on-dark">
+      <div className="container-main grid gap-12 py-14 md:py-20 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.08fr)] lg:items-center lg:gap-16">
+        {/* Copy */}
+        <div className="min-w-0">
+          <p className="cc-label cc-tick !text-on-dark-2">{t("eyebrow")}</p>
+          <h1 className="mt-6 text-[2.5rem] font-semibold leading-[1.04] tracking-[-0.035em] [overflow-wrap:anywhere] [text-wrap:balance] sm:text-5xl lg:text-[3.6rem]">
+            {t("title").replace(/<br\s*\/?>/gi, locale === "en" ? " " : "")}
+          </h1>
+          <p className="mt-6 max-w-xl text-base leading-7 text-on-dark-2 md:text-lg">{t("subtitle")}</p>
 
-      <div className="container-main relative py-20 md:py-32 w-full">
-        <div className="max-w-3xl mx-auto text-center">
-          {/* Title with blur-in animation */}
-          <h1
-            className="text-3xl md:text-5xl lg:text-7xl font-bold leading-tight mb-6 drop-shadow-lg hero-title-animate"
-            dangerouslySetInnerHTML={{ __html: t("title") }}
-          />
-          <p className="text-lg md:text-xl text-neutral-100 mb-10 drop-shadow-md hero-title-animate-delay-1 max-w-2xl mx-auto">
-            {t("subtitle")}
-          </p>
-
-          {/* Premium CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 hero-title-animate-delay-2">
-            <Link
-              href="/vehicles"
-              className="w-full sm:w-auto px-10 py-4 bg-secondary hover:bg-secondary-light text-white font-bold rounded-xl text-lg transition-all duration-300 shadow-xl shadow-red-500/25 hover:shadow-2xl hover:shadow-red-500/30 hover:-translate-y-0.5 btn-premium"
-            >
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <Link href="/vehicles" className="cc-btn cc-btn--signal">
               {t("exploreVehicles")}
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
-            <Link
-              href="/contact"
-              className="w-full sm:w-auto px-10 py-4 border-2 border-white/30 hover:border-white/80 text-white font-semibold rounded-xl text-lg transition-all duration-300 hover:-translate-y-0.5 backdrop-blur-sm bg-white/5 hover:bg-white/10"
-            >
+            <Link href="/contact" className="cc-btn cc-btn--line-dark">
               {t("contactUs")}
             </Link>
           </div>
 
-          {/* Stats Row */}
-          <div className="grid grid-cols-3 gap-2 md:gap-8 hero-title-animate-delay-3">
-            {stats.map((stat, i) => (
-              <div
-                key={stat.key}
-                className="flex flex-col items-center bg-white/10 backdrop-blur-md rounded-lg py-4 px-2 md:rounded-2xl md:py-6 md:px-4 border border-white/10 hover:border-white/20 transition-all duration-300 hover:bg-white/15"
-              >
-                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-secondary/20 flex items-center justify-center mb-3">
-                  <stat.icon className="w-5 h-5 md:w-6 md:h-6 text-secondary" />
-                </div>
-                <div className="text-xl md:text-3xl font-bold tracking-tight stat-animate" style={{ animationDelay: `${0.3 + i * 0.06}s` }}>
-                  {t(`stats.${stat.key}Value`)}
-                </div>
-                <div className="text-xs md:text-sm text-neutral-300 mt-1 stat-animate" style={{ animationDelay: `${0.36 + i * 0.06}s` }}>
-                  {t(`stats.${stat.key}`)}
-                </div>
+          <dl className="mt-12 grid border-t border-rule-dark sm:grid-cols-3">
+            {factKeys.map((key) => (
+              <div key={key} className="border-b border-rule-dark py-4 sm:border-b-0 sm:pr-5 sm:[&:not(:first-child)]:border-l sm:[&:not(:first-child)]:pl-5">
+                <dt className="cc-data text-lg font-medium text-on-dark">{t(`facts.${key}Value`)}</dt>
+                <dd className="mt-1 text-[13px] leading-5 text-on-dark-2">{t(`facts.${key}`)}</dd>
               </div>
             ))}
-          </div>
+          </dl>
         </div>
+
+        {/* Spec sheet: a real car from inventory */}
+        {featured && (
+          <figure className="min-w-0 overflow-hidden rounded-[10px] border border-rule-dark bg-graphite-2">
+            <figcaption className="flex items-center justify-between gap-4 border-b border-rule-dark px-4 py-3">
+              <span className="cc-label cc-tick !text-on-dark-2">{t("featured")}</span>
+              <span className="cc-data truncate text-xs text-on-dark-2">{featured.id.toUpperCase()}</span>
+            </figcaption>
+
+            <Link href={`/vehicles/${featured.id}`} className="group block">
+              <div className="relative aspect-[16/10] overflow-hidden bg-graphite">
+                <Image
+                  src={featured.images[0]}
+                  alt={`${featured.year} ${featured.make} ${featured.model}`}
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 55vw"
+                  className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.02]"
+                />
+              </div>
+
+              <div className="flex items-end justify-between gap-4 px-4 pb-1 pt-4">
+                <h2 className="min-w-0 text-xl font-semibold tracking-[-0.02em] text-on-dark [overflow-wrap:anywhere] sm:text-2xl">
+                  {featured.year} {featured.make} {featured.model}
+                </h2>
+                <span className="inline-flex shrink-0 items-center gap-1 whitespace-nowrap text-sm text-on-dark-2 transition-colors group-hover:text-on-dark">
+                  {t("viewCar")}
+                  <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden="true" />
+                </span>
+              </div>
+            </Link>
+
+            <dl className="grid grid-cols-2 sm:grid-cols-3">
+              {specs.map((spec) => (
+                <div key={spec.label} className="border-t border-rule-dark px-4 py-3 [&:nth-child(odd)]:border-r sm:[&:nth-child(odd)]:border-r-0 sm:[&:not(:nth-child(3n))]:border-r">
+                  <dt className="cc-label !text-[10px] !text-on-dark-2/80">{spec.label}</dt>
+                  <dd className={`cc-data mt-1 truncate ${spec.strong ? "text-base font-semibold text-on-dark" : "text-sm text-on-dark"}`}>{spec.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </figure>
+        )}
       </div>
     </section>
   );

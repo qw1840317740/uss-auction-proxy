@@ -3,52 +3,41 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { Car, Gavel, Ship, Wrench, ArrowRight } from "lucide-react";
-import { useScrollReveal, useStaggerReveal } from "@/lib/useScrollReveal";
+import { SectionHead } from "./SectionHead";
 
 const services = [
-  { key: "auctionProxy", icon: Gavel, href: "/services/auction", color: "bg-red-50 text-red-600" },
-  { key: "vehicleSales", icon: Car, href: "/vehicles", color: "bg-neutral-100 text-neutral-700" },
-  { key: "exportService", icon: Ship, href: "/services/export", color: "bg-amber-50 text-amber-600" },
-  { key: "maintenancePrep", icon: Wrench, href: "/services/maintenance", color: "bg-emerald-50 text-emerald-600" },
+  { key: "auctionProxy", icon: Gavel, href: "/services/auction" },
+  { key: "vehicleSales", icon: Car, href: "/vehicles" },
+  { key: "exportService", icon: Ship, href: "/services/export" },
+  { key: "maintenancePrep", icon: Wrench, href: "/services/maintenance" },
 ];
 
 export function ServiceCards() {
   const t = useTranslations("home.services");
   const tc = useTranslations("common");
-  const { ref: titleRef, isVisible: titleVisible } = useScrollReveal();
-  const { containerRef, isChildVisible } = useStaggerReveal(services.length, 80);
+  const nav = useTranslations("nav");
 
   return (
-    <section className="py-24">
+    <section className="border-b border-rule py-16 md:py-24">
       <div className="container-main">
-        <div
-          ref={titleRef}
-          className={`text-center mb-10 reveal reveal-blur ${titleVisible ? "revealed" : ""}`}
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">{t("title")}</h2>
-          <p className="text-gray-500 text-lg max-w-2xl mx-auto">{t("subtitle")}</p>
-        </div>
+        <SectionHead label={nav("services")} title={t("title")} lede={t("subtitle")} />
 
-        <div ref={containerRef} className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+        {/* 2×2 hairline matrix rather than four floating icon tiles */}
+        <div className="grid border-t border-rule md:grid-cols-2">
           {services.map((service, i) => (
             <Link
               key={service.key}
               href={service.href}
-              className={`reveal-stagger group bg-white rounded-lg p-7 shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-500 hover:-translate-y-2 ${isChildVisible(i) ? "revealed" : ""}`}
-              style={{ transitionDelay: `${i * 80}ms` }}
+              className={`group flex min-w-0 gap-5 border-b border-rule py-7 md:px-8 ${i % 2 === 0 ? "md:border-r md:pl-0" : "md:pr-0"}`}
             >
-              <div className={`w-16 h-16 rounded-lg ${service.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                <service.icon className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-primary transition-colors">
-                {t(`${service.key}.title`)}
-              </h3>
-              <p className="text-gray-500 text-sm leading-relaxed mb-6">
-                {t(`${service.key}.desc`)}
-              </p>
-              <span className="inline-flex items-center text-sm font-medium text-primary gap-1 group-hover:gap-2 transition-all">
-                {tc("learnMore")}
-                <ArrowRight className="w-4 h-4" />
+              <service.icon className="mt-1 h-5 w-5 shrink-0 text-ink-3 transition-colors group-hover:text-signal" aria-hidden="true" />
+              <span className="min-w-0 flex-1">
+                <span className="block text-lg font-semibold tracking-[-0.015em] text-ink">{t(`${service.key}.title`)}</span>
+                <span className="mt-2 block text-sm leading-6 text-ink-2">{t(`${service.key}.desc`)}</span>
+                <span className="mt-4 inline-flex items-center gap-1.5 whitespace-nowrap text-sm font-medium text-ink">
+                  <span className="cc-link">{tc("learnMore")}</span>
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" aria-hidden="true" />
+                </span>
               </span>
             </Link>
           ))}

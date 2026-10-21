@@ -3,51 +3,32 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import Image from "next/image";
-import { useScrollReveal, useStaggerReveal } from "@/lib/useScrollReveal";
 import { brandLogos, featuredBrands } from "@/lib/brands";
+import { SectionHead } from "./SectionHead";
 
 export function BrandShowcase() {
   const t = useTranslations("home.brands");
-  const { ref: titleRef, isVisible: titleVisible } = useScrollReveal();
-  const { containerRef, isChildVisible } = useStaggerReveal(featuredBrands.length, 20);
 
   return (
-    <section className="py-16 bg-white">
+    <section className="border-b border-rule py-16 md:py-24">
       <div className="container-main">
-        <div
-          ref={titleRef}
-          className={`text-center mb-10 reveal reveal-blur ${titleVisible ? "revealed" : ""}`}
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">{t("title")}</h2>
-          <p className="text-gray-500 text-lg max-w-2xl mx-auto">{t("subtitle")}</p>
-        </div>
+        <SectionHead title={t("title")} lede={t("subtitle")} />
 
-        <div ref={containerRef} className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
-          {featuredBrands.map((brand, i) => (
+        <div className="grid grid-cols-2 gap-px overflow-hidden rounded-[10px] border border-rule bg-rule sm:grid-cols-3 md:grid-cols-5">
+          {featuredBrands.map((brand) => (
             <Link
               key={brand}
               href={`/vehicles?make=${brand}`}
-              className={`reveal-stagger group flex flex-col items-center justify-center rounded-2xl border border-gray-100 bg-gray-50 px-3 py-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:bg-white hover:shadow-lg ${isChildVisible(i) ? "revealed" : ""}`}
-              style={{ transitionDelay: `${i * 20}ms` }}
+              className="group flex min-w-0 items-center gap-3 bg-paper-raised px-4 py-4 transition-colors hover:bg-paper"
             >
-              <div className="w-16 h-16 relative mb-4 flex items-center justify-center grayscale group-hover:grayscale-0 transition-all duration-500">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center grayscale transition-[filter] duration-300 group-hover:grayscale-0">
                 {brandLogos[brand] ? (
-                  <Image
-                    src={brandLogos[brand]}
-                    alt={brand}
-                    width={64}
-                    height={64}
-                    className="object-contain"
-                  />
+                  <Image src={brandLogos[brand]} alt="" width={36} height={36} className="object-contain" />
                 ) : (
-                  <span className="flex h-14 w-14 items-center justify-center rounded-2xl border border-gray-200 bg-white text-lg font-black text-gray-800 shadow-sm group-hover:border-primary/30 group-hover:text-primary">
-                    {brand.slice(0, 2).toUpperCase()}
-                  </span>
+                  <span className="cc-data text-xs font-semibold text-ink-2">{brand.slice(0, 2).toUpperCase()}</span>
                 )}
-              </div>
-              <span className="text-sm font-medium text-gray-400 group-hover:text-primary transition-colors duration-300">
-                {brand}
               </span>
+              <span className="truncate text-sm font-medium text-ink-2 transition-colors group-hover:text-ink">{brand}</span>
             </Link>
           ))}
         </div>

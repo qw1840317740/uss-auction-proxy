@@ -98,6 +98,8 @@
     "language": "言語"
   },
   "nav": {
+    "guides": "ガイド",
+    "requestQuote": "見積もり依頼",
     "home": "ホーム",
     "vehicles": "車両展示",
     "services": "サービス",
@@ -117,6 +119,25 @@
   },
   "home": {
     "hero": {
+      "eyebrow": "日本の輸出業者 · 埼玉",
+      "featured": "在庫車両",
+      "viewCar": "この車両を見る",
+      "spec": {
+        "year": "年式",
+        "mileage": "走行距離",
+        "grade": "評価点",
+        "layout": "仕様",
+        "price": "車両本体価格",
+        "location": "所在地"
+      },
+      "facts": {
+        "ussValue": "USS",
+        "uss": "国内最大級のオートオークションで代行入札",
+        "baseValue": "埼玉",
+        "base": "輸出書類と国内陸送を日本側で手配",
+        "driveValue": "左 · 右ハンドル",
+        "drive": "左右ハンドルとも世界各国へ輸出"
+      },
       "title": "日本の中古車を仕入れ、<br/>世界へ輸出",
       "subtitle": "実在庫のご案内から日本のオークション仕入れ、車両確認、輸出書類、海外輸送まで埼玉のチームがサポートします。",
       "imageAlt": "日本で撮影された2025年式Porsche 911 GT3 RS",

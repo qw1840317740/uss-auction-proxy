@@ -3,62 +3,56 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
-import { ChevronDown } from "lucide-react";
-import { useScrollReveal, useStaggerReveal } from "@/lib/useScrollReveal";
+import { Plus } from "lucide-react";
+
+const faqKeys = ["q1", "q2", "q3", "q4"];
 
 export function FAQSection() {
   const t = useTranslations("home.faq");
   const faqT = useTranslations("faq.items");
+  const nav = useTranslations("nav");
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-  const faqKeys = ["q1", "q2", "q3", "q4"];
-  const { ref: titleRef, isVisible: titleVisible } = useScrollReveal();
-  const { containerRef, isChildVisible } = useStaggerReveal(faqKeys.length, 60);
-
   return (
-    <section className="py-24">
-      <div className="container-main">
-        <div
-          ref={titleRef}
-          className={`text-center mb-10 reveal reveal-blur ${titleVisible ? "revealed" : ""}`}
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">{t("title")}</h2>
+    <section className="border-b border-rule py-16 md:py-24">
+      <div className="container-main grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-20">
+        <div className="min-w-0">
+          <p className="cc-label cc-tick">{nav("faq")}</p>
+          <h2 className="mt-4 text-[1.75rem] font-semibold leading-[1.1] tracking-[-0.03em] text-ink [overflow-wrap:anywhere] md:text-[2.25rem]">
+            {t("title")}
+          </h2>
+          <Link href="/faq" className="mt-6 inline-flex items-center gap-1.5 whitespace-nowrap text-sm font-medium text-ink">
+            <span className="cc-link">{t("viewAll")}</span>
+            <span aria-hidden="true">→</span>
+          </Link>
         </div>
 
-        <div ref={containerRef} className="max-w-3xl mx-auto space-y-4">
-          {faqKeys.map((key, i) => (
-            <div
-              key={key}
-              className={`reveal-stagger bg-white rounded-2xl border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-md ${openIndex === i ? "shadow-md" : ""} ${isChildVisible(i) ? "revealed" : ""}`}
-              style={{ transitionDelay: `${i * 60}ms` }}
-            >
-              <button
-                onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="w-full flex items-center justify-between p-6 text-left"
-              >
-                <span className="font-medium text-gray-900">{faqT(`${key}.q`)}</span>
-                <ChevronDown
-                  className={`w-5 h-5 text-gray-400 transition-transform duration-300 flex-shrink-0 ml-4 ${openIndex === i ? "rotate-180" : ""}`}
-                />
-              </button>
-              <div
-                className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                  openIndex === i ? "max-h-60 opacity-100" : "max-h-0 opacity-0"
-                }`}
-              >
-                <div className="px-6 pb-6 text-sm text-gray-500 leading-relaxed">
+        <div className="border-t border-ink">
+          {faqKeys.map((key, i) => {
+            const open = openIndex === i;
+            return (
+              <div key={key} className="border-b border-rule">
+                <h3>
+                  <button
+                    type="button"
+                    onClick={() => setOpenIndex(open ? null : i)}
+                    aria-expanded={open}
+                    aria-controls={`home-faq-${key}`}
+                    className="flex w-full items-start justify-between gap-6 py-5 text-left font-sans text-base font-medium tracking-normal text-ink"
+                  >
+                    <span>{faqT(`${key}.q`)}</span>
+                    <Plus
+                      className={`mt-0.5 h-5 w-5 shrink-0 text-ink-3 transition-transform duration-200 ${open ? "rotate-45" : ""}`}
+                      aria-hidden="true"
+                    />
+                  </button>
+                </h3>
+                <div id={`home-faq-${key}`} hidden={!open} className="max-w-[65ch] pb-6 text-sm leading-7 text-ink-2">
                   {faqT(`${key}.a`)}
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="text-center mt-10">
-          <Link href="/faq" className="text-sm font-medium text-primary hover:underline inline-flex items-center gap-1 group">
-            {t("viewAll")}
-            <span className="group-hover:translate-x-1 transition-transform">→</span>
-          </Link>
+            );
+          })}
         </div>
       </div>
     </section>
