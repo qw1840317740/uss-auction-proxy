@@ -53,7 +53,7 @@ const allDemoPosts: BlogPostData[] = [
     date: "2026-10-22",
     readTime: { zh: "9分钟阅读", en: "9 min read", ja: "9分で読める" },
     color: "bg-purple-600",
-    image: "/images/cars/porsche-911-carrera-2-1992-front-left-v2.webp",
+    image: "https://images.unsplash.com/photo-1636126175692-ef9f1d41a038?w=1200&q=80&auto=format&fit=crop",
     content: usTwentyFiveYearRuleContent,
   },
   {
@@ -72,7 +72,7 @@ const allDemoPosts: BlogPostData[] = [
     date: "2026-10-22",
     readTime: { zh: "9分钟阅读", en: "9 min read", ja: "9分で読める" },
     color: "bg-purple-600",
-    image: "/images/cars/porsche-911-27-1974-1.png",
+    image: "https://images.unsplash.com/photo-1758620325909-1e55c1c4cd28?w=1200&q=80&auto=format&fit=crop",
     content: ukClassicCarVatContent,
   },
   {
