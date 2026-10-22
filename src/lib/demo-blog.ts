@@ -4,6 +4,7 @@ import { odometerFraudGuideHtml } from "./odometer-fraud-guide";
 import { auctionGradeGuideHtml } from "./auction-grade-guide";
 import { JapanExportGuideHtml, JapanExportGuideStyles } from "./japan-export-guide";
 import { ClassicPorsche911JapanGuideHtml, ClassicPorsche911JapanGuideStyles } from "./porsche-911-japan-guide";
+import { usTwentyFiveYearRuleContent, ukClassicCarVatContent } from "./import-rules-guides";
 
 export type LocalizedText = string | Record<string, string>;
 
@@ -36,6 +37,44 @@ export interface BlogPostData {
 const retiredBlogSlugs = new Set(["japan-used-car-market-news-2025-2026"]);
 
 const allDemoPosts: BlogPostData[] = [
+  {
+    slug: "import-car-from-japan-to-usa-25-year-rule",
+    title: {
+      zh: "从日本进口汽车到美国：25 年规则完整指南",
+      en: "How to Import a Car from Japan to the USA: the 25-Year Rule",
+      ja: "日本から米国へ車を輸入する方法：25年ルール完全ガイド",
+    },
+    excerpt: {
+      zh: "美国 25 年规则详解：NHTSA 的 FMVSS 豁免、EPA 21 年原厂状态豁免、HS-7 与 3520-1 表格、2.5% 关税，以及为什么日本出口证明书上的日期不是制造日期。",
+      en: "The 25-year rule for Japanese cars: NHTSA's FMVSS exemption, EPA's 21-year rule, HS-7 and 3520-1 forms, 2.5% duty, and proving the build date.",
+      ja: "米国25年ルールを解説：NHTSAのFMVSS免除、EPAの21年免除、HS-7と3520-1、関税2.5%、そして輸出抹消仮登録証明書の日付が製造日ではない理由。",
+    },
+    category: { zh: "物流运输", en: "Shipping", ja: "物流・輸送" },
+    date: "2026-10-22",
+    readTime: { zh: "9分钟阅读", en: "9 min read", ja: "9分で読める" },
+    color: "bg-purple-600",
+    image: "/images/cars/porsche-911-carrera-2-1992-front-left-v2.webp",
+    content: usTwentyFiveYearRuleContent,
+  },
+  {
+    slug: "import-classic-car-from-japan-to-uk-5-percent-vat",
+    title: {
+      zh: "从日本进口经典车到英国：5% 增值税、免 IVA",
+      en: "Import a Classic Car from Japan to the UK: 5% VAT, No IVA",
+      ja: "日本から英国へクラシックカーを輸入：VAT5%・IVA不要",
+    },
+    excerpt: {
+      zh: "车龄 30 年以上、原厂状态的经典车从日本进口英国：税目 9705 关税 0%、实际 5% 进口增值税、预先归类裁定、10 年以上免 IVA、14 天内 NOVA 与 DVLA 登记。",
+      en: "Import a 30-year-old original classic from Japan to the UK: 0% duty and 5% VAT under heading 9705, Advance Tariff Ruling, no IVA, NOVA in 14 days, DVLA.",
+      ja: "製造30年以上・オリジナル状態のクラシックカーを日本から英国へ：分類9705で関税0%・実効VAT5%、事前教示、10年超はIVA不要、14日以内のNOVAとDVLA登録。",
+    },
+    category: { zh: "物流运输", en: "Shipping", ja: "物流・輸送" },
+    date: "2026-10-22",
+    readTime: { zh: "9分钟阅读", en: "9 min read", ja: "9分で読める" },
+    color: "bg-purple-600",
+    image: "/images/cars/porsche-911-27-1974-1.png",
+    content: ukClassicCarVatContent,
+  },
   {
     slug: "japan-auction-grade-guide",
     title: {

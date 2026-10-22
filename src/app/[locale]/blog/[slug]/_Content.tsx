@@ -75,8 +75,44 @@ const shareCopyByLocale = {
   },
 } as const;
 
-// Inline markdown renderer: **bold** and *italic*
+const INLINE_LINK_CLASS =
+  "font-medium text-ink underline decoration-rule underline-offset-4 transition-colors hover:decoration-signal";
+
+// Inline markdown renderer: [links](/path), **bold** and *italic*.
+// Internal paths go through the locale-aware Link; absolute URLs open in a new tab.
 function renderInline(text: string): React.ReactNode {
+  const linkRegex = /\[([^\]]+)\]\(([^)\s]+)\)/g;
+  const parts: React.ReactNode[] = [];
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+  let keyIdx = 0;
+
+  while ((match = linkRegex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(<span key={`t${keyIdx++}`}>{renderBold(text.slice(lastIndex, match.index))}</span>);
+    }
+    const [, label, href] = match;
+    parts.push(
+      href.startsWith("/") ? (
+        <Link key={`l${keyIdx++}`} href={href} className={INLINE_LINK_CLASS}>
+          {renderBold(label)}
+        </Link>
+      ) : (
+        <a key={`l${keyIdx++}`} href={href} target="_blank" rel="noopener noreferrer" className={INLINE_LINK_CLASS}>
+          {renderBold(label)}
+        </a>
+      )
+    );
+    lastIndex = linkRegex.lastIndex;
+  }
+  if (lastIndex === 0) return renderBold(text);
+  if (lastIndex < text.length) {
+    parts.push(<span key={`t${keyIdx++}`}>{renderBold(text.slice(lastIndex))}</span>);
+  }
+  return <>{parts}</>;
+}
+
+function renderBold(text: string): React.ReactNode {
   const parts: React.ReactNode[] = [];
   // Split by **bold** first, then *italic* within each segment
   const boldRegex = /\*\*(.+?)\*\*/g;
