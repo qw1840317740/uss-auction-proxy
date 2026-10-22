@@ -16,7 +16,7 @@ export const siteConfig = {
     "Premium Japanese used vehicle sales and global export service from Saitama, Japan.",
   baseUrl: "https://clickcar.jp",
   logo: "/images/clickcar-logo.png",
-  phone: "+81-49-257-4332",
+  phone: "+81-70-9286-9587",
   address: {
     street: "200-2 Kitanagaido",
     locality: "Miyoshi-machi",

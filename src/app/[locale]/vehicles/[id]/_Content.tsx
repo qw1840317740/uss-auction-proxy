@@ -443,7 +443,7 @@ export default function VehicleDetailPage({
                 <div>
                   <dt className="cc-label">{ct("contactUs")}</dt>
                   <dd className="cc-data mt-1.5 text-base text-ink">
-                    <a href="tel:+81492574332" className="cc-link">049-257-4332</a>
+                    <a href="tel:+817092869587" className="cc-link">070-9286-9587</a>
                   </dd>
                 </div>
                 <div>

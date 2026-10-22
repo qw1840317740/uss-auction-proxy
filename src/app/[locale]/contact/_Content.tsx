@@ -468,8 +468,8 @@ export default function ContactPage() {
                       <div className="text-sm font-medium text-gray-900">
                         {t("info.phone")}
                       </div>
-                      <a href="tel:+81492574332" className="text-sm text-gray-500 hover:text-primary transition-colors">
-                        049-257-4332
+                      <a href="tel:+817092869587" className="text-sm text-gray-500 hover:text-primary transition-colors">
+                        070-9286-9587
                       </a>
                     </div>
                   </div>
