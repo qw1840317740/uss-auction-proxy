@@ -1,32 +1,21 @@
 {
   "metadata": {
-    "title": "Japanese Used Car Exporter in Japan",
-    "description": "Browse verified Japanese used cars or request auction sourcing. ClickCar handles inspection, export documents and worldwide shipping from Saitama, Japan.",
-    "keywords": [
-      "Japanese used cars",
-      "Japan used car export",
-      "Toyota used car",
-      "Honda used car",
-      "Nissan used car",
-      "Japanese vehicle export",
-      "Saitama car dealer",
-      "Japan car auction proxy",
-      "import car from Japan",
-      "export car from Japan"
-    ]
+    "title": "Japan Car Auction Agent & Used Car Exporter",
+    "description": "Buy Japanese used and classic cars through USS, Japan's largest car auction, or from our in-stock collector cars. Export papers and shipping from Saitama.",
+    "keywords": ["Japan car auction agent", "USS auction agent", "Japan car auction proxy bidding", "Japanese used cars for export", "import car from Japan", "classic cars from Japan", "Porsche 964 for sale Japan", "left-hand drive classic cars Japan", "25 year rule import Japan", "Japanese used car exporter"]
   },
   "seo": {
     "home": {
-      "title": "Japanese Used Car Exporter in Japan",
-      "description": "Browse verified Japanese used cars or request auction sourcing. ClickCar handles inspection, export documents and worldwide shipping from Saitama, Japan."
+      "title": "Japan Car Auction Agent & Used Car Exporter",
+      "description": "Buy Japanese used and classic cars through USS, Japan's largest car auction, or from our in-stock collector cars. Export papers and shipping from Saitama."
     },
     "about": {
       "title": "About ClickCar Japan",
       "description": "Learn about ClickCar, a Saitama-based Japanese used car export partner supporting auction sourcing, inspection, paperwork and overseas shipping."
     },
     "vehicles": {
-      "title": "Japanese Used Cars for Export from Japan",
-      "description": "Browse available Japanese used vehicles and request sourcing support for Toyota, Honda, Nissan, Lexus, Mazda, Subaru and other export-ready cars."
+      "title": "Japanese Used & Classic Cars for Sale",
+      "description": "In-stock Japanese used and classic cars, including left-hand-drive collector cars, with auction grades, photos and export pricing. Shipped worldwide from Japan."
     },
     "contact": {
       "title": "Contact ClickCar Japan",
@@ -41,8 +30,8 @@
       "description": "Answers to common questions about buying Japanese used cars, auction sourcing, export documents, shipping, payment and delivery timelines."
     },
     "auction": {
-      "title": "Japan Car Auction Proxy & Bidding",
-      "description": "Source vehicles from Japanese dealer auctions with ClickCar. Search, auction sheet review, bidding, inspection and export coordination."
+      "title": "USS Auction Agent | Japan Car Auction Proxy Bidding",
+      "description": "Bid at USS, Japan's largest car auction, through a Japan-based agent: translated auction sheets, your own maximum bid, inspection and export shipping."
     },
     "privacy": {
       "title": "Privacy Policy",
@@ -53,7 +42,7 @@
       "description": "Review the terms that apply when using the ClickCar website, vehicle sourcing, auction support, sales and export services."
     },
     "export": {
-      "title": "Japan Used Car Export Service",
+      "title": "Export a Used Car from Japan: Documents & Shipping",
       "description": "Plan a used vehicle export from Japan with ClickCar. Review sourcing, Japan-side documents, shipping options, cost items and destination responsibilities."
     },
     "maintenance": {
@@ -231,7 +220,7 @@
         "driveValue": "LHD · RHD",
         "drive": "Left- and right-hand-drive cars exported worldwide"
       },
-      "title": "Japanese Used Cars,<br/>Sourced & Exported Worldwide",
+      "title": "Japanese Used Cars,<br/>from Auction to Your Port",
       "subtitle": "Browse verified stock or request Japan auction sourcing, inspection, export paperwork and worldwide shipping from Saitama.",
       "imageAlt": "2025 Porsche 911 GT3 RS photographed in Japan",
       "exploreVehicles": "Explore Vehicles",
@@ -282,7 +271,7 @@
         "desc": "Current Japanese used vehicle listings with vehicle-specific condition details and clear pricing information"
       },
       "exportService": {
-        "title": "Export Service",
+        "title": "Used Car Export Service from Japan",
         "desc": "Professional vehicle export process, full documentation, safe ocean freight worldwide"
       },
       "maintenancePrep": {
@@ -426,7 +415,7 @@
   "services": {
     "auction": {
       "eyebrow": "Japan Car Auction Proxy",
-      "title": "Bid at Japanese car auctions with clarity",
+      "title": "Japan car auction agent: bid at USS from overseas",
       "subtitle": "Tell us the vehicle, budget and destination. We help shortlist candidates, explain the auction sheet, confirm your maximum bid and coordinate the next steps after a successful purchase.",
       "imageAlt": "Premium vehicles available through Japanese car auction sourcing",
       "primaryCta": "Start an Auction Request",
@@ -536,7 +525,7 @@
       }
     },
     "export": {
-      "title": "Export Service",
+      "title": "Used Car Export Service from Japan",
       "subtitle": "Plan a vehicle purchase and shipment from Japan",
       "desc": "ClickCar helps buyers source vehicles, understand Japan-side costs and arrange export shipping. We provide a written estimate for the vehicle and route; destination import approval, taxes and registration must be checked separately.",
       "features": {
@@ -683,7 +672,7 @@
     }
   },
   "exportGuide": {
-    "title": "Export Purchase Guide",
+    "title": "How to Buy and Import a Used Car from Japan",
     "subtitle": "Learn how to purchase and export Japanese used vehicles through us",
     "processTitle": "The Export Process",
     "steps": {

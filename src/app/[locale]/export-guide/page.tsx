@@ -13,7 +13,7 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "exportGuide" });
   const title =
     locale === "en"
-      ? "How to Buy and Export a Used Car from Japan"
+      ? "How to Buy and Import a Used Car from Japan"
       : t("title");
   const description =
     locale === "en"
